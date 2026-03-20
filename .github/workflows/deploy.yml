@@ -1,0 +1,153 @@
+name: Deploy Mohawk Medibles AI Directory
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+env:
+  NODE_VERSION: '20'
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  # Job 1: Test and Lint
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+  # Job 2: Deploy to Vercel (Production)
+  deploy-vercel:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+  # Job 3: Deploy to Google Cloud Run
+  deploy-gcp:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Google Auth
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Setup Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+      - name: Configure Docker
+        run: gcloud auth configure-docker
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/mohawk-medibles:${{ github.sha }} \
+            -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/mohawk-medibles:latest \
+            .
+
+      - name: Push Docker image
+        run: |
+          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/mohawk-medibles:${{ github.sha }}
+          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/mohawk-medibles:latest
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy mohawk-medibles \
+            --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/mohawk-medibles:${{ github.sha }} \
+            --region ${{ secrets.GCP_REGION }} \
+            --platform managed \
+            --allow-unauthenticated \
+            --memory 2Gi \
+            --cpu 2 \
+            --concurrency 80 \
+            --max-instances 100 \
+            --min-instances 1 \
+            --set-env-vars "NODE_ENV=production,NEXT_PUBLIC_APP_URL=${{ secrets.NEXT_PUBLIC_APP_URL }}" \
+            --set-secrets "DATABASE_URL=database-url:latest,OPENAI_API_KEY=openai-api-key:latest,PERPLEXITY_API_KEY=perplexity-api-key:latest"
+
+  # Job 4: Run AI Automation
+  ai-automation:
+    needs: [deploy-vercel, deploy-gcp]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install Python dependencies
+        run: pip install aiohttp requests
+
+      - name: Run AI Directory Agent
+        run: python3 agents/directory_ai_agent.py
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+          NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
+
+  # Job 5: Notify on Success
+  notify:
+    needs: [deploy-vercel, deploy-gcp, ai-automation]
+    runs-on: ubuntu-latest
+    if: success()
+    steps:
+      - name: Notify deployment success
+        run: |
+          echo "🚀 Deployment successful!"
+          echo "Vercel: https://mohawkmedibles.ca"
+          echo "Google Cloud: Check Cloud Run console"
