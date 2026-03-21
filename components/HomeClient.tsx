@@ -20,6 +20,12 @@ import { StickyMobileNav } from "@/components/StickyMobileNav";
 import { CategoryBrandShowcase } from "@/components/CategoryBrandShowcase";
 import { PageSmokeEffect } from "@/components/PageSmokeEffect";
 
+// ─── .cc Design Elements (Ian's preferred) ───
+import { BenefitsBar } from "@/components/BenefitsBar";
+import { MonthlyDeals } from "@/components/MonthlyDeals";
+import { HowItWorks } from "@/components/HowItWorks";
+import { CustomerTestimonials } from "@/components/CustomerTestimonials";
+
 export default function HomeClient() {
   // Only enable smoke cursor on non-touch devices
   const [hasMouse, setHasMouse] = useState(false);
@@ -45,6 +51,12 @@ export default function HomeClient() {
           Auto-advances every 6s, pause on hover, crossfade transitions
           ═══════════════════════════════════════════════════════════ */}
       <HeroCarousel />
+
+      {/* ═══════════════════════════════════════════════════════════
+          BENEFITS BAR — .cc 5-column trust signals
+          Free Shipping, Discreet Packaging, Indigenous Owned, Delivery, Since 2018
+          ═══════════════════════════════════════════════════════════ */}
+      <BenefitsBar />
 
       {/* ═══════════════════════════════════════════════════════════
           DEAL TICKER — .cc scrolling marquee with live deals
@@ -73,6 +85,12 @@ export default function HomeClient() {
       <CategoryBrandShowcase />
 
       {/* ═══════════════════════════════════════════════════════════
+          MONTHLY DEALS — .cc gradient deal cards (green/amber/purple)
+          Conversion: Anchoring, Category Entry Points
+          ═══════════════════════════════════════════════════════════ */}
+      <MonthlyDeals />
+
+      {/* ═══════════════════════════════════════════════════════════
           DEALS SECTION — Bento deals with countdown + anchor pricing
           Conversion: Anchoring, Scarcity (countdown), Loss Aversion
           ═══════════════════════════════════════════════════════════ */}
@@ -88,6 +106,18 @@ export default function HomeClient() {
           Conversion: Authority, Reciprocity, Risk Reversal
           ═══════════════════════════════════════════════════════════ */}
       <TrustPillars />
+
+      {/* ═══════════════════════════════════════════════════════════
+          HOW IT WORKS — .cc 3-step process (Browse → Pay → Deliver)
+          Conversion: Cognitive Ease, Friction Reduction
+          ═══════════════════════════════════════════════════════════ */}
+      <HowItWorks />
+
+      {/* ═══════════════════════════════════════════════════════════
+          CUSTOMER TESTIMONIALS — .cc review cards with avatars
+          Conversion: Social Proof, Trust
+          ═══════════════════════════════════════════════════════════ */}
+      <CustomerTestimonials />
 
       {/* ═══════════════════════════════════════════════════════════
           REVIEW CAROUSEL — Social proof scrolling reviews

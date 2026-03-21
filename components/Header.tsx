@@ -35,18 +35,18 @@ export default function Header() {
 
     return (
         <>
-            {/* Notice Banner — vibrant brand gradient */}
-            <div role="alert" className="bg-forest dark:bg-charcoal-deep text-white text-[10px] py-1.5 px-6 text-center font-bold tracking-widest border-b border-lime/10 uppercase relative z-[60] font-sans">
-                <span className="text-lime/80">NOTICE:</span> WE HAVE UPDATED OUR E-TRANSFER PAYMENT DETAILS. PLEASE CHECK YOUR EMAIL.
+            {/* Shipping Banner — .cc style lime accent bar */}
+            <div role="banner" className="bg-lime text-black text-[11px] py-2 px-4 text-center font-bold tracking-wider uppercase relative z-[60] font-sans">
+                WE SHIP EVERYWHERE IN CANADA VIA CANADA POST &amp; PUROLATOR — $15 SHIPPING FEE — FREE SHIPPING ON ORDERS OVER $149
             </div>
 
             <nav
                 role="navigation"
                 aria-label="Main navigation"
                 className={`fixed w-full z-50 transition-all duration-500 px-4 md:px-6 py-4 flex justify-between items-center ${isScrolled || !isHome
-                    ? "py-3 shadow-lg bg-white/90 dark:bg-charcoal-deep/90 backdrop-blur-xl"
+                    ? "py-3 shadow-lg bg-white/95 dark:bg-[#1a1a22] border-b border-transparent dark:border-[#3a3a48]"
                     : "bg-transparent"
-                } ${isHome ? "top-8" : "top-8"}`}
+                } ${isHome ? "top-[40px]" : "top-[40px]"}`}
             >
                 <div className="flex items-center gap-8">
                     <Link href="/" className="relative h-10 w-40 md:h-12 md:w-48 transition-opacity hover:opacity-80">
