@@ -20,7 +20,7 @@ const kenBurnsClasses = [
 const SLIDES = [
   {
     id: 0,
-    bg: "/assets/hero/hero-deals-ounces.png",
+    bg: "/assets/hero/hero-deals-ounces.webp",
     alt: "Mohawk Medibles $40 ounce deal — premium cannabis ounces starting at $40 or 3 for $100, while supplies last at Indigenous-owned dispensary on Tyendinaga Mohawk Territory",
     badge: "🔥 WHILE SUPPLIES LAST",
     headline: "$40 OUNCES",

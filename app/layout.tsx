@@ -204,7 +204,7 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="//mohawkmedibles.ca" />
         <link rel="dns-prefetch" href="//i0.wp.com" />
         {/* Preload LCP hero image for faster paint */}
-        <link rel="preload" as="image" type="image/webp" href="/assets/hero/hero-flower-premium.webp" fetchPriority="high" />
+        <link rel="preload" as="image" type="image/webp" href="/assets/hero/hero-deals-ounces.webp" fetchPriority="high" />
         {/* LLM Discovery */}
         <link rel="alternate" type="text/plain" href="/llms.txt" />
         <link rel="alternate" type="text/plain" href="/llms-full.txt" />
