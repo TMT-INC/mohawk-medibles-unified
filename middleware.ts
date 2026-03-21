@@ -20,8 +20,7 @@ import { setCsrfCookie } from "@/lib/csrf";
 
 // ─── Domain Routing Config ───────────────────────────────
 const DOMAINS = {
-    PRIMARY: ["mohawkmedibles.ca", "www.mohawkmedibles.ca"],
-    SEO: ["mohawkmedibles.co", "www.mohawkmedibles.co"],
+    PRIMARY: ["mohawkmedibles.ca", "www.mohawkmedibles.ca", "mohawkmedibles.co", "www.mohawkmedibles.co"],
     ADMIN: ["mohawkmedibles.cc", "www.mohawkmedibles.cc"],
 };
 
@@ -55,13 +54,7 @@ export async function middleware(request: NextRequest) {
     // ── Resolve domain context ───────────────────────────────
     const host = (request.headers.get("host") || request.headers.get("x-forwarded-host") || "localhost:3000").toLowerCase().replace(/:\d+$/, "");
 
-    // .co domain → redirect to .ca (SEO consolidation)
-    if (DOMAINS.SEO.includes(host)) {
-        const redirectUrl = new URL(request.url);
-        redirectUrl.hostname = "mohawkmedibles.ca";
-        redirectUrl.port = "";
-        return NextResponse.redirect(redirectUrl, 301);
-    }
+    // .co domain — serve the unified site directly (same as .ca primary)
 
     // .cc domain → only allow /admin, /api/admin, /api/trpc, /login, /unauthorized
     if (DOMAINS.ADMIN.includes(host)) {
