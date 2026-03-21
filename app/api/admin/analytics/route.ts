@@ -7,7 +7,7 @@ import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 import { log } from "@/lib/logger";
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.admin);
+    const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
     const sp = req.nextUrl.searchParams;
@@ -52,7 +52,7 @@ export async function GET(req: NextRequest) {
 
                 // Group by day
                 const dailyRevenue: Record<string, number> = {};
-                orders.forEach(o => {
+                orders.forEach((o: { createdAt: Date; total: number }) => {
                     const day = o.createdAt.toISOString().split("T")[0];
                     dailyRevenue[day] = (dailyRevenue[day] || 0) + o.total;
                 });
@@ -62,7 +62,7 @@ export async function GET(req: NextRequest) {
                     revenue: Math.round(total * 100) / 100,
                 }));
 
-                const totalRevenue = orders.reduce((s, o) => s + o.total, 0);
+                const totalRevenue = orders.reduce((s: number, o: { total: number }) => s + o.total, 0);
 
                 // Previous period for comparison
                 const prevOrders = await prisma.order.aggregate({
@@ -103,14 +103,14 @@ export async function GET(req: NextRequest) {
                 });
 
                 return NextResponse.json({
-                    topProducts: topProducts.map(p => ({
+                    topProducts: topProducts.map((p: any) => ({
                         productId: p.productId,
                         name: p.name,
                         totalSold: p._sum.quantity || 0,
                         totalRevenue: Math.round((p._sum.total || 0) * 100) / 100,
                         orderCount: p._count.id,
                     })),
-                    categoryBreakdown: categoryBreakdown.map(c => ({
+                    categoryBreakdown: categoryBreakdown.map((c: any) => ({
                         category: c.category,
                         count: c._count.id,
                     })),
@@ -129,7 +129,7 @@ export async function GET(req: NextRequest) {
                 });
 
                 const dailyNew: Record<string, number> = {};
-                customers.forEach(c => {
+                customers.forEach((c: { createdAt: Date }) => {
                     const day = c.createdAt.toISOString().split("T")[0];
                     dailyNew[day] = (dailyNew[day] || 0) + 1;
                 });
@@ -215,7 +215,7 @@ export async function GET(req: NextRequest) {
                         change: prevCustomers > 0 ? Math.round(((totalCustomers - prevCustomers) / prevCustomers) * 1000) / 10 : 0,
                     },
                     averageOrderValue: Math.round((averageOrderValue._avg.total || 0) * 100) / 100,
-                    statusBreakdown: statusBreakdown.map(s => ({
+                    statusBreakdown: statusBreakdown.map((s: any) => ({
                         status: s.status,
                         count: s._count.id,
                     })),

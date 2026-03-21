@@ -13,7 +13,7 @@ import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 import { log } from "@/lib/logger";
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.api);
+    const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
     const { searchParams } = req.nextUrl;

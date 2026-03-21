@@ -45,7 +45,7 @@ function validateCartItems(data: unknown): { id: string; name: string; price: nu
 
 export async function POST(req: NextRequest) {
     // Rate limit
-    const limited = applyRateLimit(req, RATE_LIMITS.support);
+    const limited = await applyRateLimit(req, RATE_LIMITS.support);
     if (limited) return limited;
 
     // Parse body

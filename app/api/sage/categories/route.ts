@@ -10,7 +10,7 @@ import { getCategories } from "@/lib/sage/engine";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.api);
+    const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
     return NextResponse.json({

@@ -20,7 +20,7 @@ function getWebhookSecret(): string {
 
 export async function POST(req: NextRequest) {
     // ── Rate limit ──────────────────────────────────────────
-    const limited = applyRateLimit(req, RATE_LIMITS.webhook);
+    const limited = await applyRateLimit(req, RATE_LIMITS.webhook);
     if (limited) return limited;
 
     const WEBHOOK_SECRET = getWebhookSecret();

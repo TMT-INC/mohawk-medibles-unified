@@ -8,7 +8,7 @@ import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 import { log } from "@/lib/logger";
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.admin);
+    const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
     const sp = req.nextUrl.searchParams;
@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
                     _count: { id: true },
                     orderBy: { _count: { id: "desc" } },
                 });
-                return NextResponse.json(cats.map(c => ({ name: c.category, count: c._count.id })));
+                return NextResponse.json(cats.map((c: any) => ({ name: c.category, count: c._count.id })));
             }
 
             case "low-stock": {
@@ -89,7 +89,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.admin);
+    const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
     let body: Record<string, unknown>;

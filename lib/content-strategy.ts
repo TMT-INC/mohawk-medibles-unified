@@ -51,9 +51,9 @@ export async function getContentPriorities(): Promise<ContentPriority[]> {
         }
     }
 
-    const priorities: ContentPriority[] = products.map((p) => {
-        const revenue = p.orderItems.reduce((s, i) => s + i.price * i.quantity, 0);
-        const unitsSold = p.orderItems.reduce((s, i) => s + i.quantity, 0);
+    const priorities: ContentPriority[] = products.map((p: { id: number; name: string; category: string; slug: string; price: number; orderItems: { quantity: number; price: number }[] }) => {
+        const revenue = p.orderItems.reduce((s: number, i: { price: number; quantity: number }) => s + i.price * i.quantity, 0);
+        const unitsSold = p.orderItems.reduce((s: number, i: { price: number; quantity: number }) => s + i.quantity, 0);
         const kwData = keywordMap.get(p.category);
         const pageViews = kwData?.volume || 0;
 
@@ -113,7 +113,7 @@ export async function getKeywordRevenuePotential(): Promise<KeywordRevenuePotent
 
     const categoryRevMap = new Map<string, { topProduct: string; revenue: number }>();
     for (const p of products) {
-        const revenue = p.orderItems.reduce((s, i) => s + i.price * i.quantity, 0);
+        const revenue = p.orderItems.reduce((s: number, i: { price: number; quantity: number }) => s + i.price * i.quantity, 0);
         const existing = categoryRevMap.get(p.category);
         if (!existing || revenue > existing.revenue) {
             categoryRevMap.set(p.category, { topProduct: p.name, revenue });
@@ -121,7 +121,7 @@ export async function getKeywordRevenuePotential(): Promise<KeywordRevenuePotent
     }
 
     return keywords
-        .map((kw) => {
+        .map((kw: { term: string; volume: number | null; currentRank: number | null; category: string | null; targetUrl: string | null }) => {
             const catData = categoryRevMap.get(kw.category || "");
             const volume = kw.volume || 0;
             const position = kw.currentRank || 100;
@@ -146,7 +146,7 @@ export async function getKeywordRevenuePotential(): Promise<KeywordRevenuePotent
                 action,
             };
         })
-        .sort((a, b) => b.estimatedTrafficValue - a.estimatedTrafficValue);
+        .sort((a: KeywordRevenuePotential, b: KeywordRevenuePotential) => b.estimatedTrafficValue - a.estimatedTrafficValue);
 }
 
 // ─── Content Brief Generator ────────────────────────────────

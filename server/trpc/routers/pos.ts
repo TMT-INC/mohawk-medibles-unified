@@ -191,13 +191,13 @@ export const posRouter = router({
       return {
         date: startOfDay.toISOString().split("T")[0],
         totalTransactions: transactions.length,
-        totalRevenue: transactions.reduce((sum, t) => sum + t.total, 0),
+        totalRevenue: transactions.reduce((sum: number, t: { total: number }) => sum + t.total, 0),
         avgTransactionValue:
           transactions.length > 0
-            ? transactions.reduce((sum, t) => sum + t.total, 0) / transactions.length
+            ? transactions.reduce((sum: number, t: { total: number }) => sum + t.total, 0) / transactions.length
             : 0,
         byPaymentMethod: transactions.reduce(
-          (acc, t) => {
+          (acc: Record<string, number>, t: { paymentMethod: string; total: number }) => {
             acc[t.paymentMethod] = (acc[t.paymentMethod] || 0) + t.total;
             return acc;
           },

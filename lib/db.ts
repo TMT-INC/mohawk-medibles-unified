@@ -115,21 +115,40 @@ export async function getLowStockProducts() {
     });
 }
 
+type OrderStatus =
+    | "PENDING" | "PROCESSING" | "PAYMENT_CONFIRMED" | "LABEL_PRINTED"
+    | "SHIPPED" | "IN_TRANSIT" | "DELIVERED" | "COMPLETED"
+    | "CANCELLED" | "REFUNDED" | "ON_HOLD" | "FAILED";
+
+const VALID_ORDER_STATUSES = new Set<string>([
+    "PENDING", "PROCESSING", "PAYMENT_CONFIRMED", "LABEL_PRINTED",
+    "SHIPPED", "IN_TRANSIT", "DELIVERED", "COMPLETED",
+    "CANCELLED", "REFUNDED", "ON_HOLD", "FAILED",
+]);
+
+function validateOrderStatus(status: string): OrderStatus {
+    if (!VALID_ORDER_STATUSES.has(status)) {
+        throw new Error(`Invalid order status: ${status}`);
+    }
+    return status as OrderStatus;
+}
+
 export async function updateOrderStatus(
     orderId: string,
     status: string,
     note?: string,
     changedBy?: string
 ) {
+    const validStatus = validateOrderStatus(status);
     return prisma.$transaction([
         prisma.order.update({
             where: { id: orderId },
-            data: { status: status as any },
+            data: { status: validStatus },
         }),
         prisma.orderStatusHistory.create({
             data: {
                 orderId,
-                status: status as any,
+                status: validStatus,
                 note,
                 changedBy,
             },

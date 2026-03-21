@@ -123,7 +123,7 @@ export default async function DirectoryPage() {
 
                         {dispensaries.length > 0 ? (
                             <div className="grid md:grid-cols-2 gap-6">
-                                {dispensaries.map((dispensary) => (
+                                {dispensaries.map((dispensary: (typeof dispensaries)[number]) => (
                                     <DispensaryCard 
                                         key={dispensary.id} 
                                         dispensary={dispensary} 

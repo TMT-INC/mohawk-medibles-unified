@@ -52,7 +52,7 @@ export async function generateStaticParams() {
         take: 100,
     });
 
-    return dispensaries.map((d) => ({
+    return dispensaries.map((d: { slug: string }) => ({
         slug: d.slug,
     }));
 }

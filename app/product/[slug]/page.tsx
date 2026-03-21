@@ -92,7 +92,7 @@ export default async function ProductPage({ params }: PageProps) {
         });
         if (approvedReviews.length > 0) {
             const total = approvedReviews.length;
-            const avg = +(approvedReviews.reduce((sum, r) => sum + r.rating, 0) / total).toFixed(1);
+            const avg = +(approvedReviews.reduce((sum: number, r: { rating: number }) => sum + r.rating, 0) / total).toFixed(1);
             const dist: Record<number, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
             for (const r of approvedReviews) dist[r.rating] = (dist[r.rating] || 0) + 1;
             reviewStats = { totalReviews: total, averageRating: avg, distribution: dist };

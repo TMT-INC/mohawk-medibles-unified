@@ -98,7 +98,7 @@ function transformProduct(dbProduct: NonNullable<DBProduct>): Product {
         try {
             terpenes = JSON.parse(dbProduct.specs.terpenes);
         } catch {
-            terpenes = dbProduct.specs.terpenes.split(",").map((t) => t.trim()).filter(Boolean);
+            terpenes = dbProduct.specs.terpenes.split(",").map((t: string) => t.trim()).filter(Boolean);
         }
     }
 
@@ -114,7 +114,7 @@ function transformProduct(dbProduct: NonNullable<DBProduct>): Product {
         image: dbProduct.image,
         images:
             dbProduct.images.length > 0
-                ? dbProduct.images.sort((a, b) => a.position - b.position).map((i) => i.url)
+                ? dbProduct.images.sort((a: { position: number }, b: { position: number }) => a.position - b.position).map((i: { url: string }) => i.url)
                 : [dbProduct.image],
         altText: dbProduct.altText,
         sku: dbProduct.sku || "",
@@ -149,7 +149,7 @@ async function loadProductsFromDB(): Promise<Product[]> {
         orderBy: { id: "asc" },
     });
 
-    return dbProducts.map((p) => transformProduct(p as unknown as NonNullable<DBProduct>));
+    return dbProducts.map((p: unknown) => transformProduct(p as unknown as NonNullable<DBProduct>));
 }
 
 // ─── Public API (matches productData.ts exactly) ────────

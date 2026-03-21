@@ -11,7 +11,7 @@ import { verifyCsrf } from "@/lib/csrf";
 import { log } from "@/lib/logger";
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.api);
+    const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
     try {
@@ -41,12 +41,12 @@ export async function GET(req: NextRequest) {
 
         // Calculate aggregate stats
         const approvedReviews = showAll && isAdmin
-            ? reviews.filter((r) => r.status === "APPROVED")
+            ? reviews.filter((r: any) => r.status === "APPROVED")
             : reviews;
 
         const totalReviews = approvedReviews.length;
         const averageRating = totalReviews > 0
-            ? +(approvedReviews.reduce((sum, r) => sum + r.rating, 0) / totalReviews).toFixed(1)
+            ? +(approvedReviews.reduce((sum: number, r: any) => sum + r.rating, 0) / totalReviews).toFixed(1)
             : 0;
 
         // Rating distribution (1-5)
@@ -56,7 +56,7 @@ export async function GET(req: NextRequest) {
         }
 
         return NextResponse.json({
-            reviews: reviews.map((r) => ({
+            reviews: reviews.map((r: any) => ({
                 id: r.id,
                 rating: r.rating,
                 title: r.title,
@@ -79,7 +79,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.api);
+    const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
     // CSRF protection

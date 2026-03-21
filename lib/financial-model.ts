@@ -95,7 +95,7 @@ export async function calculateFinancialMetrics(): Promise<FinancialMetrics> {
         orderBy: { createdAt: "asc" },
     });
 
-    const totalRevenue = orders.reduce((s, o) => s + o.total, 0);
+    const totalRevenue = orders.reduce((s: number, o: { total: number }) => s + o.total, 0);
     const totalOrders = orders.length;
 
     // Date range
@@ -299,7 +299,7 @@ export async function getCohortAnalysis(): Promise<CohortData[]> {
         const c = cohorts[cohortMonth];
         c.customers.add(u.id);
 
-        const totalSpend = u.orders.reduce((s, o) => s + o.total, 0);
+        const totalSpend = u.orders.reduce((s: number, o: { total: number }) => s + o.total, 0);
         c.totalSpend += totalSpend;
 
         // Check subsequent orders
@@ -418,7 +418,7 @@ export function generateGrowthStrategies(metrics: FinancialMetrics): GrowthStrat
             category: "Category Growth",
             title: `Content push for underperforming: ${catNames}`,
             description: `These categories have products but low sales penetration. Create educational blog content, social media spotlight series, and targeted campaigns to increase awareness. Even 2x growth in these adds meaningful revenue.`,
-            projectedMonthlyImpact: Math.round(underperforming.reduce((s, c) => s + c.revenue, 0) * 0.5 / (metrics.dataRangeDays / 30)),
+            projectedMonthlyImpact: Math.round(underperforming.reduce((s: number, c: { revenue: number }) => s + c.revenue, 0) * 0.5 / (metrics.dataRangeDays / 30)),
             effort: "Low",
             timeline: "Ongoing",
             priority: 4,

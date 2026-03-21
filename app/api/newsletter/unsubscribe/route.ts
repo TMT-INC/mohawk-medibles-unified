@@ -24,7 +24,7 @@ export function buildUnsubscribeUrl(email: string, campaignId?: string): string 
 }
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.api);
+    const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
     const email = req.nextUrl.searchParams.get("email");

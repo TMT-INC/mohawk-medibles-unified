@@ -76,7 +76,7 @@ user_memory.json
 .github/workflows/deploy.yml
 
 # ─── Sensitive Backups & Large Data ─────────────────────────
-backup_v1/configs/credentials.json
+backup_v1/
 full_products.json
 full_products_v2.json
 

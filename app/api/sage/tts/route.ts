@@ -6,7 +6,7 @@ const VALID_PERSONAS = new Set(["medagent", "turtle", "trickster"]);
 
 export async function POST(req: NextRequest) {
     // Rate limit: 10 TTS requests per minute per IP
-    const limited = applyRateLimit(req, RATE_LIMITS.tts);
+    const limited = await applyRateLimit(req, RATE_LIMITS.tts);
     if (limited) return limited;
 
     try {

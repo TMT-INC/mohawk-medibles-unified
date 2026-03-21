@@ -7,7 +7,7 @@ import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 import { healthCheck as sageHealthCheck } from "@/lib/sage/engine";
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.health);
+    const limited = await applyRateLimit(req, RATE_LIMITS.health);
     if (limited) return limited;
 
     const checks: Record<string, { status: string; latency?: number; error?: string; details?: unknown }> = {};

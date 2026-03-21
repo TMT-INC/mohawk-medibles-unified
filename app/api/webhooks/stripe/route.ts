@@ -28,7 +28,7 @@ function generateOrderNumber(): string {
 }
 
 export async function POST(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.webhook);
+    const limited = await applyRateLimit(req, RATE_LIMITS.webhook);
     if (limited) return limited;
 
     const WEBHOOK_SECRET = getWebhookSecret();
@@ -154,7 +154,7 @@ export async function POST(req: NextRequest) {
                 const orderNumber = generateOrderNumber();
 
                 // ── 5. Create order + items in a transaction ────
-                const order = await prisma.$transaction(async (tx) => {
+                const order = await prisma.$transaction(async (tx: any) => {
                     const newOrder = await tx.order.create({
                         data: {
                             orderNumber,

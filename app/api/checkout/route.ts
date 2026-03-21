@@ -11,7 +11,7 @@ import { verifyCsrf } from "@/lib/csrf";
 import { log } from "@/lib/logger";
 
 export async function POST(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.api);
+    const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
     // CSRF protection
@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
         const inventoryRecords = await prisma.inventory.findMany({
             where: { productId: { in: productIds } },
         });
-        const inventoryMap = new Map(inventoryRecords.map((inv) => [inv.productId, inv]));
+        const inventoryMap = new Map(inventoryRecords.map((inv: any) => [inv.productId, inv]));
 
         for (const item of validatedItems) {
             const inv = inventoryMap.get(parseInt(item.productId)) as { quantity: number; backorder: boolean } | undefined;

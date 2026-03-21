@@ -10,7 +10,7 @@ import { log } from "@/lib/logger";
 
 export async function GET(req: NextRequest) {
     // ── Rate limit ──────────────────────────────────────────
-    const limited = applyRateLimit(req, RATE_LIMITS.admin);
+    const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
     // ── Validate query ──────────────────────────────────────
@@ -85,7 +85,7 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
     // ── Rate limit ──────────────────────────────────────────
-    const limited = applyRateLimit(req, RATE_LIMITS.admin);
+    const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
     // ── Parse & validate body ───────────────────────────────

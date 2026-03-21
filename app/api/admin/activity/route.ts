@@ -10,7 +10,7 @@ import { getRecentEvents, getEventsSince, getLatestEventId } from "@/lib/activit
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.admin);
+    const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
     const mode = req.nextUrl.searchParams.get("mode");

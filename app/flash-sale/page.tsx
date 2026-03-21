@@ -96,7 +96,7 @@ export default async function FlashSalePage() {
 
             {/* Active Sales */}
             {hasActiveSales ? (
-                activeSales.map((sale) => (
+                activeSales.map((sale: (typeof activeSales)[number]) => (
                     <section key={sale.id} className="container mx-auto px-6 mb-20">
                         {/* Sale Header with Countdown */}
                         <div
@@ -131,7 +131,7 @@ export default async function FlashSalePage() {
 
                         {/* Sale Products Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                            {sale.products.map((sp) => {
+                            {sale.products.map((sp: (typeof sale.products)[number]) => {
                                 const product = sp.product;
                                 const discount = ((sp.originalPrice - sp.salePrice) / sp.originalPrice) * 100;
 
@@ -209,7 +209,7 @@ export default async function FlashSalePage() {
                         Coming Soon
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {upcomingSales.map((sale) => (
+                        {upcomingSales.map((sale: (typeof upcomingSales)[number]) => (
                             <div
                                 key={sale.id}
                                 className="rounded-2xl p-6 border border-border bg-card/50"

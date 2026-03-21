@@ -8,7 +8,7 @@ import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 import { log } from "@/lib/logger";
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.admin);
+    const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
     try {
@@ -41,7 +41,7 @@ export async function GET(req: NextRequest) {
                     _count: { id: true },
                 }),
             ]);
-            const sendStats = Object.fromEntries(sends.map((s) => [s.status, s._count.id]));
+            const sendStats = Object.fromEntries(sends.map((s: any) => [s.status, s._count.id]));
             const totalSent = (sendStats["sent"] || 0) + (sendStats["delivered"] || 0) + (sendStats["opened"] || 0) + (sendStats["clicked"] || 0);
             const totalOpened = (sendStats["opened"] || 0) + (sendStats["clicked"] || 0);
 
@@ -68,7 +68,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.admin);
+    const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
     try {

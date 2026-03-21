@@ -88,8 +88,8 @@ export class GMBIntegration {
       });
 
       return response.data.locations || [];
-    } catch (error) {
-      log.admin.error('Error fetching GMB locations:', error);
+    } catch (error: unknown) {
+      log.admin.error('Error fetching GMB locations:', { error: error instanceof Error ? error.message : String(error) });
       throw error;
     }
   }
@@ -150,8 +150,8 @@ export class GMBIntegration {
       try {
         await this.syncLocationToDB(location);
         success++;
-      } catch (error) {
-        log.admin.error(`Failed to sync ${location.name}:`, error);
+      } catch (error: unknown) {
+        log.admin.error(`Failed to sync ${location.name}:`, { error: error instanceof Error ? error.message : String(error) });
         failed++;
       }
     }
@@ -208,8 +208,8 @@ export class GMBIntegration {
       });
 
       return response.data.reviews || [];
-    } catch (error) {
-      log.admin.error('Error fetching GMB reviews:', error);
+    } catch (error: unknown) {
+      log.admin.error('Error fetching GMB reviews:', { error: error instanceof Error ? error.message : String(error) });
       return [];
     }
   }
@@ -291,8 +291,8 @@ export class GMBIntegration {
       });
 
       return response.data;
-    } catch (error) {
-      log.admin.error('Error fetching GMB insights:', error);
+    } catch (error: unknown) {
+      log.admin.error('Error fetching GMB insights:', { error: error instanceof Error ? error.message : String(error) });
       throw error;
     }
   }
@@ -314,8 +314,8 @@ export class GMBIntegration {
       });
 
       log.admin.info(`✅ Uploaded photo to GMB: ${category}`);
-    } catch (error) {
-      log.admin.error('Error uploading photo:', error);
+    } catch (error: unknown) {
+      log.admin.error('Error uploading photo:', { error: error instanceof Error ? error.message : String(error) });
       throw error;
     }
   }
@@ -341,7 +341,7 @@ export class GMBIntegration {
     return mapping[regionCode] || regionCode;
   }
 
-  private async syncBusinessHours(dispensaryId: string, periods: any[]): Promise<void> {
+  private async syncBusinessHours(dispensaryId: string, periods: { openDay: string; openTime: string; closeDay: string; closeTime: string }[]): Promise<void> {
     const dayMapping: Record<string, number> = {
       'SUNDAY': 0, 'MONDAY': 1, 'TUESDAY': 2, 'WEDNESDAY': 3,
       'THURSDAY': 4, 'FRIDAY': 5, 'SATURDAY': 6,
@@ -366,7 +366,7 @@ export class GMBIntegration {
     }
   }
 
-  private async syncPhotos(dispensaryId: string, photos: any[]): Promise<void> {
+  private async syncPhotos(dispensaryId: string, photos: { name: string; sourceUrl?: string; googleUrl?: string; locationAssociation: { category: string } }[]): Promise<void> {
     for (let i = 0; i < photos.length; i++) {
       const photo = photos[i];
       

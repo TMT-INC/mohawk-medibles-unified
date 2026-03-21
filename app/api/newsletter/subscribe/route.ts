@@ -9,7 +9,7 @@ import { verifyCsrf } from "@/lib/csrf";
 import { log } from "@/lib/logger";
 
 export async function POST(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.api);
+    const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
     // CSRF protection

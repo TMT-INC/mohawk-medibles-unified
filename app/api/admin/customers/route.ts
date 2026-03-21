@@ -7,7 +7,7 @@ import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 import { log } from "@/lib/logger";
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.admin);
+    const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
     const sp = req.nextUrl.searchParams;
@@ -45,7 +45,7 @@ export async function GET(req: NextRequest) {
                 if (!customer) return NextResponse.json({ error: "Customer not found" }, { status: 404 });
 
                 // Calculate lifetime stats
-                const lifetimeSpend = customer.orders.reduce((sum, o) => sum + o.total, 0);
+                const lifetimeSpend = customer.orders.reduce((sum: number, o: { total: number }) => sum + o.total, 0);
                 const totalOrders = customer.orders.length;
 
                 return NextResponse.json({
@@ -75,7 +75,7 @@ export async function GET(req: NextRequest) {
                         FROM "Order"
                         GROUP BY "userId"
                         HAVING COUNT(*) > 1
-                    `.then((r) => (r as unknown[]).length).catch(() => 0),
+                    `.then((r: unknown) => (r as unknown[]).length).catch(() => 0),
                 ]);
 
                 // Top spenders
@@ -88,14 +88,14 @@ export async function GET(req: NextRequest) {
                 });
 
                 // Get user details for top spenders
-                const topSpenderIds = topSpenders.map(s => s.userId);
+                const topSpenderIds = topSpenders.map((s: any) => s.userId);
                 const topUsers = await prisma.user.findMany({
                     where: { id: { in: topSpenderIds } },
                     select: { id: true, name: true, email: true, createdAt: true },
                 });
 
-                const topSpendersWithDetails = topSpenders.map(s => ({
-                    ...topUsers.find(u => u.id === s.userId),
+                const topSpendersWithDetails = topSpenders.map((s: any) => ({
+                    ...topUsers.find((u: any) => u.id === s.userId),
                     totalSpent: s._sum.total || 0,
                     orderCount: s._count.id,
                 }));

@@ -10,7 +10,7 @@ import { getFAQsForSchema, generateProductFAQs, MASTER_FAQ_DATABASE } from "@/li
 import { faqSchema } from "@/lib/seo/schemas";
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.api);
+    const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
     const category = req.nextUrl.searchParams.get("category");

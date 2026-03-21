@@ -21,7 +21,7 @@ const MANAGED_SERVICES = [
 ];
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.admin);
+    const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
     const section = req.nextUrl.searchParams.get("section") || "all";
@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
                 });
 
                 // Mask key values for security — only show last 4 chars
-                const maskedKeys = keys.map(k => ({
+                const maskedKeys = keys.map((k: any) => ({
                     ...k,
                     keyValue: k.keyValue ? `${"•".repeat(Math.max(0, k.keyValue.length - 4))}${k.keyValue.slice(-4)}` : "",
                 }));
@@ -69,7 +69,7 @@ export async function GET(req: NextRequest) {
                 });
 
                 const envStatus = MANAGED_SERVICES.map(svc => {
-                    const active = keys.find(k => k.service === svc.service);
+                    const active = keys.find((k: { service: string; environment: string; label: string; lastUsed: Date | null }) => k.service === svc.service);
                     return {
                         service: svc.service,
                         label: svc.label,
@@ -112,7 +112,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.admin);
+    const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
     // Only SUPER_ADMIN can modify settings

@@ -158,8 +158,8 @@ export const rewardsRouter = router({
       orderBy: { createdAt: "desc" },
     });
 
-    const completed = referrals.filter((r) => r.status === "completed");
-    const totalEarned = completed.reduce((sum, r) => sum + r.referrerPointsAwarded, 0);
+    const completed = referrals.filter((r: { status: string }) => r.status === "completed");
+    const totalEarned = completed.reduce((sum: number, r: { referrerPointsAwarded: number }) => sum + r.referrerPointsAwarded, 0);
 
     // Get or create referral code
     let myReferral = await ctx.prisma.referral.findFirst({
@@ -200,7 +200,7 @@ export const rewardsRouter = router({
   adminStats: adminProcedure.query(async ({ ctx }) => {
     const [totalMembers, totalPointsIssued, totalRedemptions, activeReferrals] =
       await Promise.all([
-        ctx.prisma.loyaltyPoint.groupBy({ by: ["userId"], _count: true }).then((r) => r.length),
+        ctx.prisma.loyaltyPoint.groupBy({ by: ["userId"], _count: true }).then((r: unknown[]) => r.length),
         ctx.prisma.loyaltyPoint.aggregate({ where: { type: "earn" }, _sum: { points: true } }),
         ctx.prisma.loyaltyPoint.aggregate({ where: { type: "redeem" }, _sum: { points: true } }),
         ctx.prisma.referral.count({ where: { status: "completed" } }),

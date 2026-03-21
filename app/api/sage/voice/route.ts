@@ -27,7 +27,7 @@ interface VoiceRequest {
 // ─── POST /api/sage/voice ───────────────────────────────────
 
 export async function POST(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.support);
+    const limited = await applyRateLimit(req, RATE_LIMITS.support);
     if (limited) return limited;
 
     try {

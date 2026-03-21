@@ -110,7 +110,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
                         </Link>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                        {products.map((product) => (
+                        {products.map((product: (typeof products)[number]) => (
                             <Link
                                 key={product.id}
                                 href={`/product/${product.slug}`}
@@ -137,9 +137,9 @@ export default async function BrandPage({ params }: BrandPageProps) {
                                     <h3 className="font-semibold text-foreground line-clamp-2 mb-2 group-hover:text-primary transition-colors">
                                         {product.name}
                                     </h3>
-                                    {product.specs && (
+                                    {(product as any).specs && (
                                         <p className="text-xs text-muted-foreground mb-2">
-                                            {[product.specs.thc && `THC: ${product.specs.thc}`, product.specs.type]
+                                            {[(product as any).specs.thc && `THC: ${(product as any).specs.thc}`, (product as any).specs.type]
                                                 .filter(Boolean)
                                                 .join(" · ")}
                                         </p>

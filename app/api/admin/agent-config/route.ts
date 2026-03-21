@@ -10,14 +10,14 @@ import { getAgentConfig, updateAgentConfig, resetAgentConfig } from "@/lib/sage/
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.admin);
+    const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
     return NextResponse.json(getAgentConfig());
 }
 
 export async function PUT(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.admin);
+    const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
     let body: Record<string, unknown>;

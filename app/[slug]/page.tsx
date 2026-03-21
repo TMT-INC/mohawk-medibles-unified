@@ -16,7 +16,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-    return pagesData.map((page) => ({
+    return pagesData.map((page: { slug: string; title: string }) => ({
         slug: page.slug,
     }));
 }
@@ -57,7 +57,7 @@ const PROVINCE_META: Record<string, string> = {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
-    const page = pagesData.find((p) => p.slug === slug);
+    const page = pagesData.find((p: { slug: string; title: string }) => p.slug === slug);
 
     if (!page) return {};
 
@@ -103,7 +103,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function DynamicPage({ params }: PageProps) {
     const { slug } = await params;
-    const page = pagesData.find((p) => p.slug === slug);
+    const page = pagesData.find((p: { slug: string; title: string }) => p.slug === slug);
 
     if (!page) {
         notFound();

@@ -25,7 +25,7 @@ const COOKIE_MAX_AGE = 90 * 24 * 60 * 60; // 90 days in seconds
 
 export async function POST(req: NextRequest) {
     // Rate limit: 60 events/min per IP
-    const rateLimited = applyRateLimit(req, RATE_LIMITS.api);
+    const rateLimited = await applyRateLimit(req, RATE_LIMITS.api);
     if (rateLimited) return rateLimited;
 
     let body: { event?: string; data?: Record<string, string> };

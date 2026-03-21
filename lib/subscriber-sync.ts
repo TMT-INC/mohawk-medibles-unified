@@ -47,7 +47,7 @@ export async function syncSubscriber(subscriberId: string, email: string): Promi
 
     if (!user) return;
 
-    const totalSpend = user.orders.reduce((s, o) => s + o.total, 0);
+    const totalSpend = user.orders.reduce((s: number, o: { total: number }) => s + o.total, 0);
     const orderCount = user.orders.length;
     const lastOrderDate = user.orders[0]?.createdAt?.toISOString() || null;
     const daysSinceLastOrder = user.orders[0]?.createdAt

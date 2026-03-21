@@ -10,7 +10,7 @@ const AGENT_URL = process.env.AGENT_GATEWAY_URL || "http://localhost:8000";
 
 export async function POST(req: NextRequest) {
     // ── Rate limit ──────────────────────────────────────────
-    const limited = applyRateLimit(req, RATE_LIMITS.content);
+    const limited = await applyRateLimit(req, RATE_LIMITS.content);
     if (limited) return limited;
 
     // ── Parse & validate ────────────────────────────────────

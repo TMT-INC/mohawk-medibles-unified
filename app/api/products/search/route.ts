@@ -10,7 +10,7 @@ import { searchProducts } from "@/lib/gemini";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 
 export async function GET(request: NextRequest) {
-    const limited = applyRateLimit(request, RATE_LIMITS.api);
+    const limited = await applyRateLimit(request, RATE_LIMITS.api);
     if (limited) return limited;
 
     const { searchParams } = new URL(request.url);

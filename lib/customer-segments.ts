@@ -79,7 +79,7 @@ export async function getCustomerProfile(userId: string): Promise<CustomerProfil
         orderBy: { createdAt: "desc" },
     });
 
-    const totalSpend = orders.reduce((s, o) => s + o.total, 0);
+    const totalSpend = orders.reduce((s: number, o: { total: number }) => s + o.total, 0);
     const orderCount = orders.length;
     const lastOrder = orders[0]?.createdAt || null;
     const firstOrder = orders.length > 0 ? orders[orders.length - 1].createdAt : null;
@@ -133,9 +133,10 @@ export async function getSegmentedCustomers(segment: SegmentName): Promise<{ ema
         },
     });
 
+    type UserWithOrders = { id: string; email: string; name: string; orders: { total: number; createdAt: Date }[] };
     return users
-        .filter((u) => {
-            const totalSpend = u.orders.reduce((s, o) => s + o.total, 0);
+        .filter((u: UserWithOrders) => {
+            const totalSpend = u.orders.reduce((s: number, o: { total: number }) => s + o.total, 0);
             const orderCount = u.orders.length;
             const lastOrder = u.orders[0]?.createdAt;
             const daysSince = lastOrder
@@ -143,7 +144,7 @@ export async function getSegmentedCustomers(segment: SegmentName): Promise<{ ema
                 : null;
             return classifyCustomer(totalSpend, orderCount, daysSince) === segment;
         })
-        .map((u) => ({ email: u.email, name: u.name, userId: u.id }));
+        .map((u: UserWithOrders) => ({ email: u.email, name: u.name, userId: u.id }));
 }
 
 /** Build campaign audience from segment rules JSON */
@@ -156,13 +157,13 @@ export async function buildCampaignAudience(
             where: { status: "active" },
             select: { email: true },
         });
-        return subs.map((s) => s.email);
+        return subs.map((s: { email: string }) => s.email);
     }
 
     // Get active subscribers
     const subscriberEmails = new Set(
         (await prisma.subscriber.findMany({ where: { status: "active" }, select: { email: true } }))
-            .map((s) => s.email)
+            .map((s: { email: string }) => s.email)
     );
 
     // If a named segment is specified
@@ -192,16 +193,17 @@ export async function buildCampaignAudience(
         },
     });
 
+    type UserWithOrderTotals = { email: string; orders: { total: number }[] };
     return users
-        .filter((u) => {
-            const totalSpend = u.orders.reduce((s, o) => s + o.total, 0);
+        .filter((u: UserWithOrderTotals) => {
+            const totalSpend = u.orders.reduce((s: number, o: { total: number }) => s + o.total, 0);
             const orderCount = u.orders.length;
             if (segmentRules.minSpend && totalSpend < segmentRules.minSpend) return false;
             if (segmentRules.maxSpend && totalSpend > segmentRules.maxSpend) return false;
             if (segmentRules.minOrders && orderCount < segmentRules.minOrders) return false;
             return subscriberEmails.has(u.email);
         })
-        .map((u) => u.email);
+        .map((u: UserWithOrderTotals) => u.email);
 }
 
 /** Get segment statistics for dashboard */
@@ -228,7 +230,7 @@ export async function getSegmentStats(): Promise<SegmentStats[]> {
     };
 
     for (const u of users) {
-        const totalSpend = u.orders.reduce((s, o) => s + o.total, 0);
+        const totalSpend = u.orders.reduce((s: number, o: { total: number }) => s + o.total, 0);
         const orderCount = u.orders.length;
         const lastOrder = u.orders[0]?.createdAt;
         const daysSince = lastOrder
@@ -256,7 +258,7 @@ export async function getSegmentStats(): Promise<SegmentStats[]> {
         customerCount: data.count,
         totalRevenue: Math.round(data.revenue * 100) / 100,
         avgOrderValue: data.orderValues.length > 0
-            ? Math.round((data.orderValues.reduce((a, b) => a + b, 0) / data.orderValues.length) * 100) / 100
+            ? Math.round((data.orderValues.reduce((a: number, b: number) => a + b, 0) / data.orderValues.length) * 100) / 100
             : 0,
     }));
 }

@@ -11,7 +11,7 @@ import { analyzeKeywordGaps, findQuickWins, generateContentGapReport, runCompeti
 import { generateBacklinkPlan } from "@/lib/seo/backlinkStrategy";
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.admin);
+    const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
     const type = req.nextUrl.searchParams.get("type") || "gaps";

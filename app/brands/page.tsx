@@ -90,7 +90,7 @@ export default async function BrandsPage() {
                                 {letter}
                             </h2>
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-                                {grouped[letter].map((brand) => (
+                                {grouped[letter].map((brand: (typeof brands)[number]) => (
                                     <Link
                                         key={brand.id}
                                         href={`/brands/${brand.slug}`}

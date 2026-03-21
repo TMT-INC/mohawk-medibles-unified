@@ -35,6 +35,10 @@ const ENV_SCHEMA: EnvVar[] = [
     { key: "TURNSTILE_SECRET_KEY", required: true, description: "Cloudflare Turnstile CAPTCHA secret" },
     { key: "CRON_SECRET", required: true, description: "Vercel Cron job auth secret" },
 
+    // Rate limiting (Upstash Redis)
+    { key: "UPSTASH_REDIS_REST_URL", required: false, description: "Upstash Redis URL for distributed rate limiting" },
+    { key: "UPSTASH_REDIS_REST_TOKEN", required: false, description: "Upstash Redis auth token" },
+
     // Optional — app works without these but with reduced functionality
     { key: "NEXT_PUBLIC_GA_MEASUREMENT_ID", required: false, description: "Google Analytics ID" },
     { key: "SENTRY_DSN", required: false, description: "Sentry error tracking DSN" },

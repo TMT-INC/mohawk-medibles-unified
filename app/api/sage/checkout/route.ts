@@ -18,7 +18,7 @@ import { log } from "@/lib/logger";
 // ─── POST /api/sage/checkout ────────────────────────────────
 
 export async function POST(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.api);
+    const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
     try {

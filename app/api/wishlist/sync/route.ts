@@ -13,7 +13,7 @@ import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 const COOKIE_NAME = "mm-visitor";
 
 export async function POST(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.api);
+    const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
     const visitorId = req.cookies.get(COOKIE_NAME)?.value;
@@ -55,7 +55,7 @@ export async function POST(req: NextRequest) {
 }
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.api);
+    const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
     const visitorId = req.cookies.get(COOKIE_NAME)?.value;

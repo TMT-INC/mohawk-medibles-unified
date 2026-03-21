@@ -10,7 +10,7 @@ import { log } from "@/lib/logger";
 
 export async function POST(req: NextRequest) {
     // ── Rate limit ──────────────────────────────────────────
-    const limited = applyRateLimit(req, RATE_LIMITS.support);
+    const limited = await applyRateLimit(req, RATE_LIMITS.support);
     if (limited) return limited;
 
     // ── Parse & validate ────────────────────────────────────

@@ -13,7 +13,7 @@ import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.co";
 
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.api);
+    const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
     const PRODUCTS = await getAllProducts();

@@ -80,7 +80,7 @@ export async function GET(req: NextRequest) {
                         items: order.items,
                         customer: order.user,
                         shippingAddress: order.address,
-                        statusHistory: order.statusHistory.map((h) => ({
+                        statusHistory: order.statusHistory.map((h: any) => ({
                             status: h.status,
                             note: h.note,
                             timestamp: h.createdAt,
@@ -106,7 +106,7 @@ export async function GET(req: NextRequest) {
 
                 return NextResponse.json({
                     count: orders.length,
-                    orders: orders.map((o) => ({
+                    orders: orders.map((o: any) => ({
                         orderNumber: o.orderNumber,
                         status: o.status,
                         total: o.total,
@@ -159,7 +159,7 @@ export async function GET(req: NextRequest) {
                     return NextResponse.json({
                         source: "database",
                         count: inventory.length,
-                        items: inventory.map((inv) => ({
+                        items: inventory.map((inv: any) => ({
                             name: inv.product.name,
                             category: inv.product.category,
                             price: inv.product.price,
@@ -182,7 +182,7 @@ export async function GET(req: NextRequest) {
                 return NextResponse.json({
                     type: "low-stock-alerts",
                     count: lowStock.length,
-                    items: lowStock.map((inv) => ({
+                    items: lowStock.map((inv: any) => ({
                         name: inv.product.name,
                         category: inv.product.category,
                         quantity: inv.quantity,
@@ -268,7 +268,7 @@ export async function GET(req: NextRequest) {
 
                 return NextResponse.json({
                     count: orders.length,
-                    orders: orders.map((o) => ({
+                    orders: orders.map((o: any) => ({
                         orderNumber: o.orderNumber,
                         status: o.status,
                         total: o.total,
@@ -276,7 +276,7 @@ export async function GET(req: NextRequest) {
                         email: o.user.email,
                         trackingNumber: o.trackingNumber,
                         createdAt: o.createdAt,
-                        itemSummary: o.items.map((i) => `${i.name} x${i.quantity}`).join(", "),
+                        itemSummary: o.items.map((i: any) => `${i.name} x${i.quantity}`).join(", "),
                     })),
                 });
             }
@@ -296,7 +296,7 @@ export async function GET(req: NextRequest) {
 
                 return NextResponse.json({
                     count: tickets.length,
-                    tickets: tickets.map((t) => ({
+                    tickets: tickets.map((t: any) => ({
                         id: t.id,
                         subject: t.subject,
                         status: t.status,

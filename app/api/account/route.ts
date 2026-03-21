@@ -25,7 +25,7 @@ async function getSessionUser(req: NextRequest) {
 
 // ─── GET: Read operations ────────────────────────────────────
 export async function GET(req: NextRequest) {
-    const limited = applyRateLimit(req, RATE_LIMITS.api);
+    const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
     const session = await getSessionUser(req);
@@ -82,7 +82,7 @@ export async function GET(req: NextRequest) {
             ]);
 
             return NextResponse.json({
-                orders: orders.map((o) => ({
+                orders: orders.map((o: any) => ({
                     id: o.orderNumber,
                     date: o.createdAt.toISOString(),
                     status: o.status.toLowerCase(),

@@ -110,8 +110,8 @@ export const reportingRouter = router({
         }),
       ]);
 
-      const onlineRevenue = onlineOrders.reduce((sum, o) => sum + o.total, 0);
-      const posRevenue = posTransactions.reduce((sum, t) => sum + t.total, 0);
+      const onlineRevenue = onlineOrders.reduce((sum: number, o: { total: number }) => sum + o.total, 0);
+      const posRevenue = posTransactions.reduce((sum: number, t: { total: number }) => sum + t.total, 0);
 
       return {
         period: { start: input.startDate, end: input.endDate },
@@ -124,7 +124,7 @@ export const reportingRouter = router({
           transactions: posTransactions.length,
           revenue: posRevenue,
           avgTransactionValue: posTransactions.length > 0 ? posRevenue / posTransactions.length : 0,
-          totalItems: posTransactions.reduce((sum, t) => sum + t.itemCount, 0),
+          totalItems: posTransactions.reduce((sum: number, t: { itemCount: number }) => sum + t.itemCount, 0),
         },
         combined: {
           totalRevenue: onlineRevenue + posRevenue,
