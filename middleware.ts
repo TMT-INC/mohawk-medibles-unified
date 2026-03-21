@@ -49,7 +49,7 @@ const PUBLIC_PATHS = [
     "/api/cron",
 ];
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
     // ── Resolve domain context ───────────────────────────────
@@ -142,7 +142,7 @@ export function middleware(request: NextRequest) {
     // Full DB validation happens in the API route itself.
     // Middleware does a structural check + expiry decode.
     try {
-        const payload = decodeSessionToken(token);
+        const payload = await decodeSessionToken(token);
 
         if (!payload || payload.exp < Date.now() / 1000) {
             if (pathname.startsWith("/api/")) {
@@ -186,9 +186,7 @@ export function middleware(request: NextRequest) {
     }
 }
 
-// ─── Token Verifier (HMAC-SHA256 signature check) ───────────
-
-import { createHmac, timingSafeEqual } from "crypto";
+// ─── Token Verifier (Edge-compatible, Web Crypto API) ───────
 
 interface SessionPayload {
     sub: string; // user ID
@@ -197,29 +195,50 @@ interface SessionPayload {
     exp: number; // expiry timestamp
 }
 
-function decodeSessionToken(token: string): SessionPayload | null {
+/** Base64url encode a Uint8Array */
+function toBase64url(buf: Uint8Array): string {
+    let binary = "";
+    for (const byte of buf) binary += String.fromCharCode(byte);
+    return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+
+/** HMAC-SHA256 sign using Web Crypto (Edge-compatible) */
+async function hmacSign(data: string, secret: string): Promise<string> {
+    const encoder = new TextEncoder();
+    const key = await crypto.subtle.importKey(
+        "raw", encoder.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]
+    );
+    const sig = await crypto.subtle.sign("HMAC", key, encoder.encode(data));
+    return toBase64url(new Uint8Array(sig));
+}
+
+/** Timing-safe comparison for Edge Runtime */
+function safeCompare(a: string, b: string): boolean {
+    if (a.length !== b.length) return false;
+    let result = 0;
+    for (let i = 0; i < a.length; i++) {
+        result |= a.charCodeAt(i) ^ b.charCodeAt(i);
+    }
+    return result === 0;
+}
+
+async function decodeSessionToken(token: string): Promise<SessionPayload | null> {
     try {
         const parts = token.split(".");
         if (parts.length !== 3) return null;
 
         const [headerB64, payloadB64, signature] = parts;
 
-        // Verify HMAC-SHA256 signature
+        // Verify HMAC-SHA256 signature using Web Crypto
         const secret = process.env.AUTH_SECRET;
         if (secret) {
-            const expected = createHmac("sha256", secret)
-                .update(`${headerB64}.${payloadB64}`)
-                .digest("base64url");
-            const sigBuf = Buffer.from(signature, "base64url");
-            const expBuf = Buffer.from(expected, "base64url");
-            if (sigBuf.length !== expBuf.length || !timingSafeEqual(sigBuf, expBuf)) {
+            const expected = await hmacSign(`${headerB64}.${payloadB64}`, secret);
+            if (!safeCompare(signature, expected)) {
                 return null;
             }
         }
 
-        const payload = JSON.parse(
-            Buffer.from(payloadB64, "base64url").toString("utf-8")
-        );
+        const payload = JSON.parse(atob(payloadB64.replace(/-/g, "+").replace(/_/g, "/")));
 
         return {
             sub: payload.sub || payload.userId,

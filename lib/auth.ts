@@ -5,11 +5,14 @@
  */
 import { randomBytes, createHmac, timingSafeEqual } from "crypto";
 
-const AUTH_SECRET = process.env.AUTH_SECRET;
-if (!AUTH_SECRET && process.env.NODE_ENV === "production") {
-    throw new Error("FATAL: AUTH_SECRET environment variable is required in production");
+/** Lazily resolved so the module can load at build time without AUTH_SECRET */
+function getSecret(): string {
+    const secret = process.env.AUTH_SECRET;
+    if (!secret && process.env.NODE_ENV === "production") {
+        throw new Error("FATAL: AUTH_SECRET environment variable is required in production");
+    }
+    return secret || "dev-secret-local-only";
 }
-const EFFECTIVE_SECRET = AUTH_SECRET || "dev-secret-local-only";
 const SESSION_DURATION = 7 * 24 * 60 * 60; // 7 days in seconds
 
 // ─── Password Hashing (bcrypt-compatible via native crypto) ─
@@ -151,7 +154,7 @@ function base64url(str: string): string {
 }
 
 function sign(data: string): string {
-    return createHmac("sha256", EFFECTIVE_SECRET)
+    return createHmac("sha256", getSecret())
         .update(data)
         .digest("base64url");
 }
@@ -174,7 +177,7 @@ export function generateCSRFToken(): string {
  * Verify a CSRF token using HMAC.
  */
 export function verifyCSRFToken(token: string, sessionId: string): boolean {
-    const expected = createHmac("sha256", EFFECTIVE_SECRET)
+    const expected = createHmac("sha256", getSecret())
         .update(sessionId)
         .digest("hex");
 

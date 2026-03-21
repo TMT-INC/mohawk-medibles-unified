@@ -2,8 +2,7 @@
  * Mohawk Medibles — CSRF Protection
  * ═══════════════════════════════════
  * Double-submit cookie pattern for CSRF protection.
- * The server sets a random CSRF token in a cookie, and the client
- * must include it in requests via X-CSRF-Token header.
+ * Edge-compatible: uses Web Crypto API, no Node.js crypto.
  *
  * Usage in API routes:
  *   const csrfError = verifyCsrf(req);
@@ -11,16 +10,32 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
-import { timingSafeEqual, randomBytes } from "crypto";
 
 const CSRF_COOKIE = "mm-csrf";
 const CSRF_HEADER = "x-csrf-token";
+
+/** Generate a random hex token using Web Crypto (Edge-compatible) */
+function generateToken(): string {
+    const bytes = new Uint8Array(32);
+    crypto.getRandomValues(bytes);
+    return Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+/** Timing-safe string comparison (Edge-compatible) */
+function safeCompare(a: string, b: string): boolean {
+    if (a.length !== b.length) return false;
+    let result = 0;
+    for (let i = 0; i < a.length; i++) {
+        result |= a.charCodeAt(i) ^ b.charCodeAt(i);
+    }
+    return result === 0;
+}
 
 /**
  * Generate a new CSRF token and set it as a cookie on a response.
  */
 export function setCsrfCookie(response: NextResponse): NextResponse {
-    const token = randomBytes(32).toString("hex");
+    const token = generateToken();
     response.cookies.set(CSRF_COOKIE, token, {
         httpOnly: false, // Client JS needs to read this to send as header
         sameSite: "strict",
@@ -51,19 +66,7 @@ export function verifyCsrf(req: NextRequest): NextResponse | null {
         );
     }
 
-    if (cookieToken.length !== headerToken.length) {
-        return NextResponse.json(
-            { error: "Invalid CSRF token" },
-            { status: 403 }
-        );
-    }
-
-    const valid = timingSafeEqual(
-        Buffer.from(cookieToken),
-        Buffer.from(headerToken)
-    );
-
-    if (!valid) {
+    if (!safeCompare(cookieToken, headerToken)) {
         return NextResponse.json(
             { error: "Invalid CSRF token" },
             { status: 403 }
