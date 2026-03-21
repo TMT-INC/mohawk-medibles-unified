@@ -22,26 +22,20 @@ interface CouponResult {
     freeShipping?: boolean;
 }
 
-type PaymentMethod = "paygobillingcc" | "wcpg_crypto" | "digipay_etransfer_manual";
+type PaymentMethod = "credit_card" | "etransfer";
 
 const PAYMENT_METHODS: { id: PaymentMethod; title: string; description: string; icon: React.ReactNode }[] = [
     {
-        id: "paygobillingcc",
+        id: "credit_card",
         title: "Credit Card",
         description: "Visa, Mastercard, or Amex",
         icon: <CreditCard className="h-5 w-5" />,
     },
     {
-        id: "digipay_etransfer_manual",
+        id: "etransfer",
         title: "Interac e-Transfer",
-        description: "Send money via e-Transfer",
+        description: "Send money via e-Transfer — auto-deposit enabled",
         icon: <Banknote className="h-5 w-5" />,
-    },
-    {
-        id: "wcpg_crypto",
-        title: "Pay with Crypto",
-        description: "Bitcoin, Ethereum, and more",
-        icon: <Bitcoin className="h-5 w-5" />,
     },
 ];
 
@@ -49,7 +43,7 @@ export default function CheckoutPage() {
     const { items, removeItem, addItem, updateQuantity, clearCart, total } = useCart();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-    const [selectedPayment, setSelectedPayment] = useState<PaymentMethod>("paygobillingcc");
+    const [selectedPayment, setSelectedPayment] = useState<PaymentMethod>("credit_card");
 
     // Authenticated user state (for email pre-fill + faster checkout)
     const [userEmail, setUserEmail] = useState<string | null>(null);
@@ -228,7 +222,7 @@ export default function CheckoutPage() {
             if (!res.ok) throw new Error(data.error || "Checkout failed");
 
             // Handle response based on payment method
-            if (data.paymentMethod === "etransfer" || selectedPayment === "digipay_etransfer_manual") {
+            if (data.paymentMethod === "etransfer" || selectedPayment === "etransfer") {
                 // Show e-Transfer instructions
                 setEtransferInfo({
                     instructions: data.etransfer?.instructions || "Check your email for e-Transfer instructions.",
@@ -693,10 +687,10 @@ export default function CheckoutPage() {
                                     </>
                                 ) : (
                                     <>
-                                        {selectedPayment === "paygobillingcc" && <CreditCard className="h-5 w-5" />}
-                                        {selectedPayment === "wcpg_crypto" && <Bitcoin className="h-5 w-5" />}
-                                        {selectedPayment === "digipay_etransfer_manual" && <Banknote className="h-5 w-5" />}
-                                        {selectedPayment === "digipay_etransfer_manual"
+                                        {selectedPayment === "credit_card" && <CreditCard className="h-5 w-5" />}
+                                        {false /* crypto disabled for now */ && <Bitcoin className="h-5 w-5" />}
+                                        {selectedPayment === "etransfer" && <Banknote className="h-5 w-5" />}
+                                        {selectedPayment === "etransfer"
                                             ? `Place Order — $${grandTotal.toFixed(2)} CAD`
                                             : `Pay $${grandTotal.toFixed(2)} CAD`
                                         }
