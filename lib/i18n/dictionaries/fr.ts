@@ -177,7 +177,7 @@ const fr: DictionarySchema = {
         accountPrivacy: "Compte et confidentialité",
         // Commandes et paiement — Q&R
         faqQ1: "Comment passer une commande?",
-        faqA1: "Parcourez notre boutique, ajoutez des articles à votre panier et passez à la caisse. Nous acceptons Visa, Mastercard, le virement Interac et le Bitcoin. Toutes les commandes sont traitées de manière sécurisée par Stripe.",
+        faqA1: "Parcourez notre boutique, ajoutez des articles à votre panier et passez à la caisse. Nous acceptons Visa, Mastercard, le virement Interac et le Bitcoin. Toutes les commandes sont traitées de manière sécurisée par PayGo.",
         faqQ2: "Y a-t-il un montant minimum de commande?",
         faqA2: "Aucun montant minimum requis! Cependant, les commandes de plus de 199 $ CA bénéficient de la livraison GRATUITE partout au Canada.",
         faqQ3: "Facturez-vous la taxe?",
@@ -219,7 +219,7 @@ const fr: DictionarySchema = {
         faqQ19: "Ai-je besoin d'un compte pour commander?",
         faqA19: "Non — vous pouvez passer à la caisse en tant qu'invité. Cependant, la création d'un compte vous permet de suivre vos commandes, d'enregistrer vos adresses et d'accéder à des avantages exclusifs pour les abonnés.",
         faqQ20: "Comment mes données sont-elles protégées?",
-        faqA20: "Toutes les données sont chiffrées en transit (TLS) et au repos. Le traitement des paiements est assuré par Stripe (conforme PCI-DSS niveau 1). Nous ne conservons jamais les numéros complets de carte de crédit. Consultez notre politique de confidentialité pour plus de détails.",
+        faqA20: "Toutes les données sont chiffrées en transit (TLS) et au repos. Le traitement des paiements est assuré par PayGo (conforme PCI-DSS niveau 1). Nous ne conservons jamais les numéros complets de carte de crédit. Consultez notre politique de confidentialité pour plus de détails.",
         faqQ21: "Qu'est-ce que MedAgent?",
         faqA21: "MedAgent est notre assistant client alimenté par l'intelligence artificielle. Il peut vous aider à trouver des produits, suivre vos commandes, répondre à vos questions et fournir des renseignements généraux sur le cannabis. Cliquez sur l'icône de clavardage sur n'importe quelle page pour commencer une conversation. MedAgent ne fournit pas de conseils médicaux.",
         // Appel à l'action
@@ -258,9 +258,9 @@ const fr: DictionarySchema = {
         topicPaymentsTitle: "Paiements et facturation",
         topicPaymentsDesc: "Modes de paiement, questions de facturation et remboursements",
         supportPayQ1: "Quels modes de paiement acceptez-vous?",
-        supportPayA1: "Nous acceptons Google Pay, le virement Interac, Visa, Mastercard et American Express. Tous les paiements sont traités de manière sécurisée par Stripe.",
+        supportPayA1: "Nous acceptons Google Pay, le virement Interac, Visa, Mastercard et American Express. Tous les paiements sont traités de manière sécurisée par PayGo.",
         supportPayQ2: "Mes renseignements de paiement sont-ils sécurisés?",
-        supportPayA2: "Oui. Nous utilisons Stripe pour le traitement des paiements avec un chiffrement de niveau bancaire. Nous ne conservons jamais les détails de votre carte sur nos serveurs.",
+        supportPayA2: "Oui. Nous utilisons PayGo pour le traitement des paiements avec un chiffrement de niveau bancaire. Nous ne conservons jamais les détails de votre carte sur nos serveurs.",
         supportPayQ3: "Comment fonctionnent les remboursements?",
         supportPayA3: "Les remboursements sont traités dans un délai de 5 à 7 jours ouvrables sur votre mode de paiement d'origine. Contactez-nous dans les 48 heures suivant la réception de votre commande en cas de problème.",
         // Sujet : Commandes et retours
@@ -423,7 +423,7 @@ const fr: DictionarySchema = {
         // Étape 2
         step2Title: "Ajouter au panier et passer à la caisse",
         step2Desc: "Ajoutez les articles sélectionnés à votre panier et passez à la caisse sécurisée. Nous offrons plusieurs modes de paiement sûrs et pratiques selon vos préférences.",
-        step2Bullet1: "Visa et Mastercard (traitement sécurisé via Stripe)",
+        step2Bullet1: "Visa et Mastercard (traitement sécurisé via PayGo)",
         step2Bullet2: "Virement Interac (comptes bancaires canadiens)",
         step2Bullet3: "Cryptomonnaie (Bitcoin et Ethereum)",
         step2Bullet4: "Toutes les transactions sont chiffrées et conformes PCI-DSS",
@@ -439,7 +439,7 @@ const fr: DictionarySchema = {
         paymentInteracTitle: "Virement Interac",
         paymentInteracDesc: "Virements bancaires canadiens rapides et sécurisés. Confirmation instantanée.",
         paymentVisaTitle: "Visa et Mastercard",
-        paymentVisaDesc: "Paiements par carte de crédit sécurisés via Stripe (PCI-DSS niveau 1).",
+        paymentVisaDesc: "Paiements par carte de crédit sécurisés via PayGo (PCI-DSS niveau 1).",
         paymentCryptoTitle: "Cryptomonnaie",
         paymentCryptoDesc: "Bitcoin et Ethereum pour des paiements décentralisés.",
         paymentCashTitle: "Comptant (ramassage local)",
@@ -582,11 +582,11 @@ const fr: DictionarySchema = {
         howWeUse6: "Pour prévenir la fraude et vérifier l'admissibilité d'âge (19+)",
         // Section 4
         paymentSecurityTitle: "4. Sécurité des paiements",
-        paymentSecurityDesc: "Tout le traitement des paiements est effectué de manière sécurisée par Stripe. Nous ne conservons jamais votre numéro complet de carte de crédit, CVV ou détails bancaires sur nos serveurs. Les données de paiement sont chiffrées en transit par TLS et au repos dans l'infrastructure conforme PCI-DSS niveau 1 de Stripe.",
+        paymentSecurityDesc: "Tout le traitement des paiements est effectué de manière sécurisée par PayGo. Nous ne conservons jamais votre numéro complet de carte de crédit, CVV ou détails bancaires sur nos serveurs. Les données de paiement sont chiffrées en transit par TLS et au repos dans l'infrastructure conforme PCI-DSS niveau 1 de PayGo.",
         // Section 5
         dataSharingTitle: "5. Partage des données",
         dataSharingIntro: "Nous partageons les données uniquement avec :",
-        dataSharing1: "Stripe — pour le traitement des paiements",
+        dataSharing1: "PayGo — pour le traitement des paiements",
         dataSharing2: "ShipStation / Postes Canada — pour l'exécution des commandes et l'expédition",
         dataSharing3: "Resend — pour les courriels transactionnels (confirmations de commande, mises à jour d'expédition)",
         dataSharing4: "Forces de l'ordre — uniquement lorsque la loi l'exige",
@@ -632,7 +632,7 @@ const fr: DictionarySchema = {
         ordersPaymentTitle: "5. Commandes et paiement",
         ordersPayment1: "Tous les prix sont en dollars canadiens (CAD) sauf indication contraire",
         ordersPayment2: "Toutes les commandes sont sans taxe en vertu de la souveraineté autochtone — aucune TVH ni taxe de vente n'est facturée",
-        ordersPayment3: "Les paiements sont traités de manière sécurisée par Stripe",
+        ordersPayment3: "Les paiements sont traités de manière sécurisée par PayGo",
         ordersPayment4: "Nous nous réservons le droit d'annuler ou de refuser toute commande",
         ordersPayment5: "La confirmation de commande ne constitue pas une acceptation tant que la commande n'a pas été expédiée",
         // Section 6

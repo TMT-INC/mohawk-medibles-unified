@@ -1592,7 +1592,7 @@ export function SettingsView() {
     const [testResults, setTestResults] = useState<Record<string, { success: boolean; message: string }>>({});
 
     const services = [
-        { service: "stripe", label: "Stripe Payments", icon: DollarSign, color: "text-purple-400", envVars: ["STRIPE_SECRET_KEY", "STRIPE_PUBLISHABLE_KEY", "STRIPE_WEBHOOK_SECRET"] },
+        { service: "woocommerce", label: "WooCommerce (PayGo CC / Crypto / e-Transfer)", icon: DollarSign, color: "text-purple-400", envVars: ["WC_CONSUMER_KEY", "WC_CONSUMER_SECRET", "WC_STORE_URL"] },
         { service: "shipstation", label: "ShipStation", icon: Truck, color: "text-cyan-400", envVars: ["SHIPSTATION_API_KEY", "SHIPSTATION_API_SECRET"] },
         { service: "resend", label: "Resend Email", icon: Mail, color: "text-blue-400", envVars: ["RESEND_API_KEY"] },
         { service: "openai", label: "OpenAI / Claude", icon: Zap, color: "text-green-400", envVars: ["OPENAI_API_KEY"] },
@@ -1760,7 +1760,7 @@ export function SettingsView() {
                             { label: "Rate Limiting", desc: "Per-route limits (auth: 10/min, admin: 30/min)", enabled: true },
                             { label: "PBKDF2 Password Hashing", desc: "310,000 iterations with random salt", enabled: true },
                             { label: "Security Headers", desc: "CSP, HSTS, X-Frame-Options, XSS Protection", enabled: true },
-                            { label: "Stripe Webhook Verification", desc: "HMAC signature validation", enabled: true },
+                            { label: "WooCommerce Webhook Verification", desc: "HMAC signature validation", enabled: true },
                             { label: "ShipStation HMAC", desc: "SHA-256 webhook signature verification", enabled: true },
                             { label: "Role-Based Access Control", desc: "5 roles: Customer, Support, Logistics, Admin, Super Admin", enabled: true },
                             { label: "Input Sanitization", desc: "Zod schemas + HTML strip on all inputs", enabled: true },

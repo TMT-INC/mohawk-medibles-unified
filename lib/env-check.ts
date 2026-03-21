@@ -11,8 +11,8 @@ const CRITICAL_VARS = [
 ] as const;
 
 const WARNING_VARS = [
-    { key: "STRIPE_SECRET_KEY", label: "Stripe Payments" },
-    { key: "STRIPE_WEBHOOK_SECRET", label: "Stripe Webhooks" },
+    { key: "WC_CONSUMER_KEY", label: "WooCommerce API" },
+    { key: "WC_CONSUMER_SECRET", label: "WooCommerce API Secret" },
     { key: "SHIPSTATION_API_KEY", label: "ShipStation Fulfillment" },
     { key: "RESEND_API_KEY", label: "Resend Email" },
     { key: "TURNSTILE_SECRET_KEY", label: "Cloudflare CAPTCHA" },

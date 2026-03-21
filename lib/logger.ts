@@ -91,7 +91,7 @@ export function createLogger(context: string) {
 
 /** Pre-built loggers for common modules */
 export const log = {
-    stripe: createLogger("Stripe"),
+    wc: createLogger("WooCommerce"),
     shipstation: createLogger("ShipStation"),
     campaign: createLogger("Campaign"),
     newsletter: createLogger("Newsletter"),

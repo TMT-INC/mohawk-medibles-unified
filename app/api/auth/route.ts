@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
                 // Check if email already exists
                 const existing = await prisma.user.findUnique({ where: { email } });
                 if (existing) {
-                    // Guest user (created during Stripe checkout with empty passwordHash) — upgrade account
+                    // Guest user (created during checkout with empty passwordHash) — upgrade account
                     if (existing.passwordHash === "") {
                         const hashed = await hashPassword(password);
                         const updated = await prisma.user.update({
@@ -129,7 +129,7 @@ export async function POST(req: NextRequest) {
                     return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
                 }
 
-                // Guest users (empty password from Stripe checkout) need to register first
+                // Guest users (empty password from checkout) need to register first
                 if (user.passwordHash === "") {
                     return NextResponse.json(
                         { error: "Please complete registration — your account was created as a guest checkout." },

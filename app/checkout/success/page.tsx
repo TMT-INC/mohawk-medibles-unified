@@ -9,14 +9,22 @@ import { useCart } from "@/hooks/useCart";
 import { useSearchParams } from "next/navigation";
 import { trackPurchase } from "@/lib/analytics";
 
+const PAYMENT_LABELS: Record<string, string> = {
+    paygobillingcc: "Credit Card",
+    wcpg_crypto: "Crypto",
+    digipay_etransfer_manual: "Interac e-Transfer",
+    etransfer: "Interac e-Transfer",
+};
+
 export default function CheckoutSuccessPage() {
     const { clearCart } = useCart();
     const searchParams = useSearchParams();
-    const paymentMethod = searchParams.get("method") || "stripe";
-    const sessionId = searchParams.get("session_id");
+    const orderId = searchParams.get("order");
+    const orderKey = searchParams.get("key");
 
     const [orderNumber, setOrderNumber] = useState<string | null>(null);
-    const [loading, setLoading] = useState(!!sessionId);
+    const [paymentMethod, setPaymentMethod] = useState<string>("");
+    const [loading, setLoading] = useState(!!orderId);
     const [copied, setCopied] = useState(false);
     const [isGuest, setIsGuest] = useState(true);
 
@@ -36,24 +44,24 @@ export default function CheckoutSuccessPage() {
     // Clear cart on successful checkout
     useEffect(() => { clearCart(); }, [clearCart]);
 
-    // Fetch real order number from Stripe session
+    // Fetch order details
     useEffect(() => {
-        if (!sessionId) {
-            // Google Pay or direct — no session to look up, show generic confirmation
+        if (!orderId) {
             setLoading(false);
             return;
         }
 
         async function fetchOrder() {
             try {
-                const res = await fetch(`/api/checkout/verify?session_id=${sessionId}`);
+                const res = await fetch(`/api/checkout/verify?order=${orderId}&key=${orderKey || ""}`);
                 if (res.ok) {
                     const data = await res.json();
                     if (data.orderNumber) {
                         setOrderNumber(data.orderNumber);
+                        setPaymentMethod(data.paymentMethod || "");
                         // GA4: Track purchase (guard against double-fire)
-                        if (!sessionStorage.getItem(`mm-purchase-${sessionId}`)) {
-                            sessionStorage.setItem(`mm-purchase-${sessionId}`, "1");
+                        if (!sessionStorage.getItem(`mm-purchase-${orderId}`)) {
+                            sessionStorage.setItem(`mm-purchase-${orderId}`, "1");
                             trackPurchase({
                                 transactionId: data.orderNumber,
                                 value: data.total || 0,
@@ -73,13 +81,15 @@ export default function CheckoutSuccessPage() {
             }
         }
         fetchOrder();
-    }, [sessionId]);
+    }, [orderId, orderKey]);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(orderNumber ?? "");
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
+
+    const paymentLabel = PAYMENT_LABELS[paymentMethod] || paymentMethod || "Online Payment";
 
     return (
         <div className="min-h-screen bg-background flex items-center justify-center">
@@ -133,7 +143,7 @@ export default function CheckoutSuccessPage() {
                         )}
                     </div>
                     <div className="text-xs text-muted-foreground mt-2">
-                        Paid via {paymentMethod === "google_pay" ? "Google Pay" : "Credit Card"}
+                        Paid via {paymentLabel}
                     </div>
                 </motion.div>
 

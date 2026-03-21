@@ -174,7 +174,7 @@ const en = {
         accountPrivacy: "Account & Privacy",
         // Ordering & Payment Q&A
         faqQ1: "How do I place an order?",
-        faqA1: "Browse our shop, add items to your cart, and proceed to checkout. We accept Visa, Mastercard, Interac e-Transfer, and Bitcoin. All orders are processed securely through Stripe.",
+        faqA1: "Browse our shop, add items to your cart, and proceed to checkout. We accept Visa, Mastercard, Interac e-Transfer, and Bitcoin. All orders are processed securely through our secure payment gateway.",
         faqQ2: "Is there a minimum order amount?",
         faqA2: "No minimum order required! However, orders over $199 CAD qualify for FREE shipping Canada-wide.",
         faqQ3: "Do you charge tax?",
@@ -216,7 +216,7 @@ const en = {
         faqQ19: "Do I need an account to order?",
         faqA19: "No — you can checkout as a guest. However, creating an account lets you track orders, save addresses, and access exclusive subscriber perks.",
         faqQ20: "How is my data protected?",
-        faqA20: "All data is encrypted in transit (TLS) and at rest. Payment processing is handled by Stripe (PCI-DSS Level 1 compliant). We never store full credit card numbers. See our Privacy Policy for details.",
+        faqA20: "All data is encrypted in transit (TLS) and at rest. Payment processing is handled by PayGo Billing (PCI-DSS compliant). We never store full credit card numbers. See our Privacy Policy for details.",
         faqQ21: "What is MedAgent?",
         faqA21: "MedAgent is our AI-powered customer assistant. It can help you find products, track orders, answer questions, and provide general cannabis information. Click the chat icon on any page to start a conversation. MedAgent does not provide medical advice.",
         // Still have questions CTA
@@ -255,9 +255,9 @@ const en = {
         topicPaymentsTitle: "Payments & Billing",
         topicPaymentsDesc: "Payment methods, billing questions, and refunds",
         supportPayQ1: "What payment methods do you accept?",
-        supportPayA1: "We accept Google Pay, Interac e-Transfer, Visa, Mastercard, and American Express. All payments are processed securely through Stripe.",
+        supportPayA1: "We accept Google Pay, Interac e-Transfer, Visa, Mastercard, and American Express. All payments are processed securely through our secure payment gateway.",
         supportPayQ2: "Is my payment information secure?",
-        supportPayA2: "Yes. We use Stripe for payment processing with bank-level encryption. We never store your card details on our servers.",
+        supportPayA2: "Yes. We use PayGo Billing for payment processing with bank-level encryption. We never store your card details on our servers.",
         supportPayQ3: "How do refunds work?",
         supportPayA3: "Refunds are processed within 5-7 business days back to your original payment method. Contact us within 48 hours of receiving your order if there's an issue.",
         // Topic: Orders & Returns
@@ -420,7 +420,7 @@ const en = {
         // Step 2
         step2Title: "Add to Cart & Checkout",
         step2Desc: "Add your selected items to your cart and proceed to secure checkout. We offer multiple safe and convenient payment methods to suit your preferences.",
-        step2Bullet1: "Visa and Mastercard (processed securely via Stripe)",
+        step2Bullet1: "Visa, Mastercard, and Amex (processed securely via PayGo Billing)",
         step2Bullet2: "Interac e-Transfer (Canadian bank accounts)",
         step2Bullet3: "Cryptocurrency (Bitcoin and Ethereum)",
         step2Bullet4: "All transactions are encrypted and PCI-DSS compliant",
@@ -436,7 +436,7 @@ const en = {
         paymentInteracTitle: "Interac e-Transfer",
         paymentInteracDesc: "Fast, secure Canadian bank transfers. Instant confirmation.",
         paymentVisaTitle: "Visa & Mastercard",
-        paymentVisaDesc: "Secure credit card payments via Stripe (PCI-DSS Level 1).",
+        paymentVisaDesc: "Secure credit card payments via PayGo Billing (PCI-DSS compliant).",
         paymentCryptoTitle: "Cryptocurrency",
         paymentCryptoDesc: "Bitcoin and Ethereum for decentralized payments.",
         paymentCashTitle: "Cash (Local Pickup)",
@@ -579,11 +579,11 @@ const en = {
         howWeUse6: "To prevent fraud and verify age eligibility (19+)",
         // Section 4
         paymentSecurityTitle: "4. Payment Security",
-        paymentSecurityDesc: "All payment processing is handled securely through Stripe. We never store your full credit card number, CVV, or banking details on our servers. Payment data is encrypted in transit using TLS and at rest within Stripe's PCI-DSS Level 1 compliant infrastructure.",
+        paymentSecurityDesc: "All payment processing is handled securely through our secure payment gateway. We never store your full credit card number, CVV, or banking details on our servers. Payment data is encrypted in transit using TLS and at rest within PCI-DSS compliant infrastructure.",
         // Section 5
         dataSharingTitle: "5. Data Sharing",
         dataSharingIntro: "We share data only with:",
-        dataSharing1: "Stripe — for payment processing",
+        dataSharing1: "PayGo Billing — for payment processing",
         dataSharing2: "ShipStation / Canada Post — for order fulfillment and shipping",
         dataSharing3: "Resend — for transactional emails (order confirmations, shipping updates)",
         dataSharing4: "Law enforcement — only when required by law",
@@ -629,7 +629,7 @@ const en = {
         ordersPaymentTitle: "5. Orders & Payment",
         ordersPayment1: "All prices are in Canadian Dollars (CAD) unless otherwise stated",
         ordersPayment2: "All orders are tax-free under Indigenous sovereignty — no HST or sales tax is charged",
-        ordersPayment3: "Payments are processed securely through Stripe",
+        ordersPayment3: "Payments are processed securely through PayGo Billing",
         ordersPayment4: "We reserve the right to cancel or refuse any order",
         ordersPayment5: "Order confirmation does not constitute acceptance until the order has shipped",
         // Section 6

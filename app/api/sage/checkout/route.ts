@@ -1,19 +1,33 @@
 /**
  * MedAgent Checkout API — /api/sage/checkout
- * ═══════════════════════════════════════════
+ * ============================================
  * UCP-compatible checkout endpoint.
- * Creates Stripe sessions + Google Pay payment requests
- * from MedAgent session carts.
+ * Creates WooCommerce orders from MedAgent session carts.
+ * Supports: Credit Card (PayGo), Crypto, Interac e-Transfer.
  *
  * POST: Create checkout from session cart
  * GET:  Check current cart status
  */
 
 import { NextRequest, NextResponse } from "next/server";
-import { getCart, createCheckoutIntent } from "@/lib/sage/commerce";
-import { createCheckoutSession, type CheckoutItem } from "@/lib/stripe";
+import { getCart } from "@/lib/sage/commerce";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 import { log } from "@/lib/logger";
+
+const WC_STORE_URL = process.env.WC_STORE_URL || "https://mohawkmedibles.ca";
+const WC_CONSUMER_KEY = process.env.WC_CONSUMER_KEY || "";
+const WC_CONSUMER_SECRET = process.env.WC_CONSUMER_SECRET || "";
+
+const VALID_PAYMENT_METHODS = new Set(["paygobillingcc", "wcpg_crypto", "digipay_etransfer_manual"]);
+
+function getPaymentMethodTitle(method: string): string {
+    const titles: Record<string, string> = {
+        paygobillingcc: "Credit Card",
+        digipay_etransfer_manual: "Interac e-Transfer (Send Money)",
+        wcpg_crypto: "Pay with Crypto",
+    };
+    return titles[method] || method;
+}
 
 // ─── POST /api/sage/checkout ────────────────────────────────
 
@@ -23,10 +37,27 @@ export async function POST(req: NextRequest) {
 
     try {
         const body = await req.json();
-        const { sessionId, paymentMethod = "auto", email } = body as {
+        const {
+            sessionId,
+            paymentMethod = "paygobillingcc",
+            email,
+            billing,
+        } = body as {
             sessionId: string;
-            paymentMethod?: "stripe" | "google_pay" | "auto";
+            paymentMethod?: string;
             email?: string;
+            billing?: {
+                first_name: string;
+                last_name: string;
+                email: string;
+                phone?: string;
+                address_1: string;
+                address_2?: string;
+                city: string;
+                state: string;
+                postcode: string;
+                country?: string;
+            };
         };
 
         if (!sessionId || typeof sessionId !== "string") {
@@ -37,8 +68,7 @@ export async function POST(req: NextRequest) {
         }
 
         // Validate payment method
-        const VALID_PAYMENT_METHODS = new Set(["stripe", "google_pay", "auto"]);
-        const safePaymentMethod = VALID_PAYMENT_METHODS.has(paymentMethod) ? paymentMethod : "auto";
+        const safePaymentMethod = VALID_PAYMENT_METHODS.has(paymentMethod) ? paymentMethod : "paygobillingcc";
 
         // Validate email if provided
         if (email && (typeof email !== "string" || email.length > 254)) {
@@ -57,26 +87,110 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        // Build checkout intent (includes Google Pay request)
-        const intent = createCheckoutIntent(sessionId, safePaymentMethod as "stripe" | "google_pay" | "auto");
+        // Build billing info (use provided billing or construct from email)
+        const billingInfo = billing || {
+            first_name: "Guest",
+            last_name: "Customer",
+            email: email || "",
+            address_1: "",
+            city: "",
+            state: "ON",
+            postcode: "",
+            country: "CA",
+        };
 
-        // Create Stripe session for redirect-based checkout
-        const stripeItems: CheckoutItem[] = cart.items.map((item) => ({
-            name: item.name,
-            price: item.price,
-            quantity: item.quantity,
-            productId: String(item.productId),
-        }));
+        if (!billingInfo.email && email) {
+            billingInfo.email = email;
+        }
 
-        const stripeSession = await createCheckoutSession(stripeItems, email);
+        if (!billingInfo.email) {
+            return NextResponse.json(
+                { error: "Email is required for checkout" },
+                { status: 400 }
+            );
+        }
+
+        // Create WooCommerce order
+        const auth = Buffer.from(`${WC_CONSUMER_KEY}:${WC_CONSUMER_SECRET}`).toString("base64");
+        const wcBody = {
+            payment_method: safePaymentMethod,
+            payment_method_title: getPaymentMethodTitle(safePaymentMethod),
+            set_paid: false,
+            status: safePaymentMethod === "digipay_etransfer_manual" ? "on-hold" : "pending",
+            billing: { ...billingInfo, country: billingInfo.country || "CA" },
+            shipping: { ...billingInfo, country: billingInfo.country || "CA" },
+            line_items: cart.items.map((item) => ({
+                product_id: item.productId,
+                quantity: item.quantity,
+            })),
+            meta_data: [
+                { key: "_source_site", value: "medagent" },
+                { key: "_source_tenant", value: "sage-checkout" },
+                { key: "_checkout_origin", value: "ai-agent" },
+                { key: "_checkout_timestamp", value: new Date().toISOString() },
+            ],
+        };
+
+        const wcResponse = await fetch(`${WC_STORE_URL}/wp-json/wc/v3/orders`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Basic ${auth}`,
+            },
+            body: JSON.stringify(wcBody),
+        });
+
+        if (!wcResponse.ok) {
+            const wcError = await wcResponse.json().catch(() => ({}));
+            log.sage.error("WC order creation failed", { status: wcResponse.status });
+            throw new Error(`WC API error ${wcResponse.status}: ${JSON.stringify(wcError)}`);
+        }
+
+        const wcOrder = await wcResponse.json();
+
+        // Build response based on payment method
+        if (safePaymentMethod === "digipay_etransfer_manual") {
+            return NextResponse.json({
+                success: true,
+                checkout: {
+                    orderId: wcOrder.id,
+                    orderNumber: wcOrder.number,
+                    orderKey: wcOrder.order_key,
+                    status: "on-hold",
+                    paymentMethod: "etransfer",
+                    total: wcOrder.total,
+                    currency: wcOrder.currency,
+                    etransfer: {
+                        instructions: "Please send your Interac e-Transfer to the email provided in your order confirmation. Use your order number as the reference.",
+                        orderReference: `WC-${wcOrder.number}`,
+                    },
+                    cart: { items: cart.items, subtotal: cart.subtotal, currency: "CAD", itemCount: cart.itemCount },
+                },
+                ucp: {
+                    protocol: "google-ucp-v1",
+                    action: "CHECKOUT",
+                    merchantOfRecord: "Mohawk Medibles",
+                    currency: "CAD",
+                    countryCode: "CA",
+                },
+            });
+        }
+
+        // CC or Crypto: redirect to WC pay-for-order page
+        const payUrl = `${WC_STORE_URL}/checkout/order-pay/${wcOrder.id}/?pay_for_order=true&key=${wcOrder.order_key}`;
 
         return NextResponse.json({
             success: true,
             checkout: {
-                stripeSessionId: stripeSession.id,
-                stripeUrl: stripeSession.url,
-                googlePayRequest: intent.googlePayRequest,
-                cart: intent.cart,
+                orderId: wcOrder.id,
+                orderNumber: wcOrder.number,
+                orderKey: wcOrder.order_key,
+                status: "pending",
+                paymentMethod: safePaymentMethod,
+                total: wcOrder.total,
+                currency: wcOrder.currency,
+                payUrl,
+                cart: { items: cart.items, subtotal: cart.subtotal, currency: "CAD", itemCount: cart.itemCount },
             },
             ucp: {
                 protocol: "google-ucp-v1",
@@ -113,6 +227,6 @@ export async function GET(req: NextRequest) {
         sessionId,
         cart,
         canCheckout: cart.items.length > 0,
-        supportedPaymentMethods: ["stripe", "google_pay"],
+        supportedPaymentMethods: ["paygobillingcc", "wcpg_crypto", "digipay_etransfer_manual"],
     });
 }

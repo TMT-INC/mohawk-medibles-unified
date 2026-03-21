@@ -126,7 +126,7 @@ export async function GET(req: NextRequest) {
             merchantId: process.env.GOOGLE_MERCHANT_ID || "",
             merchantName: "Mohawk Medibles",
             supportsAgenticCheckout: true,
-            supportedPaymentMethods: ["google_pay", "stripe"],
+            supportedPaymentMethods: ["paygobillingcc", "wcpg_crypto", "digipay_etransfer_manual"],
             checkoutEndpoint: `${SITE_URL}/api/sage/checkout`,
             chatEndpoint: `${SITE_URL}/api/sage/chat`,
             currency: "CAD",

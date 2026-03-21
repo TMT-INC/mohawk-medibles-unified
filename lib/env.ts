@@ -18,11 +18,6 @@ const ENV_SCHEMA: EnvVar[] = [
     { key: "DATABASE_URL", required: true, description: "PostgreSQL connection string" },
     { key: "AUTH_SECRET", required: true, description: "JWT signing secret (64-byte hex)" },
 
-    // Payment — needed for checkout
-    { key: "STRIPE_SECRET_KEY", required: true, description: "Stripe secret key" },
-    { key: "STRIPE_WEBHOOK_SECRET", required: true, description: "Stripe webhook signing secret" },
-    { key: "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY", required: true, description: "Stripe publishable key" },
-
     // Fulfillment
     { key: "SHIPSTATION_API_KEY", required: true, description: "ShipStation API key" },
     { key: "SHIPSTATION_API_SECRET", required: true, description: "ShipStation API secret" },

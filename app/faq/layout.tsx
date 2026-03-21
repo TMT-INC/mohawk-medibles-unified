@@ -3,7 +3,7 @@ import { faqSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 
 // FAQ data matching the client component's FAQ_DATA — all static trusted content
 const FAQ_ITEMS = [
-    { question: "How do I place an order?", answer: "Browse our shop, add items to your cart, and proceed to checkout. We accept Visa, Mastercard, Interac e-Transfer, and Bitcoin. All orders are processed securely through Stripe." },
+    { question: "How do I place an order?", answer: "Browse our shop, add items to your cart, and proceed to checkout. We accept Visa, Mastercard, Interac e-Transfer, and Bitcoin. All orders are processed securely through our payment gateway." },
     { question: "Is there a minimum order amount?", answer: "No minimum order required! However, orders over $199 CAD qualify for FREE shipping Canada-wide." },
     { question: "Where do you ship?", answer: "We ship Canada-wide to all 13 provinces and territories via Canada Post Xpresspost. Local delivery is available for Hamilton, Brantford, and the Six Nations area." },
     { question: "How long does shipping take?", answer: "Local delivery: Same day or next day. Ontario: 1-3 business days. Quebec/Maritimes: 2-4 business days. Western Canada: 3-5 business days. Northern Canada: 5-10 business days." },
@@ -11,7 +11,7 @@ const FAQ_ITEMS = [
     { question: "Are your products lab-tested?", answer: "Yes. All products meet our Empire Standard\u2122 quality benchmarks. We work with certified labs to verify THC/CBD content, check for contaminants, and ensure consistent potency across batches." },
     { question: "What product categories do you carry?", answer: "We carry 344+ products across Flower, Edibles, Concentrates, Vapes, Hash, CBD, Mushrooms, and Accessories. Our catalogue is updated regularly with new arrivals." },
     { question: "What is your return policy?", answer: "Due to the nature of cannabis products, returns are accepted only for damaged, defective, or incorrectly shipped items. Report issues within 48 hours of delivery with photos." },
-    { question: "How is my data protected?", answer: "All data is encrypted in transit (TLS) and at rest. Payment processing is handled by Stripe (PCI-DSS Level 1 compliant). We never store full credit card numbers." },
+    { question: "How is my data protected?", answer: "All data is encrypted in transit (TLS) and at rest. Payment processing is handled by PayGo Billing (PCI-DSS compliant). We never store full credit card numbers." },
 ];
 
 export const metadata: Metadata = {

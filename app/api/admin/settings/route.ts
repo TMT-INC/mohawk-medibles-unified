@@ -12,7 +12,7 @@ import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 
 // Services that can have API keys managed
 const MANAGED_SERVICES = [
-    { service: "stripe", label: "Stripe Payments", required: true, fields: ["secret_key", "publishable_key", "webhook_secret"] },
+    { service: "woocommerce", label: "WooCommerce (PayGo CC / Crypto / e-Transfer)", required: true, fields: ["consumer_key", "consumer_secret", "webhook_secret"] },
     { service: "shipstation", label: "ShipStation Fulfillment", required: true, fields: ["api_key", "api_secret", "webhook_secret"] },
     { service: "resend", label: "Resend Email", required: true, fields: ["api_key"] },
     { service: "openai", label: "OpenAI (Claude/GPT)", required: false, fields: ["api_key"] },
@@ -203,10 +203,11 @@ export async function POST(req: NextRequest) {
                 let testResult = { success: false, message: "Unknown service" };
 
                 switch (service) {
-                    case "stripe":
+                    case "woocommerce":
                         try {
-                            const res = await fetch("https://api.stripe.com/v1/balance", {
-                                headers: { Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}` },
+                            const wcAuth = Buffer.from(`${process.env.WC_CONSUMER_KEY}:${process.env.WC_CONSUMER_SECRET}`).toString("base64");
+                            const res = await fetch(`${process.env.WC_STORE_URL || "https://mohawkmedibles.ca"}/wp-json/wc/v3/system_status`, {
+                                headers: { Authorization: `Basic ${wcAuth}` },
                             });
                             testResult = { success: res.ok, message: res.ok ? "Connected" : `Error: ${res.status}` };
                         } catch (e) {

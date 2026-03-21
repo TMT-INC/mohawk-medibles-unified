@@ -57,7 +57,7 @@ const faqSchema = {
             "name": "What payment methods do you accept?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "We accept Google Pay, Interac e-Transfer, Visa, Mastercard, and American Express. All payments are processed securely through Stripe.",
+                "text": "We accept Visa, Mastercard, American Express, Interac e-Transfer, and cryptocurrency. All payments are processed securely through PayGo Billing.",
             },
         },
         {
@@ -65,7 +65,7 @@ const faqSchema = {
             "name": "Is my payment information secure?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. We use Stripe for payment processing with bank-level encryption. We never store your card details on our servers.",
+                "text": "Yes. We use PayGo Billing for payment processing with bank-level encryption. We never store your card details on our servers.",
             },
         },
         {

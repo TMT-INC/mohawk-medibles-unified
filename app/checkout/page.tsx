@@ -8,8 +8,8 @@ import { Button } from "@/components/ui/button";
 import {
     ShoppingCart, Trash2, Plus, Minus, CreditCard,
     Shield, Truck, ArrowLeft, Loader2, Tag, X, CheckCircle, User, LogIn,
+    Bitcoin, Banknote,
 } from "lucide-react";
-import GooglePayButton from "@/components/GooglePayButton";
 import FreeShippingBar from "@/components/FreeShippingBar";
 import { trackBeginCheckout } from "@/lib/analytics";
 
@@ -22,15 +22,59 @@ interface CouponResult {
     freeShipping?: boolean;
 }
 
+type PaymentMethod = "paygobillingcc" | "wcpg_crypto" | "digipay_etransfer_manual";
+
+const PAYMENT_METHODS: { id: PaymentMethod; title: string; description: string; icon: React.ReactNode }[] = [
+    {
+        id: "paygobillingcc",
+        title: "Credit Card",
+        description: "Visa, Mastercard, or Amex",
+        icon: <CreditCard className="h-5 w-5" />,
+    },
+    {
+        id: "digipay_etransfer_manual",
+        title: "Interac e-Transfer",
+        description: "Send money via e-Transfer",
+        icon: <Banknote className="h-5 w-5" />,
+    },
+    {
+        id: "wcpg_crypto",
+        title: "Pay with Crypto",
+        description: "Bitcoin, Ethereum, and more",
+        icon: <Bitcoin className="h-5 w-5" />,
+    },
+];
+
 export default function CheckoutPage() {
     const { items, removeItem, addItem, updateQuantity, clearCart, total } = useCart();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const [selectedPayment, setSelectedPayment] = useState<PaymentMethod>("paygobillingcc");
 
     // Authenticated user state (for email pre-fill + faster checkout)
     const [userEmail, setUserEmail] = useState<string | null>(null);
     const [userName, setUserName] = useState<string | null>(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    // Billing form state
+    const [billing, setBilling] = useState({
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone: "",
+        address_1: "",
+        address_2: "",
+        city: "",
+        state: "ON",
+        postcode: "",
+    });
+
+    // e-Transfer instructions (shown after order)
+    const [etransferInfo, setEtransferInfo] = useState<{
+        instructions: string;
+        orderReference: string;
+        total: string;
+    } | null>(null);
 
     // Fetch user profile on mount (non-blocking, silent on failure)
     useEffect(() => {
@@ -43,6 +87,13 @@ export default function CheckoutPage() {
                         setUserEmail(data.user.email);
                         setUserName(data.user.name || null);
                         setIsAuthenticated(true);
+                        setBilling((prev) => ({
+                            ...prev,
+                            email: data.user.email,
+                            first_name: data.user.name?.split(" ")[0] || prev.first_name,
+                            last_name: data.user.name?.split(" ").slice(1).join(" ") || prev.last_name,
+                            phone: data.user.phone || prev.phone,
+                        }));
                     }
                 }
             } catch {
@@ -64,14 +115,15 @@ export default function CheckoutPage() {
 
     // Sync cart with email for abandoned cart tracking
     useEffect(() => {
-        if (userEmail && items.length > 0) {
+        const email = billing.email || userEmail;
+        if (email && items.length > 0) {
             fetch("/api/cart/sync", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ items, email: userEmail }),
+                body: JSON.stringify({ items, email }),
             }).catch(() => {});
         }
-    }, [userEmail, items]);
+    }, [billing.email, userEmail, items]);
 
     // Coupon state
     const [couponCode, setCouponCode] = useState("");
@@ -124,8 +176,25 @@ export default function CheckoutPage() {
         setCouponError("");
     }
 
+    // ─── Form Validation ──────────────────────────────────────
+    function validateBilling(): string | null {
+        if (!billing.first_name.trim()) return "First name is required";
+        if (!billing.last_name.trim()) return "Last name is required";
+        if (!billing.email.trim() || !billing.email.includes("@")) return "Valid email is required";
+        if (!billing.address_1.trim()) return "Address is required";
+        if (!billing.city.trim()) return "City is required";
+        if (!billing.postcode.trim()) return "Postal code is required";
+        return null;
+    }
+
     // ─── Checkout ────────────────────────────────────────────
     async function handleCheckout() {
+        const validationError = validateBilling();
+        if (validationError) {
+            setError(validationError);
+            return;
+        }
+
         setLoading(true);
         setError("");
 
@@ -134,21 +203,81 @@ export default function CheckoutPage() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    items,
-                    email: userEmail || undefined, // Pre-fill Stripe email for authenticated users
-                    couponCode: appliedCoupon?.valid ? appliedCoupon.code : undefined,
+                    items: items.map((item) => ({
+                        productId: parseInt(item.id) || 0,
+                        quantity: item.quantity,
+                        name: item.name,
+                    })),
+                    billing: {
+                        first_name: billing.first_name.trim(),
+                        last_name: billing.last_name.trim(),
+                        email: billing.email.trim(),
+                        phone: billing.phone.trim() || undefined,
+                        address_1: billing.address_1.trim(),
+                        address_2: billing.address_2.trim() || undefined,
+                        city: billing.city.trim(),
+                        state: billing.state,
+                        postcode: billing.postcode.trim(),
+                    },
+                    payment_method: selectedPayment,
+                    coupon_codes: appliedCoupon?.valid && appliedCoupon.code ? [appliedCoupon.code] : undefined,
                 }),
             });
 
             const data = await res.json();
             if (!res.ok) throw new Error(data.error || "Checkout failed");
 
-            // Redirect to Stripe
-            window.location.href = data.url;
+            // Handle response based on payment method
+            if (data.paymentMethod === "etransfer" || selectedPayment === "digipay_etransfer_manual") {
+                // Show e-Transfer instructions
+                setEtransferInfo({
+                    instructions: data.etransfer?.instructions || "Check your email for e-Transfer instructions.",
+                    orderReference: data.etransfer?.orderReference || `WC-${data.orderNumber}`,
+                    total: data.total || String(grandTotal),
+                });
+                clearCart();
+            } else if (data.payUrl) {
+                // CC or Crypto: redirect to WooCommerce payment page
+                window.location.href = data.payUrl;
+            } else if (data.confirmationUrl) {
+                window.location.href = data.confirmationUrl;
+            } else {
+                // Fallback
+                window.location.href = `/checkout/success?order=${data.orderId}`;
+            }
         } catch (e) {
             setError(e instanceof Error ? e.message : "Something went wrong");
             setLoading(false);
         }
+    }
+
+    // ─── e-Transfer Confirmation Screen ──────────────────────
+    if (etransferInfo) {
+        return (
+            <div className="min-h-screen bg-background flex items-center justify-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-center space-y-6 max-w-md mx-auto p-8"
+                >
+                    <CheckCircle className="h-20 w-20 text-green-500 mx-auto" />
+                    <h1 className="text-3xl font-bold text-forest dark:text-cream">Order Placed!</h1>
+                    <div className="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-xl text-left space-y-3">
+                        <h2 className="font-bold text-amber-800 dark:text-amber-300">Interac e-Transfer Instructions</h2>
+                        <p className="text-sm text-amber-700 dark:text-amber-400">{etransferInfo.instructions}</p>
+                        <div className="text-sm">
+                            <p><strong>Order Reference:</strong> {etransferInfo.orderReference}</p>
+                            <p><strong>Total:</strong> ${etransferInfo.total} CAD</p>
+                        </div>
+                    </div>
+                    <Link href="/shop">
+                        <Button variant="brand" size="lg" className="gap-2">
+                            <ArrowLeft className="h-4 w-4" /> Continue Shopping
+                        </Button>
+                    </Link>
+                </motion.div>
+            </div>
+        );
     }
 
     if (items.length === 0) {
@@ -202,7 +331,7 @@ export default function CheckoutPage() {
                                 Signed in as <strong>{userName || userEmail}</strong>
                             </span>
                             <span className="text-green-600/70 dark:text-green-400/70 ml-1">
-                                — your email will be pre-filled at payment
+                                — your details have been pre-filled
                             </span>
                         </div>
                     </div>
@@ -226,66 +355,225 @@ export default function CheckoutPage() {
                 </div>
 
                 <div className="grid lg:grid-cols-3 gap-8">
-                    {/* Cart Items */}
-                    <div className="lg:col-span-2 space-y-4">
-                        {items.map((item) => (
-                            <motion.div
-                                key={item.id}
-                                layout
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: 20 }}
-                                className="bg-white dark:bg-card rounded-xl border border-border p-4 flex items-center gap-4"
-                            >
-                                <div className="w-20 h-20 bg-forest/5 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <ShoppingCart className="h-8 w-8 text-forest/20" />
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                    <h3 className="font-bold text-forest dark:text-cream truncate">{item.name}</h3>
-                                    <div className="text-lg font-bold mt-1">${item.price.toFixed(2)} CAD</div>
-                                </div>
-                                <div className="flex items-center gap-1" role="group" aria-label={`Quantity for ${item.name}`}>
-                                    <button
-                                        onClick={() => {
-                                            if (item.quantity <= 1) removeItem(item.id);
-                                            else updateQuantity(item.id, item.quantity - 1);
-                                        }}
-                                        className="p-1.5 rounded-lg hover:bg-muted border border-border transition-colors"
-                                        aria-label={`Decrease quantity of ${item.name}`}
-                                    >
-                                        <Minus className="h-3.5 w-3.5" />
-                                    </button>
-                                    <select
-                                        value={item.quantity}
-                                        onChange={(e) => updateQuantity(item.id, Number(e.target.value))}
-                                        className="font-mono font-bold text-center w-14 py-1 rounded-lg border border-border bg-transparent text-sm focus:ring-2 focus:ring-forest/30 outline-none"
-                                        aria-label={`Quantity of ${item.name}`}
-                                    >
-                                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
-                                            <option key={n} value={n}>{n}</option>
-                                        ))}
-                                    </select>
-                                    <button
-                                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                        className="p-1.5 rounded-lg hover:bg-muted border border-border transition-colors disabled:opacity-30"
-                                        disabled={item.quantity >= 10}
-                                        aria-label={`Increase quantity of ${item.name}`}
-                                    >
-                                        <Plus className="h-3.5 w-3.5" />
-                                    </button>
-                                </div>
-                                <div className="font-bold text-lg min-w-[80px] text-right" aria-label={`Subtotal: $${(item.price * item.quantity).toFixed(2)}`}>
-                                    ${(item.price * item.quantity).toFixed(2)}
-                                </div>
-                                <button
-                                    onClick={() => removeItem(item.id)}
-                                    className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
-                                    aria-label={`Remove ${item.name} from cart`}
+                    {/* Left Column: Cart Items + Billing Form */}
+                    <div className="lg:col-span-2 space-y-6">
+                        {/* Cart Items */}
+                        <div className="space-y-4">
+                            {items.map((item) => (
+                                <motion.div
+                                    key={item.id}
+                                    layout
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: 20 }}
+                                    className="bg-white dark:bg-card rounded-xl border border-border p-4 flex items-center gap-4"
                                 >
-                                    <Trash2 className="h-4 w-4" />
-                                </button>
-                            </motion.div>
-                        ))}
+                                    <div className="w-20 h-20 bg-forest/5 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <ShoppingCart className="h-8 w-8 text-forest/20" />
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <h3 className="font-bold text-forest dark:text-cream truncate">{item.name}</h3>
+                                        <div className="text-lg font-bold mt-1">${item.price.toFixed(2)} CAD</div>
+                                    </div>
+                                    <div className="flex items-center gap-1" role="group" aria-label={`Quantity for ${item.name}`}>
+                                        <button
+                                            onClick={() => {
+                                                if (item.quantity <= 1) removeItem(item.id);
+                                                else updateQuantity(item.id, item.quantity - 1);
+                                            }}
+                                            className="p-1.5 rounded-lg hover:bg-muted border border-border transition-colors"
+                                            aria-label={`Decrease quantity of ${item.name}`}
+                                        >
+                                            <Minus className="h-3.5 w-3.5" />
+                                        </button>
+                                        <select
+                                            value={item.quantity}
+                                            onChange={(e) => updateQuantity(item.id, Number(e.target.value))}
+                                            className="font-mono font-bold text-center w-14 py-1 rounded-lg border border-border bg-transparent text-sm focus:ring-2 focus:ring-forest/30 outline-none"
+                                            aria-label={`Quantity of ${item.name}`}
+                                        >
+                                            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+                                                <option key={n} value={n}>{n}</option>
+                                            ))}
+                                        </select>
+                                        <button
+                                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                            className="p-1.5 rounded-lg hover:bg-muted border border-border transition-colors disabled:opacity-30"
+                                            disabled={item.quantity >= 10}
+                                            aria-label={`Increase quantity of ${item.name}`}
+                                        >
+                                            <Plus className="h-3.5 w-3.5" />
+                                        </button>
+                                    </div>
+                                    <div className="font-bold text-lg min-w-[80px] text-right" aria-label={`Subtotal: $${(item.price * item.quantity).toFixed(2)}`}>
+                                        ${(item.price * item.quantity).toFixed(2)}
+                                    </div>
+                                    <button
+                                        onClick={() => removeItem(item.id)}
+                                        className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                                        aria-label={`Remove ${item.name} from cart`}
+                                    >
+                                        <Trash2 className="h-4 w-4" />
+                                    </button>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* Billing Information */}
+                        <div className="bg-white dark:bg-card rounded-xl border border-border p-6">
+                            <h2 className="text-xl font-bold text-forest dark:text-cream mb-4">Billing Information</h2>
+                            <div className="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-muted-foreground mb-1">First Name *</label>
+                                    <input
+                                        type="text"
+                                        value={billing.first_name}
+                                        onChange={(e) => setBilling({ ...billing, first_name: e.target.value })}
+                                        className="w-full px-3 py-2.5 text-sm rounded-lg border border-border bg-muted focus:ring-2 focus:ring-forest/30 outline-none transition"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-muted-foreground mb-1">Last Name *</label>
+                                    <input
+                                        type="text"
+                                        value={billing.last_name}
+                                        onChange={(e) => setBilling({ ...billing, last_name: e.target.value })}
+                                        className="w-full px-3 py-2.5 text-sm rounded-lg border border-border bg-muted focus:ring-2 focus:ring-forest/30 outline-none transition"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-muted-foreground mb-1">Email *</label>
+                                    <input
+                                        type="email"
+                                        value={billing.email}
+                                        onChange={(e) => setBilling({ ...billing, email: e.target.value })}
+                                        className="w-full px-3 py-2.5 text-sm rounded-lg border border-border bg-muted focus:ring-2 focus:ring-forest/30 outline-none transition"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-muted-foreground mb-1">Phone</label>
+                                    <input
+                                        type="tel"
+                                        value={billing.phone}
+                                        onChange={(e) => setBilling({ ...billing, phone: e.target.value })}
+                                        className="w-full px-3 py-2.5 text-sm rounded-lg border border-border bg-muted focus:ring-2 focus:ring-forest/30 outline-none transition"
+                                    />
+                                </div>
+                                <div className="sm:col-span-2">
+                                    <label className="block text-sm font-medium text-muted-foreground mb-1">Address *</label>
+                                    <input
+                                        type="text"
+                                        value={billing.address_1}
+                                        onChange={(e) => setBilling({ ...billing, address_1: e.target.value })}
+                                        className="w-full px-3 py-2.5 text-sm rounded-lg border border-border bg-muted focus:ring-2 focus:ring-forest/30 outline-none transition"
+                                        placeholder="Street address"
+                                        required
+                                    />
+                                </div>
+                                <div className="sm:col-span-2">
+                                    <label className="block text-sm font-medium text-muted-foreground mb-1">Address Line 2</label>
+                                    <input
+                                        type="text"
+                                        value={billing.address_2}
+                                        onChange={(e) => setBilling({ ...billing, address_2: e.target.value })}
+                                        className="w-full px-3 py-2.5 text-sm rounded-lg border border-border bg-muted focus:ring-2 focus:ring-forest/30 outline-none transition"
+                                        placeholder="Apartment, suite, etc."
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-muted-foreground mb-1">City *</label>
+                                    <input
+                                        type="text"
+                                        value={billing.city}
+                                        onChange={(e) => setBilling({ ...billing, city: e.target.value })}
+                                        className="w-full px-3 py-2.5 text-sm rounded-lg border border-border bg-muted focus:ring-2 focus:ring-forest/30 outline-none transition"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-muted-foreground mb-1">Province *</label>
+                                    <select
+                                        value={billing.state}
+                                        onChange={(e) => setBilling({ ...billing, state: e.target.value })}
+                                        className="w-full px-3 py-2.5 text-sm rounded-lg border border-border bg-muted focus:ring-2 focus:ring-forest/30 outline-none transition"
+                                    >
+                                        <option value="AB">Alberta</option>
+                                        <option value="BC">British Columbia</option>
+                                        <option value="MB">Manitoba</option>
+                                        <option value="NB">New Brunswick</option>
+                                        <option value="NL">Newfoundland and Labrador</option>
+                                        <option value="NS">Nova Scotia</option>
+                                        <option value="NT">Northwest Territories</option>
+                                        <option value="NU">Nunavut</option>
+                                        <option value="ON">Ontario</option>
+                                        <option value="PE">Prince Edward Island</option>
+                                        <option value="QC">Quebec</option>
+                                        <option value="SK">Saskatchewan</option>
+                                        <option value="YT">Yukon</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-muted-foreground mb-1">Postal Code *</label>
+                                    <input
+                                        type="text"
+                                        value={billing.postcode}
+                                        onChange={(e) => setBilling({ ...billing, postcode: e.target.value.toUpperCase() })}
+                                        className="w-full px-3 py-2.5 text-sm rounded-lg border border-border bg-muted focus:ring-2 focus:ring-forest/30 outline-none transition uppercase"
+                                        placeholder="A1A 1A1"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Payment Method Selection */}
+                        <div className="bg-white dark:bg-card rounded-xl border border-border p-6">
+                            <h2 className="text-xl font-bold text-forest dark:text-cream mb-4">Payment Method</h2>
+                            <div className="space-y-3">
+                                {PAYMENT_METHODS.map((method) => (
+                                    <label
+                                        key={method.id}
+                                        className={`flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                                            selectedPayment === method.id
+                                                ? "border-forest bg-forest/5 dark:border-leaf dark:bg-leaf/10"
+                                                : "border-border hover:border-forest/30 dark:hover:border-leaf/30"
+                                        }`}
+                                    >
+                                        <input
+                                            type="radio"
+                                            name="payment"
+                                            value={method.id}
+                                            checked={selectedPayment === method.id}
+                                            onChange={() => setSelectedPayment(method.id)}
+                                            className="sr-only"
+                                        />
+                                        <div className={`p-2 rounded-lg ${
+                                            selectedPayment === method.id
+                                                ? "bg-forest text-white dark:bg-leaf"
+                                                : "bg-muted text-muted-foreground"
+                                        }`}>
+                                            {method.icon}
+                                        </div>
+                                        <div className="flex-1">
+                                            <div className="font-bold text-sm">{method.title}</div>
+                                            <div className="text-xs text-muted-foreground">{method.description}</div>
+                                        </div>
+                                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                                            selectedPayment === method.id
+                                                ? "border-forest dark:border-leaf"
+                                                : "border-border"
+                                        }`}>
+                                            {selectedPayment === method.id && (
+                                                <div className="w-2.5 h-2.5 rounded-full bg-forest dark:bg-leaf" />
+                                            )}
+                                        </div>
+                                    </label>
+                                ))}
+                            </div>
+                        </div>
                     </div>
 
                     {/* Order Summary */}
@@ -405,60 +693,21 @@ export default function CheckoutPage() {
                                     </>
                                 ) : (
                                     <>
-                                        <CreditCard className="h-5 w-5" /> Pay ${grandTotal.toFixed(2)} CAD
+                                        {selectedPayment === "paygobillingcc" && <CreditCard className="h-5 w-5" />}
+                                        {selectedPayment === "wcpg_crypto" && <Bitcoin className="h-5 w-5" />}
+                                        {selectedPayment === "digipay_etransfer_manual" && <Banknote className="h-5 w-5" />}
+                                        {selectedPayment === "digipay_etransfer_manual"
+                                            ? `Place Order — $${grandTotal.toFixed(2)} CAD`
+                                            : `Pay $${grandTotal.toFixed(2)} CAD`
+                                        }
                                     </>
                                 )}
                             </Button>
 
-                            {/* Google Pay — UCP Integration */}
-                            <div className="relative my-4">
-                                <div className="absolute inset-0 flex items-center">
-                                    <div className="w-full border-t border-border" />
-                                </div>
-                                <div className="relative flex justify-center text-xs">
-                                    <span className="bg-white dark:bg-card px-3 text-muted-foreground">or</span>
-                                </div>
-                            </div>
-
-                            <GooglePayButton
-                                totalPrice={grandTotal.toFixed(2)}
-                                disabled={loading}
-                                onPaymentAuthorized={async (paymentData) => {
-                                    // Payment data logged without sensitive details
-                                    console.log("[Google Pay] Payment authorized");
-                                    setLoading(true);
-                                    setError("");
-
-                                    try {
-                                        // Send payment token + cart items to backend for processing
-                                        const res = await fetch("/api/sage/checkout", {
-                                            method: "POST",
-                                            headers: { "Content-Type": "application/json" },
-                                            body: JSON.stringify({
-                                                items,
-                                                paymentMethod: "google_pay",
-                                                paymentData, // Google Pay token for Stripe to charge
-                                                total: grandTotal,
-                                                couponCode: appliedCoupon?.valid ? appliedCoupon.code : undefined,
-                                            }),
-                                        });
-
-                                        const data = await res.json();
-                                        if (!res.ok) throw new Error(data.error || "Google Pay processing failed");
-
-                                        window.location.href = "/checkout/success?method=google_pay";
-                                    } catch (e) {
-                                        setError(e instanceof Error ? e.message : "Google Pay payment failed");
-                                        setLoading(false);
-                                    }
-                                }}
-                                onError={(err) => setError(err.message)}
-                            />
-
                             {/* Trust Signals */}
                             <div className="mt-6 space-y-2">
                                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                                    <Shield className="h-3.5 w-3.5 text-forest" /> Secured by Stripe
+                                    <Shield className="h-3.5 w-3.5 text-forest" /> Secured by PayGo + SSL encryption
                                 </div>
                                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                                     <Truck className="h-3.5 w-3.5 text-forest" /> Discreet Canada Post Xpresspost

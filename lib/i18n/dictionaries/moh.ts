@@ -175,7 +175,7 @@ const moh: DictionarySchema = {
         accountPrivacy: "Satahónhstat tánon Tsi Nikanaktiió:ten", // "Account & Privacy"
         // Ordering & Payment Q&A
         faqQ1: "Oh ní:ioht tsi sewatiénni?",  // "How do I place an order?"
-        faqA1: "Satká:tho ne atenniónhstha, kasennón:ni ne ka'sere'tsherá:ke, tánon sewatiénni. Visa, Mastercard, Interac e-Transfer, tánon Bitcoin tewá:iere. Akwékon ionkwaterihwahkhwáhson Stripe raonháke.",
+        faqA1: "Satká:tho ne atenniónhstha, kasennón:ni ne ka'sere'tsherá:ke, tánon sewatiénni. Visa, Mastercard, Interac e-Transfer, tánon Bitcoin tewá:iere. Akwékon ionkwaterihwahkhwáhson PayGo raonháke.",
         faqQ2: "Tó: kén niká:ien ohwistá:ke tsi sewatiénni?",  // "Is there a minimum order?"
         faqA2: "Iáh! Nek tsi $199 CAD iahsiéhste — iáh tekaiénthos iesá:wis Canada akwékon.",
         faqQ3: "Kén sewakarihwaiénthos?",  // "Do you charge tax?"
@@ -217,7 +217,7 @@ const moh: DictionarySchema = {
         faqQ19: "Kén katónhkwa ne account tsi sewatiénni?",  // "Do I need an account?"
         faqA19: "Iáh — tóka sewatiénni iáh ne account. Nek tsi account iesaníkonhrahseronnién:ni tsi satká:tho ne sewatiénni, iesá:wis, tánon ó:ia.",
         faqQ20: "Oh ní:ioht tsi ionkwaterihwahkhwáhson?",  // "How is my data protected?"
-        faqA20: "Akwékon ionkwaterihwahkhwáhson TLS tánon Stripe PCI-DSS Level 1. Iáh tehonwatirihwá:ienhs ne credit card numbers. Satká:tho Privacy Policy.",
+        faqA20: "Akwékon ionkwaterihwahkhwáhson TLS tánon PayGo PCI-DSS Level 1. Iáh tehonwatirihwá:ienhs ne credit card numbers. Satká:tho Privacy Policy.",
         faqQ21: "Nahò:ten ne MedAgent?",  // "What is MedAgent?"
         faqA21: "MedAgent ne AI iethinihsnién:ni. Kahionhátie iesá:iere, sewatiénni iesa'nikón:rare, tánon otién:na. Iáh tehakorihwaiénthos ne aonhá:tshera iontonhétston.",
         // Still have questions CTA
@@ -256,9 +256,9 @@ const moh: DictionarySchema = {
         topicPaymentsTitle: "Ohwistá:ke tánon Iakohwistanáhkhwa",  // "Payments & Billing"
         topicPaymentsDesc: "Ohwistá:ke tsi sewatiénni, otién:na, tánon iakohwistanáhkhwa",
         supportPayQ1: "Nahò:ten ohwistá:ke sewá:iere?",
-        supportPayA1: "Google Pay, Interac e-Transfer, Visa, Mastercard, tánon American Express. Akwékon ionkwaterihwahkhwáhson Stripe.",
+        supportPayA1: "Google Pay, Interac e-Transfer, Visa, Mastercard, tánon American Express. Akwékon ionkwaterihwahkhwáhson PayGo.",
         supportPayQ2: "Kén ionkwaterihwahkhwáhson ne ohwistá:ke?",
-        supportPayA2: "Hen. Stripe ionkwaterihwahkhwáhson. Iáh teionkwarihwá:ienhs ne card details.",
+        supportPayA2: "Hen. PayGo ionkwaterihwahkhwáhson. Iáh teionkwarihwá:ienhs ne card details.",
         supportPayQ3: "Oh ní:ioht tsi iakohwistanáhkhwa?",
         supportPayA3: "5-7 niwahsontá:ke sé:waton ne ohwistá:ke. 48 hours á:kta iesanónhianion tóka ó:ia iakoiatatié:ren.",
         // Topic: Orders & Returns
@@ -421,7 +421,7 @@ const moh: DictionarySchema = {
         // Step 2
         step2Title: "Kasennón:ni tánon Sewatiénni",      // "Add to Cart & Checkout"
         step2Desc: "Kasennón:ni ne ka'sere'tsherá:ke tánon sewatiénni. Ohwistá:ke ionkwaterihwahkhwáhson.",
-        step2Bullet1: "Visa tánon Mastercard (Stripe ionkwaterihwahkhwáhson)",
+        step2Bullet1: "Visa tánon Mastercard (PayGo ionkwaterihwahkhwáhson)",
         step2Bullet2: "Interac e-Transfer (Canada ohwistá:ke)",
         step2Bullet3: "Cryptocurrency (Bitcoin tánon Ethereum)",
         step2Bullet4: "Akwékon ionkwaterihwahkhwáhson PCI-DSS",
@@ -437,7 +437,7 @@ const moh: DictionarySchema = {
         paymentInteracTitle: "Interac e-Transfer",
         paymentInteracDesc: "Ó:nen ok, ionkwaterihwahkhwáhson Canada ohwistá:ke.",
         paymentVisaTitle: "Visa tánon Mastercard",
-        paymentVisaDesc: "Ionkwaterihwahkhwáhson credit card Stripe (PCI-DSS Level 1).",
+        paymentVisaDesc: "Ionkwaterihwahkhwáhson credit card PayGo (PCI-DSS Level 1).",
         paymentCryptoTitle: "Cryptocurrency",
         paymentCryptoDesc: "Bitcoin tánon Ethereum.",
         paymentCashTitle: "Ohwistá:ke (Tsi Tkanató:ken)",  // "Cash (Local Pickup)"
@@ -580,11 +580,11 @@ const moh: DictionarySchema = {
         howWeUse6: "Ionkwaterihwahkhwáhson tánon 19+ teieiéstahkhwa",
         // Section 4
         paymentSecurityTitle: "4. Ohwistá:ke Ionkwaterihwahkhwáhson",  // "Payment Security"
-        paymentSecurityDesc: "Stripe ionkwaterihwahkhwáhson ne ohwistá:ke. Iáh teionkwarihwá:ienhs ne credit card number, CVV, tóka ohwistá:ke. TLS tánon PCI-DSS Level 1.",
+        paymentSecurityDesc: "PayGo ionkwaterihwahkhwáhson ne ohwistá:ke. Iáh teionkwarihwá:ienhs ne credit card number, CVV, tóka ohwistá:ke. TLS tánon PCI-DSS Level 1.",
         // Section 5
         dataSharingTitle: "5. Tsi Ionkwaterihwá:ienhs Ó:ia",  // "Data Sharing"
         dataSharingIntro: "Ionkwaterihwá:ienhs ne ok:",
-        dataSharing1: "Stripe — ohwistá:ke",
+        dataSharing1: "PayGo — ohwistá:ke",
         dataSharing2: "ShipStation / Canada Post — iesá:wis",
         dataSharing3: "Resend — email (sewatiénni, iesá:wis)",
         dataSharing4: "Tsi niiohserá:ke — tóka ionkwarihwá:ke ok",
@@ -630,7 +630,7 @@ const moh: DictionarySchema = {
         ordersPaymentTitle: "5. Sewatiénni tánon Ohwistá:ke",
         ordersPayment1: "Akwékon ohwistá:ke Canadian Dollars (CAD)",
         ordersPayment2: "Akwékon iáh tekaiénthos — Onkwehón:we onkwarihwá:ke, iáh HST",
-        ordersPayment3: "Stripe ionkwaterihwahkhwáhson ne ohwistá:ke",
+        ordersPayment3: "PayGo ionkwaterihwahkhwáhson ne ohwistá:ke",
         ordersPayment4: "Ionkwarihwá:ke tsi sewatiénni satá:ti tóka sataterihwátste",
         ordersPayment5: "Sewatiénni karihwí:io tsi iesá:wis ok",
         // Section 6

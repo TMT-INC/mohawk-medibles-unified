@@ -5,7 +5,7 @@
  * and order tracking. Implements Google UCP (Universal Commerce
  * Protocol) actions for agentic commerce.
  *
- * Bridges MedAgent Engine → Stripe checkout + Google Pay.
+ * Bridges MedAgent Engine -> WooCommerce checkout (PayGo CC / Crypto / e-Transfer).
  */
 
 import { PRODUCTS, type Product } from "@/lib/productData";
@@ -30,39 +30,9 @@ export interface MedAgentCart {
 }
 
 export interface CheckoutIntent {
-    type: "stripe" | "google_pay" | "auto";
+    type: "paygobillingcc" | "wcpg_crypto" | "digipay_etransfer_manual";
     cart: MedAgentCart;
     checkoutUrl?: string;
-    googlePayRequest?: GooglePayRequest;
-}
-
-export interface GooglePayRequest {
-    apiVersion: number;
-    apiVersionMinor: number;
-    allowedPaymentMethods: {
-        type: string;
-        parameters: {
-            allowedAuthMethods: string[];
-            allowedCardNetworks: string[];
-        };
-        tokenizationSpecification: {
-            type: string;
-            parameters: {
-                gateway: string;
-                gatewayMerchantId: string;
-            };
-        };
-    }[];
-    merchantInfo: {
-        merchantName: string;
-        merchantId: string;
-    };
-    transactionInfo: {
-        totalPriceStatus: string;
-        totalPrice: string;
-        currencyCode: string;
-        countryCode: string;
-    };
 }
 
 // ─── Cart Limits ────────────────────────────────────────────
@@ -184,55 +154,13 @@ export function clearCart(sessionId: string): MedAgentCart {
 
 export function createCheckoutIntent(
     sessionId: string,
-    paymentMethod: "stripe" | "google_pay" | "auto" = "auto"
+    paymentMethod: "paygobillingcc" | "wcpg_crypto" | "digipay_etransfer_manual" = "paygobillingcc"
 ): CheckoutIntent {
     const cart = getCart(sessionId);
 
-    const intent: CheckoutIntent = {
+    return {
         type: paymentMethod,
         cart,
-    };
-
-    // Google Pay payment request (UCP-compatible)
-    if (paymentMethod === "google_pay" || paymentMethod === "auto") {
-        intent.googlePayRequest = buildGooglePayRequest(cart);
-    }
-
-    return intent;
-}
-
-// ─── Google Pay Request Builder ─────────────────────────────
-
-function buildGooglePayRequest(cart: MedAgentCart): GooglePayRequest {
-    return {
-        apiVersion: 2,
-        apiVersionMinor: 0,
-        allowedPaymentMethods: [
-            {
-                type: "CARD",
-                parameters: {
-                    allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
-                    allowedCardNetworks: ["VISA", "MASTERCARD", "AMEX", "DISCOVER"],
-                },
-                tokenizationSpecification: {
-                    type: "PAYMENT_GATEWAY",
-                    parameters: {
-                        gateway: "stripe",
-                        gatewayMerchantId: process.env.STRIPE_PUBLISHABLE_KEY || "",
-                    },
-                },
-            },
-        ],
-        merchantInfo: {
-            merchantName: "Mohawk Medibles",
-            merchantId: process.env.GOOGLE_MERCHANT_ID || "",
-        },
-        transactionInfo: {
-            totalPriceStatus: "FINAL",
-            totalPrice: cart.subtotal.toFixed(2),
-            currencyCode: "CAD",
-            countryCode: "CA",
-        },
     };
 }
 
