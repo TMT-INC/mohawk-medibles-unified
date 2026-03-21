@@ -1,8 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import SmokeCursor from "@/components/canvas/SmokeCursor";
-
 // ─── Hero Carousel — .cc multi-slide with .ca photography ───
 import { HeroCarousel } from "@/components/HeroCarousel";
 
@@ -27,23 +24,10 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { CustomerTestimonials } from "@/components/CustomerTestimonials";
 
 export default function HomeClient() {
-  // Only enable smoke cursor on non-touch devices
-  const [hasMouse, setHasMouse] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(pointer: fine)");
-    setHasMouse(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setHasMouse(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col relative">
       {/* Page-level ambient smoke/haze — drifts behind all sections */}
       <PageSmokeEffect />
-
-      {/* Smoke Cursor Effect — joint + smoke trail + click puff */}
-      <SmokeCursor enabled={hasMouse} />
 
       {/* ═══════════════════════════════════════════════════════════
           HERO CAROUSEL — .cc 4-slide rotating banners + .ca photography

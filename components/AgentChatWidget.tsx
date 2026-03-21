@@ -396,7 +396,7 @@ export default function AgentChatWidget() {
         if (dismissed) return;
         const timer = setTimeout(() => {
             if (!isOpen) setShowWelcome(true);
-        }, 3000);
+        }, 15000);
         return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);

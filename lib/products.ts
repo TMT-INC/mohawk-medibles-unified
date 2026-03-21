@@ -11,6 +11,7 @@
 
 import { prisma } from "@/lib/db";
 import { log } from "@/lib/logger";
+import { decodeHtmlEntities } from "@/lib/utils";
 
 // Re-export the Product interface (same shape as productData.ts)
 export interface Product {
@@ -137,6 +138,19 @@ function transformProduct(dbProduct: NonNullable<DBProduct>): Product {
     };
 }
 
+/** Decode HTML entities in user-facing product text fields */
+function cleanProductText(p: Product): Product {
+    return {
+        ...p,
+        name: decodeHtmlEntities(p.name),
+        altText: decodeHtmlEntities(p.altText),
+        metaDescription: decodeHtmlEntities(p.metaDescription),
+        shortDescription: decodeHtmlEntities(p.shortDescription),
+        eeatNarrative: decodeHtmlEntities(p.eeatNarrative),
+        sku: decodeHtmlEntities(p.sku),
+    };
+}
+
 // ─── Core data loader ───────────────────────────────────
 
 async function loadProductsFromDB(): Promise<Product[]> {
@@ -161,7 +175,7 @@ async function loadProductsFromDB(): Promise<Product[]> {
 export async function getAllProducts(): Promise<Product[]> {
     if (!useDatabase()) {
         const fb = await getFallback();
-        return fb.PRODUCTS;
+        return fb.PRODUCTS.map(cleanProductText);
     }
 
     if (isCacheValid()) {
@@ -169,7 +183,14 @@ export async function getAllProducts(): Promise<Product[]> {
     }
 
     try {
-        cachedProducts = await loadProductsFromDB();
+        const dbProducts = (await loadProductsFromDB()).map(cleanProductText);
+        // If DB returns 0 products (not synced yet), fall back to hardcoded
+        if (dbProducts.length === 0) {
+            log.admin.warn("DB returned 0 products, falling back to hardcoded data");
+            const fb = await getFallback();
+            return fb.PRODUCTS.map(cleanProductText);
+        }
+        cachedProducts = dbProducts;
         cacheTimestamp = Date.now();
         return cachedProducts;
     } catch (err) {
@@ -177,7 +198,7 @@ export async function getAllProducts(): Promise<Product[]> {
             error: err instanceof Error ? err.message : "Unknown",
         });
         const fb = await getFallback();
-        return fb.PRODUCTS;
+        return fb.PRODUCTS.map(cleanProductText);
     }
 }
 

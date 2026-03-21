@@ -184,7 +184,6 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ThemeProvider from "@/components/ThemeProvider";
 import { LocaleProvider } from "@/components/LocaleProvider";
-import StardustLoader from "@/components/StardustLoader";
 import LocaleSEOHead from "@/components/LocaleSEOHead";
 
 export default async function RootLayout({
@@ -226,7 +225,6 @@ export default async function RootLayout({
           // eslint-disable-next-line react/no-danger -- trusted server-side schema data
           dangerouslySetInnerHTML={{ __html: jsonLdGraph }}
         />
-        {/* StardustLoader disabled — canvas animation blocks page render on some browsers */}
         <ThemeProvider>
           <LocaleProvider>
             <LocaleSEOHead />
