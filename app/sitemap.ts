@@ -9,7 +9,7 @@ import { getAllProducts } from "@/lib/products";
 import { getAllBlogPosts } from "@/data/blog/posts";
 import { getAllCities, getAllProvinces } from "@/lib/seo/city-delivery-data";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.co";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.ca";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const now = new Date().toISOString();

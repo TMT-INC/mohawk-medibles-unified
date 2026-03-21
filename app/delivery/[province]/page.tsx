@@ -46,7 +46,7 @@ export async function generateMetadata({
 	}
 
 	const cityCount = province.cities.length;
-	const canonical = `https://mohawkmedibles.co/delivery/${province.slug}`;
+	const canonical = `https://mohawkmedibles.ca/delivery/${province.slug}`;
 	const ogImageUrl = `/delivery/${province.slug}/opengraph-image`;
 
 	// Quebec gets French-language metadata
@@ -168,8 +168,8 @@ function createStoreSchema(provinceName: string, cityCount: number) {
 		"@context": "https://schema.org",
 		"@type": "Store",
 		name: "Mohawk Medibles",
-		url: "https://mohawkmedibles.co",
-		image: "https://mohawkmedibles.co/logo.png",
+		url: "https://mohawkmedibles.ca",
+		image: "https://mohawkmedibles.ca/logo.png",
 		description: `Indigenous-owned premium cannabis dispensary delivering to ${cityCount} cities across ${provinceName}. Lab-tested, terpene-profiled products meeting the Empire Standard.`,
 		address: {
 			"@type": "PostalAddress",
@@ -194,11 +194,11 @@ function createStoreSchema(provinceName: string, cityCount: number) {
 			"@type": "OfferCatalog",
 			name: `Cannabis Products - ${provinceName} Delivery`,
 			itemListElement: [
-				{ "@type": "OfferCatalog", name: "Flower", url: "https://mohawkmedibles.co/shop/flower" },
-				{ "@type": "OfferCatalog", name: "Edibles", url: "https://mohawkmedibles.co/shop/edibles" },
-				{ "@type": "OfferCatalog", name: "Concentrates", url: "https://mohawkmedibles.co/shop/concentrates" },
-				{ "@type": "OfferCatalog", name: "Vapes", url: "https://mohawkmedibles.co/shop/vapes" },
-				{ "@type": "OfferCatalog", name: "Pre-Rolls", url: "https://mohawkmedibles.co/shop/pre-rolls" },
+				{ "@type": "OfferCatalog", name: "Flower", url: "https://mohawkmedibles.ca/shop/flower" },
+				{ "@type": "OfferCatalog", name: "Edibles", url: "https://mohawkmedibles.ca/shop/edibles" },
+				{ "@type": "OfferCatalog", name: "Concentrates", url: "https://mohawkmedibles.ca/shop/concentrates" },
+				{ "@type": "OfferCatalog", name: "Vapes", url: "https://mohawkmedibles.ca/shop/vapes" },
+				{ "@type": "OfferCatalog", name: "Pre-Rolls", url: "https://mohawkmedibles.ca/shop/pre-rolls" },
 			],
 		},
 	};
@@ -278,9 +278,9 @@ export default async function ProvinceDeliveryPage({
 
 	// Generate schemas
 	const breadcrumbs = breadcrumbSchema([
-		{ name: "Home", url: "https://mohawkmedibles.co" },
-		{ name: "Delivery", url: "https://mohawkmedibles.co/delivery" },
-		{ name: province.name, url: `https://mohawkmedibles.co/delivery/${province.slug}` },
+		{ name: "Home", url: "https://mohawkmedibles.ca" },
+		{ name: "Delivery", url: "https://mohawkmedibles.ca/delivery" },
+		{ name: province.name, url: `https://mohawkmedibles.ca/delivery/${province.slug}` },
 	]);
 
 	const provinceFaqs = getProvinceFaqs(

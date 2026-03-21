@@ -3,7 +3,7 @@
  * ═════════════════════════════════════════════════════════════
  * 1. Resolves domain context:
  *    - mohawkmedibles.ca → primary storefront
- *    - mohawkmedibles.co → SEO variant (redirects to .ca)
+ *    - mohawkmedibles.co → alias (serves same site)
  *    - mohawkmedibles.cc → admin/command center (/admin/* only)
  * 2. Resolves tenant from hostname → injects x-tenant-* headers
  * 3. Protects /admin routes + /api/admin/* endpoints

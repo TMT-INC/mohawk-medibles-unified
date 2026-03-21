@@ -9,17 +9,17 @@ export const metadata: Metadata = {
         title: "How to Order Cannabis Online | Mohawk Medibles",
         description:
             "Easy ordering guide: Browse products, checkout securely, receive fast delivery. Multiple payment options and Canada-wide shipping.",
-        url: "https://mohawkmedibles.co/how-to-order",
+        url: "https://mohawkmedibles.ca/how-to-order",
         type: "website",
     },
     alternates: {
-        canonical: "https://mohawkmedibles.co/how-to-order",
+        canonical: "https://mohawkmedibles.ca/how-to-order",
     },
 };
 
 const breadcrumbJsonLd = breadcrumbSchema([
-    { name: "Home", url: "https://mohawkmedibles.co" },
-    { name: "How to Order", url: "https://mohawkmedibles.co/how-to-order" },
+    { name: "Home", url: "https://mohawkmedibles.ca" },
+    { name: "How to Order", url: "https://mohawkmedibles.ca/how-to-order" },
 ]);
 
 const howToOrderFaqJsonLd = faqSchema([

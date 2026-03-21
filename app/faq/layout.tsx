@@ -29,19 +29,19 @@ export const metadata: Metadata = {
         title: "FAQ | Mohawk Medibles",
         description:
             "Frequently asked questions about ordering cannabis online, shipping across Canada, lab testing, and our Empire Standard\u2122 quality guarantee.",
-        url: "https://mohawkmedibles.co/faq",
+        url: "https://mohawkmedibles.ca/faq",
         type: "website",
     },
     alternates: {
-        canonical: "https://mohawkmedibles.co/faq",
+        canonical: "https://mohawkmedibles.ca/faq",
     },
 };
 
 // Structured data from static, trusted content (not user input) — safe for JSON serialization
 const faqJsonLd = faqSchema(FAQ_ITEMS);
 const breadcrumbJsonLd = breadcrumbSchema([
-    { name: "Home", url: "https://mohawkmedibles.co" },
-    { name: "FAQ", url: "https://mohawkmedibles.co/faq" },
+    { name: "Home", url: "https://mohawkmedibles.ca" },
+    { name: "FAQ", url: "https://mohawkmedibles.ca/faq" },
 ]);
 
 export default function FaqLayout({ children }: { children: React.ReactNode }) {

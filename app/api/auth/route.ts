@@ -243,7 +243,7 @@ export async function POST(req: NextRequest) {
                         },
                     });
 
-                    const resetUrl = `${process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.co"}/reset-password?token=${resetToken}`;
+                    const resetUrl = `${process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.ca"}/reset-password?token=${resetToken}`;
 
                     sendPasswordReset(email, resetUrl).catch((err) =>
                         log.auth.error("Password reset email failed", { error: err instanceof Error ? err.message : "Unknown" })

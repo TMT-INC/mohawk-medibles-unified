@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     openGraph: {
         title: "How to Order — Mohawk Medibles",
         description: "3 simple steps to order premium cannabis online with fast Canada-wide shipping.",
-        url: "https://mohawkmedibles.co/how-to-order",
+        url: "https://mohawkmedibles.ca/how-to-order",
     },
-    alternates: { canonical: "https://mohawkmedibles.co/how-to-order" },
+    alternates: { canonical: "https://mohawkmedibles.ca/how-to-order" },
 };
 
 const howToSchema = {

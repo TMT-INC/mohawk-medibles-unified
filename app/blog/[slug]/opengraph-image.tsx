@@ -286,7 +286,7 @@ export default async function OGImage({ params }: { params: Promise<{ slug: stri
                                 fontWeight: 500,
                             }}
                         >
-                            mohawkmedibles.co
+                            mohawkmedibles.ca
                         </span>
                     </div>
                 </div>

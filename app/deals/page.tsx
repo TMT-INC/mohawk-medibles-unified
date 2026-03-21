@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         title: "Cannabis Deals & Promotions | Mohawk Medibles",
         description:
             "Save on 344+ premium cannabis products. Free shipping over $199, bulk discounts, and daily deals.",
-        url: "https://mohawkmedibles.co/deals",
+        url: "https://mohawkmedibles.ca/deals",
         type: "website",
         images: ["/og-image.png"],
     },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         description: "Premium cannabis deals. Free shipping over $199 Canada-wide.",
     },
     alternates: {
-        canonical: "https://mohawkmedibles.co/deals",
+        canonical: "https://mohawkmedibles.ca/deals",
     },
 };
 

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         title: "Mohawk Medibles — Premium Cannabis | Buy Weed Online Canada",
         description:
             "344+ lab-tested cannabis products. Flower, edibles, concentrates, vapes & more. Indigenous-owned. Free shipping over $199.",
-        url: "https://mohawkmedibles.co",
+        url: "https://mohawkmedibles.ca",
         siteName: "Mohawk Medibles",
         type: "website",
         locale: "en_CA",
@@ -57,23 +57,23 @@ export const metadata: Metadata = {
         images: ["/og-image.png"],
     },
     alternates: {
-        canonical: "https://mohawkmedibles.co",
+        canonical: "https://mohawkmedibles.ca",
     },
 };
 
 const homepageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://mohawkmedibles.co/#webpage",
+    "@id": "https://mohawkmedibles.ca/#webpage",
     name: "Mohawk Medibles — Premium Indigenous Cannabis Dispensary",
     description:
         "Shop 344+ lab-tested cannabis products from an Indigenous-owned dispensary on Six Nations territory. Free shipping over $199 Canada-wide.",
-    url: "https://mohawkmedibles.co",
-    isPartOf: { "@id": "https://mohawkmedibles.co/#website" },
-    about: { "@id": "https://mohawkmedibles.co/#organization" },
+    url: "https://mohawkmedibles.ca",
+    isPartOf: { "@id": "https://mohawkmedibles.ca/#website" },
+    about: { "@id": "https://mohawkmedibles.ca/#organization" },
     primaryImageOfPage: {
         "@type": "ImageObject",
-        url: "https://mohawkmedibles.co/og-image.png",
+        url: "https://mohawkmedibles.ca/og-image.png",
     },
     speakable: {
         "@type": "SpeakableSpecification",

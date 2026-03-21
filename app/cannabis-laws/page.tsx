@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   description:
     "Complete guide to cannabis laws in every Canadian province and territory for 2026. Legal ages, possession limits, consumption rules, home growing, delivery laws, and driving regulations across Ontario, BC, Alberta, Quebec, and all 13 provinces/territories.",
   alternates: {
-    canonical: "https://mohawkmedibles.co/cannabis-laws",
+    canonical: "https://mohawkmedibles.ca/cannabis-laws",
   },
   keywords: [
     "cannabis laws canada",
@@ -50,12 +50,12 @@ export const metadata: Metadata = {
       "Cannabis Laws in Canada by Province — Complete 2026 Guide | Mohawk Medibles",
     description:
       "Everything you need to know about cannabis laws in every Canadian province and territory. Legal ages, possession limits, consumption rules, growing, delivery, and driving laws.",
-    url: "https://mohawkmedibles.co/cannabis-laws",
+    url: "https://mohawkmedibles.ca/cannabis-laws",
     type: "website",
     siteName: "Mohawk Medibles",
     images: [
       {
-        url: "https://mohawkmedibles.co/og-image.png",
+        url: "https://mohawkmedibles.ca/og-image.png",
         width: 1200,
         height: 630,
         alt: "Cannabis Laws in Canada by Province — Mohawk Medibles 2026 Guide",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
       "Complete guide to cannabis laws in all 13 Canadian provinces and territories for 2026. Legal ages, possession limits, and more.",
     images: [
       {
-        url: "https://mohawkmedibles.co/og-image.png",
+        url: "https://mohawkmedibles.ca/og-image.png",
         width: 1200,
         height: 630,
         alt: "Cannabis Laws in Canada by Province — Mohawk Medibles 2026 Guide",
@@ -241,8 +241,8 @@ const HUB_FAQS = [
 
 export default function CannabisLawsHubPage() {
   const breadcrumbs = breadcrumbSchema([
-    { name: "Home", url: "https://mohawkmedibles.co" },
-    { name: "Cannabis Laws", url: "https://mohawkmedibles.co/cannabis-laws" },
+    { name: "Home", url: "https://mohawkmedibles.ca" },
+    { name: "Cannabis Laws", url: "https://mohawkmedibles.ca/cannabis-laws" },
   ]);
 
   const faqs = faqSchema(HUB_FAQS);

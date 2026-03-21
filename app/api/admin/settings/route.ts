@@ -52,7 +52,7 @@ export async function GET(req: NextRequest) {
                 // Business configuration from env vars (read-only display)
                 return NextResponse.json({
                     siteName: "Mohawk Medibles",
-                    siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.co",
+                    siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.ca",
                     emailFrom: process.env.EMAIL_FROM || "orders@mohawkmedibles.ca",
                     currency: "CAD",
                     timezone: "America/Toronto",
@@ -101,7 +101,7 @@ export async function GET(req: NextRequest) {
                     configuredKeys: keys,
                     recentAudit: auditLogs,
                     environment: process.env.NODE_ENV || "development",
-                    siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.co",
+                    siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.ca",
                 });
             }
         }

@@ -615,7 +615,7 @@ const en = {
         lastUpdated: "Last updated: February 2026",
         // Section 1
         acceptanceTitle: "1. Acceptance of Terms",
-        acceptanceDesc: "By accessing and using mohawkmedibles.co, you agree to these Terms of Service. If you do not agree, please do not use our website or services.",
+        acceptanceDesc: "By accessing and using mohawkmedibles.ca, you agree to these Terms of Service. If you do not agree, please do not use our website or services.",
         // Section 2
         ageRequirementTitle: "2. Age Requirement",
         ageRequirementDesc: "You must be 19 years of age or older to browse, purchase, or interact with any products on this website. By using our services, you confirm that you meet this age requirement. We reserve the right to request age verification at any time, including upon delivery.",

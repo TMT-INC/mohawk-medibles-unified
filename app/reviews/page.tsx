@@ -15,9 +15,9 @@ export const metadata: Metadata = {
         title: "Customer Reviews — Mohawk Medibles",
         description:
             "Verified reviews from thousands of satisfied Canadian customers. Premium cannabis, fast shipping, Indigenous-owned.",
-        url: "https://mohawkmedibles.co/reviews",
+        url: "https://mohawkmedibles.ca/reviews",
     },
-    alternates: { canonical: "https://mohawkmedibles.co/reviews" },
+    alternates: { canonical: "https://mohawkmedibles.ca/reviews" },
 };
 
 const REVIEWS = [
@@ -192,7 +192,7 @@ const aggregateRatingSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Mohawk Medibles",
-    "url": "https://mohawkmedibles.co",
+    "url": "https://mohawkmedibles.ca",
     "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": STATS.averageRating.toString(),

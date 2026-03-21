@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Contact Mohawk Medibles",
         description: "Have a question? Reach out by email, phone, or visit us at 45 Dundas Street, Deseronto, ON.",
-        url: "https://mohawkmedibles.co/contact",
+        url: "https://mohawkmedibles.ca/contact",
         type: "website",
         images: ["/og-image.png"],
     },
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         description: "Have a question? Reach out by email, phone, or visit us.",
     },
     alternates: {
-        canonical: "https://mohawkmedibles.co/contact",
+        canonical: "https://mohawkmedibles.ca/contact",
     },
 };
 
@@ -31,7 +31,7 @@ const contactSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Mohawk Medibles",
-    "url": "https://mohawkmedibles.co",
+    "url": "https://mohawkmedibles.ca",
     "telephone": "+1-613-396-6728",
     "email": "info@mohawkmedibles.ca",
     "address": {

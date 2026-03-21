@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
         openGraph: {
             title: "Cannabis Brands | Mohawk Medibles",
             description: `Browse ${brandCount || "all"} premium cannabis brands. Top-quality products from Canada's best producers.`,
-            url: "https://mohawkmedibles.co/brands",
+            url: "https://mohawkmedibles.ca/brands",
             type: "website",
             images: ["/og-image.png"],
         },
@@ -30,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
             description: "Browse premium cannabis brands at Mohawk Medibles.",
         },
         alternates: {
-            canonical: "https://mohawkmedibles.co/brands",
+            canonical: "https://mohawkmedibles.ca/brands",
         },
     };
 }

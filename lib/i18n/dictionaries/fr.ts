@@ -618,7 +618,7 @@ const fr: DictionarySchema = {
         lastUpdated: "Dernière mise à jour : février 2026",
         // Section 1
         acceptanceTitle: "1. Acceptation des conditions",
-        acceptanceDesc: "En accédant et en utilisant mohawkmedibles.co, vous acceptez les présentes conditions d'utilisation. Si vous n'êtes pas d'accord, veuillez ne pas utiliser notre site Web ou nos services.",
+        acceptanceDesc: "En accédant et en utilisant mohawkmedibles.ca, vous acceptez les présentes conditions d'utilisation. Si vous n'êtes pas d'accord, veuillez ne pas utiliser notre site Web ou nos services.",
         // Section 2
         ageRequirementTitle: "2. Exigence d'âge",
         ageRequirementDesc: "Vous devez avoir 19 ans ou plus pour naviguer, acheter ou interagir avec tout produit sur ce site Web. En utilisant nos services, vous confirmez que vous respectez cette exigence d'âge. Nous nous réservons le droit de demander une vérification de l'âge à tout moment, y compris lors de la livraison.",

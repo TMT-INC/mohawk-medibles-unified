@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description:
     "Order premium cannabis online and get it delivered to your door across Canada. Fast, discreet shipping to all provinces & territories. Lab-tested flower, edibles, concentrates & more.",
   alternates: {
-    canonical: "https://mohawkmedibles.co/delivery",
+    canonical: "https://mohawkmedibles.ca/delivery",
   },
   keywords: [
     "cannabis delivery Canada",
@@ -36,11 +36,11 @@ export const metadata: Metadata = {
     title: "Cannabis Delivery Across Canada | Mohawk Medibles",
     description:
       "Fast, discreet cannabis delivery to all Canadian provinces. Order premium, lab-tested products online.",
-    url: "https://mohawkmedibles.co/delivery",
+    url: "https://mohawkmedibles.ca/delivery",
     type: "website",
     images: [
       {
-        url: "https://mohawkmedibles.co/og-image.png",
+        url: "https://mohawkmedibles.ca/og-image.png",
         width: 1200,
         height: 630,
         alt: "Mohawk Medibles Canada-wide cannabis delivery",
@@ -76,8 +76,8 @@ export default function DeliveryPage() {
 
   // Breadcrumb JSON-LD
   const breadcrumbData = breadcrumbSchema([
-    { name: "Home", url: "https://mohawkmedibles.co" },
-    { name: "Delivery", url: "https://mohawkmedibles.co/delivery" },
+    { name: "Home", url: "https://mohawkmedibles.ca" },
+    { name: "Delivery", url: "https://mohawkmedibles.ca/delivery" },
   ]);
 
   return (

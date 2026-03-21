@@ -14,7 +14,7 @@ import {
     type ProvinceData,
 } from "./city-delivery-data";
 
-const BASE_URL = "https://mohawkmedibles.co";
+const BASE_URL = "https://mohawkmedibles.ca";
 
 // Default delivery radius when only lat/lng are available (km)
 const DEFAULT_RADIUS_KM = 20;

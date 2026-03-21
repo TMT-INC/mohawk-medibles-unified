@@ -153,7 +153,7 @@ export async function POST(req: NextRequest) {
                 paymentMethod: body.payment_method,
                 paymentMethodTitle: getPaymentTitle(body.payment_method),
                 sourceTenant: tenant.slug,
-                sourceDomain: tenant.domain || "mohawkmedibles.co",
+                sourceDomain: tenant.domain || "mohawkmedibles.ca",
                 billingData: JSON.stringify({
                     ...body.billing,
                     country: body.billing.country || "CA",
@@ -191,7 +191,7 @@ export async function POST(req: NextRequest) {
             data: {
                 orderId: order.id,
                 status: isEtransfer ? "ON_HOLD" : "PENDING",
-                note: `Order created via ${tenant.domain || "mohawkmedibles.co"}. Payment: ${getPaymentTitle(body.payment_method)}`,
+                note: `Order created via ${tenant.domain || "mohawkmedibles.ca"}. Payment: ${getPaymentTitle(body.payment_method)}`,
             },
         });
 
@@ -217,7 +217,7 @@ export async function POST(req: NextRequest) {
 
         if (body.payment_method === "credit_card" || body.payment_method === "paygobillingcc") {
             // Credit Card: redirect to Digipay
-            const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.co";
+            const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.ca";
 
             const paymentUrl = buildDigipayPaymentUrl({
                 orderId: String(order.id),

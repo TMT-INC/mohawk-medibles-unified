@@ -54,7 +54,7 @@ const DEFAULT_TENANT: TenantConfig = {
   id: 'default',
   slug: 'mohawk-medibles',
   name: 'Mohawk Medibles',
-  domain: 'mohawkmedibles.co',
+  domain: 'mohawkmedibles.ca',
   altDomains: ['mohawkmedibles.ca', 'mohawk-medibles-seo.vercel.app', 'localhost:3000', 'localhost:3001'],
   active: true,
   isDefault: true,

@@ -619,7 +619,7 @@ export async function generateMetadata({
 
   const title = `Cannabis Laws in ${law.name} 2026 | ${law.legalAge}+, ${law.possessionLimit} | Mohawk Medibles`;
   const description = `Complete guide to cannabis laws in ${law.name} for 2026. Legal age ${law.legalAge}+, possession limit ${law.possessionLimit}, consumption rules, home growing, delivery laws, and driving regulations. Everything you need to know about ${law.name} cannabis regulations.`;
-  const canonical = `https://mohawkmedibles.co/cannabis-laws/${law.slug}`;
+  const canonical = `https://mohawkmedibles.ca/cannabis-laws/${law.slug}`;
 
   return {
     title,
@@ -645,7 +645,7 @@ export async function generateMetadata({
       siteName: "Mohawk Medibles",
       images: [
         {
-          url: "https://mohawkmedibles.co/og-image.png",
+          url: "https://mohawkmedibles.ca/og-image.png",
           width: 1200,
           height: 630,
           alt: `Cannabis Laws in ${law.name} 2026 — Mohawk Medibles Guide`,
@@ -659,7 +659,7 @@ export async function generateMetadata({
       description,
       images: [
         {
-          url: "https://mohawkmedibles.co/og-image.png",
+          url: "https://mohawkmedibles.ca/og-image.png",
           width: 1200,
           height: 630,
           alt: `Cannabis Laws in ${law.name} 2026 — Mohawk Medibles Guide`,
@@ -716,11 +716,11 @@ export default async function ProvinceCannabisLawPage({
 
   // Build schemas using shared helpers
   const breadcrumbs = breadcrumbSchema([
-    { name: "Home", url: "https://mohawkmedibles.co" },
-    { name: "Cannabis Laws", url: "https://mohawkmedibles.co/cannabis-laws" },
+    { name: "Home", url: "https://mohawkmedibles.ca" },
+    { name: "Cannabis Laws", url: "https://mohawkmedibles.ca/cannabis-laws" },
     {
       name: law.name,
-      url: `https://mohawkmedibles.co/cannabis-laws/${law.slug}`,
+      url: `https://mohawkmedibles.ca/cannabis-laws/${law.slug}`,
     },
   ]);
 

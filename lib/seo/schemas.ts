@@ -8,7 +8,7 @@
 
 import { getAllCities } from "./city-delivery-data";
 
-const BASE_URL = "https://mohawkmedibles.co";
+const BASE_URL = "https://mohawkmedibles.ca";
 
 // ─── Brand Constants ────────────────────────────────────────
 
@@ -264,7 +264,7 @@ export function productSchema(product: ProductSchemaInput) {
                 : "https://schema.org/OutOfStock",
             seller: { "@id": `${BASE_URL}/#organization` },
             hasMerchantReturnPolicy: {
-                "@id": "https://mohawkmedibles.co/#return-policy",
+                "@id": "https://mohawkmedibles.ca/#return-policy",
             },
             shippingDetails: {
                 "@type": "OfferShippingDetails",
@@ -338,7 +338,7 @@ export function merchantReturnPolicySchema() {
     return {
         "@context": "https://schema.org",
         "@type": "MerchantReturnPolicy",
-        "@id": "https://mohawkmedibles.co/#return-policy",
+        "@id": "https://mohawkmedibles.ca/#return-policy",
         applicableCountry: "CA",
         returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
         merchantReturnDays: 14,

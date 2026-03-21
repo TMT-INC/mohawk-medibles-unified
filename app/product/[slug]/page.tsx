@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         openGraph: {
             title: `${product.name} | Mohawk Medibles`,
             description: product.metaDescription,
-            url: `https://mohawkmedibles.co/shop/${slug}`,
+            url: `https://mohawkmedibles.ca/shop/${slug}`,
             images: [{ url: `/api/og?type=product&slug=${slug}`, width: 1200, height: 630, alt: product.altText }],
             type: "website",
         },
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             description: product.shortDescription,
             images: [`/api/og?type=product&slug=${slug}`],
         },
-        alternates: { canonical: `https://mohawkmedibles.co/shop/${slug}` },
+        alternates: { canonical: `https://mohawkmedibles.ca/shop/${slug}` },
     };
 }
 
@@ -120,10 +120,10 @@ export default async function ProductPage({ params }: PageProps) {
     });
 
     const breadcrumbJsonLd = breadcrumbSchema([
-        { name: "Home", url: "https://mohawkmedibles.co" },
-        { name: "Shop", url: "https://mohawkmedibles.co/shop" },
-        { name: product.category, url: `https://mohawkmedibles.co/shop?category=${encodeURIComponent(product.category)}` },
-        { name: product.name, url: `https://mohawkmedibles.co/shop/${slug}` },
+        { name: "Home", url: "https://mohawkmedibles.ca" },
+        { name: "Shop", url: "https://mohawkmedibles.ca/shop" },
+        { name: product.category, url: `https://mohawkmedibles.ca/shop?category=${encodeURIComponent(product.category)}` },
+        { name: product.name, url: `https://mohawkmedibles.ca/shop/${slug}` },
     ]);
 
     const productFaqs = generateProductFAQs({
@@ -138,7 +138,7 @@ export default async function ProductPage({ params }: PageProps) {
 
     // Speakable schema — tells voice agents which sections to read aloud
     const speakableJsonLd = speakableSchema(
-        `https://mohawkmedibles.co/shop/${slug}`,
+        `https://mohawkmedibles.ca/shop/${slug}`,
         [".product-name", ".product-price", ".product-specs", ".product-description"]
     );
 

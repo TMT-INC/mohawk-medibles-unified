@@ -203,7 +203,7 @@ export default async function OGImage() {
                                 fontWeight: 500,
                             }}
                         >
-                            mohawkmedibles.co/blog
+                            mohawkmedibles.ca/blog
                         </span>
                     </div>
                 </div>

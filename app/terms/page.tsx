@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Terms of Service | Mohawk Medibles",
         description: "Terms and conditions for ordering cannabis online. Age verification, shipping, and legal terms.",
-        url: "https://mohawkmedibles.co/terms",
+        url: "https://mohawkmedibles.ca/terms",
         type: "website",
     },
-    alternates: { canonical: "https://mohawkmedibles.co/terms" },
+    alternates: { canonical: "https://mohawkmedibles.ca/terms" },
 };
 
 export default function TermsOfService() {

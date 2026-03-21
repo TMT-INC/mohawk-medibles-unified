@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Privacy Policy | Mohawk Medibles",
         description: "How we collect, use, and protect your personal information. PIPEDA compliant.",
-        url: "https://mohawkmedibles.co/privacy",
+        url: "https://mohawkmedibles.ca/privacy",
         type: "website",
     },
-    alternates: { canonical: "https://mohawkmedibles.co/privacy" },
+    alternates: { canonical: "https://mohawkmedibles.ca/privacy" },
 };
 
 export default function PrivacyPolicy() {

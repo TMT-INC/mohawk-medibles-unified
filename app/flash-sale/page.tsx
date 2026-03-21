@@ -26,12 +26,12 @@ export async function generateMetadata(): Promise<Metadata> {
             title: `${saleName} | Mohawk Medibles`,
             description:
                 "Limited-time flash sale on premium cannabis products. Massive savings at Mohawk Medibles.",
-            url: "https://mohawkmedibles.co/flash-sale",
+            url: "https://mohawkmedibles.ca/flash-sale",
             type: "website",
             images: ["/og-image.png"],
         },
         alternates: {
-            canonical: "https://mohawkmedibles.co/flash-sale",
+            canonical: "https://mohawkmedibles.ca/flash-sale",
         },
     };
 }

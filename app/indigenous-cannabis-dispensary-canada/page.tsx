@@ -30,7 +30,7 @@ import { faqSchema, breadcrumbSchema, articleSchema, buildSchemaGraph } from "@/
 
 /* ─── Metadata ────────────────────────────────────────────────── */
 
-const PAGE_URL = "https://mohawkmedibles.co/indigenous-cannabis-dispensary-canada";
+const PAGE_URL = "https://mohawkmedibles.ca/indigenous-cannabis-dispensary-canada";
 
 export const metadata: Metadata = {
     title: "Indigenous Cannabis Dispensary Canada | Mohawk Medibles — Tyendinaga Mohawk Territory",
@@ -230,7 +230,7 @@ function buildPageSchema(): string {
                 "Canada's trusted Indigenous-owned online cannabis dispensary. Shop 344+ premium products with free shipping over $199 from Tyendinaga Mohawk Territory.",
             datePublished: "2026-03-11",
             dateModified: "2026-03-11",
-            image: "https://mohawkmedibles.co/og-image.png",
+            image: "https://mohawkmedibles.ca/og-image.png",
             authorName: "Mohawk Medibles Team",
             authorCredentials:
                 "Indigenous-owned cannabis dispensary operating from Tyendinaga Mohawk Territory since 2019, serving 47,000+ customers across Canada.",
@@ -245,7 +245,7 @@ function buildPageSchema(): string {
         }),
         faqSchema(FAQ_ITEMS),
         breadcrumbSchema([
-            { name: "Home", url: "https://mohawkmedibles.co" },
+            { name: "Home", url: "https://mohawkmedibles.ca" },
             { name: "Indigenous Cannabis Dispensary Canada", url: PAGE_URL },
         ])
     );
@@ -481,7 +481,7 @@ export default function IndigenousCannabisDispensaryPage() {
                         <p>
                             Mohawk Medibles is proud to operate from this vibrant community. Our physical location at
                             45 Dundas Street in Deseronto sits within the traditional territory of the Mohawk Nation,
-                            and our online presence at <Link href="/" className="text-forest dark:text-lime font-semibold hover:underline">mohawkmedibles.co</Link> extends
+                            and our online presence at <Link href="/" className="text-forest dark:text-lime font-semibold hover:underline">mohawkmedibles.ca</Link> extends
                             our reach to every corner of Canada — from Victoria to St. John&apos;s, from Windsor to Iqaluit.
                         </p>
 

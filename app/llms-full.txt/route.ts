@@ -38,8 +38,8 @@ export async function GET() {
 - **Type**: Indigenous-owned cannabis dispensary
 - **Location**: Six Nations of the Grand River, Ohsweken, Ontario, Canada
 - **Territory**: Tyendinaga Mohawk Territory
-- **Website**: https://mohawkmedibles.co
-- **Shop**: https://mohawkmedibles.co/shop
+- **Website**: https://mohawkmedibles.ca
+- **Shop**: https://mohawkmedibles.ca/shop
 - **Quality Standard**: Empire Standard™ — every product is lab-tested for potency and purity
 - **Shipping**: Canada-wide via Canada Post Xpresspost (same-day processing)
 - **Total Products**: ${products.length}
@@ -69,7 +69,7 @@ ${sortedCategories.map(cat => `- ${cat} (${byCategory.get(cat)!.length} products
 
             content += `- **${p.name}** — ${priceStr}`;
             if (specs.length > 0) content += ` | ${specs.join(" | ")}`;
-            content += ` | URL: https://mohawkmedibles.co/shop/${p.slug}\n`;
+            content += ` | URL: https://mohawkmedibles.ca/shop/${p.slug}\n`;
         }
 
         content += "\n";
@@ -98,7 +98,7 @@ Mohawk Medibles ships Canada-wide to all 13 provinces and territories:
 ## Contact
 
 - **Email**: support@mohawkmedibles.ca
-- **Website**: https://mohawkmedibles.co
+- **Website**: https://mohawkmedibles.ca
 - **TikTok**: https://www.tiktok.com/@mediblesdeseronto
 - **X/Twitter**: https://x.com/mohawkmedibles
 - **YouTube**: https://www.youtube.com/@MohawkMedibles

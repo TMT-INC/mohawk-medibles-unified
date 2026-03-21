@@ -19,9 +19,9 @@ export const metadata: Metadata = {
         title: "Customer Support — Mohawk Medibles",
         description:
             "Help center for orders, shipping, payments, and product questions. Reach us by email, phone, or in person.",
-        url: "https://mohawkmedibles.co/support",
+        url: "https://mohawkmedibles.ca/support",
     },
-    alternates: { canonical: "https://mohawkmedibles.co/support" },
+    alternates: { canonical: "https://mohawkmedibles.ca/support" },
 };
 
 const faqSchema = {

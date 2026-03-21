@@ -21,10 +21,10 @@ export const metadata: Metadata = {
         title: "Shipping Policy | Mohawk Medibles — Free Shipping Over $199",
         description:
             "Free shipping over $199 CAD. Canada-wide Xpresspost in 1-5 business days. Discreet packaging & full tracking.",
-        url: "https://mohawkmedibles.co/shipping-policy",
+        url: "https://mohawkmedibles.ca/shipping-policy",
         type: "website",
     },
-    alternates: { canonical: "https://mohawkmedibles.co/shipping-policy" },
+    alternates: { canonical: "https://mohawkmedibles.ca/shipping-policy" },
 };
 
 export default function ShippingPolicy() {

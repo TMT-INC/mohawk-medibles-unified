@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import { breadcrumbSchema, faqSchema } from "@/lib/seo/schemas";
 
 const breadcrumbJsonLd = breadcrumbSchema([
-    { name: "Home", url: "https://mohawkmedibles.co" },
-    { name: "Deals", url: "https://mohawkmedibles.co/deals" },
+    { name: "Home", url: "https://mohawkmedibles.ca" },
+    { name: "Deals", url: "https://mohawkmedibles.ca/deals" },
 ]);
 
 const dealsFaqJsonLd = faqSchema([
@@ -31,11 +31,11 @@ export const metadata: Metadata = {
         title: "Cannabis Deals & Promotions | Mohawk Medibles",
         description:
             "Save on premium cannabis at Mohawk Medibles. Free shipping, mix & match discounts, bulk ounce deals. Indigenous-owned, Empire Standard™ quality.",
-        url: "https://mohawkmedibles.co/deals",
+        url: "https://mohawkmedibles.ca/deals",
         type: "website",
     },
     alternates: {
-        canonical: "https://mohawkmedibles.co/deals",
+        canonical: "https://mohawkmedibles.ca/deals",
     },
 };
 

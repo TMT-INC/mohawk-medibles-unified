@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     if (!post) return { title: "Post Not Found" };
 
-    const ogImageUrl = `https://mohawkmedibles.co/blog/${slug}/opengraph-image`;
+    const ogImageUrl = `https://mohawkmedibles.ca/blog/${slug}/opengraph-image`;
 
     return {
         title: post.title,
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         openGraph: {
             title: `${post.title} | Mohawk Medibles`,
             description: post.metaDescription,
-            url: `https://mohawkmedibles.co/blog/${slug}`,
+            url: `https://mohawkmedibles.ca/blog/${slug}`,
             type: "article",
             publishedTime: post.datePublished,
             modifiedTime: post.dateModified,
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             ],
         },
         alternates: {
-            canonical: `https://mohawkmedibles.co/blog/${slug}`,
+            canonical: `https://mohawkmedibles.ca/blog/${slug}`,
         },
     };
 }
@@ -80,7 +80,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         dateModified: post.dateModified,
         image: post.image.startsWith("http")
             ? post.image
-            : `https://mohawkmedibles.co${post.image}`,
+            : `https://mohawkmedibles.ca${post.image}`,
         authorName: post.author,
         authorCredentials: post.authorCredentials,
         keywords: post.tags,
@@ -88,9 +88,9 @@ export default async function BlogPostPage({ params }: PageProps) {
     });
 
     const breadcrumbJsonLd = breadcrumbSchema([
-        { name: "Home", url: "https://mohawkmedibles.co" },
-        { name: "Blog", url: "https://mohawkmedibles.co/blog" },
-        { name: post.title, url: `https://mohawkmedibles.co/blog/${slug}` },
+        { name: "Home", url: "https://mohawkmedibles.ca" },
+        { name: "Blog", url: "https://mohawkmedibles.ca/blog" },
+        { name: post.title, url: `https://mohawkmedibles.ca/blog/${slug}` },
     ]);
 
     // Get related posts (same category, excluding current)

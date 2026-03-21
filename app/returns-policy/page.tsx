@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Returns & Refund Policy | Mohawk Medibles",
         description: "Report issues within 48 hours for full replacement or refund. Customer satisfaction guarantee.",
-        url: "https://mohawkmedibles.co/returns-policy",
+        url: "https://mohawkmedibles.ca/returns-policy",
         type: "website",
     },
-    alternates: { canonical: "https://mohawkmedibles.co/returns-policy" },
+    alternates: { canonical: "https://mohawkmedibles.ca/returns-policy" },
 };
 
 export default function ReturnsPolicy() {

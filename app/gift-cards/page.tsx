@@ -361,7 +361,7 @@ export default function GiftCardsPage() {
 
                         <p className="text-xs text-muted-foreground text-center">
                             Gift cards are non-refundable. No expiry date.
-                            Redeemable on mohawkmedibles.co.
+                            Redeemable on mohawkmedibles.ca.
                         </p>
                     </form>
                 </div>

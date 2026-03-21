@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         title: "Our Story | Mohawk Medibles",
         description:
             "Indigenous-owned cannabis dispensary rooted in Six Nations heritage. Our story of community, quality, and sovereignty.",
-        url: "https://mohawkmedibles.co/our-story",
+        url: "https://mohawkmedibles.ca/our-story",
         type: "website",
         images: ["/og-image.png"],
     },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
             "Indigenous-owned cannabis dispensary from Six Nations of the Grand River.",
     },
     alternates: {
-        canonical: "https://mohawkmedibles.co/our-story",
+        canonical: "https://mohawkmedibles.ca/our-story",
     },
 };
 

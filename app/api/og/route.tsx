@@ -300,7 +300,7 @@ function blogOG(slug: string) {
                             </span>
                         </div>
                         <span style={{ color: "rgba(255,255,255,0.4)", fontSize: "14px" }}>
-                            mohawkmedibles.co
+                            mohawkmedibles.ca
                         </span>
                     </div>
                 </div>

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         title: "Cannabis Blog | Guides, News & Education | Mohawk Medibles",
         description:
             "Expert cannabis guides, dosage information, strain reviews, and industry news from Mohawk Medibles — Canada's trusted Indigenous-owned dispensary.",
-        url: "https://mohawkmedibles.co/blog",
+        url: "https://mohawkmedibles.ca/blog",
         type: "website",
         siteName: "Mohawk Medibles",
     },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
             "Expert cannabis guides, dosage information, strain reviews, and industry news from Mohawk Medibles — Canada's trusted Indigenous-owned dispensary.",
     },
     alternates: {
-        canonical: "https://mohawkmedibles.co/blog",
+        canonical: "https://mohawkmedibles.ca/blog",
     },
 };
 
@@ -43,17 +43,17 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
     const collectionPageSchema = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "@id": "https://mohawkmedibles.co/blog/#collectionpage",
+        "@id": "https://mohawkmedibles.ca/blog/#collectionpage",
         name: "Cannabis Blog | Guides, News & Education",
         description:
             "Expert cannabis guides, dosage information, strain reviews, and industry news from Mohawk Medibles — Canada's trusted Indigenous-owned dispensary.",
-        url: "https://mohawkmedibles.co/blog",
+        url: "https://mohawkmedibles.ca/blog",
         isPartOf: {
             "@type": "WebSite",
-            "@id": "https://mohawkmedibles.co/#website",
+            "@id": "https://mohawkmedibles.ca/#website",
         },
         publisher: {
-            "@id": "https://mohawkmedibles.co/#organization",
+            "@id": "https://mohawkmedibles.ca/#organization",
         },
         inLanguage: "en-CA",
         about: categories.map((cat) => ({
@@ -67,14 +67,14 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
                 "@type": "ListItem",
                 position: i + 1,
                 name: post.title,
-                url: `https://mohawkmedibles.co/blog/${post.slug}`,
+                url: `https://mohawkmedibles.ca/blog/${post.slug}`,
             })),
         },
     };
 
     const breadcrumbJsonLd = breadcrumbSchema([
-        { name: "Home", url: "https://mohawkmedibles.co" },
-        { name: "Blog", url: "https://mohawkmedibles.co/blog" },
+        { name: "Home", url: "https://mohawkmedibles.ca" },
+        { name: "Blog", url: "https://mohawkmedibles.ca/blog" },
     ]);
 
     return (

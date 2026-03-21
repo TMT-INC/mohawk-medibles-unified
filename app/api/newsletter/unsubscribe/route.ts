@@ -17,7 +17,7 @@ export function generateUnsubscribeToken(email: string): string {
 /** Build a full unsubscribe URL */
 export function buildUnsubscribeUrl(email: string, campaignId?: string): string {
     const token = generateUnsubscribeToken(email);
-    const base = process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.co";
+    const base = process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.ca";
     const params = new URLSearchParams({ email, token });
     if (campaignId) params.set("campaign", campaignId);
     return `${base}/api/newsletter/unsubscribe?${params.toString()}`;
@@ -78,7 +78,7 @@ function unsubPage(message: string, success: boolean): string {
         <h2 style="color:#333;margin:0 0 12px;">${success ? "Unsubscribed" : "Oops"}</h2>
         <p style="color:#666;line-height:1.6;">${message}</p>
         ${success ? '<p style="color:#999;font-size:13px;margin-top:20px;">You can re-subscribe anytime from our website.</p>' : ""}
-        <a href="https://mohawkmedibles.co" style="display:inline-block;margin-top:24px;background:#2D5016;color:white;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:14px;">Visit Mohawk Medibles</a>
+        <a href="https://mohawkmedibles.ca" style="display:inline-block;margin-top:24px;background:#2D5016;color:white;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:14px;">Visit Mohawk Medibles</a>
     </div>
 </div></body></html>`;
 }

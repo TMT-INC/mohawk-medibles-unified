@@ -95,7 +95,7 @@ function generateFallbackContent(channel: string, pillar?: string) {
             title: "New Arrivals at Mohawk Medibles",
             body: "Lab-tested, hand-selected premium cannabis now available. Visit Mohawk Medibles on Six Nations territory or shop online.",
             cta: "SHOP",
-            cta_link: "https://mohawkmedibles.co/shop/",
+            cta_link: "https://mohawkmedibles.ca/shop/",
         },
     };
 

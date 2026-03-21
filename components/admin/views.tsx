@@ -1706,7 +1706,7 @@ export function SettingsView() {
                     <div className="grid grid-cols-2 gap-4">
                         {[
                             { label: "Business Name", value: "Mohawk Medibles" },
-                            { label: "Site URL", value: "mohawkmedibles.co" },
+                            { label: "Site URL", value: "mohawkmedibles.ca" },
                             { label: "Email From", value: "orders@mohawkmedibles.ca" },
                             { label: "Currency", value: "CAD (Canadian Dollar)" },
                             { label: "Timezone", value: "America/Toronto (ET)" },

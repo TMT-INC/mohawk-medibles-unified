@@ -22,12 +22,12 @@ export async function generateMetadata({ params }: BrandPageProps): Promise<Meta
         openGraph: {
             title: `${brand.name} | Mohawk Medibles`,
             description: `Shop ${brand.name} cannabis products. Lab-tested, premium quality. Free shipping over $199.`,
-            url: `https://mohawkmedibles.co/brands/${slug}`,
+            url: `https://mohawkmedibles.ca/brands/${slug}`,
             type: "website",
             images: brand.logo ? [brand.logo] : ["/og-image.png"],
         },
         alternates: {
-            canonical: `https://mohawkmedibles.co/brands/${slug}`,
+            canonical: `https://mohawkmedibles.ca/brands/${slug}`,
         },
     };
 }

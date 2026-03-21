@@ -38,7 +38,7 @@ import { faqSchema, breadcrumbSchema, buildSchemaGraph } from "@/lib/seo/schemas
 
 /* ─── Metadata ────────────────────────────────────────────────── */
 
-const PAGE_URL = "https://mohawkmedibles.co/buy-weed-online-canada";
+const PAGE_URL = "https://mohawkmedibles.ca/buy-weed-online-canada";
 
 export const metadata: Metadata = {
     title: "Buy Weed Online Canada | Mohawk Medibles — Free Shipping Over $199",
@@ -246,16 +246,16 @@ function buildPageSchema(): string {
         description:
             "Buy weed online in Canada from Mohawk Medibles. 344+ lab-tested products, free shipping over $199, discreet delivery to all 13 provinces.",
         url: PAGE_URL,
-        isPartOf: { "@id": "https://mohawkmedibles.co/#website" },
-        about: { "@id": "https://mohawkmedibles.co/#organization" },
+        isPartOf: { "@id": "https://mohawkmedibles.ca/#website" },
+        about: { "@id": "https://mohawkmedibles.ca/#organization" },
         primaryImageOfPage: {
             "@type": "ImageObject",
-            url: "https://mohawkmedibles.co/og-image.png",
+            url: "https://mohawkmedibles.ca/og-image.png",
         },
         datePublished: "2026-03-12",
         dateModified: "2026-03-12",
         inLanguage: "en-CA",
-        breadcrumb: { "@id": "https://mohawkmedibles.co/#breadcrumb" },
+        breadcrumb: { "@id": "https://mohawkmedibles.ca/#breadcrumb" },
         speakable: {
             "@type": "SpeakableSpecification",
             cssSelector: ["h1", ".hero-description", ".trust-stats"],
@@ -266,7 +266,7 @@ function buildPageSchema(): string {
         webPageSchema,
         faqSchema(FAQ_ITEMS),
         breadcrumbSchema([
-            { name: "Home", url: "https://mohawkmedibles.co" },
+            { name: "Home", url: "https://mohawkmedibles.ca" },
             { name: "Buy Weed Online Canada", url: PAGE_URL },
         ])
     );

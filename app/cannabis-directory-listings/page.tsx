@@ -23,10 +23,10 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Find Mohawk Medibles | Cannabis Directory Listings",
         description: "Find us on Weedmaps, Leafly, and more. Indigenous-owned cannabis dispensary.",
-        url: "https://mohawkmedibles.co/cannabis-directory-listings",
+        url: "https://mohawkmedibles.ca/cannabis-directory-listings",
         type: "website",
     },
-    alternates: { canonical: "https://mohawkmedibles.co/cannabis-directory-listings" },
+    alternates: { canonical: "https://mohawkmedibles.ca/cannabis-directory-listings" },
 };
 
 const DIRECTORIES = [
@@ -52,8 +52,8 @@ const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://mohawkmedibles.co" },
-        { "@type": "ListItem", position: 2, name: "Directory Listings", item: "https://mohawkmedibles.co/cannabis-directory-listings" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://mohawkmedibles.ca" },
+        { "@type": "ListItem", position: 2, name: "Directory Listings", item: "https://mohawkmedibles.ca/cannabis-directory-listings" },
     ],
 };
 

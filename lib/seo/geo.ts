@@ -292,7 +292,7 @@ export function generateGEOMetaTags(page: {
         "og:title": page.title,
         "og:description": page.description,
         "og:url": page.url,
-        "og:image": page.image || "https://mohawkmedibles.co/og-image.jpg",
+        "og:image": page.image || "https://mohawkmedibles.ca/og-image.jpg",
         "og:type": page.type || "website",
         "og:site_name": "Mohawk Medibles",
         "og:locale": "en_CA",
@@ -303,7 +303,7 @@ export function generateGEOMetaTags(page: {
         "twitter:creator": "@mohawkmedibles",
         "twitter:title": page.title,
         "twitter:description": page.description,
-        "twitter:image": page.image || "https://mohawkmedibles.co/og-image.jpg",
+        "twitter:image": page.image || "https://mohawkmedibles.ca/og-image.jpg",
 
         // Article meta (for blog posts)
         ...(page.publishedTime && { "article:published_time": page.publishedTime }),

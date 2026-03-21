@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     description:
         "Save and manage your favourite cannabis products from Mohawk Medibles. Flower, edibles, concentrates, vapes and more — all in one place.",
     robots: { index: false, follow: true },
-    alternates: { canonical: "https://mohawkmedibles.co/wishlist" },
+    alternates: { canonical: "https://mohawkmedibles.ca/wishlist" },
 };
 
 export default function WishlistLayout({ children }: { children: React.ReactNode }) {

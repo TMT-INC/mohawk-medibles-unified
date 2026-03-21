@@ -616,7 +616,7 @@ const moh: DictionarySchema = {
         lastUpdated: "Iahtshátho á:se: Ehníska 2026",
         // Section 1
         acceptanceTitle: "1. Sewatahonhsí:iohst",          // "Acceptance of Terms"
-        acceptanceDesc: "Tsi sá:iere mohawkmedibles.co — sewatahonhsí:iohst tsi niiohserá:ke. Tóka iáh — tóhsa sá:iere ne website.",
+        acceptanceDesc: "Tsi sá:iere mohawkmedibles.ca — sewatahonhsí:iohst tsi niiohserá:ke. Tóka iáh — tóhsa sá:iere ne website.",
         // Section 2
         ageRequirementTitle: "2. 19+ Katónhkwa",            // "Age Requirement"
         ageRequirementDesc: "19 niiohseró:ten tóka iahsiéhste katónhkwa tsi satká:tho, sewatiénni, tóka kahionhátie sá:iere. Tsi sá:iere — hen 19+ ise. Tóka teieiéstahkhwa — tiotkon tánon tsi iesá:wis.",

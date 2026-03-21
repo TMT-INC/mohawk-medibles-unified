@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         title: "Flash Sale | Mohawk Medibles",
         description:
             "Limited-time flash sale on premium cannabis. Massive savings on flower, edibles, concentrates & more.",
-        url: "https://mohawkmedibles.co/flash-sale",
+        url: "https://mohawkmedibles.ca/flash-sale",
         type: "website",
         images: ["/og-image.png"],
     },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
             "Limited-time cannabis flash sale. Premium products at unbeatable prices.",
     },
     alternates: {
-        canonical: "https://mohawkmedibles.co/flash-sale",
+        canonical: "https://mohawkmedibles.ca/flash-sale",
     },
 };
 

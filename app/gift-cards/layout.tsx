@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         title: "Gift Cards | Mohawk Medibles",
         description:
             "Give the gift of premium cannabis. Mohawk Medibles gift cards from $25-$200+. Delivered by email.",
-        url: "https://mohawkmedibles.co/gift-cards",
+        url: "https://mohawkmedibles.ca/gift-cards",
         type: "website",
         images: ["/og-image.png"],
     },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
             "Give the gift of premium cannabis. Gift cards from $25 to $200+.",
     },
     alternates: {
-        canonical: "https://mohawkmedibles.co/gift-cards",
+        canonical: "https://mohawkmedibles.ca/gift-cards",
     },
 };
 

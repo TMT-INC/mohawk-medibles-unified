@@ -186,7 +186,7 @@ export function generateProductFAQs(product: {
         },
         {
             question: `How much does ${product.name} cost?`,
-            answer: `${product.name} is available at Mohawk Medibles ${product.price ? `starting at $${product.price.toFixed(2)} CAD` : "at competitive prices"}. We offer Canada-wide shipping via Canada Post Xpresspost. Visit mohawkmedibles.co/shop for current pricing and availability.`,
+            answer: `${product.name} is available at Mohawk Medibles ${product.price ? `starting at $${product.price.toFixed(2)} CAD` : "at competitive prices"}. We offer Canada-wide shipping via Canada Post Xpresspost. Visit mohawkmedibles.ca/shop for current pricing and availability.`,
             category: "products",
             intent: "transactional",
             keywords: [`${product.name.toLowerCase()} price`, "cannabis prices canada"],

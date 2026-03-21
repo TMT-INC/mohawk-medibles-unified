@@ -32,7 +32,7 @@ const sora = Sora({
 const FALLBACK_TITLE = "Mohawk Medibles | Premium Indigenous Cannabis — Six Nations";
 const FALLBACK_DESCRIPTION =
   "Indigenous-owned premium cannabis dispensary on Six Nations territory. 344+ lab-tested products: flower, edibles, concentrates, vapes. Empire Standard™ quality. Ships Canada-wide.";
-const FALLBACK_DOMAIN = "https://mohawkmedibles.co";
+const FALLBACK_DOMAIN = "https://mohawkmedibles.ca";
 
 export async function generateMetadata(): Promise<Metadata> {
   const tenant = await getCurrentTenant();
@@ -149,18 +149,18 @@ import { getFAQsForSchema } from "@/lib/seo/aeo";
 const siteNavSchema = {
   "@context": "https://schema.org",
   "@type": "SiteNavigationElement",
-  "@id": "https://mohawkmedibles.co/#sitenav",
+  "@id": "https://mohawkmedibles.ca/#sitenav",
   name: "Main Navigation",
   hasPart: [
-    { "@type": "WebPage", name: "Shop Cannabis", url: "https://mohawkmedibles.co/shop" },
-    { "@type": "WebPage", name: "Cannabis Deals", url: "https://mohawkmedibles.co/deals" },
-    { "@type": "WebPage", name: "About Us", url: "https://mohawkmedibles.co/about" },
-    { "@type": "WebPage", name: "Cannabis Blog", url: "https://mohawkmedibles.co/blog" },
-    { "@type": "WebPage", name: "Customer Reviews", url: "https://mohawkmedibles.co/reviews" },
-    { "@type": "WebPage", name: "FAQ", url: "https://mohawkmedibles.co/faq" },
-    { "@type": "WebPage", name: "Support", url: "https://mohawkmedibles.co/support" },
-    { "@type": "WebPage", name: "Cannabis Delivery Canada", url: "https://mohawkmedibles.co/delivery" },
-    { "@type": "WebPage", name: "Buy Weed Online Canada", url: "https://mohawkmedibles.co/buy-weed-online-canada" },
+    { "@type": "WebPage", name: "Shop Cannabis", url: "https://mohawkmedibles.ca/shop" },
+    { "@type": "WebPage", name: "Cannabis Deals", url: "https://mohawkmedibles.ca/deals" },
+    { "@type": "WebPage", name: "About Us", url: "https://mohawkmedibles.ca/about" },
+    { "@type": "WebPage", name: "Cannabis Blog", url: "https://mohawkmedibles.ca/blog" },
+    { "@type": "WebPage", name: "Customer Reviews", url: "https://mohawkmedibles.ca/reviews" },
+    { "@type": "WebPage", name: "FAQ", url: "https://mohawkmedibles.ca/faq" },
+    { "@type": "WebPage", name: "Support", url: "https://mohawkmedibles.ca/support" },
+    { "@type": "WebPage", name: "Cannabis Delivery Canada", url: "https://mohawkmedibles.ca/delivery" },
+    { "@type": "WebPage", name: "Buy Weed Online Canada", url: "https://mohawkmedibles.ca/buy-weed-online-canada" },
   ],
 };
 
@@ -190,7 +190,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const tenant = await getCurrentTenant();
-  const domainUrl = tenant.domain ? `https://${tenant.domain}` : "https://mohawkmedibles.co";
+  const domainUrl = tenant.domain ? `https://${tenant.domain}` : "https://mohawkmedibles.ca";
 
   return (
     <html lang="en" suppressHydrationWarning>

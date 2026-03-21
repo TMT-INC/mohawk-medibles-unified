@@ -75,7 +75,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const geoMeta = generateGEOMetaTags({
         title,
         description,
-        url: `https://mohawkmedibles.co/${slug}`,
+        url: `https://mohawkmedibles.ca/${slug}`,
     });
 
     return {
@@ -92,8 +92,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         },
         alternates: {
             canonical: LEGACY_TO_NEW_DELIVERY[slug]
-                ? `https://mohawkmedibles.co${LEGACY_TO_NEW_DELIVERY[slug]}`
-                : `https://mohawkmedibles.co/${slug}`,
+                ? `https://mohawkmedibles.ca${LEGACY_TO_NEW_DELIVERY[slug]}`
+                : `https://mohawkmedibles.ca/${slug}`,
         },
         other: {
             ...geoMeta
@@ -137,10 +137,10 @@ export default async function DynamicPage({ params }: PageProps) {
 
     // JSON-LD schemas — trusted static content from our own data files, not user input
     const breadcrumbJsonLd = breadcrumbSchema([
-        { name: "Home", url: "https://mohawkmedibles.co" },
+        { name: "Home", url: "https://mohawkmedibles.ca" },
         ...(isDeliveryPage
-            ? [{ name: `${provinceName} Delivery`, url: `https://mohawkmedibles.co/${slug}` }]
-            : [{ name: page.title, url: `https://mohawkmedibles.co/${slug}` }]
+            ? [{ name: `${provinceName} Delivery`, url: `https://mohawkmedibles.ca/${slug}` }]
+            : [{ name: page.title, url: `https://mohawkmedibles.ca/${slug}` }]
         ),
     ]);
     const faqJsonLd = faqSchema(relevantFaqs.map((f) => ({ question: f.question, answer: f.answer })));
@@ -148,8 +148,8 @@ export default async function DynamicPage({ params }: PageProps) {
         "@context": "https://schema.org",
         "@type": "Store",
         "name": "Mohawk Medibles",
-        "url": "https://mohawkmedibles.co",
-        "image": "https://mohawkmedibles.co/logo.png",
+        "url": "https://mohawkmedibles.ca",
+        "image": "https://mohawkmedibles.ca/logo.png",
         "description": `Indigenous-owned premium cannabis dispensary delivering to ${provinceName}. Lab-tested, terpene-profiled products meeting the Empire Standard™.`,
         "address": {
             "@type": "PostalAddress",

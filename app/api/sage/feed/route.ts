@@ -10,7 +10,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getAllProducts } from "@/lib/products";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.co";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.ca";
 
 export async function GET(req: NextRequest) {
     const limited = await applyRateLimit(req, RATE_LIMITS.api);

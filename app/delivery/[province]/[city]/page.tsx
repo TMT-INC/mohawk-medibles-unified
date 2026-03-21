@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const description = tier1
         ? `Order premium cannabis online in ${city.name}, ${province.abbreviation}. ${city.deliveryEstimate}. Lab-tested flower, edibles, concentrates & hash. Free shipping over $199. Discreet packaging.`
         : `Order cannabis online in ${city.name}. Mohawk Medibles delivers premium flower, edibles, concentrates & more to ${city.name} & ${province.name}. Discreet packaging, free shipping over $199.`;
-    const url = `https://mohawkmedibles.co/delivery/${province.slug}/${city.slug}`;
+    const url = `https://mohawkmedibles.ca/delivery/${province.slug}/${city.slug}`;
 
     const ogImageUrl = `/delivery/${province.slug}/${city.slug}/opengraph-image`;
     const ogImageAlt = `Cannabis delivery to ${city.name}, ${province.name} - Mohawk Medibles`;
@@ -146,10 +146,10 @@ export default async function CityDeliveryPage({ params }: PageProps) {
 
     // Breadcrumb schema
     const breadcrumbs = [
-        { name: "Home", url: "https://mohawkmedibles.co" },
-        { name: "Delivery", url: "https://mohawkmedibles.co/delivery" },
-        { name: province.name, url: `https://mohawkmedibles.co/delivery/${province.slug}` },
-        { name: city.name, url: `https://mohawkmedibles.co/delivery/${province.slug}/${city.slug}` },
+        { name: "Home", url: "https://mohawkmedibles.ca" },
+        { name: "Delivery", url: "https://mohawkmedibles.ca/delivery" },
+        { name: province.name, url: `https://mohawkmedibles.ca/delivery/${province.slug}` },
+        { name: city.name, url: `https://mohawkmedibles.ca/delivery/${province.slug}/${city.slug}` },
     ];
 
     // Store schema - built from trusted internal data
@@ -157,8 +157,8 @@ export default async function CityDeliveryPage({ params }: PageProps) {
         "@context": "https://schema.org",
         "@type": "Store",
         name: "Mohawk Medibles",
-        url: "https://mohawkmedibles.co",
-        image: "https://mohawkmedibles.co/logo.png",
+        url: "https://mohawkmedibles.ca",
+        image: "https://mohawkmedibles.ca/logo.png",
         description: `Indigenous-owned premium cannabis dispensary delivering to ${city.name}, ${province.name}. Lab-tested, terpene-profiled products meeting the Empire Standard™.`,
         address: {
             "@type": "PostalAddress",

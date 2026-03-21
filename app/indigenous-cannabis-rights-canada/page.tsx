@@ -26,7 +26,7 @@ import { faqSchema, breadcrumbSchema, articleSchema, buildSchemaGraph } from "@/
 
 /* ─── Metadata ────────────────────────────────────────────────── */
 
-const PAGE_URL = "https://mohawkmedibles.co/indigenous-cannabis-rights-canada";
+const PAGE_URL = "https://mohawkmedibles.ca/indigenous-cannabis-rights-canada";
 
 export const metadata: Metadata = {
     title: "Indigenous Cannabis Rights Canada | Sovereignty & Treaty Rights | Mohawk Medibles",
@@ -135,7 +135,7 @@ function buildPageSchema(): string {
                 "A comprehensive educational guide to Indigenous cannabis rights in Canada, covering treaty rights, Section 35 sovereignty, the Cannabis Act, Six Nations operations, and economic self-determination.",
             datePublished: "2026-03-12",
             dateModified: "2026-03-12",
-            image: "https://mohawkmedibles.co/og-image.png",
+            image: "https://mohawkmedibles.ca/og-image.png",
             authorName: "Mohawk Medibles Team",
             authorCredentials:
                 "Indigenous-owned cannabis dispensary operating from Six Nations territory since 2019, serving 47,000+ customers across Canada with deep roots in Haudenosaunee sovereignty and self-governance.",
@@ -151,7 +151,7 @@ function buildPageSchema(): string {
         }),
         faqSchema(FAQ_ITEMS),
         breadcrumbSchema([
-            { name: "Home", url: "https://mohawkmedibles.co" },
+            { name: "Home", url: "https://mohawkmedibles.ca" },
             { name: "Indigenous Cannabis Rights Canada", url: PAGE_URL },
         ])
     );
