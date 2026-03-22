@@ -81,53 +81,30 @@ export default async function DealsPage() {
                     Active Offers
                 </h2>
                 <div className="grid md:grid-cols-3 gap-8">
-                    {/* Free Shipping Card */}
-                    <div className="glass-card p-8 rounded-2xl border border-secondary/20 backdrop-blur-md">
-                        <h3 className="text-2xl font-bold text-forest dark:text-lime mb-3 uppercase tracking-wide">
-                            Free Shipping
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed mb-6">
-                            Free shipping on all orders over <span className="font-bold text-forest dark:text-lime">$199 CAD</span> — Canada-wide via Xpresspost.
-                            Fast, discreet, secure delivery.
-                        </p>
-                        <Link href="/shop">
-                            <Button variant="brand" size="lg">
-                                Shop Now
-                            </Button>
-                        </Link>
-                    </div>
-
-                    {/* Mix & Match Card */}
-                    <div className="glass-card p-8 rounded-2xl border border-secondary/20 backdrop-blur-md">
-                        <h3 className="text-2xl font-bold text-forest dark:text-lime mb-3 uppercase tracking-wide">
-                            Mix & Match
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed mb-6">
-                            Buy any <span className="font-bold text-forest dark:text-lime">3 edibles</span>, get <span className="font-bold text-forest dark:text-lime">10% off</span> your
-                            edible total. Mix flavors, strains, and potencies — your choice.
-                        </p>
-                        <Link href="/shop?category=Edibles">
-                            <Button variant="brand" size="lg">
-                                Shop Now
-                            </Button>
-                        </Link>
-                    </div>
-
-                    {/* Bulk Savings Card */}
-                    <div className="glass-card p-8 rounded-2xl border border-secondary/20 backdrop-blur-md">
-                        <h3 className="text-2xl font-bold text-forest dark:text-lime mb-3 uppercase tracking-wide">
-                            Bulk Savings
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed mb-6">
-                            Ounce deals starting at <span className="font-bold text-forest dark:text-lime">$40</span> — premium flower at unbeatable prices.
-                            Perfect for serious enthusiasts.
-                        </p>
-                        <Link href="/shop?category=Flower">
-                            <Button variant="brand" size="lg">
-                                Shop Now
-                            </Button>
-                        </Link>
-                    </div>
+                    {[
+                        { title: "Free Shipping", desc: <>Free shipping on all orders over <span className="font-bold text-forest dark:text-lime">$199 CAD</span> — Canada-wide via Xpresspost. Fast, discreet, secure delivery.</>, href: "/shop", image: "/assets/cards/deals-shipping.webp" },
+                        { title: "Mix & Match", desc: <>Buy any <span className="font-bold text-forest dark:text-lime">3 edibles</span>, get <span className="font-bold text-forest dark:text-lime">10% off</span> your edible total. Mix flavors, strains, and potencies — your choice.</>, href: "/shop?category=Edibles", image: "/assets/cards/deals-mixmatch.webp" },
+                        { title: "Bulk Savings", desc: <>Ounce deals starting at <span className="font-bold text-forest dark:text-lime">$40</span> — premium flower at unbeatable prices. Perfect for serious enthusiasts.</>, href: "/shop?category=Flower", image: "/assets/cards/deals-bulk.webp" },
+                    ].map((offer) => (
+                        <div key={offer.title} className="group relative overflow-hidden rounded-2xl border border-secondary/20">
+                            <div className="absolute inset-0">
+                                <Image src={offer.image} alt={offer.title} fill className="object-cover opacity-20 dark:opacity-15 group-hover:opacity-30 dark:group-hover:opacity-20 transition-opacity duration-500 group-hover:scale-110" sizes="(max-width: 768px) 100vw, 33vw" />
+                            </div>
+                            <div className="relative z-10 p-8 backdrop-blur-sm">
+                                <h3 className="text-2xl font-bold text-forest dark:text-lime mb-3 uppercase tracking-wide">
+                                    {offer.title}
+                                </h3>
+                                <p className="text-muted-foreground leading-relaxed mb-6">
+                                    {offer.desc}
+                                </p>
+                                <Link href={offer.href}>
+                                    <Button variant="brand" size="lg">
+                                        Shop Now
+                                    </Button>
+                                </Link>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </section>
 

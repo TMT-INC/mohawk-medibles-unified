@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 /** Monthly Deals gradient cards from .cc — high-conversion deal showcase */
 export function MonthlyDeals() {
@@ -7,25 +8,25 @@ export function MonthlyDeals() {
       title: "$40 Ounces",
       highlight: "3 for $100",
       desc: "Quality bud at an unbeatable price",
-      color: "from-green-600/20 to-green-900/20",
-      border: "border-green-600/30",
+      color: "from-green-900/80 to-green-950/90",
       href: "/shop?category=flower",
+      image: "/assets/cards/monthly-ounces.webp",
     },
     {
       title: "Premium Hash",
       highlight: "Starting $140/oz",
       desc: "Afghan, Lebanese, and Moroccan hash",
-      color: "from-amber-600/20 to-amber-900/20",
-      border: "border-amber-600/30",
+      color: "from-amber-900/80 to-amber-950/90",
       href: "/shop?category=concentrates",
+      image: "/assets/cards/monthly-hash.webp",
     },
     {
       title: "1000mg Gummies",
       highlight: "Only $20 Each",
       desc: "Potent edibles, assorted flavours",
-      color: "from-purple-600/20 to-purple-900/20",
-      border: "border-purple-600/30",
+      color: "from-purple-900/80 to-purple-950/90",
       href: "/shop?category=edibles",
+      image: "/assets/cards/monthly-gummies.webp",
     },
   ];
 
@@ -42,20 +43,30 @@ export function MonthlyDeals() {
           <Link
             key={deal.title}
             href={deal.href}
-            className={`group relative bg-gradient-to-br ${deal.color} border ${deal.border} rounded-2xl p-6 hover:scale-[1.02] transition-transform`}
+            className="group relative overflow-hidden rounded-2xl min-h-[220px] hover:scale-[1.02] transition-transform"
           >
-            <h3 className="text-2xl font-heading font-black text-white mb-1">
-              {deal.title}
-            </h3>
-            <p className="text-[var(--lime)] font-bold text-lg mb-2">
-              {deal.highlight}
-            </p>
-            <p className="text-sm text-[var(--muted-foreground)]">
-              {deal.desc}
-            </p>
-            <span className="inline-block mt-4 text-sm text-[var(--lime)] font-bold group-hover:underline">
-              Shop Now →
-            </span>
+            <Image
+              src={deal.image}
+              alt={deal.title}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+            <div className={`absolute inset-0 bg-gradient-to-t ${deal.color}`} />
+            <div className="relative z-10 p-6 flex flex-col justify-end h-full">
+              <h3 className="text-2xl font-heading font-black text-white mb-1">
+                {deal.title}
+              </h3>
+              <p className="text-[var(--lime)] font-bold text-lg mb-2">
+                {deal.highlight}
+              </p>
+              <p className="text-sm text-white/70">
+                {deal.desc}
+              </p>
+              <span className="inline-block mt-4 text-sm text-[var(--lime)] font-bold group-hover:underline">
+                Shop Now →
+              </span>
+            </div>
           </Link>
         ))}
       </div>
