@@ -4,8 +4,13 @@
  * POST body: { action: "create"|"update"|"delete", ... }
  */
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 export async function GET(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     const { prisma } = await import("@/lib/db");
     const action = req.nextUrl.searchParams.get("action") || "list";
 
@@ -61,12 +66,15 @@ export async function GET(req: NextRequest) {
             }
         }
     } catch (err: any) {
-        console.error("AB Tests GET error:", err);
+        log.admin.error("AB Tests GET error", { error: err instanceof Error ? err.message : "Unknown" });
         return NextResponse.json({ error: err.message }, { status: 500 });
     }
 }
 
 export async function POST(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     const { prisma } = await import("@/lib/db");
     const body = await req.json();
     const { action, ...data } = body;
@@ -108,7 +116,7 @@ export async function POST(req: NextRequest) {
                 return NextResponse.json({ error: "Invalid action" }, { status: 400 });
         }
     } catch (err: any) {
-        console.error("AB Tests POST error:", err);
+        log.admin.error("AB Tests POST error", { error: err instanceof Error ? err.message : "Unknown" });
         return NextResponse.json({ error: err.message }, { status: 500 });
     }
 }

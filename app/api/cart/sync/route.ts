@@ -6,6 +6,7 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
 import { saveCart } from "@/lib/abandonedCart";
 import { pushEvent } from "@/lib/activityStream";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
@@ -82,7 +83,7 @@ export async function POST(req: NextRequest) {
                 });
             }
         } catch (e) {
-            console.error("[Cart Sync] DB persist error:", e);
+            log.checkout.error("Cart sync DB persist error", { error: e instanceof Error ? e.message : "Unknown" });
             // Non-blocking — cart still synced to memory
         }
     } else if (userId && validItems.length === 0) {

@@ -7,11 +7,16 @@ import { NextRequest, NextResponse } from "next/server";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 import { AdminOrderAction, AdminOrdersQuery, validateBody, validateQuery } from "@/lib/validation";
 import { log } from "@/lib/logger";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 export async function GET(req: NextRequest) {
     // ── Rate limit ──────────────────────────────────────────
     const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
+
+    // ── Auth check ───────────────────────────────────────────
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
 
     // ── Validate query ──────────────────────────────────────
     const parsed = validateQuery(AdminOrdersQuery, req.nextUrl.searchParams);
@@ -88,6 +93,10 @@ export async function POST(req: NextRequest) {
     const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
+    // ── Auth check ───────────────────────────────────────────
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     // ── Parse & validate body ───────────────────────────────
     let body: unknown;
     try {
@@ -117,7 +126,7 @@ export async function POST(req: NextRequest) {
                         orderId: data.orderId,
                         status: data.status,
                         note: data.note || `Status updated to ${data.status}`,
-                        changedBy: req.headers.get("x-user-id") || "system",
+                        changedBy: auth.userId,
                     },
                 });
                 return NextResponse.json({ success: true, order });

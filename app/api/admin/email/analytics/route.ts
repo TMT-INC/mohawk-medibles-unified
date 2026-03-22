@@ -4,8 +4,13 @@
  * Returns overview metrics, campaign list with rates, timeline, top performers, audience breakdown
  */
 import { NextRequest, NextResponse } from "next/server";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
+import { log } from "@/lib/logger";
 
 export async function GET(_req: NextRequest) {
+    const auth = requireAdmin(_req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const { prisma } = await import("@/lib/db");
 
@@ -120,7 +125,7 @@ export async function GET(_req: NextRequest) {
             audienceBreakdown,
         });
     } catch (e) {
-        console.error("[Email Analytics] Error:", e);
+        log.admin.error("Email analytics error", { error: e instanceof Error ? e.message : String(e) });
         return NextResponse.json({ error: "Failed to load analytics" }, { status: 500 });
     }
 }

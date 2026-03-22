@@ -179,7 +179,7 @@ export function HeroCarousel() {
               <Link href={slide.ctaSecondary.href}>
                 <Button
                   size="lg"
-                  className="rounded-full text-sm sm:text-base md:text-lg h-11 sm:h-12 md:h-14 px-6 sm:px-8 md:px-10 glass border-lime/20 text-white hover:bg-lime/10 font-semibold w-full sm:w-auto"
+                  className="rounded-full text-sm sm:text-base md:text-lg h-11 sm:h-12 md:h-14 px-6 sm:px-8 md:px-10 bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white/25 font-semibold w-full sm:w-auto"
                 >
                   {slide.ctaSecondary.label}
                 </Button>

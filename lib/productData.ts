@@ -14656,8 +14656,18 @@ export function getFeaturedProducts() {
     return PRODUCTS.filter(p => p.featured);
 }
 
+/** Decode HTML entities inline (&#8211; → –, etc.) */
+function decodeEntities(str: string): string {
+    if (!str || !str.includes("&")) return str;
+    return str
+        .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+        .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+        .replace(/&quot;/g, '"').replace(/&apos;/g, "'");
+}
+
 export function getShortName(product: Product) {
-    return product.name.length > 25 ? product.name.substring(0, 25) + "..." : product.name;
+    const name = decodeEntities(product.name);
+    return name.length > 25 ? name.substring(0, 25) + "..." : name;
 }
 
 export function getProductBySlug(slug: string): Product | undefined {

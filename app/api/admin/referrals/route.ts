@@ -3,7 +3,9 @@
  * GET /api/admin/referrals
  */
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 interface ReferralRecord {
     id: number;
@@ -19,6 +21,9 @@ interface ReferralRecord {
 }
 
 export async function GET(_req: NextRequest) {
+    const auth = requireAdmin(_req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const allReferrals: ReferralRecord[] = await prisma.referral.findMany({
             orderBy: { createdAt: "desc" },
@@ -54,7 +59,7 @@ export async function GET(_req: NextRequest) {
             })),
         });
     } catch (error) {
-        console.error("Admin referrals error:", error);
+        log.admin.error("Admin referrals error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json(
             {
                 stats: { totalReferrals: 0, completed: 0, pending: 0, expired: 0, totalPointsAwarded: 0, conversionRate: "0.0" },

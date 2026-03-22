@@ -927,6 +927,7 @@ model CartItem {
     user    User    @relation(fields: [userId], references: [id])
     product Product @relation(fields: [productId], references: [id])
 
+    @@unique([userId, productId, variantId])
     @@index([userId])
     @@index([productId])
 }
@@ -1295,15 +1296,21 @@ model ABTest {
     variantA       String    @db.Text
     variantB       String    @db.Text
     trafficSplit   Int       @default(50)
-    status         String    @default("draft") // draft, running, completed
+    status         String    @default("draft") // draft, running, paused, completed
     startDate      DateTime?
     endDate        DateTime?
+    impressionsA   Int       @default(0)
+    impressionsB   Int       @default(0)
+    conversionsA   Int       @default(0)
+    conversionsB   Int       @default(0)
     winnerVariant  String?
     createdBy      String?
     createdAt      DateTime  @default(now())
     updatedAt      DateTime  @updatedAt
 
     results ABTestResult[]
+
+    @@index([status])
 }
 
 model ABTestResult {
@@ -2230,27 +2237,7 @@ model TenantAnalytics {
     @@index([date])
 }
 
-// ─── A/B Testing ────────────────────────────────────────
-
-model AbTest {
-    id            Int       @id @default(autoincrement())
-    name          String
-    description   String?
-    element       String    // CSS selector or element ID being tested
-    variantA      String    @db.Text
-    variantB      String    @db.Text
-    status        String    @default("draft") // draft, running, paused, completed
-    trafficSplit  Int       @default(50)
-    impressionsA  Int       @default(0)
-    impressionsB  Int       @default(0)
-    conversionsA  Int       @default(0)
-    conversionsB  Int       @default(0)
-    winnerVariant String?   // "a" or "b"
-    createdAt     DateTime  @default(now())
-    updatedAt     DateTime  @updatedAt
-
-    @@index([status])
-}
+// ─── (AbTest consolidated into ABTest above) ────────────
 
 // ─── Session Recording ──────────────────────────────────
 

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
+import { log } from '@/lib/logger';
 import { fetchOrders, type WCOrder } from '@/lib/wc-api';
 
 // Map WC order status → our OrderStatus enum
@@ -154,7 +155,7 @@ async function syncOrderBatch(orders: WCOrder[]): Promise<{ success: number; fai
       success++;
     } catch (err: any) {
       failed++;
-      console.error(`[Sync:Orders] Failed order ${wc.id}:`, err.message);
+      log.wc.error("Failed to sync order", { wcOrderId: wc.id, error: err.message });
     }
   }
 
@@ -205,7 +206,7 @@ export async function POST(req: NextRequest) {
       data: { lastPage: startPage, recordsSynced: totalSuccess, recordsFailed: totalFailed },
     });
 
-    console.log(`[Sync:Orders] Page ${startPage}/${totalPages} — ${totalSuccess} synced`);
+    log.wc.info("Orders sync progress", { page: startPage, totalPages, synced: totalSuccess });
 
     // Process remaining pages
     for (let page = startPage + 1; page <= totalPages; page++) {
@@ -222,9 +223,9 @@ export async function POST(req: NextRequest) {
           data: { lastPage: page, recordsSynced: totalSuccess, recordsFailed: totalFailed },
         });
 
-        console.log(`[Sync:Orders] Page ${page}/${totalPages} — ${totalSuccess} synced`);
+        log.wc.info("Orders sync progress", { page, totalPages, synced: totalSuccess });
       } catch (err) {
-        console.error(`[Sync:Orders] Page ${page} failed:`, err);
+        log.wc.error("Orders sync page failed", { page, error: err instanceof Error ? err.message : "Unknown" });
         totalFailed += 100; // Approximate page size
       }
     }

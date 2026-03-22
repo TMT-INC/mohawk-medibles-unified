@@ -5,9 +5,14 @@
  * DELETE /api/admin/bulk-pricing?productId=X — remove all tiers
  */
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 export async function GET(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const productId = Number(req.nextUrl.searchParams.get("productId"));
 
@@ -29,12 +34,15 @@ export async function GET(req: NextRequest) {
 
         return NextResponse.json({ products });
     } catch (error) {
-        console.error("Bulk pricing GET error:", error);
+        log.admin.error("Bulk pricing GET error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json({ tiers: [], products: [] });
     }
 }
 
 export async function POST(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const { productId, tiers } = await req.json();
 
@@ -64,12 +72,15 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({ success: true });
     } catch (error) {
-        console.error("Bulk pricing POST error:", error);
+        log.admin.error("Bulk pricing POST error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json({ error: "Failed to save bulk pricing" }, { status: 500 });
     }
 }
 
 export async function DELETE(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const productId = Number(req.nextUrl.searchParams.get("productId"));
         if (!productId) {
@@ -83,7 +94,7 @@ export async function DELETE(req: NextRequest) {
 
         return NextResponse.json({ success: true });
     } catch (error) {
-        console.error("Bulk pricing DELETE error:", error);
+        log.admin.error("Bulk pricing DELETE error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json({ error: "Failed to remove bulk pricing" }, { status: 500 });
     }
 }

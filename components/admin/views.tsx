@@ -472,10 +472,10 @@ export function AnalyticsView() {
                                     <table className="w-full text-sm">
                                         <thead><tr className="border-b border-white/5 text-zinc-500 text-xs uppercase tracking-wider">
                                             <th className="text-left py-2 pr-3">Customer</th><th className="text-left py-2 pr-3">Segment</th>
-                                            <th className="text-center py-2 pr-3 cursor-pointer select-none" onClick={() => toggleSort("rScore")}>R {sortField === "rScore" ? (sortDir === "desc" ? "v" : "^") : ""}</th>
-                                            <th className="text-center py-2 pr-3 cursor-pointer select-none" onClick={() => toggleSort("fScore")}>F {sortField === "fScore" ? (sortDir === "desc" ? "v" : "^") : ""}</th>
-                                            <th className="text-center py-2 pr-3 cursor-pointer select-none" onClick={() => toggleSort("mScore")}>M {sortField === "mScore" ? (sortDir === "desc" ? "v" : "^") : ""}</th>
-                                            <th className="text-right py-2 cursor-pointer select-none" onClick={() => toggleSort("monetary")}>Spent {sortField === "monetary" ? (sortDir === "desc" ? "v" : "^") : ""}</th>
+                                            <th className="text-center py-2 pr-3"><button type="button" className="cursor-pointer select-none hover:text-white transition-colors" onClick={() => toggleSort("rScore")}>R {sortField === "rScore" ? (sortDir === "desc" ? "v" : "^") : ""}</button></th>
+                                            <th className="text-center py-2 pr-3"><button type="button" className="cursor-pointer select-none hover:text-white transition-colors" onClick={() => toggleSort("fScore")}>F {sortField === "fScore" ? (sortDir === "desc" ? "v" : "^") : ""}</button></th>
+                                            <th className="text-center py-2 pr-3"><button type="button" className="cursor-pointer select-none hover:text-white transition-colors" onClick={() => toggleSort("mScore")}>M {sortField === "mScore" ? (sortDir === "desc" ? "v" : "^") : ""}</button></th>
+                                            <th className="text-right py-2"><button type="button" className="cursor-pointer select-none hover:text-white transition-colors" onClick={() => toggleSort("monetary")}>Spent {sortField === "monetary" ? (sortDir === "desc" ? "v" : "^") : ""}</button></th>
                                         </tr></thead>
                                         <tbody>
                                             {(rfmData.customers || []).filter((c: any) => {

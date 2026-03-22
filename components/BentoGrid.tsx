@@ -203,9 +203,11 @@ function ProductCard({ product, index, t }: { product: Product; index: number; t
                     <span className="px-2.5 py-1 rounded-full bg-black/30 dark:bg-white/10 backdrop-blur-md text-[10px] font-medium tracking-wider uppercase border border-white/20 dark:border-white/10 text-white">
                         {product.category} &bull; {product.specs.type}
                     </span>
+                    {product.specs.thc && product.specs.thc !== "TBD" && (
                     <span className="px-2.5 py-1 rounded-full bg-lime/30 dark:bg-lime/20 backdrop-blur-md text-xs font-bold text-lime dark:text-lime border border-lime/30 dark:border-lime/20">
                         {product.specs.thc} THC
                     </span>
+                    )}
                 </div>
 
                 <div className="space-y-3 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">

@@ -1,23 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getGMBIntegration } from "@/lib/gmb-integration";
-import { verifySessionToken } from "@/lib/auth";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 /**
  * POST /api/admin/sync-gmb
  * Admin endpoint to sync GMB data
- * Requires admin authentication
  */
 export async function POST(request: NextRequest) {
-  try {
-    // Verify admin authentication
-    const token =
-      request.cookies.get("mm-session")?.value ||
-      request.headers.get("Authorization")?.replace("Bearer ", "");
-    const session = token ? verifySessionToken(token) : null;
-    if (!session || !["ADMIN", "SUPER_ADMIN"].includes(session.role)) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+  const auth = requireAdmin(request);
+  if (isAuthError(auth)) return auth;
 
+  try {
     const result = await getGMBIntegration().syncAllLocations();
 
     return NextResponse.json({
@@ -26,13 +19,9 @@ export async function POST(request: NextRequest) {
       failed: result.failed,
       timestamp: new Date().toISOString(),
     });
-  } catch (error: any) {
-    console.error("GMB Sync Error:", error);
+  } catch {
     return NextResponse.json(
-      {
-        success: false,
-        error: error.message || "Failed to sync GMB data",
-      },
+      { success: false, error: "Failed to sync GMB data" },
       { status: 500 }
     );
   }
@@ -43,21 +32,14 @@ export async function POST(request: NextRequest) {
  * Get GMB sync status
  */
 export async function GET(request: NextRequest) {
-  try {
-    // Verify admin authentication
-    const token =
-      request.cookies.get("mm-session")?.value ||
-      request.headers.get("Authorization")?.replace("Bearer ", "");
-    const session = token ? verifySessionToken(token) : null;
-    if (!session || !["ADMIN", "SUPER_ADMIN"].includes(session.role)) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+  const auth = requireAdmin(request);
+  if (isAuthError(auth)) return auth;
 
+  try {
     const { searchParams } = new URL(request.url);
     const action = searchParams.get("action");
 
     if (action === "locations") {
-      // Fetch GMB locations without syncing
       const locations = await getGMBIntegration().fetchAllLocations();
       return NextResponse.json({
         success: true,
@@ -70,7 +52,6 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // Default: return sync status
     return NextResponse.json({
       success: true,
       status: "ready",
@@ -81,12 +62,9 @@ export async function GET(request: NextRequest) {
         hasAccountName: !!process.env.GMB_ACCOUNT_NAME,
       },
     });
-  } catch (error: any) {
+  } catch {
     return NextResponse.json(
-      {
-        success: false,
-        error: error.message,
-      },
+      { success: false, error: "Failed to fetch GMB status" },
       { status: 500 }
     );
   }

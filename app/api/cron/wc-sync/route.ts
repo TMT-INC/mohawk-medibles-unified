@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { log } from "@/lib/logger";
 import { timingSafeEqual } from 'crypto';
 import { prisma } from '@/lib/db';
 import { fetchOrders, fetchCustomers, fetchAllProducts, type WCOrder } from '@/lib/wc-api';
@@ -86,7 +87,7 @@ export async function GET(req: NextRequest) {
         });
         synced++;
       } catch (err) {
-        console.error(`[Cron:Orders] Failed ${wc.id}:`, err);
+        log.wc.error("Cron order sync failed", { error: err instanceof Error ? err.message : "Unknown", wcOrderId: wc.id });
       }
     }
 

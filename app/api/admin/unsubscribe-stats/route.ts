@@ -7,8 +7,13 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
+import { log } from "@/lib/logger";
 
 export async function GET(_req: NextRequest) {
+    const auth = requireAdmin(_req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const totalUsers = await prisma.user.count();
         const withEmail = await prisma.user.count({ where: { email: { not: "" } } });
@@ -53,7 +58,7 @@ export async function GET(_req: NextRequest) {
             cartRecoveryOptOut,
         });
     } catch (error) {
-        console.error("Unsubscribe stats error:", error);
+        log.admin.error("Unsubscribe stats error", { error: error instanceof Error ? error.message : String(error) });
         return NextResponse.json({
             totalUsers: 0, withEmail: 0, anyOptIn: 0, allOptedOut: 0,
             emailPromotionsOptIn: 0, emailOrderUpdatesOptIn: 0,

@@ -7,6 +7,8 @@
  * with key "email_template_settings"
  */
 import { NextRequest, NextResponse } from "next/server";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
+import { log } from "@/lib/logger";
 
 const SETTINGS_KEY = "email_template_settings";
 
@@ -33,6 +35,9 @@ const DEFAULT_SETTINGS = {
 };
 
 export async function GET(_req: NextRequest) {
+    const auth = requireAdmin(_req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const { prisma } = await import("@/lib/db");
 
@@ -51,12 +56,15 @@ export async function GET(_req: NextRequest) {
 
         return NextResponse.json(DEFAULT_SETTINGS);
     } catch (e) {
-        console.error("[Email Editor] GET error:", e);
+        log.admin.error("Email editor GET error", { error: e instanceof Error ? e.message : String(e) });
         return NextResponse.json(DEFAULT_SETTINGS);
     }
 }
 
 export async function POST(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const { prisma } = await import("@/lib/db");
         const body = await req.json();
@@ -88,7 +96,7 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({ error: "Invalid action" }, { status: 400 });
     } catch (e) {
-        console.error("[Email Editor] POST error:", e);
+        log.admin.error("Email editor POST error", { error: e instanceof Error ? e.message : String(e) });
         return NextResponse.json({ error: "Failed to save settings" }, { status: 500 });
     }
 }

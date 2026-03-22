@@ -6,7 +6,7 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
-import { hashPassword, verifyPassword, createSessionToken, generateToken } from "@/lib/auth";
+import { hashPassword, verifyPassword, createSessionToken, generateToken, hashResetToken } from "@/lib/auth";
 import { prisma } from "@/lib/db";
 import { sendPasswordReset, sendWelcomeEmail } from "@/lib/email";
 import { verifyCaptcha, getClientIp } from "@/lib/captcha";
@@ -184,10 +184,11 @@ export async function POST(req: NextRequest) {
                     return NextResponse.json({ error: "Password must be at least 8 characters" }, { status: 400 });
                 }
 
-                // Find the reset session token
+                // Find the reset session token (hash the input to match stored hash)
+                const hashedInput = hashResetToken(token);
                 const session = await prisma.session.findFirst({
                     where: {
-                        token: `reset_${token}`,
+                        token: `reset_${hashedInput}`,
                         expiresAt: { gt: new Date() },
                     },
                     include: { user: true },
@@ -234,11 +235,12 @@ export async function POST(req: NextRequest) {
                     const resetToken = generateToken(32);
                     const expiresAt = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
 
-                    // Store token as a session entry (reuses existing Session model)
+                    // Store hashed token (prevents exposure if DB is breached)
+                    const hashedToken = hashResetToken(resetToken);
                     await prisma.session.create({
                         data: {
                             userId: user.id,
-                            token: `reset_${resetToken}`,
+                            token: `reset_${hashedToken}`,
                             expiresAt,
                         },
                     });

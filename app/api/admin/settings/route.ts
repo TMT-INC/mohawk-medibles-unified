@@ -9,6 +9,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { log } from "@/lib/logger";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 // Services that can have API keys managed
 const MANAGED_SERVICES = [
@@ -23,6 +24,9 @@ const MANAGED_SERVICES = [
 export async function GET(req: NextRequest) {
     const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
+
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
 
     const section = req.nextUrl.searchParams.get("section") || "all";
 
@@ -115,9 +119,11 @@ export async function POST(req: NextRequest) {
     const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
 
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     // Only SUPER_ADMIN can modify settings
-    const role = req.headers.get("x-user-role");
-    if (role !== "SUPER_ADMIN") {
+    if (auth.role !== "SUPER_ADMIN") {
         return NextResponse.json({ error: "Only Super Admins can modify settings" }, { status: 403 });
     }
 
@@ -152,7 +158,7 @@ export async function POST(req: NextRequest) {
                 // Audit log
                 await prisma.auditLog.create({
                     data: {
-                        userId: req.headers.get("x-user-id") || "system",
+                        userId: auth.userId,
                         action: "settings.api-key-save",
                         entity: "ApiKey",
                         entityId: apiKey.id,
@@ -185,7 +191,7 @@ export async function POST(req: NextRequest) {
                 // Audit log
                 await prisma.auditLog.create({
                     data: {
-                        userId: req.headers.get("x-user-id") || "system",
+                        userId: auth.userId,
                         action: "settings.environment-switch",
                         entity: "ApiKey",
                         details: JSON.stringify({ service, environment }),

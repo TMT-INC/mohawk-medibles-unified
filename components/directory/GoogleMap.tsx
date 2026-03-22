@@ -54,12 +54,13 @@ export function GoogleMap({
                 animation: (window as any).google.maps.Animation.DROP,
             });
 
-            // Add info window
+            // Add info window (sanitize user data to prevent XSS)
+            const sanitize = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
             const infoWindow = new (window as any).google.maps.InfoWindow({
                 content: `
                     <div style="padding: 8px; max-width: 200px;">
-                        <h3 style="margin: 0 0 4px 0; font-weight: bold; font-size: 14px;">${name}</h3>
-                        <p style="margin: 0; font-size: 12px; color: #666;">${address}</p>
+                        <h3 style="margin: 0 0 4px 0; font-weight: bold; font-size: 14px;">${sanitize(name)}</h3>
+                        <p style="margin: 0; font-size: 12px; color: #666;">${sanitize(address)}</p>
                     </div>
                 `,
             });

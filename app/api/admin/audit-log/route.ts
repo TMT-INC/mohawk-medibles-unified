@@ -3,8 +3,13 @@
  * GET ?limit=N&offset=N&resource=X&search=X
  */
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 export async function GET(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     const { prisma } = await import("@/lib/db");
     const limit = parseInt(req.nextUrl.searchParams.get("limit") || "25");
     const offset = parseInt(req.nextUrl.searchParams.get("offset") || "0");
@@ -49,7 +54,7 @@ export async function GET(req: NextRequest) {
             total,
         });
     } catch (err: any) {
-        console.error("Audit Log GET error:", err);
+        log.admin.error("Audit Log GET error", { error: err instanceof Error ? err.message : "Unknown" });
         return NextResponse.json({ error: err.message }, { status: 500 });
     }
 }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
+import { log } from '@/lib/logger';
 import { fetchAllCustomers, type WCCustomer } from '@/lib/wc-api';
 
 // POST /api/sync/customers — Sync customers from WooCommerce
@@ -22,7 +23,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const customers = await fetchAllCustomers(modifiedAfter, (synced, total) => {
-      console.log(`[Sync:Customers] ${synced}/${total} fetched`);
+      log.wc.info("Customers fetch progress", { fetched: synced, total });
     });
 
     await prisma.syncLog.update({
@@ -181,7 +182,7 @@ export async function POST(req: NextRequest) {
             } catch { /* fall through */ }
           }
           failCount++;
-          console.error(`[Sync:Customers] Failed customer ${wc.id} (${wc.email}):`, err.message);
+          log.wc.error("Failed to sync customer", { wcCustomerId: wc.id, email: wc.email, error: err.message });
         }
       }
     }

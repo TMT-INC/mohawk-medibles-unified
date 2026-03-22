@@ -9,6 +9,7 @@
  *   - crypto: Redirect to crypto payment (future)
  */
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
 import { prisma } from "@/lib/db";
 import { getCurrentTenant } from "@/lib/tenant";
 import { buildDigipayPaymentUrl } from "@/lib/digipay";
@@ -262,7 +263,7 @@ export async function POST(req: NextRequest) {
         });
     } catch (error) {
         const message = error instanceof Error ? error.message : "Checkout failed";
-        console.error("[Checkout] Error:", message);
+        log.checkout.error("Checkout error", { error: message });
         return NextResponse.json({ error: "Checkout failed. Please try again." }, { status: 500 });
     }
 }

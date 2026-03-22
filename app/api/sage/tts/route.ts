@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAudioStream } from "@/lib/elevenlabs";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
+import { log } from "@/lib/logger";
 
 const VALID_PERSONAS = new Set(["medagent", "turtle", "trickster"]);
 
@@ -33,7 +34,7 @@ export async function POST(req: NextRequest) {
         const result = await getAudioStream(trimmed, safePersona);
 
         if (!result) {
-            console.error("[TTS Route] getAudioStream returned null — check ELEVENLABS_API_KEY and voice config");
+            log.sage.error("getAudioStream returned null — check ELEVENLABS_API_KEY and voice config", {});
             return NextResponse.json(
                 { error: "TTS generation failed" },
                 { status: 502 }
@@ -51,7 +52,7 @@ export async function POST(req: NextRequest) {
             },
         });
     } catch (error) {
-        console.error("[TTS Route]", error);
+        log.sage.error("TTS route error", { error: error instanceof Error ? error.message : String(error) });
         return NextResponse.json(
             { error: "TTS error" },
             { status: 500 }

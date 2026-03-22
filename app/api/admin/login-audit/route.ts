@@ -3,8 +3,13 @@
  * GET ?email=X&limit=N&offset=N
  */
 import { NextRequest, NextResponse } from "next/server";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
+import { log } from "@/lib/logger";
 
 export async function GET(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     const { prisma } = await import("@/lib/db");
     const email = req.nextUrl.searchParams.get("email") || "";
     const limit = parseInt(req.nextUrl.searchParams.get("limit") || "25");
@@ -31,7 +36,7 @@ export async function GET(req: NextRequest) {
             total,
         });
     } catch (err: any) {
-        console.error("Login Audit GET error:", err);
+        log.admin.error("Login audit GET error", { error: err instanceof Error ? err.message : String(err) });
         return NextResponse.json({ error: err.message }, { status: 500 });
     }
 }

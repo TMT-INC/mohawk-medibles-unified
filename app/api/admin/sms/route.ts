@@ -3,8 +3,13 @@
  * GET ?action=stats|history&userId=N&limit=N&offset=N
  */
 import { NextRequest, NextResponse } from "next/server";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
+import { log } from "@/lib/logger";
 
 export async function GET(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     const { prisma } = await import("@/lib/db");
     const action = req.nextUrl.searchParams.get("action") || "stats";
 
@@ -77,7 +82,7 @@ export async function GET(req: NextRequest) {
                 return NextResponse.json({ error: "Invalid action" }, { status: 400 });
         }
     } catch (err: any) {
-        console.error("SMS API error:", err);
+        log.admin.error("SMS API error", { error: err instanceof Error ? err.message : String(err) });
         return NextResponse.json({ error: err.message }, { status: 500 });
     }
 }

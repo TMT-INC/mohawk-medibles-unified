@@ -6,6 +6,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/server/trpc/trpc";
 import { randomBytes } from "crypto";
 import { verifyCsrf } from "@/lib/csrf";
+import { sendGiftCardEmail } from "@/lib/email";
+import { log } from "@/lib/logger";
 
 // GET — List gift cards for authenticated user
 export async function GET(req: NextRequest) {
@@ -79,11 +81,20 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // TODO: Send gift card email to recipient via lib/email.ts
+    // Send gift card email to recipient
+    if (recipientEmail) {
+      sendGiftCardEmail(recipientEmail, {
+        code,
+        amount,
+        senderName,
+        recipientName,
+        personalMessage,
+      }).catch((err) => log.checkout.error("Gift card email failed", { error: err instanceof Error ? err.message : "Unknown" }));
+    }
 
     return NextResponse.json({ giftCard }, { status: 201 });
   } catch (error) {
-    console.error("[Gift Cards] Error:", error);
+    log.checkout.error("Gift card creation failed", { error: error instanceof Error ? error.message : "Unknown" });
     return NextResponse.json({ error: "Failed to create gift card" }, { status: 500 });
   }
 }

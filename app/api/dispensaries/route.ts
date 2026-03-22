@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
 import { prisma } from "@/lib/prisma";
 import { verifySessionToken } from "@/lib/auth";
 
@@ -96,7 +97,7 @@ export async function GET(request: NextRequest) {
             },
         });
     } catch (error) {
-        console.error("Error fetching dispensaries:", error instanceof Error ? error.message : "Unknown");
+        log.admin.error("Error fetching dispensaries", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json(
             { 
                 success: false, 
@@ -165,7 +166,7 @@ export async function POST(request: NextRequest) {
             data: dispensary,
         }, { status: 201 });
     } catch (error) {
-        console.error("Error creating dispensary:", error instanceof Error ? error.message : "Unknown");
+        log.admin.error("Error creating dispensary", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json(
             { 
                 success: false, 

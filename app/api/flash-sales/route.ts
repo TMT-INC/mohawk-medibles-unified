@@ -5,6 +5,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/server/trpc/trpc";
 import { verifySessionToken } from "@/lib/auth";
+import { log } from "@/lib/logger";
 
 // GET — List active flash sales with products
 export async function GET() {
@@ -41,7 +42,7 @@ export async function GET() {
       count: flashSales.length,
     });
   } catch (error) {
-    console.error("[Flash Sales] Error:", error instanceof Error ? error.message : "Unknown");
+    log.admin.error("Flash sales fetch error", { error: error instanceof Error ? error.message : String(error) });
     return NextResponse.json({ error: "Failed to fetch flash sales" }, { status: 500 });
   }
 }
@@ -106,7 +107,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ flashSale }, { status: 201 });
   } catch (error) {
-    console.error("[Flash Sales] Create error:", error instanceof Error ? error.message : "Unknown");
+    log.admin.error("Flash sales create error", { error: error instanceof Error ? error.message : String(error) });
     return NextResponse.json({ error: "Failed to create flash sale" }, { status: 500 });
   }
 }

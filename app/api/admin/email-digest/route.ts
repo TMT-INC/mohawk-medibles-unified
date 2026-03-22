@@ -5,7 +5,9 @@
  * POST /api/admin/email-digest — trigger digest now
  */
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 const DEFAULT_SETTINGS = {
     enabled: false,
@@ -16,6 +18,9 @@ const DEFAULT_SETTINGS = {
 };
 
 export async function GET(_req: NextRequest) {
+    const auth = requireAdmin(_req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const settingRow = await prisma.storeSetting.findUnique({
             where: { settingKey: "email_digest_settings" },
@@ -37,7 +42,7 @@ export async function GET(_req: NextRequest) {
             history: history.slice(0, 20),
         });
     } catch (error) {
-        console.error("Email digest GET error:", error);
+        log.admin.error("Email digest GET error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json({
             settings: DEFAULT_SETTINGS,
             status: { isRunning: false, nextRunAt: null, uptime: null },
@@ -47,6 +52,9 @@ export async function GET(_req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const body = await req.json();
         const settings = {
@@ -65,12 +73,15 @@ export async function PUT(req: NextRequest) {
 
         return NextResponse.json({ success: true, settings });
     } catch (error) {
-        console.error("Email digest PUT error:", error);
+        log.admin.error("Email digest PUT error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json({ error: "Failed to save settings" }, { status: 500 });
     }
 }
 
 export async function POST(_req: NextRequest) {
+    const auth = requireAdmin(_req);
+    if (isAuthError(auth)) return auth;
+
     try {
         // Trigger a digest run — gather stats and record
         const now = new Date();
@@ -108,7 +119,7 @@ export async function POST(_req: NextRequest) {
 
         return NextResponse.json(run);
     } catch (error) {
-        console.error("Email digest POST error:", error);
+        log.admin.error("Email digest POST error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json({
             status: "error",
             errorMessage: "Failed to trigger digest",

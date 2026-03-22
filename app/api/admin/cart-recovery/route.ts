@@ -4,11 +4,16 @@
  * POST /api/admin/cart-recovery  { action: "process" | "updateSettings", ... }
  */
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 // ─── GET handler ────────────────────────────────────────
 
 export async function GET(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     const action = req.nextUrl.searchParams.get("action") || "stats";
 
     try {
@@ -24,7 +29,7 @@ export async function GET(req: NextRequest) {
         // Default: full stats
         return NextResponse.json(await getStats());
     } catch (error) {
-        console.error("Admin cart-recovery GET error:", error);
+        log.admin.error("Admin cart-recovery GET error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json({ error: "Failed to fetch data" }, { status: 500 });
     }
 }
@@ -32,6 +37,9 @@ export async function GET(req: NextRequest) {
 // ─── POST handler ───────────────────────────────────────
 
 export async function POST(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const body = await req.json();
         const { action } = body;
@@ -49,7 +57,7 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({ error: "Unknown action" }, { status: 400 });
     } catch (error) {
-        console.error("Admin cart-recovery POST error:", error);
+        log.admin.error("Admin cart-recovery POST error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json({ error: "Action failed" }, { status: 500 });
     }
 }

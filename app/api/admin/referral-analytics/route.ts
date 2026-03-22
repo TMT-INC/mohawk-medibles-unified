@@ -4,8 +4,13 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
+import { log } from "@/lib/logger";
 
 export async function GET(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const days = Number(req.nextUrl.searchParams.get("days") || "30");
         const since = new Date(Date.now() - days * 86400000);
@@ -86,7 +91,7 @@ export async function GET(req: NextRequest) {
             summary: { totalPointsAwarded, avgTimeToConvert, pendingReferrals },
         });
     } catch (error) {
-        console.error("Referral analytics error:", error);
+        log.admin.error("Referral analytics error", { error: error instanceof Error ? error.message : String(error) });
         return NextResponse.json({
             funnel: { shares: 0, signups: 0, purchases: 0, conversionRate: 0 },
             timeline: [],

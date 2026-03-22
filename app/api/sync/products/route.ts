@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
+import { log } from '@/lib/logger';
 import { fetchAllProducts, type WCStoreProduct } from '@/lib/wc-api';
 
 // ─── Excluded Categories ────────────────────────────────────
@@ -33,7 +34,7 @@ export async function POST(req: NextRequest) {
     let synced = 0;
     const products = await fetchAllProducts((s, t) => {
       synced = s;
-      console.log(`[Sync:Products] ${s}/${t} fetched`);
+      log.wc.info("Products fetch progress", { fetched: s, total: t });
     });
 
     await prisma.syncLog.update({
@@ -128,7 +129,7 @@ export async function POST(req: NextRequest) {
         successCount++;
       } catch (err) {
         failCount++;
-        console.error(`[Sync:Products] Failed to upsert product ${wcProduct.id} (${wcProduct.slug}):`, err);
+        log.wc.error("Failed to upsert product", { wcProductId: wcProduct.id, slug: wcProduct.slug, error: err instanceof Error ? err.message : "Unknown" });
       }
     }
 

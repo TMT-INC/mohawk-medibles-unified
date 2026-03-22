@@ -4,10 +4,14 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 export async function GET(req: NextRequest) {
     const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
+
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
 
     try {
         const { prisma } = await import("@/lib/db");

@@ -51,8 +51,9 @@ export function setCsrfCookie(response: NextResponse): NextResponse {
  * Returns a 403 NextResponse on failure, or null on success.
  */
 export function verifyCsrf(req: NextRequest): NextResponse | null {
-    // Skip CSRF in development for easier testing
-    if (process.env.NODE_ENV === "development" && !process.env.ENFORCE_CSRF) {
+    // CSRF is enforced in all environments.
+    // Set SKIP_CSRF=true only for automated test runners.
+    if (process.env.SKIP_CSRF === "true") {
         return null;
     }
 

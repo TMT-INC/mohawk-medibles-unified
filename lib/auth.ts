@@ -167,6 +167,14 @@ export function generateToken(bytes: number = 32): string {
 }
 
 /**
+ * Hash a reset token before storing in the database.
+ * Uses SHA-256 so tokens aren't exposed if the DB is breached.
+ */
+export function hashResetToken(token: string): string {
+    return createHmac("sha256", getSecret()).update(token).digest("hex");
+}
+
+/**
  * Generate a CSRF token.
  */
 export function generateCSRFToken(): string {

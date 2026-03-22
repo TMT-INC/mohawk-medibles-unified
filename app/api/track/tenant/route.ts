@@ -2,6 +2,7 @@
 // POST: Record funnel events per tenant (page views, add to cart, checkout, etc.)
 
 import { NextRequest, NextResponse } from 'next/server';
+import { log } from "@/lib/logger";
 import { prisma } from '@/lib/db';
 
 type EventType = 'page_view' | 'product_view' | 'add_to_cart' | 'checkout_start' | 'order_complete';
@@ -69,7 +70,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error('[Tenant Track]', error);
+    log.admin.error("Tenant track error", { error: error instanceof Error ? error.message : "Unknown" });
     return NextResponse.json({ ok: false }, { status: 500 });
   }
 }

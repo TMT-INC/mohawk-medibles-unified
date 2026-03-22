@@ -8,6 +8,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { timingSafeEqual } from "crypto";
 import { prisma } from "@/server/trpc/trpc";
+import { sendCartRecoveryEmail } from "@/lib/email";
+import { log } from "@/lib/logger";
 
 function verifyCronAuth(authHeader: string | null): boolean {
   const cronSecret = process.env.CRON_SECRET;
@@ -103,10 +105,15 @@ export async function GET(req: NextRequest) {
         });
       }
 
-      // Send email via Resend (placeholder — uses existing email infrastructure)
       try {
-        // TODO: Integrate with lib/email.ts sendCartRecoveryEmail()
-        console.log(`[Cart Recovery] Would send email #${emailNumber} to ${email} for cart ${cart.id}`);
+        // Send cart recovery email via Resend
+        await sendCartRecoveryEmail(email, {
+          customerName: cart.user?.name || "there",
+          cartTotal: cart.cartTotal || 0,
+          discountCode,
+          discountPercent: discountPercent > 0 ? discountPercent : undefined,
+          emailNumber,
+        });
 
         // Record the email send
         await prisma.cartRecoveryEmail.create({
@@ -134,7 +141,7 @@ export async function GET(req: NextRequest) {
 
         emailsSent++;
       } catch (emailError) {
-        console.error(`[Cart Recovery] Email send failed for cart ${cart.id}:`, emailError);
+        log.checkout.error("Cart recovery email failed", { cartId: cart.id, error: emailError instanceof Error ? emailError.message : "Unknown" });
       }
     }
 
@@ -156,7 +163,7 @@ export async function GET(req: NextRequest) {
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
-    console.error("[Cart Recovery Cron] Error:", error);
+    log.checkout.error("Cart recovery cron failed", { error: error instanceof Error ? error.message : "Unknown" });
     return NextResponse.json({ error: "Cron failed" }, { status: 500 });
   }
 }

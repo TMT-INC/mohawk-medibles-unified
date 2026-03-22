@@ -19,7 +19,7 @@ const MOHAWK_TILE_SVG = `url("data:image/svg+xml,%3Csvg width='80' height='80' v
 
 const SHOWCASE_CATEGORIES = [
     "Flower", "Edibles", "Concentrates", "Vapes",
-    "Mushrooms", "CBD", "Brands", "Nicotine", "Disposables",
+    "CBD", "Brands", "Disposables", "Pre-Rolls", "Hash",
 ];
 
 const CATEGORY_TAGLINES: Record<string, string> = {
@@ -27,19 +27,19 @@ const CATEGORY_TAGLINES: Record<string, string> = {
     Edibles: "Gummies, chocolates & more",
     Concentrates: "Shatter, wax & live resin",
     Vapes: "Potent cartridges & pens",
-    Mushrooms: "Microdose & macro",
     CBD: "Wellness oils & topicals",
     Brands: "Top Canadian brands",
-    Nicotine: "Vape juice & pods",
     Disposables: "Ready-to-use pens",
+    "Pre-Rolls": "Rolled & ready to go",
+    Hash: "Premium imported & domestic",
 };
 
 const CATEGORY_GRADIENT: Record<string, string> = {
     Flower: "from-green-600/30", Edibles: "from-pink-600/30",
     Concentrates: "from-purple-600/30", Vapes: "from-blue-600/30",
-    Mushrooms: "from-amber-600/30", CBD: "from-teal-600/30",
-    Brands: "from-indigo-600/30", Nicotine: "from-rose-600/30",
-    Disposables: "from-sky-600/30",
+    CBD: "from-teal-600/30", Brands: "from-indigo-600/30",
+    Disposables: "from-sky-600/30", "Pre-Rolls": "from-amber-600/30",
+    Hash: "from-orange-600/30",
 };
 
 /* ─── Brand Data ─── */

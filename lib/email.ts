@@ -189,6 +189,90 @@ export async function sendWelcomeEmail(to: string, name: string) {
     return sendEmail({ to, subject: "Welcome to Mohawk Medibles 🍃", html });
 }
 
+// ─── Review Request ────────────────────────────────────────
+
+export async function sendReviewRequestEmail(
+    to: string,
+    data: { customerName: string; productName: string; productSlug: string; orderNumber: string }
+) {
+    const reviewUrl = `https://mohawkmedibles.ca/shop/${data.productSlug}#reviews`;
+
+    const html = emailWrapper(`
+        <h2 style="color:#2D5016;margin-top:0;">How Did You Like It? ⭐</h2>
+        <p>Hi ${data.customerName}, we hope you're enjoying your <strong>${data.productName}</strong> from order ${data.orderNumber}!</p>
+
+        <p>Your feedback helps other customers find the right products and helps us keep improving.</p>
+
+        <a href="${reviewUrl}" style="display:inline-block;background:#2D5016;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;margin:20px 0;">Leave a Review</a>
+
+        <p style="color:#666;font-size:13px;">It only takes a minute. Thank you for supporting Indigenous-owned business!</p>
+    `);
+
+    return sendEmail({ to, subject: `How was your ${data.productName}? | Mohawk Medibles`, html });
+}
+
+// ─── Gift Card Email ───────────────────────────────────────
+
+export async function sendGiftCardEmail(
+    to: string,
+    data: { code: string; amount: number; senderName?: string; recipientName?: string; personalMessage?: string }
+) {
+    const html = emailWrapper(`
+        <h2 style="color:#2D5016;margin-top:0;">You've Received a Gift Card! 🎁</h2>
+        <p>Hi${data.recipientName ? ` ${data.recipientName}` : ""},${data.senderName ? ` ${data.senderName} sent you` : " you've received"} a Mohawk Medibles gift card!</p>
+
+        <div style="background:#f5f5dc;padding:24px;border-radius:8px;margin:20px 0;text-align:center;">
+            <p style="margin:0;font-size:14px;color:#666;">Gift Card Value</p>
+            <p style="margin:4px 0 12px;font-size:32px;font-weight:bold;color:#2D5016;">$${data.amount.toFixed(2)} CAD</p>
+            <p style="margin:0;font-size:14px;color:#666;">Your Code</p>
+            <p style="margin:4px 0 0;font-size:24px;font-weight:bold;color:#333;letter-spacing:2px;">${data.code}</p>
+        </div>
+
+        ${data.personalMessage ? `<div style="background:#f0f0f0;padding:16px;border-radius:8px;margin:20px 0;border-left:4px solid #2D5016;"><p style="margin:0;font-style:italic;color:#666;">"${data.personalMessage}"</p></div>` : ""}
+
+        <a href="https://mohawkmedibles.ca/shop" style="display:inline-block;background:#2D5016;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">Start Shopping</a>
+
+        <p style="color:#666;font-size:13px;margin-top:20px;">Enter the code at checkout to apply your balance. This card is valid for 1 year.</p>
+    `);
+
+    return sendEmail({ to, subject: `${data.senderName || "Someone"} sent you a Mohawk Medibles gift card!`, html });
+}
+
+// ─── Cart Recovery Email ───────────────────────────────────
+
+export async function sendCartRecoveryEmail(
+    to: string,
+    data: { customerName: string; cartTotal: number; discountCode?: string; discountPercent?: number; emailNumber: number }
+) {
+    const subjects = [
+        "You left something behind! | Mohawk Medibles",
+        "Still thinking about it? Your cart is waiting",
+        "Last chance — your cart expires soon!",
+    ];
+    const subject = subjects[Math.min(data.emailNumber - 1, 2)];
+
+    const discountBlock = data.discountCode && data.discountPercent
+        ? `<div style="background:#2D5016;padding:16px;border-radius:8px;margin:20px 0;text-align:center;">
+            <p style="margin:0;color:#a0bba5;font-size:14px;">Special offer just for you</p>
+            <p style="margin:4px 0;color:white;font-size:24px;font-weight:bold;">${data.discountPercent}% OFF</p>
+            <p style="margin:4px 0 0;color:white;font-size:16px;">Use code: <strong>${data.discountCode}</strong></p>
+           </div>`
+        : "";
+
+    const html = emailWrapper(`
+        <h2 style="color:#2D5016;margin-top:0;">Your Cart Is Waiting! 🛒</h2>
+        <p>Hi ${data.customerName}, you left $${data.cartTotal.toFixed(2)} worth of products in your cart.</p>
+
+        ${discountBlock}
+
+        <a href="https://mohawkmedibles.ca/checkout" style="display:inline-block;background:#2D5016;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">Complete Your Order</a>
+
+        <p style="color:#666;margin-top:20px;font-size:13px;">Orders over $199 ship FREE across Canada via Xpresspost.</p>
+    `);
+
+    return sendEmail({ to, subject, html });
+}
+
 // ─── Refund Notification ───────────────────────────────────
 
 export async function sendRefundNotification(

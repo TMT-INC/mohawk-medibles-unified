@@ -1,29 +1,43 @@
 /**
  * tRPC API Route Handler — Next.js App Router
  * Handles all /api/trpc/* requests.
+ * Auth: verifies JWT from cookie directly (defense-in-depth).
  */
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 import { appRouter } from "@/server/trpc/root";
 import { createTRPCContext } from "@/server/trpc/trpc";
-import { headers } from "next/headers";
+import { verifySessionToken } from "@/lib/auth";
+import { cookies } from "next/headers";
 
 async function handler(req: Request) {
-  const headersList = await headers();
+  // Verify JWT from cookie directly instead of trusting headers
+  const cookieStore = await cookies();
+  const token = cookieStore.get("mm-session")?.value
+    || req.headers.get("Authorization")?.replace("Bearer ", "");
+
+  let userId: string | null = null;
+  let userRole: string | null = null;
+  let userEmail: string | null = null;
+
+  if (token) {
+    const payload = verifySessionToken(token);
+    if (payload && payload.exp >= Date.now() / 1000) {
+      userId = payload.sub;
+      userRole = payload.role;
+      userEmail = payload.email;
+    }
+  }
 
   return fetchRequestHandler({
     endpoint: "/api/trpc",
     req,
     router: appRouter,
     createContext: () =>
-      createTRPCContext({
-        userId: headersList.get("x-user-id"),
-        userRole: headersList.get("x-user-role"),
-        userEmail: headersList.get("x-user-email"),
-      }),
+      createTRPCContext({ userId, userRole, userEmail }),
     onError:
       process.env.NODE_ENV === "development"
         ? ({ path, error }) => {
-            console.error(`❌ tRPC error on ${path ?? "<no-path>"}: ${error.message}`);
+            console.error(`tRPC error on ${path ?? "<no-path>"}: ${error.message}`);
           }
         : undefined,
   });

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
+import { log } from '@/lib/logger';
 import crypto from 'crypto';
 
 // ─── Signature Verification ──────────────────────────────────
@@ -149,7 +150,7 @@ async function handleOrder(wc: any, topic: string) {
     });
   }
 
-  console.log(`[WC Webhook] Order #${wc.id} synced — status: ${wc.status}, total: $${wc.total}`);
+  log.wc.info("Order synced", { wcOrderId: wc.id, status: wc.status, total: wc.total });
 }
 
 // ─── Customer Handler ────────────────────────────────────────
@@ -215,7 +216,7 @@ async function handleCustomer(wc: any, topic: string) {
     }
   }
 
-  console.log(`[WC Webhook] Customer #${wc.id} (${wc.email}) synced — ${topic}`);
+  log.wc.info("Customer synced", { wcCustomerId: wc.id, email: wc.email, topic });
 }
 
 // ─── Product Handler ─────────────────────────────────────────
@@ -230,7 +231,7 @@ async function handleProduct(wc: any, topic: string) {
         where: { id: existing.id },
         data: { status: 'DISCONTINUED' },
       });
-      console.log(`[WC Webhook] Product #${wc.id} marked DISCONTINUED`);
+      log.wc.info("Product marked DISCONTINUED", { wcProductId: wc.id });
     }
     return;
   }
@@ -242,7 +243,7 @@ async function handleProduct(wc: any, topic: string) {
   // Skip excluded categories (nicotine, mushrooms, sexual enhancement, etc.)
   const allCats = (wc.categories || []).map((c: any) => c.name);
   if (allCats.some((c: string) => isExcludedCategory(c)) || isExcludedCategory(category)) {
-    console.log(`[WC Webhook] Product #${wc.id} "${wc.name}" skipped — excluded category: ${category}`);
+    log.wc.info("Product skipped — excluded category", { wcProductId: wc.id, name: wc.name, category });
     // If it already exists in DB, mark it as discontinued
     const existing = await prisma.product.findUnique({ where: { wcId: wc.id } });
     if (existing) {
@@ -343,7 +344,7 @@ async function handleProduct(wc: any, topic: string) {
     });
   }
 
-  console.log(`[WC Webhook] Product #${wc.id} (${wc.name}) synced — ${stockStatus}`);
+  log.wc.info("Product synced", { wcProductId: wc.id, name: wc.name, stockStatus });
 }
 
 // ─── Coupon Handler ──────────────────────────────────────────
@@ -354,7 +355,7 @@ async function handleCoupon(wc: any, topic: string) {
       where: { code: wc.code },
       data: { active: false },
     });
-    console.log(`[WC Webhook] Coupon "${wc.code}" deactivated`);
+    log.wc.info("Coupon deactivated", { code: wc.code });
     return;
   }
 
@@ -385,7 +386,7 @@ async function handleCoupon(wc: any, topic: string) {
     },
   });
 
-  console.log(`[WC Webhook] Coupon "${wc.code}" synced — ${wc.discount_type} ${wc.amount}`);
+  log.wc.info("Coupon synced", { code: wc.code, discountType: wc.discount_type, amount: wc.amount });
 }
 
 // ─── Main Handler ────────────────────────────────────────────
@@ -398,7 +399,7 @@ export async function POST(req: NextRequest) {
   if (wcWebhookSecret) {
     const signature = req.headers.get('x-wc-webhook-signature') || '';
     if (!signature || !verifyWebhookSignature(rawBody, signature, wcWebhookSecret)) {
-      console.error('[WC Webhook] Invalid signature');
+      log.wc.error("Invalid signature");
       return NextResponse.json({ error: 'Invalid signature' }, { status: 401 });
     }
   }
@@ -418,7 +419,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true, message: 'pong' });
   }
 
-  console.log(`[WC Webhook] Received: ${topic} — Resource: ${resource} — ID: ${payload.id}`);
+  log.wc.info("Webhook received", { topic, resource, id: payload.id });
 
   try {
     switch (resource) {
@@ -435,12 +436,12 @@ export async function POST(req: NextRequest) {
         await handleCoupon(payload, topic);
         break;
       default:
-        console.log(`[WC Webhook] Unhandled resource: ${resource} (${topic})`);
+        log.wc.warn("Unhandled resource", { resource, topic });
     }
 
     return NextResponse.json({ success: true, topic, resource, id: payload.id });
   } catch (err: any) {
-    console.error(`[WC Webhook] Error processing ${topic}:`, err.message);
+    log.wc.error("Error processing webhook", { topic, error: err.message });
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }

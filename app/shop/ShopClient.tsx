@@ -9,6 +9,7 @@ import {
     Check, ArrowUpDown, X, MessageCircle, Star,
 } from "lucide-react";
 import { PRODUCTS, getAllCategories, getShortName, type Product } from "@/lib/productData";
+import { decodeHtmlEntities } from "@/lib/utils";
 import ProductImage from "@/components/ProductImage";
 import { useCart } from "@/hooks/useCart";
 import FreeShippingBar from "@/components/FreeShippingBar";
@@ -368,7 +369,7 @@ export default function ShopClient() {
                                     </Link>
                                     <div className="p-4">
                                         <div className="text-sm text-foreground/80 dark:text-cream/80 mb-1 font-medium">
-                                            {product.category} • {product.specs.thc} THC
+                                            {product.category}{product.specs.thc && product.specs.thc !== "TBD" ? ` • ${product.specs.thc} THC` : ""}
                                         </div>
                                         <Link href={`/shop/${product.slug}`}>
                                             <h3 className="font-bold text-forest dark:text-cream mb-1 hover:text-leaf transition-colors line-clamp-1">
@@ -376,7 +377,7 @@ export default function ShopClient() {
                                             </h3>
                                         </Link>
                                         <p className="text-sm text-foreground/70 dark:text-cream/75 mb-2 line-clamp-2">
-                                            {product.shortDescription}
+                                            {decodeHtmlEntities(product.shortDescription)}
                                         </p>
 
                                         {/* Star Rating */}

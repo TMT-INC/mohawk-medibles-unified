@@ -4,6 +4,8 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
+import { log } from "@/lib/logger";
 
 interface SubscriberRecord {
     id: string;
@@ -16,6 +18,9 @@ interface SubscriberRecord {
 }
 
 export async function GET(_req: NextRequest) {
+    const auth = requireAdmin(_req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const allSubscribers: SubscriberRecord[] = await prisma.subscriber.findMany({
             orderBy: { subscribedAt: "desc" },
@@ -55,7 +60,7 @@ export async function GET(_req: NextRequest) {
             })),
         });
     } catch (error) {
-        console.error("Admin newsletter error:", error);
+        log.newsletter.error("Admin newsletter error", { error: error instanceof Error ? error.message : String(error) });
         return NextResponse.json(
             {
                 stats: { total: 0, active: 0, unsubscribed: 0, bounced: 0, recentCount: 0, sources: [] },

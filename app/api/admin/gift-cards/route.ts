@@ -5,10 +5,15 @@
  * PUT  /api/admin/gift-cards — disable gift card
  */
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
 import { prisma } from "@/lib/db";
 import { randomBytes } from "crypto";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 export async function GET(_req: NextRequest) {
+    const auth = requireAdmin(_req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const cards = await prisma.giftCard.findMany({
             orderBy: { createdAt: "desc" },
@@ -42,12 +47,15 @@ export async function GET(_req: NextRequest) {
             },
         });
     } catch (error) {
-        console.error("Admin gift cards GET error:", error);
+        log.admin.error("Admin gift cards GET error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json({ cards: [], stats: { totalCards: 0, activeCount: 0, totalValue: 0, totalRedeemed: 0 } });
     }
 }
 
 export async function POST(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const body = await req.json();
         const { amount, recipientEmail, recipientName, senderName, design } = body;
@@ -84,12 +92,15 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({ success: true, card }, { status: 201 });
     } catch (error) {
-        console.error("Admin gift cards POST error:", error);
+        log.admin.error("Admin gift cards POST error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json({ error: "Failed to create gift card" }, { status: 500 });
     }
 }
 
 export async function PUT(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const { id } = await req.json();
 
@@ -100,7 +111,7 @@ export async function PUT(req: NextRequest) {
 
         return NextResponse.json({ success: true });
     } catch (error) {
-        console.error("Admin gift cards PUT error:", error);
+        log.admin.error("Admin gift cards PUT error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json({ error: "Failed to disable gift card" }, { status: 500 });
     }
 }

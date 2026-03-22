@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { log } from "@/lib/logger";
 import { prisma } from "@/lib/prisma";
 
 interface RouteParams {
@@ -36,7 +37,7 @@ export async function GET(request: Request, { params }: RouteParams) {
             data: dispensary,
         });
     } catch (error) {
-        console.error("Error fetching dispensary:", error);
+        log.admin.error("Error fetching dispensary", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json(
             { 
                 success: false, 
@@ -63,7 +64,7 @@ export async function PATCH(request: Request, { params }: RouteParams) {
             data: dispensary,
         });
     } catch (error) {
-        console.error("Error updating dispensary:", error);
+        log.admin.error("Error updating dispensary", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json(
             { 
                 success: false, 
@@ -88,7 +89,7 @@ export async function DELETE(request: Request, { params }: RouteParams) {
             message: "Dispensary deleted successfully",
         });
     } catch (error) {
-        console.error("Error deleting dispensary:", error);
+        log.admin.error("Error deleting dispensary", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json(
             { 
                 success: false, 

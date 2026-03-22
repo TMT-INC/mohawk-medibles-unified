@@ -3,8 +3,13 @@
  * GET ?action=list|stats|analytics|detail&sessionId=X&days=N
  */
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 export async function GET(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     const { prisma } = await import("@/lib/db");
     const action = req.nextUrl.searchParams.get("action") || "list";
 
@@ -134,7 +139,7 @@ export async function GET(req: NextRequest) {
             }
         }
     } catch (err: any) {
-        console.error("Session Replay GET error:", err);
+        log.admin.error("Session Replay GET error", { error: err instanceof Error ? err.message : "Unknown" });
         return NextResponse.json({ error: err.message }, { status: 500 });
     }
 }

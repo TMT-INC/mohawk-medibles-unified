@@ -5,13 +5,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { getAllTenants } from '@/lib/tenant';
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 export async function GET(req: NextRequest) {
-  // Auth check via middleware headers
-  const role = req.headers.get('x-user-role');
-  if (!role || !['ADMIN', 'SUPER_ADMIN'].includes(role)) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  const auth = requireAdmin(req);
+  if (isAuthError(auth)) return auth;
 
   const tenants = getAllTenants();
 
@@ -57,8 +55,10 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const role = req.headers.get('x-user-role');
-  if (role !== 'SUPER_ADMIN') {
+  const auth = requireAdmin(req);
+  if (isAuthError(auth)) return auth;
+
+  if (auth.role !== 'SUPER_ADMIN') {
     return NextResponse.json({ error: 'Super admin required' }, { status: 403 });
   }
 

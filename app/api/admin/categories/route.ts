@@ -3,9 +3,14 @@
  * GET /api/admin/categories
  */
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 export async function GET(_req: NextRequest) {
+    const auth = requireAdmin(_req);
+    if (isAuthError(auth)) return auth;
+
     try {
         // Get all products with category and status fields
         const products = await prisma.product.findMany({
@@ -42,7 +47,7 @@ export async function GET(_req: NextRequest) {
             totalProducts: products.length,
         });
     } catch (error) {
-        console.error("Admin categories error:", error);
+        log.admin.error("Admin categories error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json(
             { error: "Failed to load categories", categories: [], totalCategories: 0, totalProducts: 0 },
             { status: 500 }

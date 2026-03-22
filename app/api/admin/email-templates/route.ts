@@ -4,7 +4,9 @@
  * POST /api/admin/email-templates — preview a template
  */
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 const TEMPLATE_OPTIONS = [
     { id: "order_confirmation", label: "Order Confirmation" },
@@ -20,6 +22,9 @@ const TEMPLATE_OPTIONS = [
 ];
 
 export async function GET(_req: NextRequest) {
+    const auth = requireAdmin(_req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const settingRow = await prisma.storeSetting.findUnique({
             where: { settingKey: "email_template_versions" },
@@ -28,12 +33,15 @@ export async function GET(_req: NextRequest) {
 
         return NextResponse.json({ versions, templates: TEMPLATE_OPTIONS });
     } catch (error) {
-        console.error("Email templates GET error:", error);
+        log.admin.error("Email templates GET error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json({ versions: [], templates: TEMPLATE_OPTIONS });
     }
 }
 
 export async function POST(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const { templateId, action, versionId, versionA, versionB } = await req.json();
 
@@ -108,7 +116,7 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({ error: "Invalid action" }, { status: 400 });
     } catch (error) {
-        console.error("Email templates POST error:", error);
+        log.admin.error("Email templates POST error", { error: error instanceof Error ? error.message : "Unknown" });
         return NextResponse.json({ error: "Failed to process request" }, { status: 500 });
     }
 }

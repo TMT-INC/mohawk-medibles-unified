@@ -8,6 +8,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { timingSafeEqual } from "crypto";
 import { prisma } from "@/server/trpc/trpc";
+import { sendReviewRequestEmail } from "@/lib/email";
+import { log } from "@/lib/logger";
 
 function verifyCronAuth(authHeader: string | null): boolean {
   const cronSecret = process.env.CRON_SECRET;
@@ -79,10 +81,14 @@ export async function GET(req: NextRequest) {
           },
         });
 
-        // TODO: Send email via lib/email.ts sendReviewRequestEmail()
-        console.log(
-          `[Review Request] Would send to ${order.user.email} for product ${item.name}`
-        );
+        // Send review request email
+        const product = await prisma.product.findUnique({ where: { id: item.productId }, select: { slug: true } });
+        sendReviewRequestEmail(order.user.email, {
+          customerName: order.user.name,
+          productName: item.name,
+          productSlug: product?.slug || "",
+          orderNumber: order.orderNumber,
+        }).catch((err) => log.wc.error("Review request email failed", { error: err instanceof Error ? err.message : "Unknown" }));
         requestsSent++;
       }
     }
@@ -93,7 +99,7 @@ export async function GET(req: NextRequest) {
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
-    console.error("[Review Request Cron] Error:", error);
+    log.wc.error("Review request cron failed", { error: error instanceof Error ? error.message : "Unknown" });
     return NextResponse.json({ error: "Cron failed" }, { status: 500 });
   }
 }

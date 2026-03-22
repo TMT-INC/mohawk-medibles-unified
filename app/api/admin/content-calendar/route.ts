@@ -6,10 +6,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 import { log } from "@/lib/logger";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 export async function GET(req: NextRequest) {
     const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
 
     try {
         const { prisma } = await import("@/lib/db");
@@ -52,6 +55,8 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
     const limited = await applyRateLimit(req, RATE_LIMITS.admin);
     if (limited) return limited;
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
 
     try {
         const { prisma } = await import("@/lib/db");

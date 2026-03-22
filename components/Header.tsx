@@ -37,7 +37,7 @@ export default function Header() {
         <>
             {/* Shipping Banner — .cc style lime accent bar */}
             <div role="banner" className="bg-lime text-black text-[11px] py-2 px-4 text-center font-bold tracking-wider uppercase relative z-[60] font-sans">
-                WE SHIP EVERYWHERE IN CANADA VIA CANADA POST &amp; PUROLATOR — $15 SHIPPING FEE — FREE SHIPPING ON ORDERS OVER $149
+                WE SHIP EVERYWHERE IN CANADA VIA CANADA POST &amp; PUROLATOR — $15 SHIPPING FEE — FREE SHIPPING ON ORDERS OVER $199
             </div>
 
             <nav

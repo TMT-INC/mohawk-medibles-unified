@@ -5,6 +5,8 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
+import { log } from "@/lib/logger";
 
 // Default tiers used when no settings exist
 const DEFAULT_TIERS = [
@@ -15,6 +17,9 @@ const DEFAULT_TIERS = [
 ];
 
 export async function GET(_req: NextRequest) {
+    const auth = requireAdmin(_req);
+    if (isAuthError(auth)) return auth;
+
     try {
         // Check for stored tier settings in SiteSettings
         const setting = await prisma.storeSetting.findUnique({
@@ -27,12 +32,15 @@ export async function GET(_req: NextRequest) {
 
         return NextResponse.json(DEFAULT_TIERS);
     } catch (error) {
-        console.error("Get referral tiers error:", error);
+        log.admin.error("Get referral tiers error", { error: error instanceof Error ? error.message : String(error) });
         return NextResponse.json(DEFAULT_TIERS);
     }
 }
 
 export async function PUT(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const tiers = await req.json();
 
@@ -60,7 +68,7 @@ export async function PUT(req: NextRequest) {
 
         return NextResponse.json({ success: true });
     } catch (error) {
-        console.error("Update referral tiers error:", error);
+        log.admin.error("Update referral tiers error", { error: error instanceof Error ? error.message : String(error) });
         return NextResponse.json({ error: "Failed to save tier settings" }, { status: 500 });
     }
 }

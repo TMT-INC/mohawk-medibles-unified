@@ -4,8 +4,13 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
+import { log } from "@/lib/logger";
 
 export async function GET(req: NextRequest) {
+  const auth = requireAdmin(req);
+  if (isAuthError(auth)) return auth;
+
   try {
     const { searchParams } = new URL(req.url);
     const action = searchParams.get("action") || "dashboard";
@@ -114,8 +119,8 @@ export async function GET(req: NextRequest) {
     }
 
     return NextResponse.json({ error: "Unknown action" }, { status: 400 });
-  } catch (error: any) {
-    console.error("Email deliverability API error:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error) {
+    log.admin.error("Email deliverability API error", { error: error instanceof Error ? error.message : String(error) });
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

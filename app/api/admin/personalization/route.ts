@@ -3,8 +3,13 @@
  * GET ?action=profile|recommendations&userId=N&limit=N
  */
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 export async function GET(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     const { prisma } = await import("@/lib/db");
     const action = req.nextUrl.searchParams.get("action") || "profile";
     const userId = req.nextUrl.searchParams.get("userId");
@@ -113,7 +118,7 @@ export async function GET(req: NextRequest) {
                 return NextResponse.json({ error: "Invalid action" }, { status: 400 });
         }
     } catch (err: any) {
-        console.error("Personalization API error:", err);
+        log.admin.error("Personalization API error", { error: err instanceof Error ? err.message : "Unknown" });
         return NextResponse.json({ error: err.message }, { status: 500 });
     }
 }

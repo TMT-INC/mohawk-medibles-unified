@@ -2,6 +2,7 @@
  * Gift Card Redemption API — Apply gift card to order
  */
 import { NextRequest, NextResponse } from "next/server";
+import { log } from "@/lib/logger";
 import { prisma } from "@/server/trpc/trpc";
 import { verifyCsrf } from "@/lib/csrf";
 
@@ -74,7 +75,7 @@ export async function POST(req: NextRequest) {
       remainingBalance: newBalance,
     });
   } catch (error) {
-    console.error("[Gift Card Redeem] Error:", error);
+    log.checkout.error("Gift card redeem error", { error: error instanceof Error ? error.message : "Unknown" });
     return NextResponse.json({ error: "Redemption failed" }, { status: 500 });
   }
 }
