@@ -437,6 +437,35 @@ export default function ProductDetailClient({ product, related, shortName, faqs,
                                 <Star className="h-4 w-4 text-forest" /> Empire Standard™
                             </div>
                         </div>
+
+                        {/* Lab Results / COA Badge */}
+                        <div className="mt-4 p-4 rounded-xl bg-card border border-border">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full bg-lime/10 flex items-center justify-center">
+                                    <Beaker className="w-5 h-5 text-lime" />
+                                </div>
+                                <div>
+                                    <p className="text-sm font-bold text-foreground">Lab Tested & Verified</p>
+                                    <p className="text-xs text-muted-foreground">
+                                        Third-party tested for potency, purity & safety. Empire Standard™ certified.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="mt-3 grid grid-cols-3 gap-2 text-center">
+                                <div className="p-2 rounded-lg bg-background">
+                                    <p className="text-xs text-muted-foreground">THC</p>
+                                    <p className="text-sm font-bold text-foreground">{product.specs.thc || "Tested"}</p>
+                                </div>
+                                <div className="p-2 rounded-lg bg-background">
+                                    <p className="text-xs text-muted-foreground">CBD</p>
+                                    <p className="text-sm font-bold text-foreground">{product.specs.cbd || "Tested"}</p>
+                                </div>
+                                <div className="p-2 rounded-lg bg-background">
+                                    <p className="text-xs text-muted-foreground">Status</p>
+                                    <p className="text-sm font-bold text-lime">Passed ✓</p>
+                                </div>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
 

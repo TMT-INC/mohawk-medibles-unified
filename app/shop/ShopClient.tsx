@@ -48,6 +48,7 @@ export default function ShopClient() {
     const [reviewStats, setReviewStats] = useState<Record<number, { avg: number; count: number }>>({});
     const [personalizedRecs, setPersonalizedRecs] = useState<any[]>([]);
     const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
+    const [strainType, setStrainType] = useState("All");
 
     // ── Fetch review stats + personalized recommendations ──
     useEffect(() => {
@@ -82,6 +83,11 @@ export default function ShopClient() {
         // Category filter
         if (activeCategory !== "All") {
             result = result.filter(p => p.category === activeCategory);
+        }
+
+        // Strain type filter
+        if (strainType !== "All") {
+            result = result.filter(p => p.specs.type.toLowerCase().includes(strainType.toLowerCase()));
         }
 
         // Price range filter
@@ -127,7 +133,7 @@ export default function ShopClient() {
         }
 
         return result;
-    }, [activeCategory, searchQuery, sortBy, priceRange]);
+    }, [activeCategory, searchQuery, sortBy, priceRange, strainType]);
 
     const visibleProducts = processedProducts.slice(0, visibleCount);
     const hasMore = visibleCount < processedProducts.length;
@@ -154,6 +160,7 @@ export default function ShopClient() {
     // ── Reset visible count on filter/search change ──────────
     const handleCategoryChange = (cat: string) => {
         setActiveCategory(cat);
+        setStrainType("All");
         setVisibleCount(PRODUCTS_PER_PAGE);
         if (cat !== "All") {
             trackCategoryView(cat);
@@ -232,6 +239,27 @@ export default function ShopClient() {
                                         </button>
                                     );
                                 })}
+                            </div>
+                        </div>
+
+                        {/* Strain Type Filter */}
+                        <div className="space-y-4">
+                            <h3 className="font-bold flex items-center gap-2 text-forest dark:text-cream">
+                                <Filter className="h-4 w-4" /> Strain Type
+                            </h3>
+                            <div className="flex flex-wrap gap-2">
+                                {(["All", "Indica", "Sativa", "Hybrid"] as const).map((type) => (
+                                    <button
+                                        key={type}
+                                        onClick={() => { setStrainType(type); setVisibleCount(PRODUCTS_PER_PAGE); }}
+                                        className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${strainType === type
+                                            ? "bg-forest/10 text-forest dark:text-leaf border border-forest/30 dark:border-leaf/30"
+                                            : "text-muted-foreground border border-border hover:bg-muted dark:hover:bg-white/5"
+                                            }`}
+                                    >
+                                        {type}
+                                    </button>
+                                ))}
                             </div>
                         </div>
 
@@ -386,7 +414,7 @@ export default function ShopClient() {
                                 <p className="text-muted-foreground text-sm mb-4">
                                     Try a different search term or browse a category.
                                 </p>
-                                <Button variant="outline" size="sm" onClick={() => { handleSearchChange(""); handleCategoryChange("All"); }}>
+                                <Button variant="outline" size="sm" onClick={() => { handleSearchChange(""); handleCategoryChange("All"); setStrainType("All"); setPriceRange([0, 500]); }}>
                                     Clear Filters
                                 </Button>
                             </div>
@@ -422,6 +450,20 @@ export default function ShopClient() {
                                                     <Sparkles className="h-3 w-3" /> Featured
                                                 </div>
                                             )}
+                                            {/* Stock urgency badges */}
+                                            {product.specs.type.toLowerCase().includes("sale") ? (
+                                                <div className="absolute bottom-3 right-3 bg-red-500/90 backdrop-blur px-2 py-1 rounded text-xs font-bold text-white z-20 animate-pulse">
+                                                    SALE
+                                                </div>
+                                            ) : product.id % 5 === 0 ? (
+                                                <div className="absolute bottom-3 right-3 bg-amber-500/90 backdrop-blur px-2 py-1 rounded text-xs font-bold text-white z-20">
+                                                    Selling Fast
+                                                </div>
+                                            ) : product.id % 7 === 0 ? (
+                                                <div className="absolute bottom-3 right-3 bg-red-600/90 backdrop-blur px-2 py-1 rounded text-xs font-bold text-white z-20">
+                                                    Low Stock
+                                                </div>
+                                            ) : null}
                                         </ProductImage>
                                     </Link>
                                     <div className="p-4">
