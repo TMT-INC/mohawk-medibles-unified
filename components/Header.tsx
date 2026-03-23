@@ -36,8 +36,8 @@ export default function Header() {
     return (
         <>
             {/* Shipping Banner — .cc style lime accent bar */}
-            <div role="banner" className="bg-lime text-black text-[11px] py-2 px-4 text-center font-bold tracking-wider uppercase relative z-[60] font-sans">
-                WE SHIP EVERYWHERE IN CANADA VIA CANADA POST &amp; PUROLATOR — $15 SHIPPING FEE — FREE SHIPPING ON ORDERS OVER $199
+            <div role="banner" className="bg-lime text-black text-[9px] md:text-[11px] py-2 px-4 text-center font-bold tracking-wider uppercase relative z-[60] font-sans">
+                {t("nav.shippingBanner")}
             </div>
 
             <nav
@@ -152,10 +152,10 @@ export default function Header() {
                                 <ThemeToggle />
                             </div>
                             <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
-                                <Button variant="outline" className="w-full rounded-2xl h-12 uppercase font-bold glass">Member Login</Button>
+                                <Button variant="outline" className="w-full rounded-2xl h-12 uppercase font-bold glass">{t("nav.login")}</Button>
                             </Link>
                             <Link href="/support" onClick={() => setIsMobileMenuOpen(false)}>
-                                <Button variant="brand" className="w-full rounded-2xl h-12 uppercase font-bold glow-lime">Talk to Support</Button>
+                                <Button variant="brand" className="w-full rounded-2xl h-12 uppercase font-bold glow-lime">{t("nav.talkToSupport")}</Button>
                             </Link>
                         </div>
                     </div>

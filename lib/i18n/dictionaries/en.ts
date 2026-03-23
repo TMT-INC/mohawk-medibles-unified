@@ -17,6 +17,7 @@ const en = {
         search: "Search",
         login: "Member Login",
         talkToSupport: "Talk to Support",
+        shippingBanner: "WE SHIP EVERYWHERE IN CANADA VIA CANADA POST & PUROLATOR — $15 SHIPPING FEE — FREE SHIPPING ON ORDERS OVER $199",
     },
 
     // ─── Hero / Home ────────────────────────────────────────

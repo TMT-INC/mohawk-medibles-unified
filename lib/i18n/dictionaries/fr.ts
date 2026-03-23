@@ -20,6 +20,7 @@ const fr: DictionarySchema = {
         search: "Recherche",
         login: "Connexion membre",
         talkToSupport: "Parler au soutien",
+        shippingBanner: "LIVRAISON PARTOUT AU CANADA VIA POSTES CANADA ET PUROLATOR — FRAIS DE 15$ — LIVRAISON GRATUITE POUR LES COMMANDES DE PLUS DE 199$",
     },
 
     // ─── Hero / Accueil ─────────────────────────────────────

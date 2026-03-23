@@ -25,6 +25,7 @@ const moh: DictionarySchema = {
         search: "Iesá:iere",         // "you search"
         login: "Satahónhstat",       // "enter"
         talkToSupport: "Tasatáti",   // "speak"
+        shippingBanner: "IESÁ:WIS CANADA-KÉ:KE — $15 IESÁ:WIS — SÉNHA $199 ÁHSEN IESÁ:WIS", // "shipping across Canada"
     },
 
     // ─── Hero / Home ────────────────────────────────────────
