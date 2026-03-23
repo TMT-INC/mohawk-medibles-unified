@@ -17,6 +17,7 @@ import WishlistButton from "@/components/WishlistButton";
 import { trackCategoryView, trackSearch, trackProductView, trackServerEvent } from "@/lib/sage/behavioral";
 import { trackViewItemList, trackAddToCart as trackGA4AddToCart, trackSearch as trackGA4Search } from "@/lib/analytics";
 import RecommendationCarousel from "@/components/RecommendationCarousel";
+import RecentlyViewed from "@/components/RecentlyViewed";
 
 const CATEGORIES = ["All", ...getAllCategories()];
 const PRODUCTS_PER_PAGE = 24;
@@ -46,6 +47,7 @@ export default function ShopClient() {
     const [addedIds, setAddedIds] = useState<Set<number>>(new Set());
     const [reviewStats, setReviewStats] = useState<Record<number, { avg: number; count: number }>>({});
     const [personalizedRecs, setPersonalizedRecs] = useState<any[]>([]);
+    const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
 
     // ── Fetch review stats + personalized recommendations ──
     useEffect(() => {
@@ -81,6 +83,9 @@ export default function ShopClient() {
         if (activeCategory !== "All") {
             result = result.filter(p => p.category === activeCategory);
         }
+
+        // Price range filter
+        result = result.filter(p => p.price >= priceRange[0] && p.price <= priceRange[1]);
 
         // Search filter
         if (searchQuery.trim()) {
@@ -122,7 +127,7 @@ export default function ShopClient() {
         }
 
         return result;
-    }, [activeCategory, searchQuery, sortBy]);
+    }, [activeCategory, searchQuery, sortBy, priceRange]);
 
     const visibleProducts = processedProducts.slice(0, visibleCount);
     const hasMore = visibleCount < processedProducts.length;
@@ -230,6 +235,55 @@ export default function ShopClient() {
                             </div>
                         </div>
 
+                        {/* Price Range Filter */}
+                        <div className="space-y-4">
+                            <h3 className="font-bold flex items-center gap-2 text-forest dark:text-cream">
+                                <Filter className="h-4 w-4" /> Price Range
+                            </h3>
+                            <div className="px-1 space-y-3">
+                                <div className="flex items-center justify-between text-sm">
+                                    <span className="text-muted-foreground">Min: <span className="font-medium text-lime-600 dark:text-lime-400">${priceRange[0]}</span></span>
+                                    <span className="text-muted-foreground">Max: <span className="font-medium text-lime-600 dark:text-lime-400">${priceRange[1]}</span></span>
+                                </div>
+                                <div className="space-y-2">
+                                    <input
+                                        type="range"
+                                        min={0}
+                                        max={500}
+                                        step={5}
+                                        value={priceRange[0]}
+                                        onChange={(e) => {
+                                            const val = Number(e.target.value);
+                                            setPriceRange(([, max]) => [Math.min(val, max), max]);
+                                        }}
+                                        className="w-full h-1.5 rounded-full appearance-none cursor-pointer bg-muted [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-lime-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-lime-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:shadow-md"
+                                        aria-label="Minimum price"
+                                    />
+                                    <input
+                                        type="range"
+                                        min={0}
+                                        max={500}
+                                        step={5}
+                                        value={priceRange[1]}
+                                        onChange={(e) => {
+                                            const val = Number(e.target.value);
+                                            setPriceRange(([min]) => [min, Math.max(val, min)]);
+                                        }}
+                                        className="w-full h-1.5 rounded-full appearance-none cursor-pointer bg-muted [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-lime-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-lime-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:shadow-md"
+                                        aria-label="Maximum price"
+                                    />
+                                </div>
+                                {(priceRange[0] > 0 || priceRange[1] < 500) && (
+                                    <button
+                                        onClick={() => setPriceRange([0, 500])}
+                                        className="text-xs text-lime-600 dark:text-lime-400 hover:underline"
+                                    >
+                                        Reset price filter
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+
                         {/* MedAgent Recommendation */}
                         <div className="p-4 bg-cream dark:bg-card rounded-xl border border-secondary/20">
                             <div className="flex items-center gap-2 mb-2">
@@ -270,6 +324,9 @@ export default function ShopClient() {
                                 products={personalizedRecs}
                             />
                         )}
+                        {/* Recently Viewed */}
+                        <RecentlyViewed />
+
                         {/* Toolbar */}
                         <div className="flex flex-wrap justify-between items-center gap-3 mb-6">
                             <div className="text-sm text-muted-foreground" aria-live="polite" aria-atomic="true">

@@ -14,6 +14,7 @@ import { BenefitsBar } from "@/components/BenefitsBar";
 import { MonthlyDeals } from "@/components/MonthlyDeals";
 import { HowItWorks } from "@/components/HowItWorks";
 import { CustomerTestimonials } from "@/components/CustomerTestimonials";
+import NewArrivals from "@/components/NewArrivals";
 
 export default function HomeClient() {
   return (
@@ -57,6 +58,12 @@ export default function HomeClient() {
           Conversion: Authority, Brand Trust, Product Discovery
           ═══════════════════════════════════════════════════════════ */}
       <CategoryBrandShowcase />
+
+      {/* ═══════════════════════════════════════════════════════════
+          NEW ARRIVALS — Latest products added to the collection
+          Conversion: Novelty, Discovery, FOMO
+          ═══════════════════════════════════════════════════════════ */}
+      <NewArrivals />
 
       {/* ═══════════════════════════════════════════════════════════
           MONTHLY DEALS — .cc gradient deal cards (green/amber/purple)

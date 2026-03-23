@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import {
     ShoppingCart, ChevronRight, Minus, Plus,
     Beaker, Shield, Truck, Star, ChevronDown, Send, CheckCircle,
+    Link as LinkIcon, Share2, Sparkles,
 } from "lucide-react";
 import type { Product } from "@/lib/productData";
 import { getShortName } from "@/lib/productData";
@@ -74,8 +75,49 @@ export default function ProductDetailClient({ product, related, shortName, faqs,
     const [reviewSubmitting, setReviewSubmitting] = useState(false);
     const [reviewMessage, setReviewMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
+    // Share
+    const [copied, setCopied] = useState(false);
+    const shareUrl = `https://mohawkmedibles.ca/shop/${product.slug}`;
+    const shareText = `Check out ${product.name} from Mohawk Medibles!`;
+
+    function handleCopyLink() {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        });
+    }
+
+    function handleShareTwitter() {
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`, "_blank", "noopener,noreferrer");
+    }
+
+    function handleShareFacebook() {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, "_blank", "noopener,noreferrer");
+    }
+
+    function handleNativeShare() {
+        if (navigator.share) {
+            navigator.share({ title: product.name, text: shareText, url: shareUrl }).catch(() => {});
+        } else {
+            handleCopyLink();
+        }
+    }
+
     // Frequently bought together
     const [boughtTogether, setBoughtTogether] = useState<any[]>([]);
+
+    // Save to recently viewed in localStorage
+    useEffect(() => {
+        try {
+            const key = "mm-recently-viewed";
+            const stored = localStorage.getItem(key);
+            let slugs: string[] = stored ? JSON.parse(stored) : [];
+            slugs = [product.slug, ...slugs.filter((s) => s !== product.slug)].slice(0, 12);
+            localStorage.setItem(key, JSON.stringify(slugs));
+        } catch {
+            /* ignore */
+        }
+    }, [product.slug]);
 
     // Track product view for behavioral intelligence
     useEffect(() => {
@@ -241,6 +283,16 @@ export default function ProductDetailClient({ product, related, shortName, faqs,
                             )}
                         </div>
 
+                        {/* Loyalty Points */}
+                        {product.price > 0 && (
+                            <div className="flex items-center gap-1.5 mb-4 -mt-3">
+                                <Sparkles className="h-3.5 w-3.5 text-lime dark:text-leaf" />
+                                <span className="text-xs text-lime dark:text-leaf font-medium">
+                                    Earn {Math.floor(product.price)} points with this purchase
+                                </span>
+                            </div>
+                        )}
+
                         {/* THC / CBD / Weight badges */}
                         <div className="flex flex-wrap gap-3 mb-6">
                             {product.specs.thc && product.specs.thc !== "TBD" && (
@@ -334,6 +386,43 @@ export default function ProductDetailClient({ product, related, shortName, faqs,
                                 }}
                                 size="md"
                             />
+                        </div>
+
+                        {/* Share Buttons */}
+                        <div className="flex items-center gap-2 mb-6">
+                            <span className="text-xs text-muted-foreground mr-1">Share:</span>
+                            <button
+                                onClick={handleCopyLink}
+                                className="h-8 w-8 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors"
+                                aria-label="Copy link"
+                                title="Copy link"
+                            >
+                                {copied ? <CheckCircle className="h-3.5 w-3.5 text-green-500" /> : <LinkIcon className="h-3.5 w-3.5 text-muted-foreground" />}
+                            </button>
+                            <button
+                                onClick={handleShareTwitter}
+                                className="h-8 w-8 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors"
+                                aria-label="Share on X"
+                                title="Share on X"
+                            >
+                                <span className="text-xs font-bold text-muted-foreground">X</span>
+                            </button>
+                            <button
+                                onClick={handleShareFacebook}
+                                className="h-8 w-8 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors"
+                                aria-label="Share on Facebook"
+                                title="Share on Facebook"
+                            >
+                                <Share2 className="h-3.5 w-3.5 text-muted-foreground" />
+                            </button>
+                            <button
+                                onClick={handleNativeShare}
+                                className="h-8 w-8 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors"
+                                aria-label="Share"
+                                title="Share"
+                            >
+                                <Send className="h-3.5 w-3.5 text-muted-foreground" />
+                            </button>
                         </div>
 
                         {/* Trust Badges */}

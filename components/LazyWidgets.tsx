@@ -9,6 +9,7 @@ const BackToTop = dynamic(() => import("@/components/BackToTop").then(m => ({ de
 const ExitIntentPopup = dynamic(() => import("@/components/ExitIntentPopup").then(m => ({ default: m.ExitIntentPopup })), { ssr: false });
 const FirstTimeBuyerPopup = dynamic(() => import("@/components/FirstTimeBuyerPopup").then(m => ({ default: m.FirstTimeBuyerPopup })), { ssr: false });
 const CommandPalette = dynamic(() => import("@/components/CommandPalette").then(m => ({ default: m.CommandPalette })), { ssr: false });
+const LivePurchaseNotification = dynamic(() => import("@/components/LivePurchaseNotification"), { ssr: false });
 
 export default function LazyWidgets() {
     return (
@@ -20,6 +21,7 @@ export default function LazyWidgets() {
             <ExitIntentPopup />
             <FirstTimeBuyerPopup />
             <CommandPalette />
+            <LivePurchaseNotification />
         </>
     );
 }
