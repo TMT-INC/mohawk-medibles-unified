@@ -9,8 +9,16 @@ import {
     Plus, Trash2, Loader2, AlertCircle, RefreshCcw,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import QuickReorder from "@/components/QuickReorder";
 
 type Tab = "orders" | "addresses" | "settings";
+
+interface OrderItemDetail {
+    id: string | number;
+    name: string;
+    quantity: number;
+    price: number;
+}
 
 interface Order {
     id: string;
@@ -19,6 +27,7 @@ interface Order {
     total: number;
     items: number;
     tracking: string | null;
+    itemDetails?: OrderItemDetail[];
 }
 
 interface Address {
@@ -304,7 +313,12 @@ export default function AccountPage() {
                                                     </div>
                                                     <div className="flex items-center justify-between text-sm">
                                                         <span className="text-muted-foreground">{order.items} item{order.items !== 1 ? "s" : ""}</span>
-                                                        <span className="font-bold text-lg">${order.total.toFixed(2)} CAD</span>
+                                                        <div className="flex items-center gap-3">
+                                                            {order.itemDetails && order.itemDetails.length > 0 && (
+                                                                <QuickReorder items={order.itemDetails} orderNumber={order.id} />
+                                                            )}
+                                                            <span className="font-bold text-lg">${order.total.toFixed(2)} CAD</span>
+                                                        </div>
                                                     </div>
                                                     {order.tracking && (
                                                         <div className="mt-3 pt-3 border-t border-border flex items-center justify-between">
