@@ -39,8 +39,8 @@ export default function DealOfTheDayBanner() {
     fetch("/api/trpc/dailyDeals.getFeatured?input={}")
       .then((r) => r.json())
       .then((res) => {
-        const data = res?.result?.data;
-        if (data) setDeal(data);
+        const data = res?.result?.data?.json ?? res?.result?.data;
+        if (data && data.dealPrice != null) setDeal(data);
       })
       .catch(() => {});
   }, []);

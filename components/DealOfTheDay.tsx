@@ -36,8 +36,9 @@ export default function DealOfTheDay() {
     fetch("/api/trpc/dailyDeals.getFeatured?input={}")
       .then((r) => r.json())
       .then((res) => {
-        const data = res?.result?.data;
-        if (data) setDeal(data);
+        // tRPC with superjson wraps data as result.data.json
+        const data = res?.result?.data?.json ?? res?.result?.data;
+        if (data && data.dealPrice != null) setDeal(data);
       })
       .catch(() => {})
       .finally(() => setIsLoading(false));
@@ -61,7 +62,7 @@ export default function DealOfTheDay() {
       .catch(() => {});
   }, [deal?.productSlug]);
 
-  if (isLoading || !deal) return null;
+  if (isLoading || !deal || deal.dealPrice == null || deal.originalPrice == null) return null;
 
   const savings = deal.originalPrice - deal.dealPrice;
 

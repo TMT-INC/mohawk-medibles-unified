@@ -45,7 +45,7 @@ export default function ContestBanner() {
     fetch("/api/trpc/contest.getActive?input={}")
       .then((r) => r.json())
       .then((res) => {
-        const data = res?.result?.data;
+        const data = res?.result?.data?.json ?? res?.result?.data;
         if (Array.isArray(data) && data.length > 0) setContest(data[0]);
       })
       .catch(() => {});
