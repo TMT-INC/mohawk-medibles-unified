@@ -20,6 +20,14 @@ import RecommendationCarousel from "@/components/RecommendationCarousel";
 import BulkPricingTiers from "@/components/BulkPricingTiers";
 import type { BulkPricingTier } from "@/lib/bulkPricing";
 
+/** Strip script tags and inline event handlers from WooCommerce HTML */
+function sanitizeHTML(html: string): string {
+    return html
+        .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+        .replace(/on\w+="[^"]*"/gi, '')
+        .replace(/on\w+='[^']*'/gi, '');
+}
+
 interface ReviewData {
     id: number;
     rating: number;
@@ -518,7 +526,7 @@ export default function ProductDetailClient({ product, related, shortName, faqs,
                             {activeTab === "details" && (
                                 <div className="prose prose-green dark:prose-invert max-w-none">
                                     {product.descriptionHTML ? (
-                                        <div dangerouslySetInnerHTML={{ __html: product.descriptionHTML }} />
+                                        <div dangerouslySetInnerHTML={{ __html: sanitizeHTML(product.descriptionHTML || '') }} />
                                     ) : (
                                         <>
                                             <p className="text-muted-foreground leading-relaxed">{product.eeatNarrative}</p>
