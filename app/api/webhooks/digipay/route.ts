@@ -98,9 +98,21 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        // ── Mark as paid ────────────────────────────────────
+        // ── Validate amount matches order ────────────────────
         const amount = parseDigipayAmount(rawAmount);
+        if (Math.abs(amount - order.total) > 0.01) {
+            log.webhook.error("Amount mismatch", {
+                orderId: order.id,
+                webhookAmount: amount,
+                orderTotal: order.total,
+            });
+            return new NextResponse(
+                digipayXmlResponse("fail", "Amount mismatch", 103),
+                { status: 400, headers: xmlHeaders }
+            );
+        }
 
+        // ── Mark as paid ────────────────────────────────────
         await prisma.order.update({
             where: { id: order.id },
             data: {

@@ -93,6 +93,7 @@ interface OrderEmailData {
     shipping: number;
     tax: number;
     total: number;
+    etransferInstructions?: string;
 }
 
 export async function sendOrderConfirmation(to: string, order: OrderEmailData) {
@@ -120,6 +121,13 @@ export async function sendOrderConfirmation(to: string, order: OrderEmailData) {
             </tfoot>
         </table>
 
+        ${order.etransferInstructions ? `
+        <div style="background:#FFF8E1;border-left:4px solid #F9A825;padding:16px;margin:20px 0;border-radius:4px;">
+            <h3 style="margin:0 0 8px;color:#F57F17;">Interac e-Transfer Payment Instructions</h3>
+            <p style="margin:0;color:#333;">${order.etransferInstructions}</p>
+            <p style="margin:8px 0 0;color:#333;"><strong>Order Reference:</strong> ${order.orderNumber}</p>
+        </div>
+        ` : ''}
         <p style="color:#666;">We'll send you a shipping notification with tracking info once your order ships via Canada Post Xpresspost.</p>
     `);
 

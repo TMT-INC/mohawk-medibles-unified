@@ -54,15 +54,22 @@ export interface DigipayOrderParams {
 }
 
 export function buildDigipayPaymentUrl(params: DigipayOrderParams): string {
-    const siteId = process.env.DIGIPAY_SITE_ID || "6099";
-    const encryptionKey = process.env.DIGIPAY_ENCRYPTION_KEY || "";
+    const siteId = process.env.DIGIPAY_SITE_ID;
+    if (!siteId && process.env.NODE_ENV === 'production') {
+        throw new Error('DIGIPAY_SITE_ID must be set in production');
+    }
+
+    const encryptionKey = process.env.DIGIPAY_ENCRYPTION_KEY;
+    if (!encryptionKey && process.env.NODE_ENV === 'production') {
+        throw new Error('DIGIPAY_ENCRYPTION_KEY must be set in production');
+    }
 
     if (!encryptionKey) {
         throw new Error("DIGIPAY_ENCRYPTION_KEY not configured");
     }
 
     const queryParams = new URLSearchParams({
-        site_id: siteId,
+        site_id: siteId || "6099",
         charge_amount: params.amount.toFixed(2),
         type: "purchase",
         order_description: params.description.substring(0, 255),

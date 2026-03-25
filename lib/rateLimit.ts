@@ -48,6 +48,8 @@ export const RATE_LIMITS = {
     health: { limit: 120, windowSeconds: 60, prefix: "health" } satisfies RateLimitConfig,
     /** TTS synthesis: 10/min (ElevenLabs billing protection) */
     tts: { limit: 10, windowSeconds: 60, prefix: "tts" } satisfies RateLimitConfig,
+    /** Checkout: 10/min (abuse protection) */
+    checkout: { limit: 10, windowSeconds: 60, prefix: "checkout" } satisfies RateLimitConfig,
 } as const;
 
 // ─── Upstash Redis Rate Limiter (production) ────────────────

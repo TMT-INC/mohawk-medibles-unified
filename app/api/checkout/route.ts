@@ -15,7 +15,9 @@ import { getCurrentTenant } from "@/lib/tenant";
 import { buildDigipayPaymentUrl } from "@/lib/digipay";
 import { runFraudCheck } from "@/lib/fraudDetection";
 import { sendOrderConfirmationSMS, sendAndLogSMS } from "@/lib/sms";
+import { sendOrderConfirmation } from "@/lib/email";
 import { autoEnterPurchaseContests } from "@/lib/contestDrawing";
+import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 
 // ─── Types ───────────────────────────────────────────────────
 
@@ -47,6 +49,10 @@ interface CheckoutRequest {
 // ─── POST Handler ────────────────────────────────────────────
 
 export async function POST(req: NextRequest) {
+    // ── Rate limit ──────────────────────────────────────────
+    const limited = await applyRateLimit(req, RATE_LIMITS.checkout);
+    if (limited) return limited;
+
     try {
         const tenant = await getCurrentTenant();
         const body: CheckoutRequest = await req.json();
@@ -143,60 +149,62 @@ export async function POST(req: NextRequest) {
         const isEtransfer = body.payment_method === "etransfer" || body.payment_method === "digipay_etransfer_manual";
         const orderNumber = `MM-${Date.now().toString(36).toUpperCase()}`;
 
-        const order = await prisma.order.create({
-            data: {
-                orderNumber,
-                userId: user.id,
-                status: isEtransfer ? "ON_HOLD" : "PENDING",
-                paymentStatus: "PENDING",
-                subtotal,
-                shippingCost: shipping,
-                tax,
-                discount,
-                total,
-                paymentMethod: body.payment_method,
-                paymentMethodTitle: getPaymentTitle(body.payment_method),
-                sourceTenant: tenant.slug,
-                sourceDomain: tenant.domain || "mohawkmedibles.ca",
-                billingData: JSON.stringify({
-                    ...body.billing,
-                    country: body.billing.country || "CA",
-                }),
-                shippingData: JSON.stringify({
-                    first_name: body.billing.first_name,
-                    last_name: body.billing.last_name,
-                    address_1: body.billing.address_1,
-                    address_2: body.billing.address_2 || "",
-                    city: body.billing.city,
-                    state: body.billing.state,
-                    postcode: body.billing.postcode,
-                    country: body.billing.country || "CA",
-                }),
-                customerNote: body.customer_note || null,
-            },
-        });
-
-        // Save line items
-        for (const item of resolvedItems) {
-            await prisma.orderItem.create({
+        const order = await prisma.$transaction(async (tx) => {
+            const newOrder = await tx.order.create({
                 data: {
-                    orderId: order.id,
+                    orderNumber,
+                    userId: user.id,
+                    status: isEtransfer ? "ON_HOLD" : "PENDING",
+                    paymentStatus: "PENDING",
+                    subtotal,
+                    shippingCost: shipping,
+                    tax,
+                    discount,
+                    total,
+                    paymentMethod: body.payment_method,
+                    paymentMethodTitle: getPaymentTitle(body.payment_method),
+                    sourceTenant: tenant.slug,
+                    sourceDomain: tenant.domain || "mohawkmedibles.ca",
+                    billingData: JSON.stringify({
+                        ...body.billing,
+                        country: body.billing.country || "CA",
+                    }),
+                    shippingData: JSON.stringify({
+                        first_name: body.billing.first_name,
+                        last_name: body.billing.last_name,
+                        address_1: body.billing.address_1,
+                        address_2: body.billing.address_2 || "",
+                        city: body.billing.city,
+                        state: body.billing.state,
+                        postcode: body.billing.postcode,
+                        country: body.billing.country || "CA",
+                    }),
+                    customerNote: body.customer_note || null,
+                },
+            });
+
+            // Save line items
+            await tx.orderItem.createMany({
+                data: resolvedItems.map((item) => ({
+                    orderId: newOrder.id,
                     productId: item.productId,
                     quantity: item.quantity,
                     price: item.price,
                     total: item.price * item.quantity,
                     name: item.name,
+                })),
+            });
+
+            // Add status history
+            await tx.orderStatusHistory.create({
+                data: {
+                    orderId: newOrder.id,
+                    status: isEtransfer ? "ON_HOLD" : "PENDING",
+                    note: `Order created via ${tenant.domain || "mohawkmedibles.ca"}. Payment: ${getPaymentTitle(body.payment_method)}`,
                 },
             });
-        }
 
-        // Add status history
-        await prisma.orderStatusHistory.create({
-            data: {
-                orderId: order.id,
-                status: isEtransfer ? "ON_HOLD" : "PENDING",
-                note: `Order created via ${tenant.domain || "mohawkmedibles.ca"}. Payment: ${getPaymentTitle(body.payment_method)}`,
-            },
+            return newOrder;
         });
 
         // ── Run fraud detection (non-blocking — don't fail checkout) ──
@@ -232,7 +240,7 @@ export async function POST(req: NextRequest) {
             if (smsPhone && smsOptIn?.optedIn) {
                 sendAndLogSMS({
                     phone: smsPhone,
-                    message: `Your Mohawk Medibles order #${orderNumber} ($${total.toFixed(2)}) has been received! Track at mohawkmedibles.co/track-order`,
+                    message: `Your Mohawk Medibles order #${orderNumber} ($${total.toFixed(2)}) has been received! Track at mohawkmedibles.ca/track-order`,
                     type: "ORDER_CONFIRMATION",
                     orderId: order.id,
                     userId: user.id,
@@ -256,6 +264,30 @@ export async function POST(req: NextRequest) {
         // ── Route by payment method ────────────────────────
 
         if (isEtransfer) {
+            // Send e-Transfer confirmation email (non-blocking)
+            try {
+                const items = await prisma.orderItem.findMany({ where: { orderId: order.id } });
+                await sendOrderConfirmation(body.billing.email, {
+                    orderNumber,
+                    customerName: `${body.billing.first_name} ${body.billing.last_name}`,
+                    items: items.map((i) => ({
+                        name: i.name,
+                        qty: i.quantity,
+                        price: i.price,
+                    })),
+                    subtotal,
+                    shipping,
+                    tax,
+                    total,
+                    etransferInstructions: "Please send your Interac e-Transfer to orders@mohawkmedibles.ca with your order number as the message. Auto-deposit is enabled — no security question needed.",
+                });
+            } catch (emailErr) {
+                log.checkout.error("e-Transfer confirmation email failed", {
+                    orderId: order.id,
+                    error: emailErr instanceof Error ? emailErr.message : "Unknown",
+                });
+            }
+
             // e-Transfer: return instructions
             return NextResponse.json({
                 success: true,
