@@ -3,7 +3,6 @@
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { BentoGrid } from "@/components/BentoGrid";
 import { DealTicker } from "@/components/DealTicker";
-import { EffectFilter } from "@/components/EffectFilter";
 import { SocialProofStrip } from "@/components/SocialProofStrip";
 import { TrustPillars } from "@/components/TrustPillars";
 import { DealsSection } from "@/components/DealsSection";
@@ -32,12 +31,11 @@ export default function HomeClient() {
       <SafeSection name="BenefitsBar"><BenefitsBar /></SafeSection>
       <SafeSection name="DealTicker"><DealTicker /></SafeSection>
       <SafeSection name="SocialProofStrip"><SocialProofStrip /></SafeSection>
-      <SafeSection name="EffectFilter"><EffectFilter /></SafeSection>
-      <SafeSection name="ShopByMood"><ShopByMood /></SafeSection>
       <SafeSection name="CategoryBrandShowcase"><CategoryBrandShowcase /></SafeSection>
-      <SafeSection name="TerritoryGrownSection"><TerritoryGrownSection /></SafeSection>
       <SafeSection name="NewArrivals"><NewArrivals /></SafeSection>
       <SafeSection name="MonthlyDeals"><MonthlyDeals /></SafeSection>
+      <SafeSection name="TerritoryGrownSection"><TerritoryGrownSection /></SafeSection>
+      <SafeSection name="ShopByMood"><ShopByMood /></SafeSection>
       <SafeSection name="MixMatchCTA"><MixMatchCTA /></SafeSection>
       <SafeSection name="DealOfTheDay"><DealOfTheDay /></SafeSection>
       <SafeSection name="DealsSection"><DealsSection /></SafeSection>
