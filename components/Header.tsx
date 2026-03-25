@@ -37,10 +37,10 @@ export default function Header() {
     return (
         <>
             {/* Shipping Banner — .cc style lime accent bar + Price Match */}
-            <div role="banner" className="bg-lime text-black text-[9px] md:text-[11px] py-2 px-4 text-center font-bold tracking-wider uppercase relative z-[60] font-sans flex items-center justify-center gap-3 flex-wrap">
+            <div role="banner" className="bg-lime text-black text-[9px] md:text-[11px] py-2.5 px-4 text-center font-bold tracking-wider uppercase relative z-[60] font-sans flex items-center justify-center gap-3 flex-wrap shadow-sm">
                 <span>{t("nav.shippingBanner")}</span>
                 <span className="hidden sm:inline text-black/30">|</span>
-                <Link href="/price-match" className="inline-flex items-center gap-1 hover:underline">
+                <Link href="/price-match" className="inline-flex items-center gap-1 hover:underline bg-black/10 hover:bg-black/15 px-2.5 py-0.5 rounded-full transition-colors duration-200">
                     <span>Price Match + 5% Off</span>
                 </Link>
             </div>
@@ -51,8 +51,8 @@ export default function Header() {
             <nav
                 role="navigation"
                 aria-label="Main navigation"
-                className={`fixed w-full z-50 transition-all duration-500 px-4 md:px-6 py-4 flex justify-between items-center ${isScrolled || !isHome
-                    ? "py-3 shadow-lg bg-white/95 dark:bg-[#1a1a22] border-b border-transparent dark:border-[#3a3a48]"
+                className={`fixed w-full z-50 transition-all duration-500 ease-out px-4 md:px-6 py-4 flex justify-between items-center ${isScrolled || !isHome
+                    ? "py-3 shadow-lg shadow-black/[0.08] dark:shadow-black/40 bg-white/95 dark:bg-[#1a1a22]/95 backdrop-blur-md border-b border-transparent dark:border-[#3a3a48]"
                     : "bg-transparent"
                 } ${isHome ? "top-[40px]" : "top-[40px]"}`}
             >
@@ -190,19 +190,19 @@ export default function Header() {
                     </Link>
 
                     <button
-                        className={`lg:hidden ${onHeroTransparent ? "text-white" : "text-charcoal-deep dark:text-white"}`}
+                        className={`lg:hidden p-1.5 rounded-lg transition-colors duration-200 ${onHeroTransparent ? "text-white hover:bg-white/10" : "text-charcoal-deep dark:text-white hover:bg-charcoal-deep/5 dark:hover:bg-white/10"}`}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-expanded={isMobileMenuOpen}
                         aria-controls="mobile-menu"
                         aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                     >
-                        {isMobileMenuOpen ? <X /> : <Menu />}
+                        {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                     </button>
                 </div>
 
                 {/* Mobile Menu — glassmorphic */}
                 {isMobileMenuOpen && (
-                    <div id="mobile-menu" role="menu" aria-label="Mobile navigation" className="absolute top-full left-0 w-full bg-white/95 dark:bg-charcoal-deep/95 backdrop-blur-xl shadow-2xl p-8 flex flex-col gap-6 text-xl font-bold uppercase tracking-tight animate-in fade-in slide-in-from-top-4 duration-500 font-heading z-[70]">
+                    <div id="mobile-menu" role="menu" aria-label="Mobile navigation" className="absolute top-full left-0 w-full bg-white/98 dark:bg-charcoal-deep/98 backdrop-blur-2xl shadow-2xl shadow-black/20 p-8 flex flex-col gap-6 text-xl font-bold uppercase tracking-tight animate-in fade-in slide-in-from-top-4 duration-500 font-heading z-[70] border-t border-lime/10">
                         {(["Shop", "Deals", "About", "Blog", "FAQ", "Contact"] as const).map((item) => (
                             <Link
                                 key={item}

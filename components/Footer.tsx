@@ -57,7 +57,7 @@ export default function Footer() {
     }
 
     return (
-        <footer className="bg-forest dark:bg-charcoal-deep text-cream py-16 border-t border-lime/10 dark:border-white/5 relative z-40">
+        <footer className="bg-forest dark:bg-charcoal-deep text-cream py-20 border-t-2 border-lime/15 dark:border-white/5 relative z-40">
             <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
                 {/* Brand & Mission */}
                 <div className="lg:col-span-2 space-y-6">
@@ -74,10 +74,10 @@ export default function Footer() {
                         Premium edibles, vapes, concentrates, and flower with fast,
                         discreet shipping from Tyendinaga Mohawk Territory, Ontario.
                     </p>
-                    <div className="flex flex-wrap gap-2 pt-2">
-                        <span className="text-[9px] uppercase tracking-widest px-3 py-1 bg-lime/10 border border-lime/20 rounded-full text-lime font-bold">Fast Delivery</span>
-                        <span className="text-[9px] uppercase tracking-widest px-3 py-1 bg-lime/10 border border-lime/20 rounded-full text-lime font-bold">Quality Assurance</span>
-                        <span className="text-[9px] uppercase tracking-widest px-3 py-1 bg-lime/10 border border-lime/20 rounded-full text-lime font-bold">Customer Support</span>
+                    <div className="flex flex-wrap gap-2 pt-3">
+                        <span className="text-[9px] uppercase tracking-widest px-3 py-1.5 bg-lime/10 border border-lime/20 rounded-full text-lime font-bold hover:bg-lime/20 transition-colors duration-200">Fast Delivery</span>
+                        <span className="text-[9px] uppercase tracking-widest px-3 py-1.5 bg-lime/10 border border-lime/20 rounded-full text-lime font-bold hover:bg-lime/20 transition-colors duration-200">Quality Assurance</span>
+                        <span className="text-[9px] uppercase tracking-widest px-3 py-1.5 bg-lime/10 border border-lime/20 rounded-full text-lime font-bold hover:bg-lime/20 transition-colors duration-200">Customer Support</span>
                     </div>
                 </div>
 
@@ -85,14 +85,14 @@ export default function Footer() {
                 <div className="space-y-4">
                     <p className="font-bold text-sm tracking-widest uppercase text-white">Shop</p>
                     <ul className="space-y-2 text-sm text-cream/80">
-                        <li><Link href="/shop" className="hover:text-lime transition-colors">All Collections</Link></li>
-                        <li><Link href="/shop?category=Flower" className="hover:text-lime transition-colors">Flower</Link></li>
-                        <li><Link href="/shop?category=Edibles" className="hover:text-lime transition-colors">Edibles</Link></li>
-                        <li><Link href="/shop?category=Concentrates" className="hover:text-lime transition-colors">Concentrates</Link></li>
-                        <li><Link href="/shop?category=Vapes" className="hover:text-lime transition-colors">Vapes</Link></li>
-                        <li><Link href="/shop?category=Hash" className="hover:text-lime transition-colors">Hash</Link></li>
-                        <li><Link href="/shop?category=Pre-Rolls" className="hover:text-lime transition-colors">Pre-Rolls</Link></li>
-                        <li><Link href="/shop?category=CBD" className="hover:text-lime transition-colors">CBD</Link></li>
+                        <li><Link href="/shop" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">All Collections</Link></li>
+                        <li><Link href="/shop?category=Flower" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Flower</Link></li>
+                        <li><Link href="/shop?category=Edibles" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Edibles</Link></li>
+                        <li><Link href="/shop?category=Concentrates" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Concentrates</Link></li>
+                        <li><Link href="/shop?category=Vapes" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Vapes</Link></li>
+                        <li><Link href="/shop?category=Hash" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Hash</Link></li>
+                        <li><Link href="/shop?category=Pre-Rolls" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Pre-Rolls</Link></li>
+                        <li><Link href="/shop?category=CBD" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">CBD</Link></li>
                     </ul>
                 </div>
 
@@ -100,13 +100,13 @@ export default function Footer() {
                 <div className="space-y-4">
                     <p className="font-bold text-sm tracking-widest uppercase text-white">Support</p>
                     <ul className="space-y-2 text-sm text-cream/80">
-                        <li><Link href="/faq" className="hover:text-lime transition-colors">FAQ & Knowledgebase</Link></li>
-                        <li><Link href="/contact" className="hover:text-lime transition-colors">Contact Us</Link></li>
-                        <li><Link href="/shipping-policy" className="hover:text-lime transition-colors">Shipping Policy</Link></li>
-                        <li><Link href="/returns-policy" className="hover:text-lime transition-colors">Returns Policy</Link></li>
-                        <li><Link href="/privacy" className="hover:text-lime transition-colors">Privacy Policy</Link></li>
-                        <li><Link href="/terms" className="hover:text-lime transition-colors">Terms of Service</Link></li>
-                        <li><Link href="/price-match" className="hover:text-lime transition-colors">Price Match Guarantee</Link></li>
+                        <li><Link href="/faq" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">FAQ & Knowledgebase</Link></li>
+                        <li><Link href="/contact" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Contact Us</Link></li>
+                        <li><Link href="/shipping-policy" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Shipping Policy</Link></li>
+                        <li><Link href="/returns-policy" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Returns Policy</Link></li>
+                        <li><Link href="/privacy" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Privacy Policy</Link></li>
+                        <li><Link href="/terms" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Terms of Service</Link></li>
+                        <li><Link href="/price-match" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Price Match Guarantee</Link></li>
                     </ul>
                 </div>
 
@@ -115,12 +115,12 @@ export default function Footer() {
                     <div className="space-y-4">
                         <p className="font-bold text-sm tracking-widest uppercase text-white">Quick Links</p>
                         <ul className="space-y-2 text-sm text-cream/80">
-                            <li><Link href="/deals" className="hover:text-lime transition-colors">Deals</Link></li>
-                            <li><Link href="/how-to-order" className="hover:text-lime transition-colors">How to Order</Link></li>
-                            <li><Link href="/buy-weed-online-canada" className="hover:text-lime transition-colors">Buy Weed Online</Link></li>
-                            <li><Link href="/cannabis-laws" className="hover:text-lime transition-colors">Cannabis Laws</Link></li>
-                            <li><Link href="/blog" className="hover:text-lime transition-colors">Blog</Link></li>
-                            <li><Link href="/locations" className="hover:text-lime transition-colors">Visit Our Store</Link></li>
+                            <li><Link href="/deals" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Deals</Link></li>
+                            <li><Link href="/how-to-order" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">How to Order</Link></li>
+                            <li><Link href="/buy-weed-online-canada" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Buy Weed Online</Link></li>
+                            <li><Link href="/cannabis-laws" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Cannabis Laws</Link></li>
+                            <li><Link href="/blog" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Blog</Link></li>
+                            <li><Link href="/locations" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Visit Our Store</Link></li>
                         </ul>
                     </div>
                     <div className="space-y-3">
@@ -151,9 +151,9 @@ export default function Footer() {
             </div>
 
             {/* Trust & Newsletter */}
-            <div className="container mx-auto px-6 mt-16 pt-12 border-t border-white/5">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-                    <div className="flex flex-wrap gap-4 sm:gap-6 items-center">
+            <div className="container mx-auto px-6 mt-16 pt-12 border-t border-white/10">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+                    <div className="flex flex-wrap gap-4 sm:gap-6 items-center justify-center">
                         {[
                             { icon: Zap, label: "INTERAC", sub: "Instant Pay", color: "text-yellow-400" },
                             { icon: CreditCard, label: "VISA / MC", sub: "Global Credit", color: "text-blue-400" },
@@ -161,11 +161,11 @@ export default function Footer() {
                             { icon: ShieldCheck, label: "SSL SECURE", sub: "256-bit AES", color: "text-lime" },
                         ].map((badge) => (
                             <div key={badge.label} className="flex flex-col items-center gap-1.5 group">
-                                <div className="bg-white/5 hover:bg-white/10 p-2 px-3.5 rounded-xl border border-white/10 hover:border-lime/20 flex items-center justify-center transition-all duration-300">
-                                    <badge.icon className={`h-4 w-4 ${badge.color}`} />
+                                <div className="bg-white/5 hover:bg-white/10 p-2.5 px-4 rounded-xl border border-white/10 hover:border-lime/20 flex items-center justify-center transition-all duration-300 hover:scale-105">
+                                    <badge.icon className={`h-4 w-4 ${badge.color} group-hover:scale-110 transition-transform duration-300`} />
                                     <span className="ml-2 text-[9px] font-bold text-cream tracking-widest">{badge.label}</span>
                                 </div>
-                                <span className="text-[8px] uppercase tracking-[0.2em] text-cream/80 group-hover:text-lime/80 transition-colors">{badge.sub}</span>
+                                <span className="text-[8px] uppercase tracking-[0.2em] text-cream/60 group-hover:text-lime/80 transition-colors duration-300">{badge.sub}</span>
                             </div>
                         ))}
                     </div>
@@ -185,7 +185,7 @@ export default function Footer() {
                                         onChange={(e) => { setEmail(e.target.value); if (status === "error") setStatus("idle"); }}
                                         onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
                                         placeholder="Join the Empire... (Email)"
-                                        className="bg-white/5 border border-white/10 focus:border-lime/40 rounded-full px-6 py-2.5 text-sm text-white w-64 focus:outline-none focus:ring-1 focus:ring-lime/30 transition-all placeholder:text-cream/30"
+                                        className="bg-white/5 border border-white/10 focus:border-lime/50 rounded-full px-6 py-3 text-sm text-white w-64 focus:outline-none focus:ring-2 focus:ring-lime/20 transition-all duration-300 placeholder:text-cream/30 hover:border-white/20"
                                     />
                                     <Button
                                         variant="brand"
@@ -207,11 +207,21 @@ export default function Footer() {
                 </div>
             </div>
 
+            {/* Indigenous sovereignty callout */}
+            <div className="container mx-auto px-6 mt-14 pt-8 border-t border-white/10">
+                <div className="text-center mb-8">
+                    <p className="text-[11px] uppercase tracking-[0.3em] font-bold text-amber-400/90 mb-1.5">Proudly Indigenous-Owned</p>
+                    <p className="text-xs text-cream/60 max-w-lg mx-auto leading-relaxed">Operating under the inherent sovereignty of the Mohawk Nation at Tyendinaga. Supporting Indigenous communities with every order.</p>
+                </div>
+            </div>
+
             {/* Copyright */}
-            <div className="container mx-auto px-6 mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-cream/70 uppercase tracking-widest">
+            <div className="container mx-auto px-6 mt-4 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-cream/50 uppercase tracking-widest">
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
                     <span>45 Dundas Street Deseronto, Ontario</span>
+                    <span className="hidden md:inline text-cream/20">|</span>
                     <span>(613) 396 6728</span>
+                    <span className="hidden md:inline text-cream/20">|</span>
                     <span>info@mohawkmedibles.ca</span>
                 </div>
                 <GoogleReviewsBadge />

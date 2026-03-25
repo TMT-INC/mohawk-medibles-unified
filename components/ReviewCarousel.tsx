@@ -19,42 +19,46 @@ export function ReviewCarousel() {
   const doubled = [...REVIEWS, ...REVIEWS];
 
   return (
-    <section className="py-10 px-4 bg-background overflow-hidden">
+    <section className="py-14 px-4 bg-background overflow-hidden">
       <div className="max-w-6xl mx-auto text-center mb-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center justify-center gap-1 mb-2" role="img" aria-label="5 out of 5 stars">
+          <div className="flex items-center justify-center gap-1.5 mb-3" role="img" aria-label="5 out of 5 stars">
             {Array.from({ length: 5 }).map((_, i) => (
-              <span key={i} aria-hidden="true" className="text-yellow-400 text-xl">★</span>
+              <span key={i} aria-hidden="true" className="text-amber-400 text-2xl drop-shadow-sm">★</span>
             ))}
           </div>
-          <h2 className="text-3xl md:text-4xl font-black font-heading tracking-tight mb-1">{t("home.fiveStarDispensary")}</h2>
+          <h2 className="text-3xl md:text-4xl font-black font-heading tracking-tight mb-2">{t("home.fiveStarDispensary")}</h2>
           <p className="text-muted-foreground text-sm">{t("home.thousandsSatisfied")}</p>
         </motion.div>
       </div>
 
+      {/* Edge fade overlays */}
       <div className="relative group">
-        <div className="flex gap-4 animate-scroll hover:[animation-play-state:paused]">
+        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+        <div className="flex gap-5 animate-scroll hover:[animation-play-state:paused]">
           {doubled.map((review, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-[300px] md:w-[350px] p-5 rounded-2xl border border-border/50 bg-card hover:border-lime/30 transition-colors"
+              className="flex-shrink-0 w-[300px] md:w-[350px] p-6 rounded-2xl bg-card shadow-lg shadow-black/[0.08] dark:shadow-black/30 hover:shadow-xl hover:-translate-y-0.5 border border-transparent hover:border-lime/20 transition-all duration-300"
             >
-              <div className="flex items-center gap-1 mb-2" role="img" aria-label={`${review.rating} out of 5 stars`}>
+              <div className="flex items-center gap-1 mb-3" role="img" aria-label={`${review.rating} out of 5 stars`}>
                 {Array.from({ length: review.rating }).map((_, j) => (
-                  <span key={j} aria-hidden="true" className="text-yellow-400 text-sm">★</span>
+                  <span key={j} aria-hidden="true" className="text-amber-400 text-sm">★</span>
                 ))}
               </div>
-              <p className="text-sm text-card-foreground leading-relaxed mb-3 line-clamp-3">&ldquo;{review.text}&rdquo;</p>
-              <div className="flex items-center justify-between">
+              <p className="text-sm text-card-foreground/90 leading-relaxed mb-4 line-clamp-3 italic">&ldquo;{review.text}&rdquo;</p>
+              <div className="flex items-center justify-between pt-3 border-t border-border/30">
                 <div>
-                  <p className="font-bold text-sm">{review.name}</p>
-                  <p className="text-xs text-muted-foreground">{review.location}</p>
+                  <p className="font-bold text-sm tracking-tight">{review.name}</p>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">{review.location}</p>
                 </div>
-                <span className="text-[10px] bg-lime/15 dark:bg-lime/10 text-lime-dark dark:text-lime px-2 py-0.5 rounded-full font-medium">{review.product}</span>
+                <span className="text-[10px] bg-lime/15 dark:bg-lime/10 text-lime-dark dark:text-lime px-2.5 py-1 rounded-full font-semibold tracking-wide">{review.product}</span>
               </div>
             </div>
           ))}

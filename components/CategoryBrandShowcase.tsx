@@ -79,7 +79,7 @@ function BrandCard({ brand, compact }: {
     return (
         <Link
             href={`/shop?category=Brands&brand=${encodeURIComponent(brand.name)}`}
-            className="group block relative overflow-hidden rounded-2xl border border-border/60 hover:border-lime/40 transition-all duration-300 bg-foreground/[0.02] dark:bg-white/[0.02] hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-lime/5"
+            className="group block relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl hover:shadow-black/10 dark:hover:shadow-lime/5 hover:-translate-y-1 transition-all duration-300 bg-foreground/[0.02] dark:bg-white/[0.02]"
         >
             <div className={`relative overflow-hidden bg-foreground/5 dark:bg-white/5 ${compact ? "aspect-[4/3]" : "aspect-square"}`}>
                 <ProductImage src={brand.image} alt={`${brand.name} — ${brand.tagline} | Mohawk Medibles`} variant="bento" sizes={compact ? "160px" : "170px"} />
@@ -163,7 +163,7 @@ export function CategoryBrandShowcase() {
         <section className="py-10 text-foreground overflow-hidden relative" aria-label="Shop by Category and Brand">
             {/* Mohawk Territory Tile Pattern */}
             <div
-                className="absolute inset-0 pointer-events-none opacity-[0.025] dark:opacity-[0.04]"
+                className="absolute inset-0 pointer-events-none opacity-[0.035] dark:opacity-[0.05]"
                 style={{ backgroundImage: MOHAWK_TILE_SVG, backgroundSize: "80px 80px", color: "currentColor" }}
                 aria-hidden="true"
             />
@@ -192,7 +192,7 @@ export function CategoryBrandShowcase() {
                             <Link
                                 key={category}
                                 href={`/shop?category=${encodeURIComponent(category)}`}
-                                className="group block relative overflow-hidden rounded-xl bg-foreground/5 dark:bg-white/5 border border-border hover:border-lime/30 transition-all duration-300 w-[150px] md:w-[180px] flex-shrink-0"
+                                className="group block relative overflow-hidden rounded-xl bg-foreground/5 dark:bg-white/5 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 w-[150px] md:w-[180px] flex-shrink-0"
                             >
                                 <div className="relative aspect-square overflow-hidden">
                                     <ProductImage src={product.image} alt={`Shop ${category} cannabis products online Canada — ${product.altText || product.name} | Mohawk Medibles`} variant="bento" sizes="180px" />
@@ -207,7 +207,7 @@ export function CategoryBrandShowcase() {
                                         <ArrowRight className="h-3 w-3 text-lime/50 group-hover:text-lime group-hover:translate-x-0.5 transition-all" />
                                     </div>
                                 </div>
-                                <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded-full bg-lime/20 backdrop-blur-sm text-[8px] font-bold text-lime-light border border-lime/30">
+                                <div className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-lime/20 backdrop-blur-md text-[8px] font-bold text-lime-light shadow-sm">
                                     From ${(product.price ?? 0).toFixed(0)}
                                 </div>
                             </Link>
@@ -235,7 +235,7 @@ export function CategoryBrandShowcase() {
                         <button
                             onClick={cycleBrandView}
                             aria-label={brandView === "carousel" ? "Show more brands" : brandView === "grid-3" ? "Show all brands" : "Show less brands"}
-                            className="flex items-center gap-1 px-2.5 py-1 rounded-full border border-border hover:border-lime/40 hover:bg-lime/10 text-[11px] font-semibold text-muted-foreground hover:text-foreground transition-all"
+                            className="flex items-center gap-1 px-3 py-1.5 rounded-full shadow-sm hover:shadow-md bg-white/80 dark:bg-white/5 hover:bg-lime/10 text-[11px] font-semibold text-muted-foreground hover:text-foreground transition-all duration-200"
                         >
                             {brandView === "carousel" && <>More<ChevronDown className="w-3 h-3" /></>}
                             {brandView === "grid-3" && <>All<ChevronDown className="w-3 h-3" /></>}

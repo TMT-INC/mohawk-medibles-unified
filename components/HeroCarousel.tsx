@@ -108,14 +108,13 @@ export function HeroCarousel() {
       itemScope
       itemType="https://schema.org/ImageGallery"
     >
-      {/* ═══ Background Images — all preloaded, CSS opacity transition ═══ */}
+      {/* ═══ Background Images — all preloaded, CSS opacity crossfade ═══ */}
       {SLIDES.map((s, i) => (
         <div
           key={s.id}
-          className="absolute inset-0 z-0 transition-opacity duration-1000 ease-out"
-          style={{ opacity: i === current ? 1 : 0 }}
+          className={`absolute inset-0 z-0 transition-opacity duration-[1400ms] ease-in-out ${i === current ? "opacity-100" : "opacity-0"}`}
         >
-          <div className="absolute inset-[-8%]">
+          <div className={`absolute inset-[-8%] transition-transform duration-[8000ms] ease-out ${i === current ? "scale-105" : "scale-100"}`}>
             <Image
               src={s.bg}
               alt={s.alt}
@@ -132,37 +131,47 @@ export function HeroCarousel() {
         </div>
       ))}
 
-      {/* Dark gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-charcoal-deep/95 via-charcoal/70 to-charcoal/40 z-10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal-deep/80 via-transparent to-charcoal/30 z-10" />
+      {/* Dark gradient overlays — cinematic vignette */}
+      <div className="absolute inset-0 bg-gradient-to-r from-charcoal-deep/95 via-charcoal/65 to-charcoal/30 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal-deep/90 via-transparent to-charcoal/20 z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.4)_100%)] z-10" />
 
       {/* ═══ Slide Content — CSS transition ═══ */}
       <div className="relative z-20 h-full flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full">
           <div className="max-w-2xl space-y-3 sm:space-y-5">
             {/* Badge */}
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime/15 border border-lime/30 text-lime text-xs font-bold tracking-[0.2em] uppercase backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse shadow-[0_0_8px_#C8E63E]" />
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-lime/10 border border-lime/25 text-lime text-[11px] font-bold tracking-[0.2em] uppercase backdrop-blur-md shadow-[0_0_20px_rgba(200,230,62,0.15),inset_0_1px_0_rgba(200,230,62,0.1)]">
+              <span className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse shadow-[0_0_10px_#C8E63E,0_0_20px_rgba(200,230,62,0.3)]" />
               {slide.badge}
             </span>
 
             {/* Headline */}
             {current === 0 ? (
-              <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white font-display leading-[0.9] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
+              <h1
+                className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white font-display leading-[0.9]"
+                style={{ textShadow: "0 2px 8px rgba(0,0,0,0.9), 0 8px 32px rgba(0,0,0,0.5), 0 0 80px rgba(0,0,0,0.3)" }}
+              >
                 {slide.headline}
                 <br />
-                <span className="text-lime">{slide.highlight}</span>
+                <span className="text-lime drop-shadow-[0_0_24px_rgba(200,230,62,0.4)]">{slide.highlight}</span>
               </h1>
             ) : (
-              <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white font-display leading-[0.9] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
+              <h2
+                className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white font-display leading-[0.9]"
+                style={{ textShadow: "0 2px 8px rgba(0,0,0,0.9), 0 8px 32px rgba(0,0,0,0.5), 0 0 80px rgba(0,0,0,0.3)" }}
+              >
                 {slide.headline}
                 <br />
-                <span className="text-lime">{slide.highlight}</span>
+                <span className="text-lime drop-shadow-[0_0_24px_rgba(200,230,62,0.4)]">{slide.highlight}</span>
               </h2>
             )}
 
             {/* Description */}
-            <p className="text-sm sm:text-base md:text-xl text-white/80 max-w-lg leading-relaxed line-clamp-3 sm:line-clamp-none">
+            <p
+              className="text-sm sm:text-base md:text-xl text-white/85 max-w-lg leading-relaxed line-clamp-3 sm:line-clamp-none"
+              style={{ textShadow: "0 1px 4px rgba(0,0,0,0.7), 0 4px 16px rgba(0,0,0,0.3)" }}
+            >
               {slide.description}
             </p>
 
@@ -171,15 +180,16 @@ export function HeroCarousel() {
               <Link href={slide.cta.href}>
                 <Button
                   size="lg"
-                  className="rounded-full text-sm sm:text-base md:text-lg h-11 sm:h-12 md:h-14 px-6 sm:px-8 md:px-10 bg-lime hover:bg-lime-light text-charcoal-deep font-bold hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(200,230,62,0.4)] border-none w-full sm:w-auto"
+                  className="group rounded-full text-sm sm:text-base md:text-lg h-11 sm:h-12 md:h-14 px-6 sm:px-8 md:px-10 bg-lime hover:bg-lime-light text-charcoal-deep font-bold hover:scale-[1.04] active:scale-[0.98] transition-all duration-300 shadow-[0_0_30px_rgba(200,230,62,0.4)] hover:shadow-[0_0_50px_rgba(200,230,62,0.6),0_0_80px_rgba(200,230,62,0.2)] border-none w-full sm:w-auto"
                 >
                   {slide.cta.label}
+                  <span className="ml-1.5 inline-block transition-transform duration-300 group-hover:translate-x-0.5">&rarr;</span>
                 </Button>
               </Link>
               <Link href={slide.ctaSecondary.href}>
                 <Button
                   size="lg"
-                  className="rounded-full text-sm sm:text-base md:text-lg h-11 sm:h-12 md:h-14 px-6 sm:px-8 md:px-10 bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white/25 font-semibold w-full sm:w-auto"
+                  className="rounded-full text-sm sm:text-base md:text-lg h-11 sm:h-12 md:h-14 px-6 sm:px-8 md:px-10 bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] font-semibold w-full sm:w-auto transition-all duration-300"
                 >
                   {slide.ctaSecondary.label}
                 </Button>
@@ -188,33 +198,33 @@ export function HeroCarousel() {
           </div>
 
           {/* Micro trust badges */}
-          <div className="absolute bottom-24 sm:bottom-20 left-4 sm:left-6 md:left-12 flex flex-wrap items-center gap-3 sm:gap-4 md:gap-6 text-white/50 text-[10px] sm:text-xs tracking-widest uppercase">
+          <div className="absolute bottom-24 sm:bottom-20 left-4 sm:left-6 md:left-12 flex flex-wrap items-center gap-3 sm:gap-5 md:gap-6 text-white/40 text-[10px] sm:text-[11px] tracking-[0.18em] uppercase font-medium">
             <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-lime" /> Lab Tested
+              <span className="w-1 h-1 rounded-full bg-lime/70" /> Lab Tested
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-lime" /> Free Shipping $199+
+              <span className="w-1 h-1 rounded-full bg-lime/70" /> Free Shipping $199+
             </span>
             <span className="hidden sm:flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-lime" /> Same Day Delivery
+              <span className="w-1 h-1 rounded-full bg-lime/70" /> Same Day Delivery
             </span>
             <span className="hidden sm:flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-lime" /> Tax Free
+              <span className="w-1 h-1 rounded-full bg-lime/70" /> Tax Free
             </span>
           </div>
         </div>
       </div>
 
       {/* ═══ Tab Navigation ═══ */}
-      <div className="absolute bottom-14 sm:bottom-16 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1 bg-charcoal-deep/60 backdrop-blur-md rounded-full px-1.5 py-1 border border-white/10">
+      <div className="absolute bottom-14 sm:bottom-16 left-1/2 -translate-x-1/2 z-30 flex items-center gap-0.5 bg-charcoal-deep/50 backdrop-blur-xl rounded-full px-1.5 py-1 border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
         {TAB_LABELS.map((label, i) => (
           <button
             key={i}
             onClick={() => { goTo(i); resetTimer(); }}
-            className={`px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-semibold tracking-wide transition-all duration-300 ${
+            className={`relative px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-semibold tracking-wide transition-all duration-300 ${
               i === current
-                ? "bg-lime text-charcoal-deep shadow-[0_0_12px_rgba(200,230,62,0.4)]"
-                : "text-white/60 hover:text-white hover:bg-white/10"
+                ? "bg-lime text-charcoal-deep shadow-[0_0_16px_rgba(200,230,62,0.5),0_2px_8px_rgba(0,0,0,0.3)]"
+                : "text-white/50 hover:text-white/90 hover:bg-white/[0.08]"
             }`}
             aria-label={`View ${label} slide`}
           >
@@ -224,18 +234,18 @@ export function HeroCarousel() {
       </div>
 
       {/* Dot indicators */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5">
         {SLIDES.map((_, i) => (
           <button
             key={i}
             onClick={() => { goTo(i); resetTimer(); }}
-            className="py-3 px-1 cursor-pointer"
+            className="py-3 px-0.5 cursor-pointer group"
             aria-label={`Go to slide ${i + 1}`}
           >
-            <span className={`block h-1.5 rounded-full transition-all duration-500 ${
+            <span className={`block h-[3px] rounded-full transition-all duration-500 ease-out ${
               i === current
-                ? "w-8 sm:w-10 bg-lime shadow-[0_0_10px_rgba(200,230,62,0.6)]"
-                : "w-4 sm:w-5 bg-white/30 hover:bg-white/50"
+                ? "w-8 sm:w-10 bg-lime shadow-[0_0_12px_rgba(200,230,62,0.7)]"
+                : "w-3 sm:w-4 bg-white/25 group-hover:bg-white/50 group-hover:w-5"
             }`} />
           </button>
         ))}

@@ -131,7 +131,7 @@ export function BentoGrid() {
                                     >
                                         <Link
                                             href={`/shop?effect=${feel.effect}`}
-                                            className={`group block p-3 rounded-xl border border-border/60 hover:border-lime/30 bg-gradient-to-br ${feel.gradient} hover:shadow-md transition-all duration-300`}
+                                            className={`group block p-3 rounded-xl bg-gradient-to-br ${feel.gradient} shadow-sm hover:shadow-md hover:shadow-lime/5 hover:-translate-y-0.5 backdrop-blur-sm transition-all duration-300`}
                                         >
                                             <div className="flex items-start gap-2.5">
                                                 <div className="w-8 h-8 rounded-lg bg-foreground/5 dark:bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -156,7 +156,7 @@ export function BentoGrid() {
                         </div>
 
                         {/* Trust micro-banner */}
-                        <div className="rounded-xl border border-lime/20 bg-lime/5 p-3 text-center">
+                        <div className="rounded-xl bg-gradient-to-br from-lime/10 to-forest/5 dark:from-lime/10 dark:to-lime/5 p-3.5 text-center shadow-sm">
                             <p className="text-xs font-bold text-lime uppercase tracking-wider mb-1">Indigenous Owned & Operated</p>
                             <p className="text-[9px] text-muted-foreground leading-relaxed">
                                 Proudly serving Canada from Tyendinaga Mohawk Territory since 2019. Lab-tested. Tax-free. Free shipping over $199.
@@ -166,7 +166,7 @@ export function BentoGrid() {
                         {/* Quick CTA */}
                         <Link
                             href="/shop"
-                            className="group flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-forest dark:bg-lime text-white dark:text-charcoal font-bold text-sm hover:opacity-90 transition-opacity"
+                            className="group flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-forest dark:bg-lime text-white dark:text-charcoal font-bold text-sm shadow-lg shadow-forest/20 dark:shadow-lime/20 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
                         >
                             Browse All 360+ Products
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -187,7 +187,7 @@ function ProductCard({ product, index, t }: { product: Product; index: number; t
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.08 }}
-            className="group relative overflow-hidden rounded-[2rem] bg-card border border-border"
+            className="group relative overflow-hidden rounded-[2rem] bg-card shadow-lg hover:shadow-2xl hover:shadow-black/15 dark:hover:shadow-lime/5 hover:-translate-y-1 transition-all duration-500"
         >
             {/* Background Image */}
             <div className="absolute inset-0">
@@ -238,7 +238,7 @@ function ProductCard({ product, index, t }: { product: Product; index: number; t
                         </div>
                     )}
                     <div className="flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 pt-2">
-                        <span className="text-xl font-bold">${(product.price ?? 0).toFixed(2)}</span>
+                        <span className="text-xl font-bold text-white drop-shadow-md">${(product.price ?? 0).toFixed(2)}</span>
                         <Link href={`/shop/${product.slug}`}>
                             <Button className="rounded-full bg-lime text-charcoal-deep hover:bg-lime-light font-bold text-xs px-4 py-2">{t("home.viewProduct")}</Button>
                         </Link>
