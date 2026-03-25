@@ -22,145 +22,33 @@ import ShopByMood from "@/components/ShopByMood";
 import MixMatchCTA from "@/components/MixMatchCTA";
 import StorePromo from "@/components/StorePromo";
 import TerritoryGrownSection from "@/components/TerritoryGrownSection";
+import { SafeSection } from "@/components/SafeSection";
 
 export default function HomeClient() {
   return (
     <div className="min-h-screen flex flex-col relative">
-
-      {/* ═══════════════════════════════════════════════════════════
-          CONTEST BANNER — Active contest promo with countdown
-          Only renders when there's an active contest
-          ═══════════════════════════════════════════════════════════ */}
-      <ContestBanner />
-
-      {/* ═══════════════════════════════════════════════════════════
-          HERO CAROUSEL — .cc 4-slide rotating banners + .ca photography
-          Conversion: Anchoring ($5/G), Visual Hierarchy, Cognitive Ease
-          Auto-advances every 6s, pause on hover, crossfade transitions
-          ═══════════════════════════════════════════════════════════ */}
-      <HeroCarousel />
-
-      {/* ═══════════════════════════════════════════════════════════
-          BENEFITS BAR — .cc 5-column trust signals
-          Free Shipping, Discreet Packaging, Indigenous Owned, Delivery, Since 2018
-          ═══════════════════════════════════════════════════════════ */}
-      <BenefitsBar />
-
-      {/* ═══════════════════════════════════════════════════════════
-          DEAL TICKER — .cc scrolling marquee with live deals
-          Conversion: Scarcity, Urgency, Loss Aversion
-          ═══════════════════════════════════════════════════════════ */}
-      <DealTicker />
-
-      {/* ═══════════════════════════════════════════════════════════
-          SOCIAL PROOF STRIP — Stats bar
-          Conversion: Social Proof, Authority, Commitment
-          ═══════════════════════════════════════════════════════════ */}
-      <SocialProofStrip />
-
-      {/* ═══════════════════════════════════════════════════════════
-          EFFECT-BASED FILTER — "What are you looking for?"
-          Conversion: Cognitive Ease, Fogg Model (simplify action)
-          ═══════════════════════════════════════════════════════════ */}
-      <EffectFilter />
-
-      {/* ═══════════════════════════════════════════════════════════
-          SHOP BY MOOD — Intent-based shopping cards
-          "How Do You Want to Feel?" — 5 mood cards
-          Conversion: Cognitive Ease, Emotional Resonance, Discovery
-          ═══════════════════════════════════════════════════════════ */}
-      <ShopByMood />
-
-      {/* ═══════════════════════════════════════════════════════════
-          CATEGORY + BRAND SHOWCASE — Unified section with Mohawk
-          Territory tile pattern. Category carousel + auto-scrolling
-          Brand carousel with expand to 3-row / full grid.
-          Conversion: Authority, Brand Trust, Product Discovery
-          ═══════════════════════════════════════════════════════════ */}
-      <CategoryBrandShowcase />
-
-      {/* ═══════════════════════════════════════════════════════════
-          TERRITORY GROWN — From Our Territory showcase
-          Indigenous sovereignty, locally cultivated products
-          ═══════════════════════════════════════════════════════════ */}
-      <TerritoryGrownSection />
-
-      {/* ═══════════════════════════════════════════════════════════
-          NEW ARRIVALS — Latest products added to the collection
-          Conversion: Novelty, Discovery, FOMO
-          ═══════════════════════════════════════════════════════════ */}
-      <NewArrivals />
-
-      {/* ═══════════════════════════════════════════════════════════
-          MONTHLY DEALS — .cc gradient deal cards (green/amber/purple)
-          Conversion: Anchoring, Category Entry Points
-          ═══════════════════════════════════════════════════════════ */}
-      <MonthlyDeals />
-
-      {/* ═══════════════════════════════════════════════════════════
-          MIX & MATCH CTA — Build Your Own Ounce promo banner
-          Conversion: Customization, Value Anchoring, Bundle Discount
-          ═══════════════════════════════════════════════════════════ */}
-      <MixMatchCTA />
-
-      {/* ═══════════════════════════════════════════════════════════
-          DEAL OF THE DAY — Featured daily deal with large countdown
-          Conversion: Urgency, Scarcity, Loss Aversion, Anchoring
-          ═══════════════════════════════════════════════════════════ */}
-      <DealOfTheDay />
-
-      {/* ═══════════════════════════════════════════════════════════
-          DEALS SECTION — Bento deals with countdown + anchor pricing
-          Conversion: Anchoring, Scarcity (countdown), Loss Aversion
-          ═══════════════════════════════════════════════════════════ */}
-      <DealsSection />
-
-      {/* ═══════════════════════════════════════════════════════════
-          FEATURED PRODUCTS — Bento Grid (kept from Vercel)
-          ═══════════════════════════════════════════════════════════ */}
-      <BentoGrid />
-
-      {/* ═══════════════════════════════════════════════════════════
-          TRUST PILLARS — Why choose Mohawk Medibles
-          Conversion: Authority, Reciprocity, Risk Reversal
-          ═══════════════════════════════════════════════════════════ */}
-      <TrustPillars />
-
-      {/* ═══════════════════════════════════════════════════════════
-          HOW IT WORKS — .cc 3-step process (Browse → Pay → Deliver)
-          Conversion: Cognitive Ease, Friction Reduction
-          ═══════════════════════════════════════════════════════════ */}
-      <HowItWorks />
-
-      {/* ═══════════════════════════════════════════════════════════
-          CUSTOMER TESTIMONIALS — .cc review cards with avatars
-          Conversion: Social Proof, Trust
-          ═══════════════════════════════════════════════════════════ */}
-      <CustomerTestimonials />
-
-      {/* ═══════════════════════════════════════════════════════════
-          GOOGLE REVIEWS — Live Google reviews carousel + rating badge
-          Conversion: Third-party Social Proof, Trust (Google verified)
-          ═══════════════════════════════════════════════════════════ */}
-      <GoogleReviewsWidget />
-
-      {/* ═══════════════════════════════════════════════════════════
-          STORE PROMO — Visit our physical location + Click & Collect
-          Conversion: Local Trust, Omnichannel, Pickup Convenience
-          ═══════════════════════════════════════════════════════════ */}
-      <StorePromo />
-
-      {/* ═══════════════════════════════════════════════════════════
-          REVIEW CAROUSEL — Social proof scrolling reviews
-          Conversion: Social Proof, Commitment/Consistency
-          ═══════════════════════════════════════════════════════════ */}
-      <ReviewCarousel />
-
-      {/* ═══════════════════════════════════════════════════════════
-          STICKY MOBILE NAV — Bottom bar for mobile (md:hidden)
-          Conversion: Fogg Model (reduce friction on mobile)
-          ═══════════════════════════════════════════════════════════ */}
-      <StickyMobileNav />
+      <SafeSection name="ContestBanner"><ContestBanner /></SafeSection>
+      <SafeSection name="HeroCarousel"><HeroCarousel /></SafeSection>
+      <SafeSection name="BenefitsBar"><BenefitsBar /></SafeSection>
+      <SafeSection name="DealTicker"><DealTicker /></SafeSection>
+      <SafeSection name="SocialProofStrip"><SocialProofStrip /></SafeSection>
+      <SafeSection name="EffectFilter"><EffectFilter /></SafeSection>
+      <SafeSection name="ShopByMood"><ShopByMood /></SafeSection>
+      <SafeSection name="CategoryBrandShowcase"><CategoryBrandShowcase /></SafeSection>
+      <SafeSection name="TerritoryGrownSection"><TerritoryGrownSection /></SafeSection>
+      <SafeSection name="NewArrivals"><NewArrivals /></SafeSection>
+      <SafeSection name="MonthlyDeals"><MonthlyDeals /></SafeSection>
+      <SafeSection name="MixMatchCTA"><MixMatchCTA /></SafeSection>
+      <SafeSection name="DealOfTheDay"><DealOfTheDay /></SafeSection>
+      <SafeSection name="DealsSection"><DealsSection /></SafeSection>
+      <SafeSection name="BentoGrid"><BentoGrid /></SafeSection>
+      <SafeSection name="TrustPillars"><TrustPillars /></SafeSection>
+      <SafeSection name="HowItWorks"><HowItWorks /></SafeSection>
+      <SafeSection name="CustomerTestimonials"><CustomerTestimonials /></SafeSection>
+      <SafeSection name="GoogleReviewsWidget"><GoogleReviewsWidget /></SafeSection>
+      <SafeSection name="StorePromo"><StorePromo /></SafeSection>
+      <SafeSection name="ReviewCarousel"><ReviewCarousel /></SafeSection>
+      <SafeSection name="StickyMobileNav"><StickyMobileNav /></SafeSection>
     </div>
   );
 }
