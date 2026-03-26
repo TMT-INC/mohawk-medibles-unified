@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ProductImage from "@/components/ProductImage";
-import { PRODUCTS } from "@/lib/productData";
+import { useProducts } from "@/hooks/useProducts";
 
 export default function RecentlyViewed() {
     const [slugs, setSlugs] = useState<string[]>([]);
@@ -24,9 +24,15 @@ export default function RecentlyViewed() {
         }
     }, []);
 
+    // Only fetch when we have slugs to look up
+    const { products: fetchedProducts, loading } = useProducts(
+        slugs.length > 0 ? { slugs } : undefined
+    );
+
+    // Preserve the order from localStorage (most recently viewed first)
     const products = slugs
-        .map((slug) => PRODUCTS.find((p) => p.slug === slug))
-        .filter(Boolean) as typeof PRODUCTS;
+        .map((slug) => fetchedProducts.find((p) => p.slug === slug))
+        .filter(Boolean) as typeof fetchedProducts;
 
     function scroll(dir: "left" | "right") {
         if (!scrollRef.current) return;
@@ -36,7 +42,7 @@ export default function RecentlyViewed() {
         });
     }
 
-    if (products.length === 0) return null;
+    if (loading || products.length === 0) return null;
 
     return (
         <div className="mb-12">

@@ -4,7 +4,7 @@ import { useRef, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
-import { PRODUCTS } from "@/lib/productData";
+import { useProducts } from "@/hooks/useProducts";
 import ProductImage from "@/components/ProductImage";
 
 /* ─── Brand Definitions ─── */
@@ -111,10 +111,12 @@ function BrandCard({ brand, index, compact }: {
 export function BrandShowcase() {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [viewMode, setViewMode] = useState<ViewMode>("carousel");
+    const { products: allProducts, loading } = useProducts();
 
     const brandData = useMemo(() => {
+        if (allProducts.length === 0) return [];
         return BRANDS.map((brand) => {
-            const products = PRODUCTS.filter((p) =>
+            const products = allProducts.filter((p) =>
                 p.name.toLowerCase().includes(brand.search)
             );
             const representative = products.find((p) => p.image) || products[0];
@@ -124,7 +126,7 @@ export function BrandShowcase() {
                 image: representative?.image || "",
             };
         }).filter((b) => b.count > 0);
-    }, []);
+    }, [allProducts]);
 
     const scroll = (direction: "left" | "right") => {
         if (!scrollRef.current) return;
@@ -144,9 +146,9 @@ export function BrandShowcase() {
 
     const totalProducts = brandData.reduce((a, b) => a + b.count, 0);
 
-    if (brandData.length === 0) return null;
+    if (loading || brandData.length === 0) return null;
 
-    // For grid-3 mode, show 3 rows × responsive columns (roughly 12-15 brands)
+    // For grid-3 mode, show 3 rows x responsive columns (roughly 12-15 brands)
     const grid3Brands = brandData.slice(0, 12);
 
     return (

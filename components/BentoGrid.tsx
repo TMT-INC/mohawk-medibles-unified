@@ -1,12 +1,17 @@
 "use client";
 
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Leaf, ArrowRight, Sparkles, Moon, Zap, Brain, Smile, Heart, Coffee, Palette, Utensils, Eye, Shield } from "lucide-react";
-import { getShortName, PRODUCTS, type Product } from "@/lib/productData";
+import { useProducts, type ProductLite } from "@/hooks/useProducts";
 import { useLocale } from "@/components/LocaleProvider";
+
+function getShortName(p: { name: string }): string {
+    return p.name.length > 25 ? p.name.substring(0, 25) + "..." : p.name;
+}
 
 // Curated top sellers — one per core category for visual variety
 const TOP_SELLER_SLUGS = [
@@ -17,18 +22,6 @@ const TOP_SELLER_SLUGS = [
     "pineapple-express-meds-pem-baby-jeffery-pre-roll-30-pack-canada", // Pre-Rolls
     "zillionaire-shatter-1g-canada",                         // Concentrates
 ];
-
-const gridProducts = (() => {
-    const curated = TOP_SELLER_SLUGS
-        .map(slug => PRODUCTS.find(p => p.slug === slug))
-        .filter(Boolean) as Product[];
-    // Fallback: fill with first products if slugs don't match
-    if (curated.length < 4) {
-        const rest = PRODUCTS.filter(p => !curated.includes(p)).slice(0, 6 - curated.length);
-        return [...curated, ...rest].slice(0, 6);
-    }
-    return curated.slice(0, 6);
-})();
 
 // Gradient map by category
 const gradientMap: Record<string, string> = {
@@ -79,12 +72,47 @@ const FEELS_DATA: Omit<FeelsCluster, "count">[] = [
 
 export function BentoGrid() {
     const { t } = useLocale();
+    const { products: allProducts, loading } = useProducts();
+
+    // Build grid products from curated slugs
+    const gridProducts = useMemo(() => {
+        if (allProducts.length === 0) return [];
+        const curated = TOP_SELLER_SLUGS
+            .map(slug => allProducts.find(p => p.slug === slug))
+            .filter(Boolean) as ProductLite[];
+        if (curated.length < 4) {
+            const rest = allProducts.filter(p => !curated.includes(p)).slice(0, 6 - curated.length);
+            return [...curated, ...rest].slice(0, 6);
+        }
+        return curated.slice(0, 6);
+    }, [allProducts]);
 
     // Compute feels clusters with product counts
-    const feelsWithCounts: FeelsCluster[] = FEELS_DATA.map((f) => ({
-        ...f,
-        count: PRODUCTS.filter((p) => p.effects?.includes(f.effect)).length,
-    })).filter((f) => f.count > 0).sort((a, b) => b.count - a.count);
+    const feelsWithCounts: FeelsCluster[] = useMemo(() => {
+        if (allProducts.length === 0) return [];
+        return FEELS_DATA.map((f) => ({
+            ...f,
+            count: allProducts.filter((p) => p.effects?.includes(f.effect)).length,
+        })).filter((f) => f.count > 0).sort((a, b) => b.count - a.count);
+    }, [allProducts]);
+
+    if (loading && gridProducts.length === 0) {
+        return (
+            <section className="py-12 text-foreground">
+                <div className="container mx-auto px-6">
+                    <div className="mb-8 text-center space-y-2">
+                        <h2 className="text-4xl md:text-5xl font-black tracking-tight font-display">{t("home.theCollection")}</h2>
+                        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{t("home.collectionSubtitle")}</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 auto-rows-[420px]">
+                        {[0, 1, 2, 3].map(i => (
+                            <div key={i} className="rounded-[2rem] bg-card/50 animate-pulse" />
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+    }
 
     return (
         <section className="py-12 text-foreground">
@@ -180,7 +208,7 @@ export function BentoGrid() {
 
 /* ─── Product Card (extracted for cleanliness) ─── */
 
-function ProductCard({ product, index, t }: { product: Product; index: number; t: (k: string) => string }) {
+function ProductCard({ product, index, t }: { product: ProductLite; index: number; t: (k: string) => string }) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -216,9 +244,9 @@ function ProductCard({ product, index, t }: { product: Product; index: number; t
             <div className="absolute inset-0 p-6 flex flex-col justify-between">
                 <div className="flex justify-between items-start">
                     <span className="px-2.5 py-1 rounded-full bg-black/30 dark:bg-white/10 backdrop-blur-md text-[10px] font-medium tracking-wider uppercase border border-white/20 dark:border-white/10 text-white">
-                        {product.category} &bull; {product.specs.type}
+                        {product.category} &bull; {product.specs?.type}
                     </span>
-                    {product.specs.thc && product.specs.thc !== "TBD" && (
+                    {product.specs?.thc && product.specs.thc !== "TBD" && (
                     <span className="px-2.5 py-1 rounded-full bg-lime/30 dark:bg-lime/20 backdrop-blur-md text-xs font-bold text-lime dark:text-lime border border-lime/30 dark:border-lime/20">
                         {product.specs.thc} THC
                     </span>
@@ -230,7 +258,7 @@ function ProductCard({ product, index, t }: { product: Product; index: number; t
                         <h3 className="text-2xl font-bold font-heading text-white drop-shadow-md">{getShortName(product)}</h3>
                         <p className="text-white/90 dark:text-white/80 text-sm line-clamp-2 drop-shadow-sm">{product.shortDescription}</p>
                     </div>
-                    {product.specs.terpenes.length > 0 && (
+                    {product.specs?.terpenes && product.specs.terpenes.length > 0 && (
                         <div className="flex gap-1.5 flex-wrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             {product.specs.terpenes.map((terp) => (
                                 <span key={terp} className="px-2 py-0.5 rounded-full bg-black/20 dark:bg-white/5 text-[10px] text-white/90 dark:text-white/75 border border-white/20 dark:border-white/10">{terp}</span>

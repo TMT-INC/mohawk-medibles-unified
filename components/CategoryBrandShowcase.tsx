@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
-import { getCategoryRepresentativeProducts, PRODUCTS } from "@/lib/productData";
+import { useProducts, type ProductLite } from "@/hooks/useProducts";
 import ProductImage from "@/components/ProductImage";
 import { useLocale } from "@/components/LocaleProvider";
 
@@ -136,16 +136,31 @@ function InfiniteMarquee({ children, speed = 40, className = "" }: {
 export function CategoryBrandShowcase() {
     const { t } = useLocale();
     const [brandView, setBrandView] = useState<ViewMode>("carousel");
+    const { products: allProducts, loading } = useProducts();
 
-    const showcaseData = getCategoryRepresentativeProducts(SHOWCASE_CATEGORIES);
+    // Replicate getCategoryRepresentativeProducts logic client-side
+    const showcaseData = useMemo(() => {
+        if (allProducts.length === 0) return [];
+        const counts: Record<string, number> = {};
+        allProducts.forEach(p => { counts[p.category] = (counts[p.category] || 0) + 1; });
+        return SHOWCASE_CATEGORIES
+            .map(cat => {
+                const catProducts = allProducts.filter(p => p.category === cat);
+                const sorted = [...catProducts].sort((a, b) => b.price - a.price);
+                const product = sorted.find(p => p.image && p.image.startsWith("http")) || sorted[0];
+                return product ? { category: cat, product, count: counts[cat] || 0 } : null;
+            })
+            .filter(Boolean) as { category: string; product: ProductLite; count: number }[];
+    }, [allProducts]);
 
     const brandData = useMemo(() => {
+        if (allProducts.length === 0) return [];
         return BRANDS.map((brand) => {
-            const products = PRODUCTS.filter((p) => p.name.toLowerCase().includes(brand.search));
+            const products = allProducts.filter((p) => p.name.toLowerCase().includes(brand.search));
             const representative = products.find((p) => p.image) || products[0];
             return { ...brand, count: products.length, image: representative?.image || "" };
         }).filter((b) => b.count > 0);
-    }, []);
+    }, [allProducts]);
 
     const totalBrandProducts = brandData.reduce((a, b) => a + b.count, 0);
 
@@ -157,7 +172,7 @@ export function CategoryBrandShowcase() {
         });
     };
 
-    if (showcaseData.length === 0) return null;
+    if (loading || showcaseData.length === 0) return null;
 
     return (
         <section className="py-10 text-foreground overflow-hidden relative" aria-label="Shop by Category and Brand">

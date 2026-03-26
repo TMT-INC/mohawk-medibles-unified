@@ -1,20 +1,25 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, ShoppingCart, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ProductImage from "@/components/ProductImage";
-import { PRODUCTS, getShortName } from "@/lib/productData";
+import { useProducts, type ProductLite } from "@/hooks/useProducts";
 import { useCart } from "@/hooks/useCart";
 
-const NEW_ARRIVALS = [...PRODUCTS]
-    .sort((a, b) => b.id - a.id)
-    .slice(0, 8);
+function getShortName(p: { name: string }): string {
+    return p.name.length > 25 ? p.name.substring(0, 25) + "..." : p.name;
+}
 
 export default function NewArrivals() {
     const scrollRef = useRef<HTMLDivElement>(null);
     const { addItem } = useCart();
+    const { products: allProducts, loading } = useProducts();
+
+    const newArrivals = useMemo(() => {
+        return [...allProducts].sort((a, b) => b.id - a.id).slice(0, 8);
+    }, [allProducts]);
 
     function scroll(dir: "left" | "right") {
         if (!scrollRef.current) return;
@@ -24,11 +29,29 @@ export default function NewArrivals() {
         });
     }
 
-    function handleQuickAdd(p: (typeof NEW_ARRIVALS)[0]) {
+    function handleQuickAdd(p: ProductLite) {
         addItem({ id: String(p.id), name: p.name, price: p.price, quantity: 1, image: p.image });
     }
 
-    if (NEW_ARRIVALS.length === 0) return null;
+    if (loading) {
+        return (
+            <section className="py-16 bg-cream/50 dark:bg-card/30">
+                <div className="container mx-auto px-6">
+                    <h2 className="text-3xl font-bold text-forest dark:text-cream flex items-center gap-2 mb-8">
+                        <Sparkles className="h-6 w-6 text-lime-500" />
+                        New Arrivals
+                    </h2>
+                    <div className="flex gap-4 overflow-hidden">
+                        {[0, 1, 2, 3].map(i => (
+                            <div key={i} className="w-[260px] flex-shrink-0 h-[320px] bg-white dark:bg-card rounded-xl animate-pulse" />
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    if (newArrivals.length === 0) return null;
 
     return (
         <section className="py-16 bg-cream/50 dark:bg-card/30">
@@ -66,7 +89,7 @@ export default function NewArrivals() {
                     className="flex gap-4 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory"
                     style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                 >
-                    {NEW_ARRIVALS.map((p) => (
+                    {newArrivals.map((p) => (
                         <div
                             key={p.id}
                             className="w-[260px] flex-shrink-0 snap-start bg-white dark:bg-card rounded-xl shadow-sm overflow-hidden group hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
@@ -87,14 +110,14 @@ export default function NewArrivals() {
                             </Link>
                             <div className="p-3">
                                 <div className="text-xs text-muted-foreground mb-1">
-                                    {p.category} {p.specs.thc !== "TBD" && `\u2022 ${p.specs.thc} THC`}
+                                    {p.category} {p.specs?.thc !== "TBD" && `\u2022 ${p.specs?.thc} THC`}
                                 </div>
                                 <Link href={`/shop/${p.slug}`}>
                                     <h3 className="font-semibold text-sm text-forest dark:text-cream line-clamp-2 hover:text-leaf transition-colors mb-2">
                                         {getShortName(p)}
                                     </h3>
                                 </Link>
-                                {p.specs.terpenes.length > 0 && (
+                                {p.specs?.terpenes && p.specs.terpenes.length > 0 && (
                                     <div className="flex gap-1 flex-wrap mb-2">
                                         {p.specs.terpenes.slice(0, 2).map((t) => (
                                             <span key={t} className="px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-900/20 text-[9px] font-medium text-green-700 dark:text-green-300 shadow-sm">
