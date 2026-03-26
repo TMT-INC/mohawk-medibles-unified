@@ -19,6 +19,10 @@ interface CartContextType {
     updateQuantity: (id: string, quantity: number) => void;
     clearCart: () => void;
     total: number;
+    isOpen: boolean;
+    openCart: () => void;
+    closeCart: () => void;
+    itemCount: number;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -103,11 +107,16 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         setItems([]);
     }, []);
 
+    const [isOpen, setIsOpen] = useState(false);
+    const openCart = React.useCallback(() => setIsOpen(true), []);
+    const closeCart = React.useCallback(() => setIsOpen(false), []);
+    const itemCount = React.useMemo(() => items.reduce((sum, item) => sum + item.quantity, 0), [items]);
+
     const total = React.useMemo(() => items.reduce((sum, item) => sum + item.price * item.quantity, 0), [items]);
 
     const contextValue = React.useMemo(() => ({
-        items, addItem, removeItem, updateQuantity, clearCart, total
-    }), [items, addItem, removeItem, updateQuantity, clearCart, total]);
+        items, addItem, removeItem, updateQuantity, clearCart, total, isOpen, openCart, closeCart, itemCount
+    }), [items, addItem, removeItem, updateQuantity, clearCart, total, isOpen, openCart, closeCart, itemCount]);
 
     return (
         <CartContext.Provider value={contextValue}>
