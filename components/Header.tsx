@@ -132,21 +132,6 @@ export default function Header() {
                                 pathname === "/shop-by-mood" ? "w-full" : "w-0 group-hover:w-full"
                             }`} />
                         </Link>
-                        <Link
-                            href="/territory-grown"
-                            className={`relative group transition-colors ${
-                                pathname === "/territory-grown"
-                                    ? "text-lime"
-                                    : onHeroTransparent
-                                        ? "text-amber-300 hover:text-lime"
-                                        : "text-amber-700 dark:text-amber-400 hover:text-forest dark:hover:text-lime"
-                            }`}
-                        >
-                            Territory Grown
-                            <span className={`absolute -bottom-1 left-0 h-[1.5px] bg-lime transition-all duration-300 ${
-                                pathname === "/territory-grown" ? "w-full" : "w-0 group-hover:w-full"
-                            }`} />
-                        </Link>
                     </div>
                 </div>
 
@@ -241,18 +226,6 @@ export default function Header() {
                         >
                             Shop by Mood
                             <div className="w-8 h-[1px] bg-border" />
-                        </Link>
-                        <Link
-                            href="/territory-grown"
-                            className={`flex items-center justify-between transition-colors ${
-                                pathname === "/territory-grown"
-                                    ? "text-lime"
-                                    : "text-amber-600 dark:text-amber-400 hover:text-lime"
-                            }`}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                            Territory Grown
-                            <div className="w-8 h-[1px] bg-amber-500/30" />
                         </Link>
                         <Link
                             href="/mix-match"

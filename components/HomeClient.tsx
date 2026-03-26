@@ -16,7 +16,6 @@ import ContestBanner from "@/components/ContestBanner";
 import ShopByMood from "@/components/ShopByMood";
 import MixMatchCTA from "@/components/MixMatchCTA";
 import StorePromo from "@/components/StorePromo";
-import TerritoryGrownSection from "@/components/TerritoryGrownSection";
 import { SafeSection } from "@/components/SafeSection";
 
 export default function HomeClient() {
@@ -29,7 +28,6 @@ export default function HomeClient() {
       <SafeSection name="CategoryBrandShowcase"><CategoryBrandShowcase /></SafeSection>
       <SafeSection name="NewArrivals"><NewArrivals /></SafeSection>
       <SafeSection name="MonthlyDeals"><MonthlyDeals /></SafeSection>
-      <SafeSection name="TerritoryGrownSection"><TerritoryGrownSection /></SafeSection>
       <SafeSection name="ShopByMood"><ShopByMood /></SafeSection>
       <SafeSection name="MixMatchCTA"><MixMatchCTA /></SafeSection>
       <SafeSection name="DealOfTheDay"><DealOfTheDay /></SafeSection>
