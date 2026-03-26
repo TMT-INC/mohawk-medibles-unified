@@ -70,7 +70,7 @@ export default function Footer() {
                         />
                     </Link>
                     <p className="text-cream/90 text-sm max-w-sm leading-relaxed">
-                        Indigenous-owned cannabis dispensary serving Canada since 2019.
+                        Indigenous-owned cannabis dispensary serving Canada since 2018.
                         Premium edibles, vapes, concentrates, and flower with fast,
                         discreet shipping from Tyendinaga Mohawk Territory, Ontario.
                     </p>

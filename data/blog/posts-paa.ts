@@ -18,10 +18,10 @@ export const PAA_BLOG_POSTS: BlogPost[] = [
         metaDescription: "Yes, it is legal to buy weed online in Canada. Learn about the Cannabis Act, provincial regulations, age requirements, possession limits, and how to order safely.",
         excerpt: "Canada legalized recreational cannabis in 2018, but the rules around buying online vary by province. Here is everything you need to know about legally purchasing cannabis online in 2026, from age requirements to possession limits.",
         category: "Legal & Compliance",
-        image: "/assets/hero/cannabis-closeup.jpg",
-        imageAlt: "Canadian flag with cannabis leaf overlay representing legal online cannabis purchasing in Canada — Mohawk Medibles guide",
+        image: "/assets/blog/is-it-legal-to-buy-weed-online-canada.jpg",
+        imageAlt: "Canadian flag with cannabis leaf and legal gavel — is it legal to buy weed online in Canada",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Indigenous-owned cannabis dispensary operating on Six Nations territory since 2019 with expertise in Canadian cannabis law",
+        authorCredentials: "Indigenous-owned cannabis dispensary operating on Tyendinaga Mohawk Territory since 2018 with expertise in Canadian cannabis law",
         datePublished: "2026-03-05",
         dateModified: "2026-03-10",
         readTime: "10 min",
@@ -92,7 +92,7 @@ Indigenous dispensaries like Mohawk Medibles occupy a distinct legal position in
 - **United Nations Declaration on the Rights of Indigenous Peoples (UNDRIP)** — adopted into Canadian law via Bill C-15 (2021), affirming Indigenous peoples' right to self-determination
 - **Traditional use** — cannabis and hemp have historical ties to Indigenous medicine and trade across Turtle Island
 
-Mohawk Medibles operates from Six Nations of the Grand River territory, the largest First Nations reserve in Canada. We have served over 25,000 customers since 2019, operating under Haudenosaunee governance with quality standards that meet or exceed provincial requirements.
+Mohawk Medibles operates from Tyendinaga Mohawk Territory. We have served over 25,000 customers since 2018, operating under Haudenosaunee governance with quality standards that meet or exceed provincial requirements.
 
 When you buy from Mohawk Medibles, you are supporting Indigenous economic sovereignty while receiving lab-tested, premium cannabis products.
 
@@ -160,10 +160,10 @@ Reputable dispensaries like Mohawk Medibles provide full tracking on every order
 
 ## Mohawk Medibles: Your Trusted Online Dispensary
 
-Mohawk Medibles has been serving Canadians from Six Nations territory since 2019. Here is what we offer:
+Mohawk Medibles has been serving Canadians from Tyendinaga Mohawk Territory since 2018. Here is what we offer:
 
 - **360+ lab-tested products** across flower, edibles, concentrates, vapes, and CBD
-- **Free shipping on orders over $199** — flat $15 rate under $199
+- **Free shipping on orders over $149** — flat $15 rate under $149
 - **Same-day processing** on orders placed before 2 PM EST
 - **Canada-wide delivery** via Canada Post Xpresspost (1-3 business days)
 - **Discreet, unmarked packaging** for complete privacy
@@ -181,10 +181,10 @@ Ready to order? [Browse our full catalog](/shop) or learn more about our [delive
         metaDescription: "Cannabis delivery takes 1-5 business days in Canada depending on your province. See our complete shipping time table, tracking info, and free shipping details.",
         excerpt: "The number one question we get from first-time customers: how long until my order arrives? Here is a detailed breakdown of cannabis delivery times across every province and territory in Canada.",
         category: "Shipping & Delivery",
-        image: "/assets/hero/abstract-haze.webp",
-        imageAlt: "Canada Post Xpresspost package with cannabis delivery tracking — Mohawk Medibles shipping times by province",
+        image: "/assets/blog/how-long-cannabis-delivery-takes-canada.jpg",
+        imageAlt: "Delivery truck with package and map of Canada — cannabis delivery times across Canada",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Cannabis logistics specialists with 7+ years of Canada-wide shipping experience from Six Nations territory",
+        authorCredentials: "Cannabis logistics specialists with 7+ years of Canada-wide shipping experience from Tyendinaga Mohawk Territory",
         datePublished: "2026-03-06",
         dateModified: "2026-03-10",
         readTime: "8 min",
@@ -197,7 +197,7 @@ At Mohawk Medibles, we process all orders placed before 2 PM EST the same busine
 
 ## Cannabis Delivery Times by Province
 
-Here is a detailed breakdown of delivery timelines from our Six Nations facility to every province and territory:
+Here is a detailed breakdown of delivery timelines from our Tyendinaga facility to every province and territory:
 
 | Province / Territory | Estimated Delivery | Typical Experience |
 |---|---|---|
@@ -271,10 +271,10 @@ Every Mohawk Medibles order receives a Canada Post tracking number. Here is what
 
 ## Free Shipping Policy
 
-Mohawk Medibles offers **free shipping on all orders over $199**. Orders under $199 ship for a flat rate of **$15 Canada-wide**.
+Mohawk Medibles offers **free shipping on all orders over $149**. Orders under $149 ship for a flat rate of **$15 Canada-wide**.
 
 ### How to Qualify for Free Shipping
-- Add $199 or more in products to your cart (before tax)
+- Add $149 or more in products to your cart (before tax)
 - Free shipping applies automatically at checkout
 - No coupon code needed
 - Available to all provinces and territories, including Northern Canada
@@ -345,8 +345,8 @@ For questions about delivery to your specific location, [contact our team](/cont
         metaDescription: "Complete cannabis edibles dosage chart from 1mg to 100mg THC. Learn onset times, duration, beginner tips, and what to do if you take too much. Expert guide from Mohawk Medibles.",
         excerpt: "Edibles are the most popular cannabis format for new consumers, but dosing mistakes are common. This guide gives you a precise dosage chart, onset timelines, and safety tips so you get it right every time.",
         category: "Education",
-        image: "/assets/products/stellar-strawberry-kiwi-gummies-canada.jpg",
-        imageAlt: "Cannabis edibles dosage chart showing THC levels from microdose to expert dose — Mohawk Medibles dosing guide",
+        image: "/assets/blog/cannabis-edibles-dosage-guide.jpg",
+        imageAlt: "Colorful THC dosage chart with graduated gummy bears — cannabis edibles dosage guide",
         author: "Mohawk Medibles Team",
         authorCredentials: "Cannabis wellness educators with deep expertise in edible formulation, cannabinoid metabolism, and responsible dosing practices",
         datePublished: "2026-03-07",
@@ -529,10 +529,10 @@ Browse our complete edible collection, including gummies, chocolates, teas, bake
         metaDescription: "Cannabis grading explained: what A, AA, AAA, and AAAA (quad) weed grades mean in Canada. Learn how to evaluate flower quality, trichomes, and what you're paying for.",
         excerpt: "Walk into any online dispensary and you will see cannabis graded from A to AAAA. But what do those grades actually mean? This guide demystifies the Canadian cannabis grading system so you can buy with confidence.",
         category: "Education",
-        image: "/assets/products/sun-rock-premium-aaaa-flower-2-25g-canada.jpg",
-        imageAlt: "Side-by-side comparison of A through AAAA grade cannabis flower showing quality differences — Mohawk Medibles grading guide",
+        image: "/assets/blog/aaaa-weed-grades-explained.jpg",
+        imageAlt: "Four cannabis buds showing quality progression from AA to AAAA — weed grades explained",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Cannabis quality assessment specialists with 10+ years grading flower on Six Nations territory under the Empire Standard protocol",
+        authorCredentials: "Cannabis quality assessment specialists with 10+ years grading flower on Tyendinaga Mohawk Territory under the Empire Standard protocol",
         datePublished: "2026-03-08",
         dateModified: "2026-03-10",
         readTime: "9 min",
@@ -722,13 +722,13 @@ Every flower product at Mohawk Medibles comes with our Empire Standard guarantee
     {
         slug: "best-online-dispensary-canada",
         title: "Best Online Dispensary in Canada 2026: What to Look For",
-        metaDescription: "How to find the best online dispensary in Canada. Buying criteria, red flags, trust signals, and why 25,000+ Canadians choose Mohawk Medibles since 2019.",
+        metaDescription: "How to find the best online dispensary in Canada. Buying criteria, red flags, trust signals, and why 25,000+ Canadians choose Mohawk Medibles since 2018.",
         excerpt: "With hundreds of online dispensaries competing for your business, choosing the right one is overwhelming. This guide gives you a checklist of what to look for, what to avoid, and how to spot the dispensaries that actually deserve your trust.",
         category: "Guides",
-        image: "/assets/logos/medibles-logo2.png",
-        imageAlt: "Canadian online dispensary comparison checklist showing quality indicators — Mohawk Medibles trusted since 2019",
+        image: "/assets/blog/best-online-dispensary-canada.jpg",
+        imageAlt: "Five-star rating with trust badges — best online dispensary Canada guide",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Indigenous-owned cannabis dispensary operating since 2019 on Six Nations territory with 25,000+ customers served across Canada",
+        authorCredentials: "Indigenous-owned cannabis dispensary operating since 2018 on Tyendinaga Mohawk Territory with 25,000+ customers served across Canada",
         datePublished: "2026-03-09",
         dateModified: "2026-03-10",
         readTime: "10 min",
@@ -877,7 +877,7 @@ While crypto is a legitimate payment method, dispensaries that only accept crypt
 We did not set out to write a "best dispensary" article just to crown ourselves. But we can tell you what we have built and let you decide.
 
 ### Indigenous-Owned, Community-Rooted
-Mohawk Medibles operates from **Six Nations of the Grand River** — the largest First Nations reserve in Canada. We have been serving customers since 2019, long before many of today's online dispensaries existed. When you buy from us, you support Indigenous economic sovereignty directly.
+Mohawk Medibles operates from **Tyendinaga Mohawk Territory** in Deseronto, Ontario. We have been serving customers since 2018, long before many of today's online dispensaries existed. When you buy from us, you support Indigenous economic sovereignty directly.
 
 ### Empire Standard Quality Protocol
 Every product is assessed across 12 quality indicators:
@@ -897,15 +897,15 @@ Our catalog spans every major category:
 - Accessories
 
 ### Shipping That Delivers
-- **Free shipping on orders over $199**
-- **Flat $15 rate** under $199
+- **Free shipping on orders over $149**
+- **Flat $15 rate** under $149
 - **Same-day processing** on orders before 2 PM EST
 - **Canada Post Xpresspost** with full tracking
 - **Discreet, unmarked packaging** every time
 - **1-3 business day delivery** across most of Canada
 
 ### 25,000+ Customers Served
-Since 2019, we have served over 25,000 customers across every province and territory. Our repeat customer rate speaks for itself — people come back because the product quality and service are consistent.
+Since 2018, we have served over 25,000 customers across every province and territory. Our repeat customer rate speaks for itself — people come back because the product quality and service are consistent.
 
 ### Real Customer Service
 - Email support with same-day response
@@ -934,8 +934,8 @@ If you are trying an online dispensary for the first time (whether Mohawk Medibl
         metaDescription: "Complete guide to cannabis concentrates: shatter, wax, live resin, diamonds, rosin, and more. Potency comparisons, consumption methods, and beginner tips from Mohawk Medibles.",
         excerpt: "Concentrates deliver potent, flavourful cannabis experiences, but the variety of types can be confusing. This guide breaks down every concentrate type, how to consume them, and what to look for when buying.",
         category: "Product Guides",
-        image: "/assets/products/nepalese-temple-ball-hash-2.jpg",
-        imageAlt: "Cannabis concentrates including shatter, live resin, and diamonds on a silicone mat — Mohawk Medibles concentrate guide",
+        image: "/assets/blog/cannabis-concentrates-guide-beginners.jpg",
+        imageAlt: "Golden shatter breaking apart with crystal clear detail — cannabis concentrates guide for beginners",
         author: "Mohawk Medibles Team",
         authorCredentials: "Cannabis extraction and concentrate specialists with hands-on experience across solvent and solventless methods",
         datePublished: "2026-03-10",
@@ -1104,8 +1104,8 @@ Concentrates build tolerance faster than flower. If you find yourself needing in
         metaDescription: "Complete CBD guide covering benefits, product types (oils, topicals, edibles), CBD vs THC differences, dosing tips, and how to choose the right CBD product in Canada.",
         excerpt: "CBD has gone from niche wellness trend to mainstream health product. But with so many options on the market — oils, gummies, topicals, capsules, vapes — choosing the right CBD product is harder than it should be. This guide cuts through the noise.",
         category: "Wellness",
-        image: "/assets/products/full-spectrum-cbd-oil-60ml-canada.jpg",
-        imageAlt: "CBD product lineup including oil tincture, topical cream, and gummies — Mohawk Medibles CBD guide for Canadians",
+        image: "/assets/blog/cbd-products-benefits-guide.jpg",
+        imageAlt: "CBD oils, capsules, topicals, and gummies on marble surface — CBD products benefits guide",
         author: "Mohawk Medibles Team",
         authorCredentials: "Cannabis wellness specialists with expertise in cannabinoid therapy, CBD formulations, and natural health products",
         datePublished: "2026-03-08",
@@ -1300,10 +1300,10 @@ A useful guideline: if your medication carries a "grapefruit warning," CBD may i
         metaDescription: "Step-by-step guide to ordering weed online safely in Canada. Age verification, dispensary selection, payment, shipping, and privacy tips. Order with confidence.",
         excerpt: "Ordering cannabis online for the first time can feel uncertain. What if the site is not legitimate? What if the package gets intercepted? What if the product is not what was advertised? This step-by-step guide answers every concern.",
         category: "Guides",
-        image: "/assets/products/category-cbd.jpg",
-        imageAlt: "Secure online cannabis ordering process on laptop showing checkout and tracking — Mohawk Medibles safe ordering guide",
+        image: "/assets/blog/how-to-order-weed-online-safely.jpg",
+        imageAlt: "Secure padlock with leaf emblem and SSL certificate — how to order weed online safely",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Online cannabis retail specialists operating Canada's trusted Indigenous dispensary since 2019 with 25,000+ safe deliveries completed",
+        authorCredentials: "Online cannabis retail specialists operating Canada's trusted Indigenous dispensary since 2018 with 25,000+ safe deliveries completed",
         datePublished: "2026-03-06",
         dateModified: "2026-03-10",
         readTime: "9 min",
@@ -1345,7 +1345,7 @@ This is the most important step. A trustworthy dispensary protects your health, 
 - Poor website quality with broken links and stock photos
 - No mention of lab testing or quality standards
 
-**Our recommendation:** Start with established dispensaries that have a proven track record. Mohawk Medibles has been operating from Six Nations territory since 2019 with over 25,000 customers served. [Learn more about us](/about).
+**Our recommendation:** Start with established dispensaries that have a proven track record. Mohawk Medibles has been operating from Tyendinaga Mohawk Territory since 2018 with over 25,000 customers served. [Learn more about us](/about).
 
 ## Step 3: Browse and Select Your Products
 
@@ -1386,7 +1386,7 @@ Most dispensaries require account creation before purchase. This is standard e-c
 Before checkout, review:
 - **Product quantities and sizes** — confirm you selected the right weight/count
 - **Coupon codes** — many dispensaries offer first-time customer discounts
-- **Free shipping threshold** — at Mohawk Medibles, orders over $199 ship free. Under $199, the flat rate is $15.
+- **Free shipping threshold** — at Mohawk Medibles, orders over $149 ship free. Under $149, the flat rate is $15.
 - **Order total** — make sure there are no surprise fees
 
 ## Step 6: Complete Payment
@@ -1491,7 +1491,7 @@ Ready to place your first online cannabis order? Here is the quick version:
 
 1. **Visit** [mohawkmedibles.co/shop](/shop)
 2. **Browse** our 360+ lab-tested products
-3. **Add to cart** — orders over $199 ship free
+3. **Add to cart** — orders over $149 ship free
 4. **Checkout** — secure payment via credit card, e-Transfer, or crypto
 5. **Track** your order via Canada Post Xpresspost
 6. **Receive** your discreet package in 1-3 business days
@@ -1508,8 +1508,8 @@ Ready to place your first online cannabis order? Here is the quick version:
         metaDescription: "Complete cannabis vape cartridge guide covering 510 thread, disposable, and pod systems. Potency, safety, choosing the right vape, and top picks from Mohawk Medibles.",
         excerpt: "Vape cartridges are the fastest-growing cannabis product category in Canada. They are discreet, convenient, and precisely dosed. But with so many options — 510 thread, disposables, pods, distillate, live resin — choosing the right one takes knowledge.",
         category: "Product Guides",
-        image: "/assets/products/burn-2g-disposable-thc-live-resin-vape-canada.jpg",
-        imageAlt: "Cannabis vape cartridges including 510 thread and disposable pens arranged on a surface — Mohawk Medibles vape guide",
+        image: "/assets/blog/cannabis-vape-cartridge-guide.jpg",
+        imageAlt: "Modern vape pen with cartridge and vapor clouds — cannabis vape cartridge guide",
         author: "Mohawk Medibles Team",
         authorCredentials: "Cannabis product specialists with deep knowledge of vaporizer technology, extract types, and vape safety standards",
         datePublished: "2026-03-09",
@@ -1714,14 +1714,14 @@ Browse our full collection of vape cartridges, disposable pens, and vaping acces
         metaDescription: "Explore Indigenous cannabis sovereignty in Canada: First Nations rights, Mohawk Territory history, Section 35 constitutional protections, UNDRIP, and the economic impact of Indigenous dispensaries.",
         excerpt: "Long before Canada's Cannabis Act, Indigenous peoples cultivated, traded, and used cannabis as part of sovereign economic and healing traditions. Understanding Indigenous cannabis sovereignty requires understanding the legal, historical, and cultural context that mainstream media rarely covers.",
         category: "Indigenous Rights",
-        image: "/assets/hero/cannabis-closeup.jpg",
-        imageAlt: "Six Nations of the Grand River territory landscape representing Indigenous cannabis sovereignty in Canada — Mohawk Medibles",
+        image: "/assets/blog/indigenous-cannabis-sovereignty-canada.jpg",
+        imageAlt: "Indigenous artwork with botanical motifs and traditional patterns — Indigenous cannabis sovereignty",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Indigenous-owned cannabis dispensary rooted in Haudenosaunee governance on Six Nations of the Grand River territory since 2019",
+        authorCredentials: "Indigenous-owned cannabis dispensary rooted in Haudenosaunee governance on Tyendinaga Mohawk Territory since 2018",
         datePublished: "2026-03-10",
         dateModified: "2026-03-10",
         readTime: "12 min",
-        tags: ["Indigenous cannabis", "First Nations", "cannabis sovereignty", "Six Nations", "Mohawk Territory", "UNDRIP", "Indigenous dispensary", "reconciliation"],
+        tags: ["Indigenous cannabis", "First Nations", "cannabis sovereignty", "Tyendinaga", "Mohawk Territory", "UNDRIP", "Indigenous dispensary", "reconciliation"],
         content: `## What Is Indigenous Cannabis Sovereignty?
 
 **Indigenous cannabis sovereignty refers to the inherent right of First Nations, Metis, and Inuit peoples to govern cannabis commerce and regulation on their own territories, independent of provincial and federal cannabis frameworks.** This right is grounded in constitutional protections, international law, treaty rights, and centuries of self-governance that predate the Canadian state.
@@ -1760,7 +1760,7 @@ These articles collectively affirm that Indigenous communities have the right to
 
 ### Treaty Rights and Inherent Sovereignty
 
-Many First Nations in Canada hold treaty rights that include provisions for trade and economic activity. The Haudenosaunee (Iroquois Confederacy), of which the Mohawk Nation is a member, have never ceded sovereignty through treaty. The Haudenosaunee governance system — the Great Law of Peace (Kaianere'ko:wa) — predates European contact and continues to govern Six Nations territory.
+Many First Nations in Canada hold treaty rights that include provisions for trade and economic activity. The Haudenosaunee (Iroquois Confederacy), of which the Mohawk Nation is a member, have never ceded sovereignty through treaty. The Haudenosaunee governance system — the Great Law of Peace (Kaianere'ko:wa) — predates European contact and continues to govern Tyendinaga Mohawk Territory.
 
 Mohawk Medibles operates under this framework of inherent Haudenosaunee sovereignty. We are not seeking permission from the Canadian government to operate — we are exercising rights that have existed for centuries.
 
@@ -1812,13 +1812,13 @@ The government-regulated cannabis market has struggled with profitability. Many 
 - **Quality focus:** Without the pressure to mass-produce for quarterly earnings, Indigenous operations can focus on product quality
 - **Fair pricing:** By avoiding the layers of taxation and markup in the government system, Indigenous dispensaries offer competitive pricing
 
-## Six Nations of the Grand River: A Case Study
+## Tyendinaga Mohawk Territory: A Case Study
 
-Six Nations of the Grand River is the largest First Nations reserve in Canada, home to approximately 13,000 residents (with over 27,000 band members in total). Located in southern Ontario along the Grand River, Six Nations is the only reserve in North America where all six Haudenosaunee nations live together.
+Tyendinaga Mohawk Territory is a Mohawk (Kanien'kehá:ka) community located near Deseronto, Ontario, along the beautiful Bay of Quinte. Home to approximately 11,000 band members, Tyendinaga is one of the most active centres of Indigenous cannabis commerce in Canada and a proud expression of Haudenosaunee sovereignty.
 
-### Cannabis on Six Nations
+### Cannabis on Tyendinaga
 
-Six Nations has become one of the most prominent centres of Indigenous cannabis commerce in Canada. Dozens of dispensaries operate on the territory, creating hundreds of jobs and generating significant economic activity.
+Tyendinaga Mohawk Territory has become one of the most prominent centres of Indigenous cannabis commerce in Canada. Dispensaries operate on the territory, creating jobs and generating significant economic activity for the community.
 
 The community's approach to cannabis is rooted in self-governance:
 - **Community standards** guide operations, with dispensaries expected to maintain quality and safety
@@ -1827,7 +1827,7 @@ The community's approach to cannabis is rooted in self-governance:
 
 ### Mohawk Medibles' Role
 
-Mohawk Medibles has operated from Six Nations territory since 2019. In that time, we have:
+Mohawk Medibles has operated from Tyendinaga Mohawk Territory since 2018. In that time, we have:
 
 - **Served 25,000+ customers** across every Canadian province and territory
 - **Maintained 360+ products** with Empire Standard quality testing
@@ -1886,7 +1886,7 @@ Indigenous youth are growing up seeing cannabis operations as legitimate, profes
 
 ## Visit Mohawk Medibles
 
-Mohawk Medibles operates from Six Nations of the Grand River territory — Canada's largest First Nations reserve. When you shop with us, you support Indigenous economic sovereignty directly.
+Mohawk Medibles operates from Tyendinaga Mohawk Territory — Canada's largest First Nations reserve. When you shop with us, you support Indigenous economic sovereignty directly.
 
 [Shop Our Catalog](/shop) | [Learn Our Story](/about) | [Browse All Blog Posts](/blog)`,
     },

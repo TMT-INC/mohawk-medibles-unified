@@ -2,7 +2,7 @@
  * Mohawk Medibles — Expanded Blog Post Registry
  * ═══════════════════════════════════════════════
  * 10 high-value SEO blog posts targeting buyer-intent keywords.
- * Indigenous-owned dispensary on Six Nations territory.
+ * Indigenous-owned dispensary on Tyendinaga Mohawk Territory.
  */
 
 import type { BlogPost } from "@/data/blog/posts";
@@ -14,24 +14,24 @@ export const EXPANDED_BLOG_POSTS: BlogPost[] = [
     {
         slug: "best-indica-strains-sleep-canada",
         title: "Best Indica Strains for Sleep in Canada: Expert Picks for 2026",
-        metaDescription: "Discover the best indica strains for sleep in Canada. Expert picks with terpene profiles, dosing tips, and where to buy. Mohawk Medibles Six Nations.",
-        excerpt: "Struggling with insomnia? The right indica strain can replace melatonin and sleeping pills. Our Six Nations cannabis specialists break down the top indica strains for deep, restful sleep.",
+        metaDescription: "Discover the best indica strains for sleep in Canada. Expert picks with terpene profiles, dosing tips, and where to buy. Mohawk Medibles Tyendinaga.",
+        excerpt: "Struggling with insomnia? The right indica strain can replace melatonin and sleeping pills. Our Tyendinaga cannabis specialists break down the top indica strains for deep, restful sleep.",
         category: "Strain Guides",
-        image: "/assets/products/sun-rock-premium-aaaa-flower-2-25g-canada.jpg",
-        imageAlt: "Premium indica cannabis flower with dense trichome coverage for sleep — Mohawk Medibles Canada",
+        image: "/assets/blog/best-indica-strains-sleep-canada.jpg",
+        imageAlt: "Purple indica buds on velvet with moon and stars — best indica strains for sleep",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Cannabis strain specialists with 10+ years of indica cultivation and sleep-wellness research on Six Nations territory",
+        authorCredentials: "Cannabis strain specialists with 10+ years of indica cultivation and sleep-wellness research on Tyendinaga Mohawk Territory",
         datePublished: "2026-02-15",
         dateModified: "2026-02-15",
         readTime: "9 min read",
-        tags: ["indica strains", "cannabis for sleep", "insomnia", "best indica Canada", "sleep aid", "myrcene", "Six Nations cannabis"],
+        tags: ["indica strains", "cannabis for sleep", "insomnia", "best indica Canada", "sleep aid", "myrcene", "Tyendinaga cannabis"],
         content: `## Why Indica Strains Help You Sleep
 
 Insomnia affects roughly one in three Canadian adults. While prescription sleep aids carry dependency risks and next-day grogginess, indica-dominant cannabis strains offer a natural alternative that millions of Canadians rely on nightly.
 
 The sleep-promoting effects of indica strains come down to their terpene and cannabinoid profiles. Indicas tend to be rich in **myrcene** (sedating), **linalool** (calming), and **caryophyllene** (anti-anxiety) — a terpene trio that signals your body to wind down.
 
-At Mohawk Medibles on Six Nations territory, we test every flower batch for these terpene profiles. Not all indicas are equal for sleep, and potency alone does not predict sedation. Here are our expert picks.
+At Mohawk Medibles on Tyendinaga Mohawk Territory, we test every flower batch for these terpene profiles. Not all indicas are equal for sleep, and potency alone does not predict sedation. Here are our expert picks.
 
 ## Top 7 Indica Strains for Sleep
 
@@ -143,13 +143,13 @@ Yes. Mohawk Medibles ships all products Canada-wide via Canada Post Xpresspost w
     {
         slug: "best-sativa-strains-energy-focus",
         title: "Best Sativa Strains for Energy and Focus in 2026",
-        metaDescription: "Top sativa strains for energy, creativity, and focus in Canada. Expert picks with terpene data and buying guide from Mohawk Medibles, Six Nations.",
-        excerpt: "Need a cannabis strain that fuels creativity and focus instead of couch-lock? Our Six Nations experts break down the best sativa strains for productive, energizing highs.",
+        metaDescription: "Top sativa strains for energy, creativity, and focus in Canada. Expert picks with terpene data and buying guide from Mohawk Medibles, Tyendinaga.",
+        excerpt: "Need a cannabis strain that fuels creativity and focus instead of couch-lock? Our Tyendinaga experts break down the best sativa strains for productive, energizing highs.",
         category: "Strain Guides",
-        image: "https://mohawkmedibles.ca/wp-content/uploads/2025/05/pineapple_express_meds_shatter_1200x1200-1.jpg",
-        imageAlt: "Green Crack sativa cannabis strain for energy and focus — Mohawk Medibles Canada",
+        image: "/assets/blog/best-sativa-strains-energy-focus.jpg",
+        imageAlt: "Vibrant green sativa buds with sunburst rays — best sativa strains for energy",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Sativa strain specialists with deep knowledge of energizing terpene profiles, Six Nations territory",
+        authorCredentials: "Sativa strain specialists with deep knowledge of energizing terpene profiles, Tyendinaga Mohawk Territory",
         datePublished: "2026-02-17",
         dateModified: "2026-02-17",
         readTime: "9 min read",
@@ -274,20 +274,20 @@ Check our [shop page](/shop?category=flower) and sort by THC percentage. Amnesia
     {
         slug: "cannabis-beginners-complete-guide",
         title: "Cannabis for Beginners: The Complete Guide to Getting Started",
-        metaDescription: "New to cannabis? Complete beginner guide covering strains, methods, dosing, and what to expect. Trusted advice from Mohawk Medibles, Six Nations.",
+        metaDescription: "New to cannabis? Complete beginner guide covering strains, methods, dosing, and what to expect. Trusted advice from Mohawk Medibles, Tyendinaga.",
         excerpt: "First time trying cannabis? This no-judgement guide covers everything from choosing your first strain to understanding dosing, consumption methods, and what to expect.",
         category: "Guides",
-        image: "/assets/products/full-spectrum-cbd-oil-60ml-canada.jpg",
-        imageAlt: "Cannabis products for beginners including CBD oil and flower — Mohawk Medibles beginner guide",
+        image: "/assets/blog/cannabis-beginners-complete-guide.jpg",
+        imageAlt: "Cannabis starter kit with grinder, papers, and flower — complete beginner guide",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Cannabis educators committed to safe, informed consumption practices on Six Nations territory",
+        authorCredentials: "Cannabis educators committed to safe, informed consumption practices on Tyendinaga Mohawk Territory",
         datePublished: "2026-02-19",
         dateModified: "2026-02-19",
         readTime: "10 min read",
         tags: ["cannabis beginners", "first time cannabis", "how to use cannabis", "cannabis guide", "new to weed", "dosing", "Canada cannabis"],
         content: `## Welcome to Cannabis
 
-Whether you are a curious adult exploring cannabis for the first time, a returning user after years away, or someone considering cannabis for wellness reasons, this guide is for you. No judgement, no jargon — just clear, practical information from our team at Mohawk Medibles on Six Nations territory.
+Whether you are a curious adult exploring cannabis for the first time, a returning user after years away, or someone considering cannabis for wellness reasons, this guide is for you. No judgement, no jargon — just clear, practical information from our team at Mohawk Medibles on Tyendinaga Mohawk Territory.
 
 Cannabis has been used by Indigenous peoples for centuries. Today, millions of Canadians use it for relaxation, creativity, pain management, sleep, and social enjoyment. Here is everything you need to know to get started safely.
 
@@ -416,13 +416,13 @@ Absolutely. Mohawk Medibles ships all products Canada-wide via Canada Post Xpres
     {
         slug: "cbd-vs-thc-science-guide",
         title: "CBD vs THC: A Science-Based Guide to Cannabis Cannabinoids",
-        metaDescription: "CBD vs THC explained with science. Compare effects, benefits, side effects, and legal status in Canada. Expert guide from Mohawk Medibles, Six Nations.",
+        metaDescription: "CBD vs THC explained with science. Compare effects, benefits, side effects, and legal status in Canada. Expert guide from Mohawk Medibles, Tyendinaga.",
         excerpt: "CBD and THC are the two most prominent cannabinoids in cannabis, but they work very differently. This science-backed guide explains what each does, how they interact, and which is right for you.",
         category: "Cannabis Science",
-        image: "/assets/products/full-spectrum-cbd-oil-60ml-canada.jpg",
-        imageAlt: "CBD oil and THC cannabis flower comparison — Mohawk Medibles science guide",
+        image: "/assets/blog/cbd-vs-thc-science-guide.jpg",
+        imageAlt: "CBD molecule vs THC molecule scientific comparison — CBD vs THC guide",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Cannabis science educators with expertise in cannabinoid pharmacology, Six Nations territory",
+        authorCredentials: "Cannabis science educators with expertise in cannabinoid pharmacology, Tyendinaga Mohawk Territory",
         datePublished: "2026-02-21",
         dateModified: "2026-02-21",
         readTime: "10 min read",
@@ -557,13 +557,13 @@ Both have excellent safety profiles. The World Health Organization's 2018 report
     {
         slug: "cannabis-concentrates-guide-shatter-wax",
         title: "Cannabis Concentrates Guide: Shatter, Wax, Live Resin Explained",
-        metaDescription: "Complete guide to cannabis concentrates: shatter, wax, live resin, rosin, and more. Potency, prices, and how to use. Mohawk Medibles, Six Nations.",
+        metaDescription: "Complete guide to cannabis concentrates: shatter, wax, live resin, rosin, and more. Potency, prices, and how to use. Mohawk Medibles, Tyendinaga.",
         excerpt: "From shatter's glass-like clarity to live resin's terpene explosion, cannabis concentrates offer potency and flavour that flower cannot match. Here is your complete guide.",
         category: "Product Guides",
-        image: "https://mohawkmedibles.ca/wp-content/uploads/2025/05/pineapple_express_meds_shatter_1200x1200-1.jpg",
-        imageAlt: "Cannabis shatter concentrate with amber clarity — Mohawk Medibles concentrates guide",
+        image: "/assets/blog/cannabis-concentrates-guide-shatter-wax.jpg",
+        imageAlt: "Golden shatter, live resin, and diamonds on dark glass — cannabis concentrates guide",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Concentrate specialists with expertise in extraction methods and quality assessment, Six Nations territory",
+        authorCredentials: "Concentrate specialists with expertise in extraction methods and quality assessment, Tyendinaga Mohawk Territory",
         datePublished: "2026-02-23",
         dateModified: "2026-02-23",
         readTime: "10 min read",
@@ -690,13 +690,13 @@ When stored, concentrates have minimal odour compared to flower. When dabbed or 
     {
         slug: "best-cannabis-edibles-canada-2026",
         title: "Best Cannabis Edibles in Canada 2026: Top Picks and Buying Guide",
-        metaDescription: "Best cannabis edibles in Canada for 2026. Expert reviews of gummies, chocolates, drinks, and more with dosing guide. Mohawk Medibles, Six Nations.",
+        metaDescription: "Best cannabis edibles in Canada for 2026. Expert reviews of gummies, chocolates, drinks, and more with dosing guide. Mohawk Medibles, Tyendinaga.",
         excerpt: "The Canadian cannabis edibles market has matured dramatically. From precision-dosed gummies to THC-infused beverages, here are the best edibles you can buy in 2026.",
         category: "Product Guides",
-        image: "https://mohawkmedibles.ca/wp-content/uploads/2025/05/pem_gummy_bears_1200x1200-1.jpg",
-        imageAlt: "THC gummy bears edibles — best cannabis edibles in Canada from Mohawk Medibles",
+        image: "/assets/blog/best-cannabis-edibles-canada-2026.jpg",
+        imageAlt: "Gourmet cannabis chocolates and confections with premium packaging — best edibles Canada 2026",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Edible product specialists with expertise in THC formulation and dosing on Six Nations territory",
+        authorCredentials: "Edible product specialists with expertise in THC formulation and dosing on Tyendinaga Mohawk Territory",
         datePublished: "2026-02-25",
         dateModified: "2026-02-25",
         readTime: "9 min read",
@@ -824,10 +824,10 @@ Milligram for milligram, edibles can feel stronger because the liver converts TH
         metaDescription: "Complete guide to myrcene, the most abundant cannabis terpene. Learn how it affects relaxation, sleep, and pain relief. Expert guide from Mohawk Medibles.",
         excerpt: "Myrcene is the most common terpene in cannabis and the primary driver of indica's sedating effects. Here is everything science knows about this powerful relaxation compound.",
         category: "Cannabis Science",
-        image: "/assets/products/sun-rock-premium-aaaa-flower-2-25g-canada.jpg",
-        imageAlt: "Myrcene-rich cannabis flower with dense trichomes — terpene science from Mohawk Medibles",
+        image: "/assets/blog/myrcene-terpene-guide-relaxation.jpg",
+        imageAlt: "Macro trichome photography with myrcene molecule overlay — myrcene terpene deep dive",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Terpene profiling specialists with a decade of cannabis cultivation science on Six Nations territory",
+        authorCredentials: "Terpene profiling specialists with a decade of cannabis cultivation science on Tyendinaga Mohawk Territory",
         datePublished: "2026-02-27",
         dateModified: "2026-02-27",
         readTime: "8 min read",
@@ -946,10 +946,10 @@ They work through different mechanisms. Melatonin signals your circadian rhythm 
         metaDescription: "Learn how to store cannabis flower, edibles, and concentrates properly. Temperature, humidity, and container tips from Mohawk Medibles experts.",
         excerpt: "Improperly stored cannabis loses potency, flavour, and quality within weeks. Our storage guide covers everything from humidity packs to UV protection so your product stays fresh.",
         category: "Guides",
-        image: "https://mohawkmedibles.ca/wp-content/uploads/2025/06/Premium-Pre-Rolls-Photoroom.png",
-        imageAlt: "Properly stored cannabis pre-rolls in quality packaging — Mohawk Medibles storage guide",
+        image: "/assets/blog/how-to-store-cannabis-properly.jpg",
+        imageAlt: "Glass mason jars with cannabis on dark wood shelf — proper cannabis storage guide",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Cannabis curing and storage specialists with extensive experience preserving product quality, Six Nations territory",
+        authorCredentials: "Cannabis curing and storage specialists with extensive experience preserving product quality, Tyendinaga Mohawk Territory",
         datePublished: "2026-03-01",
         dateModified: "2026-03-01",
         readTime: "8 min read",
@@ -1084,13 +1084,13 @@ Yes. Different strains have different terpene profiles, and storing them togethe
     {
         slug: "pre-rolls-guide-types-quality",
         title: "Pre-Rolls Guide: Types, Quality Indicators, and Top Picks",
-        metaDescription: "Complete guide to cannabis pre-rolls in Canada. Learn about types, quality signs, infused pre-rolls, and top picks. Mohawk Medibles, Six Nations.",
+        metaDescription: "Complete guide to cannabis pre-rolls in Canada. Learn about types, quality signs, infused pre-rolls, and top picks. Mohawk Medibles, Tyendinaga.",
         excerpt: "Pre-rolls are the most convenient way to enjoy cannabis. But quality varies wildly. This guide teaches you how to spot premium pre-rolls and avoid overpriced trim tubes.",
         category: "Product Guides",
-        image: "https://mohawkmedibles.ca/wp-content/uploads/2025/06/Premium-Pre-Rolls-Photoroom.png",
-        imageAlt: "Premium cannabis pre-rolls in a 5-pack — Mohawk Medibles pre-roll buying guide",
+        image: "/assets/blog/pre-rolls-guide-types-quality.jpg",
+        imageAlt: "Premium pre-rolled joints with branded tubes and smoke wisps — pre-rolls buying guide",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Pre-roll production and quality assessment experts with years of rolling expertise on Six Nations territory",
+        authorCredentials: "Pre-roll production and quality assessment experts with years of rolling expertise on Tyendinaga Mohawk Territory",
         datePublished: "2026-03-03",
         dateModified: "2026-03-03",
         readTime: "9 min read",
@@ -1225,13 +1225,13 @@ Yes. All pre-rolls ship Canada-wide via Canada Post Xpresspost in protective pac
     {
         slug: "microdosing-cannabis-benefits-methods",
         title: "Microdosing Cannabis: Benefits, Methods, and How to Start",
-        metaDescription: "Complete guide to microdosing cannabis. Learn optimal THC doses, benefits for anxiety and focus, methods, and products. Mohawk Medibles, Six Nations.",
+        metaDescription: "Complete guide to microdosing cannabis. Learn optimal THC doses, benefits for anxiety and focus, methods, and products. Mohawk Medibles, Tyendinaga.",
         excerpt: "Microdosing cannabis means using just enough THC to feel subtle therapeutic effects without getting high. Here is the science, the methods, and how to find your perfect microdose.",
         category: "Guides",
-        image: "https://mohawkmedibles.ca/wp-content/uploads/2025/05/pem_gummy_bears_1200x1200-1.jpg",
-        imageAlt: "Low-dose THC gummies for microdosing cannabis — Mohawk Medibles microdosing guide",
+        image: "/assets/blog/microdosing-cannabis-benefits-methods.jpg",
+        imageAlt: "Precise micro doses on digital scale — cannabis microdosing guide",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Cannabis wellness educators specializing in low-dose therapeutic protocols on Six Nations territory",
+        authorCredentials: "Cannabis wellness educators specializing in low-dose therapeutic protocols on Tyendinaga Mohawk Territory",
         datePublished: "2026-03-05",
         dateModified: "2026-03-05",
         readTime: "9 min read",

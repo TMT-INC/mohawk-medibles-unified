@@ -50,7 +50,7 @@ const faqSchema = {
             "name": "Do you offer free shipping?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Orders over $199 CAD qualify for free Canada-wide shipping. Local delivery is always free within our same-day zones.",
+                "text": "Orders over $149 CAD qualify for free Canada-wide shipping. Local delivery is always free within our same-day zones.",
             },
         },
         {

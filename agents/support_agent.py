@@ -15,7 +15,7 @@ class SupportAgent:
         self.api_base = f"{NEXTJS_URL}/api/agent/data"
         self.headers = {"Authorization": f"Bearer {AGENT_SECRET}"}
         self.intents = {
-            "hours": "Our hours are **9am – 10pm daily** (EST). We're based on Six Nations Territory, Ontario.",
+            "hours": "Our hours are **9am – 10pm daily** (EST). We're based on Tyendinaga Mohawk Territory, Ontario.",
             "shipping": (
                 "We offer **Canada-wide shipping** via Canada Post Xpresspost (2–5 business days). "
                 "Orders over $100 ship **FREE**! Same-day local delivery available for Brantford & Hamilton area."

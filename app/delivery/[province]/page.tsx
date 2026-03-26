@@ -51,7 +51,7 @@ export async function generateMetadata({
 
 	// Quebec gets French-language metadata
 	if (province.slug === "quebec") {
-		const title = `Cannabis Delivery ${province.name} | Free Shipping Over $199 to ${cityCount} Cities`;
+		const title = `Cannabis Delivery ${province.name} | Free Shipping Over $149 to ${cityCount} Cities`;
 		const description = `Livraison de cannabis premium au Quebec. Fleurs, comestibles, concentres et plus. Livraison rapide a ${cityCount} villes dont Montreal et Quebec. Age legal ${province.legalAge}+.`;
 		const ogAlt = "Livraison de Cannabis au Quebec - Mohawk Medibles";
 
@@ -109,8 +109,8 @@ export async function generateMetadata({
 	}
 
 	// All other provinces
-	const title = `Cannabis Delivery ${province.name} | Free Shipping Over $199 to ${cityCount} Cities`;
-	const description = `Premium cannabis delivery to ${province.name}. Lab-tested flower, edibles, concentrates & more. Free shipping over $199 to ${cityCount}+ cities. Legal age ${province.legalAge}+. Empire Standard quality.`;
+	const title = `Cannabis Delivery ${province.name} | Free Shipping Over $149 to ${cityCount} Cities`;
+	const description = `Premium cannabis delivery to ${province.name}. Lab-tested flower, edibles, concentrates & more. Free shipping over $149 to ${cityCount}+ cities. Legal age ${province.legalAge}+. Empire Standard quality.`;
 	const ogAlt = `Cannabis Delivery to ${province.name} - Mohawk Medibles`;
 
 	return {
@@ -173,10 +173,10 @@ function createStoreSchema(provinceName: string, cityCount: number) {
 		description: `Indigenous-owned premium cannabis dispensary delivering to ${cityCount} cities across ${provinceName}. Lab-tested, terpene-profiled products meeting the Empire Standard.`,
 		address: {
 			"@type": "PostalAddress",
-			streetAddress: "Six Nations of the Grand River",
-			addressLocality: "Ohsweken",
+			streetAddress: "Tyendinaga Mohawk Territory",
+			addressLocality: "Deseronto",
 			addressRegion: "ON",
-			postalCode: "N0A 1M0",
+			postalCode: "K0K 1X0",
 			addressCountry: "CA",
 		},
 		areaServed: {
@@ -216,7 +216,7 @@ function getProvinceFaqs(
 	return [
 		{
 			question: `Is cannabis delivery legal in ${provinceName}?`,
-			answer: `Yes, cannabis delivery is legal in ${provinceName} for adults ${legalAge} and older. ${regulationsSummary} Mohawk Medibles operates as an Indigenous-owned dispensary under inherent Haudenosaunee rights on Six Nations territory, delivering premium cannabis to ${cityCount} cities across ${provinceName} via Canada Post Xpresspost with full tracking.`,
+			answer: `Yes, cannabis delivery is legal in ${provinceName} for adults ${legalAge} and older. ${regulationsSummary} Mohawk Medibles operates as an Indigenous-owned dispensary under inherent Haudenosaunee rights on Tyendinaga Mohawk Territory, delivering premium cannabis to ${cityCount} cities across ${provinceName} via Canada Post Xpresspost with full tracking.`,
 		},
 		{
 			question: `How long does delivery take to ${provinceName}?`,
@@ -228,7 +228,7 @@ function getProvinceFaqs(
 		},
 		{
 			question: `Do you offer free shipping to ${provinceName}?`,
-			answer: `Yes! Mohawk Medibles offers free shipping on all orders over $199 CAD delivered anywhere in ${provinceName}. For orders under $199, a flat $15 shipping fee applies. All orders ship via Canada Post Xpresspost with discreet packaging - plain, unmarked boxes with no cannabis branding or indication of contents.`,
+			answer: `Yes! Mohawk Medibles offers free shipping on all orders over $149 CAD delivered anywhere in ${provinceName}. For orders under $149, a flat $15 shipping fee applies. All orders ship via Canada Post Xpresspost with discreet packaging - plain, unmarked boxes with no cannabis branding or indication of contents.`,
 		},
 		{
 			question: `What cannabis products can I order in ${provinceName}?`,
@@ -265,7 +265,7 @@ export default async function ProvinceDeliveryPage({
 		`Mohawk Medibles delivers premium, lab-tested cannabis to ${province.cities.length} cities across ${province.name}. Our Empire Standard products ship via Canada Post Xpresspost with discreet packaging and full tracking.`;
 	const whyChooseUs =
 		content?.whyChooseUs ??
-		`As an Indigenous-owned dispensary on Six Nations territory, Mohawk Medibles offers ${province.name} customers lab-tested, terpene-profiled products at competitive prices with free shipping over $199.`;
+		`As an Indigenous-owned dispensary on Tyendinaga Mohawk Territory, Mohawk Medibles offers ${province.name} customers lab-tested, terpene-profiled products at competitive prices with free shipping over $149.`;
 	const popularCategories = content?.popularCategories ?? [
 		{ name: "Flower", slug: "flower", emoji: "🌿" },
 		{ name: "Edibles", slug: "edibles", emoji: "🍪" },
@@ -378,7 +378,7 @@ export default async function ProvinceDeliveryPage({
 								</span>
 								<span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold text-white">
 									<svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" /></svg>
-									Free Shipping $199+
+									Free Shipping $149+
 								</span>
 								<span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold text-white">
 									<svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
@@ -412,7 +412,7 @@ export default async function ProvinceDeliveryPage({
 							<p className="text-muted-foreground text-sm">From Tyendinaga</p>
 						</div>
 						<div className="glass-card p-6 rounded-2xl border border-border hover:border-forest/50 dark:hover:border-lime/50 transition-all">
-							<div className="text-lg font-bold text-forest dark:text-lime mb-2">$199+</div>
+							<div className="text-lg font-bold text-forest dark:text-lime mb-2">$149+</div>
 							<p className="text-muted-foreground text-sm">Free Shipping</p>
 						</div>
 					</div>
@@ -632,7 +632,7 @@ export default async function ProvinceDeliveryPage({
 							Ready to Order in {province.name}?
 						</h2>
 						<p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-							Browse our full selection of premium, lab-tested cannabis products. Free shipping to {province.name} on orders over $199.
+							Browse our full selection of premium, lab-tested cannabis products. Free shipping to {province.name} on orders over $149.
 							Fast {deliveryEstimate} delivery, discreet packaging, and 100% secure checkout.
 						</p>
 						<div className="flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -22,24 +22,24 @@ export const MASTER_FAQ_DATABASE: FAQEntry[] = [
     // ── General ─────────────────────────────────────────────
     {
         question: "What is Mohawk Medibles?",
-        answer: "Mohawk Medibles is an Indigenous-owned premium cannabis dispensary located on Six Nations of the Grand River territory in Ontario, Canada. Founded by Mohawk entrepreneurs, we specialize in lab-tested, terpene-profiled cannabis products that meet our Empire Standard™ quality benchmark. We carry 360+ products across flower, edibles, concentrates, vapes, pre-rolls, and accessories.",
+        answer: "Mohawk Medibles is an Indigenous-owned premium cannabis dispensary located on Tyendinaga Mohawk Territory in Ontario, Canada. Founded by Mohawk entrepreneurs, we specialize in lab-tested, terpene-profiled cannabis products that meet our Empire Standard™ quality benchmark. We carry 360+ products across flower, edibles, concentrates, vapes, pre-rolls, and accessories.",
         category: "general",
         intent: "informational",
-        keywords: ["mohawk medibles", "indigenous cannabis", "six nations dispensary"],
+        keywords: ["mohawk medibles", "indigenous cannabis", "tyendinaga dispensary"],
     },
     {
         question: "Is Mohawk Medibles a legitimate dispensary?",
-        answer: "Yes. Mohawk Medibles operates as an Indigenous-owned business on Six Nations sovereign territory. All products are third-party lab-tested for potency, pesticides, heavy metals, and microbial contaminants. We maintain full supply chain transparency and our Empire Standard™ quality certification ensures every product meets strict safety benchmarks.",
+        answer: "Yes. Mohawk Medibles operates as an Indigenous-owned business on Tyendinaga Mohawk sovereign territory. All products are third-party lab-tested for potency, pesticides, heavy metals, and microbial contaminants. We maintain full supply chain transparency and our Empire Standard™ quality certification ensures every product meets strict safety benchmarks.",
         category: "general",
         intent: "informational",
         keywords: ["mohawk medibles legitimate", "is mohawk medibles safe", "indigenous dispensary legal"],
     },
     {
         question: "Where is Mohawk Medibles located?",
-        answer: "Mohawk Medibles is located on Six Nations of the Grand River territory in Ohsweken, Ontario, Canada (postal code N0A 1M0). We also ship Canada-wide via Canada Post Xpresspost with tracking on every order. Our location is approximately 30 minutes south of Hamilton and 90 minutes west of Toronto.",
+        answer: "Mohawk Medibles is located on Tyendinaga Mohawk Territory in Deseronto, Ontario, Canada (postal code K0K 1X0). We also ship Canada-wide via Canada Post Xpresspost with tracking on every order. Our location is located in the Quinte region of eastern Ontario, approximately 2 hours east of Toronto.",
         category: "general",
         intent: "navigational",
-        keywords: ["mohawk medibles location", "six nations dispensary address", "ohsweken cannabis"],
+        keywords: ["mohawk medibles location", "tyendinaga dispensary address", "ohsweken cannabis"],
     },
 
     // ── Products ────────────────────────────────────────────

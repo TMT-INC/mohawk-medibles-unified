@@ -46,10 +46,10 @@ export const BACKLINK_TARGETS: BacklinkTarget[] = [
     },
     // ── Tier 2: Industry & Community ────────────────────────
     {
-        domain: "sixnationstourism.ca",
+        domain: "tyendinaga.ca",
         dr: 40,
         type: "partnership",
-        strategy: "Partner with Six Nations tourism board for local business directory listing and co-branded content.",
+        strategy: "Partner with Tyendinaga Mohawk Territory community for local business directory listing and co-branded content.",
         priority: "medium",
     },
     {
@@ -78,14 +78,14 @@ export const BACKLINK_TARGETS: BacklinkTarget[] = [
         domain: "hamiltonnews.com",
         dr: 45,
         type: "pr",
-        strategy: "Local press release for new product launches or community events near Six Nations.",
+        strategy: "Local press release for new product launches or community events near Tyendinaga.",
         priority: "low",
     },
     {
-        domain: "brantfordexpositor.ca",
+        domain: "intelligencer.ca",
         dr: 42,
         type: "pr",
-        strategy: "Hyper-local press coverage. Brant County = closest major municipality to Six Nations.",
+        strategy: "Hyper-local press coverage. Belleville/Quinte region = closest major municipality to Tyendinaga.",
         priority: "medium",
     },
 ];

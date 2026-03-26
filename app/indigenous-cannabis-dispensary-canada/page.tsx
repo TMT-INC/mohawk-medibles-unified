@@ -35,7 +35,7 @@ const PAGE_URL = "https://mohawkmedibles.ca/indigenous-cannabis-dispensary-canad
 export const metadata: Metadata = {
     title: "Indigenous Cannabis Dispensary Canada — Tyendinaga Mohawk Territory",
     description:
-        "Canada's trusted Indigenous-owned online cannabis dispensary. Shop 360+ premium products with free shipping over $199. Proudly serving all 13 provinces from Tyendinaga Mohawk Territory since 2019.",
+        "Canada's trusted Indigenous-owned online cannabis dispensary. Shop 360+ premium products with free shipping over $149. Proudly serving all 13 provinces from Tyendinaga Mohawk Territory since 2018.",
     keywords: [
         "Indigenous cannabis dispensary",
         "Indigenous owned dispensary Canada",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         "Indigenous dispensary Canada",
         "Mohawk Medibles",
         "Tyendinaga cannabis",
-        "Six Nations dispensary",
+        "Tyendinaga dispensary",
         "Indigenous cannabis shop",
         "buy cannabis Indigenous dispensary",
         "First Nations online dispensary",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Indigenous Cannabis Dispensary Canada",
         description:
-            "Canada's trusted Indigenous-owned online cannabis dispensary. 360+ premium products, free shipping over $199, proudly serving from Tyendinaga Mohawk Territory since 2019.",
+            "Canada's trusted Indigenous-owned online cannabis dispensary. 360+ premium products, free shipping over $149, proudly serving from Tyendinaga Mohawk Territory since 2018.",
         url: PAGE_URL,
         type: "article",
         images: ["/og-image.png"],
@@ -90,12 +90,12 @@ const FAQ_ITEMS = [
     {
         question: "Is it legal to buy from an Indigenous dispensary in Canada?",
         answer:
-            "Indigenous cannabis dispensaries like Mohawk Medibles operate under the inherent sovereignty and self-governance rights of Indigenous nations, which predate Canadian confederation. The Mohawk Nation and the broader Haudenosaunee Confederacy have a long history of trade and commerce that is protected under Section 35 of the Constitution Act, 1982. Mohawk Medibles has been serving Canadian customers reliably since 2019, shipping discreetly via Canada Post Xpresspost to all provinces and territories. All products meet our rigorous Empire Standard\u2122 quality program, including third-party lab testing.",
+            "Indigenous cannabis dispensaries like Mohawk Medibles operate under the inherent sovereignty and self-governance rights of Indigenous nations, which predate Canadian confederation. The Mohawk Nation and the broader Haudenosaunee Confederacy have a long history of trade and commerce that is protected under Section 35 of the Constitution Act, 1982. Mohawk Medibles has been serving Canadian customers reliably since 2018, shipping discreetly via Canada Post Xpresspost to all provinces and territories. All products meet our rigorous Empire Standard\u2122 quality program, including third-party lab testing.",
     },
     {
         question: "How does Mohawk Medibles ship across Canada?",
         answer:
-            "Mohawk Medibles ships to all 13 Canadian provinces and territories via Canada Post Xpresspost. Orders are processed same-day when placed before our daily cutoff, and typical delivery takes 2\u20135 business days depending on your location. All packages are shipped in discreet, smell-proof packaging with no identifying markings. Shipping is free on orders over $199, and a flat rate of $15 applies to orders under that threshold. Every shipment includes tracking so you can follow your package from our facility in Tyendinaga Mohawk Territory to your door.",
+            "Mohawk Medibles ships to all 13 Canadian provinces and territories via Canada Post Xpresspost. Orders are processed same-day when placed before our daily cutoff, and typical delivery takes 2\u20135 business days depending on your location. All packages are shipped in discreet, smell-proof packaging with no identifying markings. Shipping is free on orders over $149, and a flat rate of $15 applies to orders under that threshold. Every shipment includes tracking so you can follow your package from our facility in Tyendinaga Mohawk Territory to your door.",
     },
     {
         question: "What products does Mohawk Medibles carry?",
@@ -110,7 +110,7 @@ const FAQ_ITEMS = [
     {
         question: "What makes Mohawk Medibles different from other online dispensaries?",
         answer:
-            "Mohawk Medibles stands apart in several key ways: First, we are authentically Indigenous-owned and operated from Tyendinaga Mohawk Territory — not a corporate brand using Indigenous imagery. Second, our Empire Standard\u2122 quality program ensures every product is lab-tested, terpene-profiled, and contaminant-screened before it reaches our shelves. Third, we offer tax-free pricing, making our products more affordable than government dispensaries. Fourth, we have been operating since 2019 with over 47,000 satisfied customers across Canada. Fifth, a portion of every purchase supports Mohawk Territory community programs. And sixth, we offer free shipping on orders over $199 with discreet, same-day processing.",
+            "Mohawk Medibles stands apart in several key ways: First, we are authentically Indigenous-owned and operated from Tyendinaga Mohawk Territory — not a corporate brand using Indigenous imagery. Second, our Empire Standard\u2122 quality program ensures every product is lab-tested, terpene-profiled, and contaminant-screened before it reaches our shelves. Third, we offer tax-free pricing, making our products more affordable than government dispensaries. Fourth, we have been operating since 2018 with over 47,000 satisfied customers across Canada. Fifth, a portion of every purchase supports Mohawk Territory community programs. And sixth, we offer free shipping on orders over $149 with discreet, same-day processing.",
     },
     {
         question: "Does Mohawk Medibles offer same-day delivery?",
@@ -227,13 +227,13 @@ function buildPageSchema(): string {
             title: "Indigenous Cannabis Dispensary Canada",
             slug: "../indigenous-cannabis-dispensary-canada",
             description:
-                "Canada's trusted Indigenous-owned online cannabis dispensary. Shop 360+ premium products with free shipping over $199 from Tyendinaga Mohawk Territory.",
+                "Canada's trusted Indigenous-owned online cannabis dispensary. Shop 360+ premium products with free shipping over $149 from Tyendinaga Mohawk Territory.",
             datePublished: "2026-03-11",
             dateModified: "2026-03-11",
             image: "https://mohawkmedibles.ca/og-image.png",
             authorName: "Mohawk Medibles Team",
             authorCredentials:
-                "Indigenous-owned cannabis dispensary operating from Tyendinaga Mohawk Territory since 2019, serving 47,000+ customers across Canada.",
+                "Indigenous-owned cannabis dispensary operating from Tyendinaga Mohawk Territory since 2018, serving 47,000+ customers across Canada.",
             keywords: [
                 "Indigenous cannabis dispensary",
                 "Indigenous owned dispensary Canada",
@@ -308,10 +308,10 @@ export default function IndigenousCannabisDispensaryPage() {
 
                     <p className="text-lg md:text-xl text-foreground/70 dark:text-white/70 max-w-2xl leading-relaxed mb-8">
                         Mohawk Medibles is an <strong className="text-foreground/90 dark:text-white/90">Indigenous-owned online cannabis dispensary</strong> proudly
-                        operating from Tyendinaga Mohawk Territory. Since 2019, we&apos;ve served over 47,000 Canadians
+                        operating from Tyendinaga Mohawk Territory. Since 2018, we&apos;ve served over 47,000 Canadians
                         with 360+ premium, lab-tested products backed by the{" "}
                         <strong className="text-foreground/90 dark:text-white/90">Empire Standard&trade;</strong> quality program.
-                        Free shipping on orders over $199. Tax-free. Always.
+                        Free shipping on orders over $149. Tax-free. Always.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4">
@@ -382,7 +382,7 @@ export default function IndigenousCannabisDispensaryPage() {
                                 <span className="text-forest dark:text-lime">Built for All of Canada.</span>
                             </h2>
                             <p className="text-muted-foreground leading-relaxed text-lg">
-                                Mohawk Medibles was founded in 2019 on <strong>Tyendinaga Mohawk Territory</strong> in
+                                Mohawk Medibles was founded in February 2018 on <strong>Tyendinaga Mohawk Territory</strong> in
                                 southeastern Ontario, near the town of Deseronto. What began as a small, community-focused
                                 cannabis shop has grown into one of Canada&apos;s most trusted Indigenous-owned online
                                 dispensaries, serving customers in every province and territory.
@@ -402,7 +402,7 @@ export default function IndigenousCannabisDispensaryPage() {
                                 terpene profiling, contaminant screening, and visual inspection.
                             </p>
                             <div className="flex flex-wrap gap-3 pt-2">
-                                <span className="px-3 py-1.5 rounded-full bg-lime/10 border border-lime/20 text-lime text-xs font-bold">Est. 2019</span>
+                                <span className="px-3 py-1.5 rounded-full bg-lime/10 border border-lime/20 text-lime text-xs font-bold">Est. 2018</span>
                                 <span className="px-3 py-1.5 rounded-full bg-lime/10 border border-lime/20 text-lime text-xs font-bold">Tyendinaga Mohawk Territory</span>
                                 <span className="px-3 py-1.5 rounded-full bg-lime/10 border border-lime/20 text-lime text-xs font-bold">Haudenosaunee Heritage</span>
                             </div>
@@ -554,14 +554,14 @@ export default function IndigenousCannabisDispensaryPage() {
                                 icon: Truck,
                                 title: "Free Canada-Wide Shipping",
                                 description:
-                                    "Free shipping on orders over $199 via Canada Post Xpresspost. Same-day processing, discreet smell-proof packaging, and full tracking to all 13 provinces and territories.",
+                                    "Free shipping on orders over $149 via Canada Post Xpresspost. Same-day processing, discreet smell-proof packaging, and full tracking to all 13 provinces and territories.",
                                 gradient: "from-blue-500/20 to-transparent",
                             },
                             {
                                 icon: Users,
                                 title: "47,000+ Customers Trust Us",
                                 description:
-                                    "Since 2019, over 47,000 Canadians have chosen Mohawk Medibles. Our reputation is built on consistent quality, reliable shipping, and genuine customer care.",
+                                    "Since 2018, over 47,000 Canadians have chosen Mohawk Medibles. Our reputation is built on consistent quality, reliable shipping, and genuine customer care.",
                                 gradient: "from-emerald-500/20 to-transparent",
                             },
                         ].map((item) => (
@@ -645,7 +645,7 @@ export default function IndigenousCannabisDispensaryPage() {
                         </h2>
                         <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
                             From Victoria to St. John&apos;s, from Toronto to Iqaluit — Mohawk Medibles ships premium
-                            cannabis to every corner of Canada via Canada Post Xpresspost. Free shipping on orders over $199.
+                            cannabis to every corner of Canada via Canada Post Xpresspost. Free shipping on orders over $149.
                         </p>
                     </div>
 
@@ -669,8 +669,8 @@ export default function IndigenousCannabisDispensaryPage() {
                     <div className="mt-10 glass-card border border-border rounded-2xl p-8 grid md:grid-cols-3 gap-6 text-center">
                         <div>
                             <Truck className="w-8 h-8 text-forest dark:text-lime mx-auto mb-3" />
-                            <div className="font-bold text-foreground">Free Over $199</div>
-                            <div className="text-xs text-muted-foreground mt-1">$15 flat rate under $199</div>
+                            <div className="font-bold text-foreground">Free Over $149</div>
+                            <div className="text-xs text-muted-foreground mt-1">$15 flat rate under $149</div>
                         </div>
                         <div>
                             <Package className="w-8 h-8 text-forest dark:text-lime mx-auto mb-3" />
@@ -795,7 +795,7 @@ export default function IndigenousCannabisDispensaryPage() {
                     </h2>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed mb-10">
                         Browse 360+ lab-tested, Empire Standard&trade; cannabis products from Canada&apos;s
-                        trusted Indigenous-owned dispensary. Tax-free pricing. Free shipping over $199.
+                        trusted Indigenous-owned dispensary. Tax-free pricing. Free shipping over $149.
                         Same-day processing. Discreet delivery to all 13 provinces and territories.
                     </p>
 
@@ -825,7 +825,7 @@ export default function IndigenousCannabisDispensaryPage() {
                         </div>
                         <div className="flex items-center gap-2">
                             <CheckCircle className="w-4 h-4 text-lime" />
-                            <span>Free Shipping Over $199</span>
+                            <span>Free Shipping Over $149</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <CheckCircle className="w-4 h-4 text-lime" />

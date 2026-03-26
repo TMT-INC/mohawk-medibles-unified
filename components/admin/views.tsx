@@ -1626,7 +1626,7 @@ export function ContentView() {
                                 { name: "Instagram", icon: Globe, color: "text-pink-400 border-pink-500/20", desc: "Posts, Reels, and Stories for engagement", pillar: "product_story" },
                                 { name: "Email", icon: Mail, color: "text-blue-400 border-blue-500/20", desc: "Campaign content for segmented audiences", pillar: "community" },
                                 { name: "Twitter/X", icon: MessageSquare, color: "text-cyan-400 border-cyan-500/20", desc: "Quick insights and engagement hooks", pillar: "education" },
-                                { name: "Google My Business", icon: Globe, color: "text-amber-400 border-amber-500/20", desc: "Local SEO posts for Six Nations discovery", pillar: "heritage" },
+                                { name: "Google My Business", icon: Globe, color: "text-amber-400 border-amber-500/20", desc: "Local SEO posts for Tyendinaga discovery", pillar: "heritage" },
                                 { name: "Product Copy", icon: Tag, color: "text-purple-400 border-purple-500/20", desc: "EEAT product descriptions with schema", pillar: "product_story" },
                             ].map(ch => (
                                 <div key={ch.name} className={`bg-[#0f0f18] border ${ch.color} rounded-2xl p-6 hover:bg-white/[0.02] transition-colors`}>
@@ -1794,7 +1794,7 @@ export function AgentsView() {
                             min={0}
                             max={1000}
                             value={config.freeShippingThreshold}
-                            onChange={(e) => setConfig({ ...config, freeShippingThreshold: parseInt(e.target.value) || 199 })}
+                            onChange={(e) => setConfig({ ...config, freeShippingThreshold: parseInt(e.target.value) || 149 })}
                             className="w-full mt-1 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm focus:outline-none focus:border-green-500/50"
                         />
                     </div>
@@ -2038,7 +2038,7 @@ export function SettingsView() {
                             { label: "Email From", value: "orders@mohawkmedibles.ca" },
                             { label: "Currency", value: "CAD (Canadian Dollar)" },
                             { label: "Timezone", value: "America/Toronto (ET)" },
-                            { label: "Location", value: "Six Nations of the Grand River, Ontario" },
+                            { label: "Location", value: "Tyendinaga Mohawk Territory, Ontario" },
                         ].map(item => (
                             <div key={item.label}>
                                 <label className="text-xs text-zinc-500">{item.label}</label>

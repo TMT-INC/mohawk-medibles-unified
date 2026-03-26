@@ -7,7 +7,7 @@ interface CartUpsellNudgeProps {
   subtotal: number;
 }
 
-const FREE_SHIPPING_THRESHOLD = 199;
+const FREE_SHIPPING_THRESHOLD = 149;
 
 function formatPrice(amount: number) {
   return `$${amount.toFixed(2)}`;

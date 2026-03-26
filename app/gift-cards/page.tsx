@@ -379,7 +379,7 @@ export default function GiftCardsPage() {
                         &mdash; or set a custom amount up to $500. Each gift card is delivered instantly via
                         email with a unique redemption code. Redeemable on our full catalogue of 360+ products
                         including flower, edibles, concentrates, vapes, and more. As an Indigenous-owned
-                        dispensary from Six Nations territory, every gift card supports community economic
+                        dispensary from Tyendinaga Mohawk Territory, every gift card supports community economic
                         sovereignty.
                     </p>
                 </div>

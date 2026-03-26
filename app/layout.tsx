@@ -29,9 +29,9 @@ const sora = Sora({
 // ─── SEO: Dynamic Metadata (tenant-aware) ───────────────────
 
 // Fallback values used when tenant fields are null
-const FALLBACK_TITLE = "Mohawk Medibles | Premium Indigenous Cannabis — Six Nations";
+const FALLBACK_TITLE = "Mohawk Medibles | Premium Indigenous Cannabis — Tyendinaga";
 const FALLBACK_DESCRIPTION =
-  "Indigenous-owned premium cannabis dispensary on Six Nations territory. 360+ lab-tested products: flower, edibles, concentrates, vapes. Empire Standard™ quality. Ships Canada-wide.";
+  "Indigenous-owned premium cannabis dispensary on Tyendinaga Mohawk Territory. 360+ lab-tested products: flower, edibles, concentrates, vapes. Empire Standard™ quality. Ships Canada-wide.";
 const FALLBACK_DOMAIN = "https://mohawkmedibles.ca";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -54,7 +54,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ? tenant.seoKeywords
       : [
           // English
-          "mohawk medibles", "indigenous cannabis", "six nations dispensary",
+          "mohawk medibles", "indigenous cannabis", "tyendinaga dispensary",
           "buy weed online canada", "premium cannabis ontario",
           "lab tested cannabis", "cannabis edibles", "cannabis delivery canada",
           "terpene profile", "empire standard cannabis",
@@ -69,7 +69,7 @@ export async function generateMetadata(): Promise<Metadata> {
           "acheter cannabis en ligne canada", "dispensaire cannabis autochtone",
           "livraison cannabis canada", "comestibles cannabis",
           "fleurs cannabis qualité", "concentrés cannabis",
-          "meilleur dispensaire en ligne canada", "cannabis Six Nations",
+          "meilleur dispensaire en ligne canada", "cannabis Tyendinaga",
           "cannabis testé en laboratoire", "vapoteuse cannabis canada",
         ],
     metadataBase: new URL(domainUrl),
@@ -134,7 +134,7 @@ export async function generateMetadata(): Promise<Metadata> {
     other: {
       "ai:brand": tenant.name,
       "ai:expertise": "Cannabis, Terpenes, THC, CBD, Indigenous Heritage, Cannabis Effects, Strain Selection, Pain Relief, Sleep Aid",
-      "ai:location": "Six Nations of the Grand River, Ontario, Canada",
+      "ai:location": "Tyendinaga Mohawk Territory, Ontario, Canada",
     },
   };
 }

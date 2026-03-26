@@ -114,8 +114,8 @@ const QUICK_REPLIES: [RegExp, () => string][] = [
         "Open every day, 10 AM to 10 PM ET. And if you order before 4 PM, it ships the same day. We don't play around with speed.",
     ])],
     [/\b(where|location|address|find\s*you)\b/i, () => pick([
-        "We're based on **Tyendinaga Mohawk Territory / Six Nations**, Ontario. Indigenous land, premium product. We ship Canada-wide via Xpresspost!",
-        "Home base is **Six Nations of the Grand River / Tyendinaga Mohawk Territory**, Ontario. We ship coast to coast across Canada!",
+        "We're based on **Tyendinaga Mohawk Territory**, Ontario. Indigenous land, premium product. We ship Canada-wide via Xpresspost!",
+        "Home base is **Tyendinaga Mohawk Territory / Tyendinaga Mohawk Territory**, Ontario. We ship coast to coast across Canada!",
     ])],
     [/\b(deliver|shipping|ship|how\s*long)\b.*\b(cost|free|price|long|take|time)\b/i, () => pick([
         "**Same-day** to Tyendinaga, Belleville, Deseronto. **Next-day** to Toronto, Hamilton, Brantford. **Canada-wide** via Xpresspost in 2-5 days. We move fast!",
@@ -167,7 +167,7 @@ interface PageEntry {
 
 const PAGE_INDEX: PageEntry[] = [
     { path: "/shop", keywords: ["shop", "store", "browse", "products", "buy", "catalog", "all"], title: "Shop All Products" },
-    { path: "/about", keywords: ["about", "story", "indigenous", "mohawk", "history", "six nations", "tyendinaga", "who"], title: "About Us" },
+    { path: "/about", keywords: ["about", "story", "indigenous", "mohawk", "history", "tyendinaga", "who"], title: "About Us" },
     { path: "/faq", keywords: ["faq", "questions", "help", "how", "answers", "info"], title: "FAQ" },
     { path: "/support", keywords: ["support", "help", "contact", "issue", "problem", "assistance"], title: "Support" },
     { path: "/reviews", keywords: ["reviews", "testimonials", "ratings", "stars", "feedback", "customers"], title: "Customer Reviews" },
@@ -395,9 +395,9 @@ export function turboRoute(message: string, sessionId?: string): TurboResponse {
                     model: "turbo",
                 };
             }
-            const shippingNote = cart.subtotal >= 199
+            const shippingNote = cart.subtotal >= 149
                 ? "You qualify for **FREE shipping**! 🎉"
-                : `Add **$${(199 - cart.subtotal).toFixed(2)}** more for **FREE shipping**.`;
+                : `Add **$${(149 - cart.subtotal).toFixed(2)}** more for **FREE shipping**.`;
 
             return {
                 handled: true,

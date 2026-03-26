@@ -38,7 +38,7 @@ const COMPLEMENTARY_MAP: Record<string, string[]> = {
   accessories: ["flower", "edibles", "pre-rolls"],
 };
 
-const FREE_SHIPPING_THRESHOLD = 199;
+const FREE_SHIPPING_THRESHOLD = 149;
 
 export const productsRouter = router({
   getSuggestions: publicProcedure
@@ -73,7 +73,7 @@ export const productsRouter = router({
 
       const suggestions = [];
 
-      // Priority 1: Products that would push cart over $199 (free shipping threshold)
+      // Priority 1: Products that would push cart over $149 (free shipping threshold)
       if (cartTotal < FREE_SHIPPING_THRESHOLD) {
         const remaining = FREE_SHIPPING_THRESHOLD - cartTotal;
         const thresholdProducts = await ctx.prisma.product.findMany({

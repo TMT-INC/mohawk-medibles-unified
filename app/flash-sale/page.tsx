@@ -250,7 +250,7 @@ export default async function FlashSalePage() {
                     </h2>
                     <p className="text-muted-foreground leading-relaxed">
                         Flash sales at Mohawk Medibles offer limited-time discounts on our premium, lab-tested
-                        cannabis products. As an Indigenous-owned dispensary operating from Six Nations territory,
+                        cannabis products. As an Indigenous-owned dispensary operating from Tyendinaga Mohawk Territory,
                         we bring Empire Standard&trade; quality to every product we sell. Our flash sales feature
                         deep discounts on flower, edibles, concentrates, vapes, and more &mdash; all shipped
                         discreetly across Canada with same-day processing on orders placed before 2 PM EST.

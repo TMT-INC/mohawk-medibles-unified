@@ -11,7 +11,7 @@ export const TERRITORY_GROWN_SLUGS = new Set<string>([
 // Keywords that auto-tag a product as territory-grown
 const TERRITORY_KEYWORDS = [
   "mohawk",
-  "six nations",
+  "tyendinaga",
   "indigenous",
   "territory",
   "tyendinaga",

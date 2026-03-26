@@ -3,7 +3,7 @@
  * ════════════════════════════════════════════════════
  * Primary SEO target: "indigenous cannabis rights canada" (800/mo, 0 competition)
  * Secondary: "treaty rights cannabis", "first nations cannabis rights",
- *            "indigenous sovereignty cannabis", "six nations cannabis"
+ *            "indigenous sovereignty cannabis", "tyendinaga cannabis"
  *
  * 2,500+ word educational thought-leadership page with Article, FAQPage,
  * and BreadcrumbList structured data for maximum SERP coverage.
@@ -31,14 +31,14 @@ const PAGE_URL = "https://mohawkmedibles.ca/indigenous-cannabis-rights-canada";
 export const metadata: Metadata = {
     title: "Indigenous Cannabis Rights Canada | Sovereignty & Treaty Rights",
     description:
-        "Explore Indigenous cannabis rights in Canada — how treaty rights, Section 35 sovereignty, and the Haudenosaunee Confederacy intersect with cannabis law. Learn about Six Nations cannabis operations, self-governance, and economic empowerment on First Nations territory.",
+        "Explore Indigenous cannabis rights in Canada — how treaty rights, Section 35 sovereignty, and the Haudenosaunee Confederacy intersect with cannabis law. Learn about Indigenous cannabis operations, self-governance, and economic empowerment on First Nations territory.",
     keywords: [
         "indigenous cannabis rights",
         "first nations cannabis",
         "indigenous sovereignty cannabis",
         "treaty rights cannabis canada",
         "mohawk cannabis dispensary",
-        "six nations cannabis",
+        "tyendinaga cannabis",
         "indigenous owned dispensary",
         "native dispensary canada",
         "indigenous cannabis law",
@@ -105,7 +105,7 @@ const FAQ_ITEMS = [
     {
         question: "How does Indigenous cannabis sovereignty support community economic development?",
         answer:
-            "Indigenous cannabis sovereignty creates direct economic benefits for First Nations communities through multiple channels: job creation on reserves where unemployment rates often exceed 25%, tax revenue that funds community infrastructure, healthcare, education, and cultural programs, skills development and entrepreneurship opportunities for Indigenous youth, and reduced dependence on government transfer payments. Mohawk Medibles, for example, operates from Six Nations territory and reinvests a significant portion of revenue into community programs, youth initiatives, and cultural preservation. By keeping economic activity within Indigenous communities, cannabis sovereignty helps address generations of economic marginalization.",
+            "Indigenous cannabis sovereignty creates direct economic benefits for First Nations communities through multiple channels: job creation on reserves where unemployment rates often exceed 25%, tax revenue that funds community infrastructure, healthcare, education, and cultural programs, skills development and entrepreneurship opportunities for Indigenous youth, and reduced dependence on government transfer payments. Mohawk Medibles, for example, operates from Tyendinaga Mohawk Territory and reinvests a significant portion of revenue into community programs, youth initiatives, and cultural preservation. By keeping economic activity within Indigenous communities, cannabis sovereignty helps address generations of economic marginalization.",
     },
     {
         question: "What is the difference between provincial cannabis regulations and Indigenous cannabis rights?",
@@ -115,7 +115,7 @@ const FAQ_ITEMS = [
     {
         question: "How does Mohawk Medibles exercise Indigenous cannabis sovereignty?",
         answer:
-            "Mohawk Medibles exercises Indigenous cannabis sovereignty by operating as an Indigenous-owned and operated cannabis dispensary from Six Nations territory. The dispensary maintains rigorous quality standards through its Empire Standard quality program, which includes third-party lab testing for potency and contaminants, terpene profiling, and strict product curation. Mohawk Medibles serves customers across all 13 Canadian provinces and territories with over 360 premium products, provides employment and economic opportunities within the Mohawk community, and reinvests revenue into community development. The business represents a practical example of how Indigenous self-governance and economic sovereignty can operate successfully within the cannabis sector.",
+            "Mohawk Medibles exercises Indigenous cannabis sovereignty by operating as an Indigenous-owned and operated cannabis dispensary from Tyendinaga Mohawk Territory. The dispensary maintains rigorous quality standards through its Empire Standard quality program, which includes third-party lab testing for potency and contaminants, terpene profiling, and strict product curation. Mohawk Medibles serves customers across all 13 Canadian provinces and territories with over 360 premium products, provides employment and economic opportunities within the Mohawk community, and reinvests revenue into community development. The business represents a practical example of how Indigenous self-governance and economic sovereignty can operate successfully within the cannabis sector.",
     },
     {
         question: "Why should Canadians support Indigenous-owned cannabis businesses?",
@@ -132,19 +132,19 @@ function buildPageSchema(): string {
             title: "Indigenous Cannabis Rights in Canada: Sovereignty, Treaty Rights & Self-Governance",
             slug: "../indigenous-cannabis-rights-canada",
             description:
-                "A comprehensive educational guide to Indigenous cannabis rights in Canada, covering treaty rights, Section 35 sovereignty, the Cannabis Act, Six Nations operations, and economic self-determination.",
+                "A comprehensive educational guide to Indigenous cannabis rights in Canada, covering treaty rights, Section 35 sovereignty, the Cannabis Act, Indigenous cannabis operations, and economic self-determination.",
             datePublished: "2026-03-12",
             dateModified: "2026-03-12",
             image: "https://mohawkmedibles.ca/og-image.png",
             authorName: "Mohawk Medibles Team",
             authorCredentials:
-                "Indigenous-owned cannabis dispensary operating from Six Nations territory since 2019, serving 47,000+ customers across Canada with deep roots in Haudenosaunee sovereignty and self-governance.",
+                "Indigenous-owned cannabis dispensary operating from Tyendinaga Mohawk Territory since 2018, serving 47,000+ customers across Canada with deep roots in Haudenosaunee sovereignty and self-governance.",
             keywords: [
                 "indigenous cannabis rights",
                 "treaty rights cannabis canada",
                 "indigenous sovereignty cannabis",
                 "first nations cannabis",
-                "six nations cannabis",
+                "tyendinaga cannabis",
                 "section 35 cannabis",
             ],
             wordCount: 2700,
@@ -210,7 +210,7 @@ export default function IndigenousCannabisRightsPage() {
                         <Link href="/about" className="text-forest dark:text-lime hover:underline font-semibold">
                             Mohawk Medibles
                         </Link>
-                        , an Indigenous-owned dispensary operating from Six Nations territory since 2019.
+                        , an Indigenous-owned dispensary operating from Tyendinaga Mohawk Territory since 2018.
                     </p>
 
                     <div className="flex items-center gap-4 mt-6 text-xs text-muted-foreground">
@@ -285,7 +285,7 @@ export default function IndigenousCannabisRightsPage() {
                             <Link href="/indigenous-cannabis-dispensary-canada" className="text-forest dark:text-lime hover:underline font-semibold">
                                 Mohawk Medibles
                             </Link>
-                            , an Indigenous-owned dispensary operating from Six Nations territory, explores how treaty rights,
+                            , an Indigenous-owned dispensary operating from Tyendinaga Mohawk Territory, explores how treaty rights,
                             constitutional protections, and First Nations self-governance intersect with cannabis law in
                             Canada. Our goal is education, not legal advice &mdash; and we encourage readers to engage with
                             these issues with the respect and curiosity they deserve.
@@ -446,7 +446,7 @@ export default function IndigenousCannabisRightsPage() {
                             <Link href="/about" className="text-forest dark:text-lime hover:underline font-semibold">
                                 Mohawk Medibles
                             </Link>{" "}
-                            was founded in 2019 on Mohawk territory as a community-focused cannabis operation. What began
+                            was founded in February 2018 on Mohawk territory as a community-focused cannabis operation. What began
                             as a small local dispensary has grown into one of Canada&apos;s most trusted Indigenous-owned
                             online dispensaries, serving customers in all 13 provinces and territories with over 360
                             premium, lab-tested products.
@@ -694,7 +694,7 @@ export default function IndigenousCannabisRightsPage() {
                         <p>
                             Indigenous-owned cannabis businesses are uniquely positioned to reinvest in their communities
                             because their owners, employees, and customers are often one and the same community. At Mohawk
-                            Medibles, a significant portion of revenue goes directly back into Six Nations through
+                            Medibles, a significant portion of revenue goes directly back into the community through
                             employment, community program support, and local procurement. This model of community-centered
                             business is deeply rooted in Indigenous values of reciprocity and collective well-being.
                         </p>
@@ -709,7 +709,7 @@ export default function IndigenousCannabisRightsPage() {
                             <Link href="/shop" className="text-forest dark:text-lime hover:underline font-semibold">
                                 360+ products
                             </Link>
-                            . With free shipping on orders over $199,{" "}
+                            . With free shipping on orders over $149,{" "}
                             <Link href="/delivery" className="text-forest dark:text-lime hover:underline font-semibold">
                                 delivery across all 13 provinces and territories
                             </Link>
@@ -753,7 +753,7 @@ export default function IndigenousCannabisRightsPage() {
                     <p className="text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
                         Every purchase from an Indigenous-owned dispensary is an act of reconciliation. Shop Mohawk
                         Medibles for 360+ premium, lab-tested cannabis products shipped free across Canada on orders
-                        over $199. Indigenous-owned. Community-powered. Quality-guaranteed.
+                        over $149. Indigenous-owned. Community-powered. Quality-guaranteed.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link
@@ -808,7 +808,7 @@ export default function IndigenousCannabisRightsPage() {
                                 Our Story
                             </h3>
                             <p className="text-sm text-muted-foreground">
-                                The history and mission of Mohawk Medibles &mdash; from Six Nations territory to all of Canada.
+                                The history and mission of Mohawk Medibles &mdash; from Tyendinaga Mohawk Territory to all of Canada.
                             </p>
                         </Link>
                         <Link
@@ -819,7 +819,7 @@ export default function IndigenousCannabisRightsPage() {
                                 Delivery Across Canada
                             </h3>
                             <p className="text-sm text-muted-foreground">
-                                Free shipping on orders over $199 to all 13 provinces and territories via Canada Post Xpresspost.
+                                Free shipping on orders over $149 to all 13 provinces and territories via Canada Post Xpresspost.
                             </p>
                         </Link>
                     </div>

@@ -196,7 +196,7 @@ function productOG(slug: string) {
                     {/* Bottom: tagline */}
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "16px" }}>
-                            Premium Indigenous Cannabis — Six Nations Territory
+                            Premium Indigenous Cannabis — Tyendinaga Mohawk Territory
                         </span>
                         <span style={{ color: BRAND_GOLD, fontSize: "14px", fontWeight: 700, letterSpacing: "0.15em" }}>
                             EMPIRE STANDARD™
@@ -361,7 +361,7 @@ function categoryOG(categoryName: string) {
                         {count > 0 ? `${count} Premium Products` : "Browse Our Collection"}
                     </span>
                     <span style={{ color: "rgba(255,255,255,0.4)", fontSize: "16px" }}>
-                        Premium Indigenous Cannabis — Six Nations Territory
+                        Premium Indigenous Cannabis — Tyendinaga Mohawk Territory
                     </span>
                 </div>
             </div>

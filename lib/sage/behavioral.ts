@@ -247,18 +247,18 @@ export function buildBehavioralContext(behavior: BrowsingBehavior, cartTotal?: n
             .map((item) => `  • ${item.name} × ${item.quantity} — $${(item.price * item.quantity).toFixed(2)}`)
             .join("\n");
         const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-        const remaining = 199 - total;
+        const remaining = 149 - total;
 
         parts.push(`CART CONTENTS (${cartItems.length} item${cartItems.length !== 1 ? "s" : ""}, $${total.toFixed(2)} total):\n${itemList}\n${
             remaining > 0
-                ? `Customer is $${remaining.toFixed(2)} away from free shipping ($199+ threshold).`
+                ? `Customer is $${remaining.toFixed(2)} away from free shipping ($149+ threshold).`
                 : `Customer qualifies for FREE shipping.`
         }\nIMPORTANT: You know exactly what is in the customer's cart. When they ask about their cart, list the items by name. When they ask to remove something, identify the exact item and use [ACTION: REMOVE_FROM_CART] with the item name. To clear everything, use [ACTION: CLEAR_CART].`);
     } else if (cartTotal !== undefined && cartTotal > 0) {
         // Fallback to total-only awareness
-        const remaining = 199 - cartTotal;
+        const remaining = 149 - cartTotal;
         if (remaining > 0) {
-            parts.push(`CART STATUS: Customer has $${cartTotal.toFixed(2)} in their cart. They are $${remaining.toFixed(2)} away from free shipping ($199+ threshold). If it comes up naturally, you can mention this — but never push products just to hit the threshold.`);
+            parts.push(`CART STATUS: Customer has $${cartTotal.toFixed(2)} in their cart. They are $${remaining.toFixed(2)} away from free shipping ($149+ threshold). If it comes up naturally, you can mention this — but never push products just to hit the threshold.`);
         } else {
             parts.push(`CART STATUS: Customer has $${cartTotal.toFixed(2)} in their cart and qualifies for FREE shipping. If they ask about shipping, reassure them.`);
         }

@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
         "@context": "https://schema.org",
         "@type": "ItemList",
         name: "Mohawk Medibles Product Catalog",
-        description: "Premium cannabis products from Six Nations — flower, edibles, concentrates, and more.",
+        description: "Premium cannabis products from Tyendinaga Mohawk Territory — flower, edibles, concentrates, and more.",
         url: `${SITE_URL}/shop`,
         numberOfItems: products.length,
         itemListElement: products.map((product, index) => ({

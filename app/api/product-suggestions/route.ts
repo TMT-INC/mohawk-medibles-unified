@@ -5,7 +5,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 
-const FREE_SHIPPING_THRESHOLD = 199;
+const FREE_SHIPPING_THRESHOLD = 149;
 
 const COMPLEMENTARY_MAP: Record<string, string[]> = {
   flower: ["accessories", "rolling-papers", "grinders", "lighters", "pre-rolls"],

@@ -5,9 +5,9 @@ import type { Metadata } from "next";
 import ShippingPolicyClient from "./ShippingPolicyClient";
 
 export const metadata: Metadata = {
-    title: "Shipping Policy — Free Shipping Over $199 Canada-Wide",
+    title: "Shipping Policy — Free Shipping Over $149 Canada-Wide",
     description:
-        "Mohawk Medibles shipping info. Free shipping over $199 CAD. Canada-wide Xpresspost delivery in 1-5 business days. Discreet packaging, full tracking, same-day local delivery.",
+        "Mohawk Medibles shipping info. Free shipping over $149 CAD. Canada-wide Xpresspost delivery in 1-5 business days. Discreet packaging, full tracking, same-day local delivery.",
     keywords: [
         "cannabis shipping canada",
         "free shipping cannabis",
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
         "same day cannabis delivery ontario",
     ],
     openGraph: {
-        title: "Shipping Policy — Free Shipping Over $199",
+        title: "Shipping Policy — Free Shipping Over $149",
         description:
-            "Free shipping over $199 CAD. Canada-wide Xpresspost in 1-5 business days. Discreet packaging & full tracking.",
+            "Free shipping over $149 CAD. Canada-wide Xpresspost in 1-5 business days. Discreet packaging & full tracking.",
         url: "https://mohawkmedibles.ca/shipping-policy",
         type: "website",
     },

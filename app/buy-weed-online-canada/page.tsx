@@ -41,9 +41,9 @@ import { faqSchema, breadcrumbSchema, buildSchemaGraph } from "@/lib/seo/schemas
 const PAGE_URL = "https://mohawkmedibles.ca/buy-weed-online-canada";
 
 export const metadata: Metadata = {
-    title: "Buy Weed Online Canada — Free Shipping Over $199",
+    title: "Buy Weed Online Canada — Free Shipping Over $149",
     description:
-        "Buy weed online in Canada from Mohawk Medibles. 360+ lab-tested products, free shipping over $199, discreet delivery. Shop now!",
+        "Buy weed online in Canada from Mohawk Medibles. 360+ lab-tested products, free shipping over $149, discreet delivery. Shop now!",
     keywords: [
         "buy weed online canada",
         "order cannabis online",
@@ -70,9 +70,9 @@ export const metadata: Metadata = {
         "Mohawk Medibles",
     ],
     openGraph: {
-        title: "Buy Weed Online Canada — Free Shipping Over $199",
+        title: "Buy Weed Online Canada — Free Shipping Over $149",
         description:
-            "Canada's trusted online dispensary. 360+ lab-tested products, AAAA flower, edibles, concentrates & more. Free shipping over $199. Indigenous-owned since 2019.",
+            "Canada's trusted online dispensary. 360+ lab-tested products, AAAA flower, edibles, concentrates & more. Free shipping over $149. Indigenous-owned since 2018.",
         url: PAGE_URL,
         type: "website",
         images: ["/og-image.png"],
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Buy Weed Online Canada",
         description:
-            "360+ lab-tested cannabis products. Free shipping over $199. Indigenous-owned. Shop Canada's most trusted online dispensary.",
+            "360+ lab-tested cannabis products. Free shipping over $149. Indigenous-owned. Shop Canada's most trusted online dispensary.",
     },
     alternates: {
         canonical: PAGE_URL,
@@ -103,7 +103,7 @@ const FAQ_ITEMS = [
     {
         question: "Is it safe to buy weed online in Canada?",
         answer:
-            "Yes, buying weed online from a reputable Canadian dispensary like Mohawk Medibles is safe and discreet. We use secure payment processing (credit card, Interac e-Transfer, and cryptocurrency), ship in smell-proof, unmarked packaging via Canada Post Xpresspost with full tracking, and every product is third-party lab tested for potency and contaminants. We have served over 25,000 customers since 2019 with a 4.8-star average rating across 2,847 verified reviews.",
+            "Yes, buying weed online from a reputable Canadian dispensary like Mohawk Medibles is safe and discreet. We use secure payment processing (credit card, Interac e-Transfer, and cryptocurrency), ship in smell-proof, unmarked packaging via Canada Post Xpresspost with full tracking, and every product is third-party lab tested for potency and contaminants. We have served over 25,000 customers since 2018 with a 4.8-star average rating across 2,847 verified reviews.",
     },
     {
         question: "How long does weed delivery take in Canada?",
@@ -113,12 +113,12 @@ const FAQ_ITEMS = [
     {
         question: "What is the best online dispensary in Canada?",
         answer:
-            "Mohawk Medibles is consistently rated one of the best online dispensaries in Canada. We are Indigenous-owned and have been operating since 2019, offering 360+ lab-tested products across flower, edibles, concentrates, vapes, hash, pre-rolls, CBD, and mushrooms. Our Empire Standard\u2122 quality program ensures every product meets rigorous potency, terpene, and contaminant testing standards. With free shipping over $199, tax-free pricing, and over 25,000 satisfied customers across all 13 provinces and territories, we deliver the quality, selection, and value that Canadian cannabis buyers trust.",
+            "Mohawk Medibles is consistently rated one of the best online dispensaries in Canada. We are Indigenous-owned and have been operating since 2018, offering 360+ lab-tested products across flower, edibles, concentrates, vapes, hash, pre-rolls, CBD, and mushrooms. Our Empire Standard\u2122 quality program ensures every product meets rigorous potency, terpene, and contaminant testing standards. With free shipping over $149, tax-free pricing, and over 25,000 satisfied customers across all 13 provinces and territories, we deliver the quality, selection, and value that Canadian cannabis buyers trust.",
     },
     {
         question: "Do you offer free shipping on online weed orders?",
         answer:
-            "Yes! Mohawk Medibles offers free shipping on all orders over $199. Orders under $199 ship for a flat rate of $15. All orders are shipped via Canada Post Xpresspost with full tracking and discreet, smell-proof packaging. We ship to every province and territory in Canada, and most orders arrive within 2-5 business days.",
+            "Yes! Mohawk Medibles offers free shipping on all orders over $149. Orders under $149 ship for a flat rate of $15. All orders are shipped via Canada Post Xpresspost with full tracking and discreet, smell-proof packaging. We ship to every province and territory in Canada, and most orders arrive within 2-5 business days.",
     },
     {
         question: "What payment methods can I use to buy weed online?",
@@ -143,12 +143,12 @@ const FAQ_ITEMS = [
     {
         question: "What makes Mohawk Medibles different from other online dispensaries?",
         answer:
-            "Mohawk Medibles stands apart in several key ways: We are authentically Indigenous-owned and operated since 2019, not a corporate brand. Our Empire Standard\u2122 quality program ensures every product is lab-tested for potency, terpenes, and contaminants. We offer tax-free pricing that is more affordable than government dispensaries. We carry 360+ products across 8 categories. We offer free shipping over $199. A portion of every purchase supports Indigenous community programs. And we have maintained a 4.8-star rating across 2,847 verified reviews from over 25,000 customers.",
+            "Mohawk Medibles stands apart in several key ways: We are authentically Indigenous-owned and operated since 2018, not a corporate brand. Our Empire Standard\u2122 quality program ensures every product is lab-tested for potency, terpenes, and contaminants. We offer tax-free pricing that is more affordable than government dispensaries. We carry 360+ products across 8 categories. We offer free shipping over $149. A portion of every purchase supports Indigenous community programs. And we have maintained a 4.8-star rating across 2,847 verified reviews from over 25,000 customers.",
     },
     {
         question: "Is buying weed online legal in Canada?",
         answer:
-            "Cannabis was federally legalized in Canada on October 17, 2018 under the Cannabis Act. Adults aged 19+ (18+ in Alberta and Quebec) can legally purchase and possess cannabis. Mohawk Medibles operates as an Indigenous-owned dispensary under the inherent sovereignty and self-governance rights of the Mohawk Nation, which predate Canadian confederation and are protected under Section 35 of the Constitution Act, 1982. We have been reliably serving Canadian customers since 2019.",
+            "Cannabis was federally legalized in Canada on October 17, 2018 under the Cannabis Act. Adults aged 19+ (18+ in Alberta and Quebec) can legally purchase and possess cannabis. Mohawk Medibles operates as an Indigenous-owned dispensary under the inherent sovereignty and self-governance rights of the Mohawk Nation, which predate Canadian confederation and are protected under Section 35 of the Constitution Act, 1982. We have been reliably serving Canadian customers since 2018.",
     },
 ];
 
@@ -244,7 +244,7 @@ function buildPageSchema(): string {
         "@id": `${PAGE_URL}/#webpage`,
         name: "Buy Weed Online Canada",
         description:
-            "Buy weed online in Canada from Mohawk Medibles. 360+ lab-tested products, free shipping over $199, discreet delivery to all 13 provinces.",
+            "Buy weed online in Canada from Mohawk Medibles. 360+ lab-tested products, free shipping over $149, discreet delivery to all 13 provinces.",
         url: PAGE_URL,
         isPartOf: { "@id": "https://mohawkmedibles.ca/#website" },
         about: { "@id": "https://mohawkmedibles.ca/#organization" },
@@ -310,7 +310,7 @@ export default function BuyWeedOnlineCanadaPage() {
                     <div className="max-w-4xl">
                         <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime/15 border border-lime/30 text-lime text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
                             <span className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse" />
-                            Indigenous-Owned &bull; Trusted Since 2019
+                            Indigenous-Owned &bull; Trusted Since 2018
                         </span>
 
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter font-display leading-[0.9] mb-6">
@@ -326,7 +326,7 @@ export default function BuyWeedOnlineCanadaPage() {
                             Indigenous-owned <strong className="text-foreground">online cannabis dispensary</strong>.
                             Browse <strong className="text-foreground">360+ lab-tested products</strong> — from AAAA
                             flower and potent edibles to premium concentrates, vapes, and more. Enjoy{" "}
-                            <strong className="text-foreground">free shipping on orders over $199</strong>, tax-free
+                            <strong className="text-foreground">free shipping on orders over $149</strong>, tax-free
                             pricing, and discreet delivery to every province and territory in Canada.
                         </p>
 
@@ -351,7 +351,7 @@ export default function BuyWeedOnlineCanadaPage() {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
                         {[
                             { icon: FlaskRound, text: "Lab-Tested Products" },
-                            { icon: Truck, text: "Free Shipping $199+" },
+                            { icon: Truck, text: "Free Shipping $149+" },
                             { icon: Shield, text: "Indigenous-Owned" },
                             { icon: Lock, text: "Secure Checkout" },
                         ].map(({ icon: Icon, text }) => (
@@ -388,7 +388,7 @@ export default function BuyWeedOnlineCanadaPage() {
                             <span className="text-forest dark:text-lime">Buy Weed Online</span>
                         </h2>
                         <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-lg">
-                            Since 2019, over 25,000 Canadians have trusted Mohawk Medibles as their go-to{" "}
+                            Since 2018, over 25,000 Canadians have trusted Mohawk Medibles as their go-to{" "}
                             <strong className="text-foreground">online dispensary in Canada</strong>. Here&apos;s why.
                         </p>
                     </div>
@@ -397,9 +397,9 @@ export default function BuyWeedOnlineCanadaPage() {
                         {[
                             {
                                 icon: Shield,
-                                title: "Indigenous-Owned Since 2019",
+                                title: "Indigenous-Owned Since 2018",
                                 description:
-                                    "Mohawk Medibles is authentically Indigenous-owned and operated from Six Nations territory. When you buy weed online from us, you support Indigenous economic sovereignty and community programs. We are not a corporate cannabis brand — we are a community-rooted business with deep cultural heritage.",
+                                    "Mohawk Medibles is authentically Indigenous-owned and operated from Tyendinaga Mohawk Territory. When you buy weed online from us, you support Indigenous economic sovereignty and community programs. We are not a corporate cannabis brand — we are a community-rooted business with deep cultural heritage.",
                             },
                             {
                                 icon: Award,
@@ -520,7 +520,7 @@ export default function BuyWeedOnlineCanadaPage() {
                                 icon: Truck,
                                 title: "Discreet Delivery",
                                 description:
-                                    "Your order is packed in smell-proof, unmarked packaging and shipped via Canada Post Xpresspost with full tracking. Free shipping on orders over $199, flat $15 rate for orders under $199. Delivery takes 2-5 business days.",
+                                    "Your order is packed in smell-proof, unmarked packaging and shipped via Canada Post Xpresspost with full tracking. Free shipping on orders over $149, flat $15 rate for orders under $149. Delivery takes 2-5 business days.",
                             },
                         ].map(({ step, icon: Icon, title, description }) => (
                             <div key={step} className="glass-card backdrop-blur-xl border border-border rounded-2xl p-8 relative">
@@ -618,8 +618,8 @@ export default function BuyWeedOnlineCanadaPage() {
                         {[
                             {
                                 icon: Truck,
-                                title: "Free Shipping Over $199",
-                                detail: "Orders under $199 ship for a flat $15",
+                                title: "Free Shipping Over $149",
+                                detail: "Orders under $149 ship for a flat $15",
                             },
                             {
                                 icon: Clock,
@@ -770,7 +770,7 @@ export default function BuyWeedOnlineCanadaPage() {
                         <p>
                             When you <strong className="text-foreground">buy weed online</strong> from Mohawk Medibles,
                             your purchase directly supports Indigenous economic sovereignty and community development.
-                            We are a genuinely Indigenous-owned business operating from Six Nations territory, and a
+                            We are a genuinely Indigenous-owned business operating from Tyendinaga Mohawk Territory, and a
                             portion of every order goes toward community programs, youth initiatives, and cultural
                             preservation. Learn more{" "}
                             <Link href="/indigenous-cannabis-dispensary-canada" className="text-forest dark:text-lime font-semibold hover:underline">
@@ -852,7 +852,7 @@ export default function BuyWeedOnlineCanadaPage() {
                             },
                             {
                                 icon: Shield,
-                                title: "Since 2019",
+                                title: "Since 2018",
                                 detail: "Over 6 years of reliable service, 25K+ customers, and zero data breaches",
                             },
                         ].map(({ icon: Icon, title, detail }) => (
@@ -880,7 +880,7 @@ export default function BuyWeedOnlineCanadaPage() {
                     </h2>
                     <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
                         Join over 25,000 Canadians who trust Mohawk Medibles for premium, lab-tested cannabis
-                        delivered discreetly to their door. Free shipping on orders over $199.
+                        delivered discreetly to their door. Free shipping on orders over $149.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link

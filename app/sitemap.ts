@@ -8,6 +8,7 @@ import { MetadataRoute } from "next";
 import { getAllProducts } from "@/lib/products";
 import { getAllBlogPosts } from "@/data/blog/posts";
 import { getAllCities, getAllProvinces } from "@/lib/seo/city-delivery-data";
+import { COMPETITORS } from "@/data/comparisons";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.ca";
 
@@ -241,5 +242,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
     ];
 
-    return [...staticPages, ...categoryPages, ...brandPages, ...provincialPages, ...provinceDeliveryPages, ...cityDeliveryPages2, ...cannabisLawPages, ...blogPages, ...productPages, ...llmsEntry];
+    // ─── Dispensary Comparison Pages ─────────────────────────
+    const comparisonIndex: MetadataRoute.Sitemap = [
+        {
+            url: `${BASE_URL}/compare-dispensary`,
+            lastModified: now,
+            changeFrequency: "weekly" as const,
+            priority: 0.8,
+        },
+    ];
+    const comparisonPages: MetadataRoute.Sitemap = COMPETITORS.map((comp) => ({
+        url: `${BASE_URL}/compare-dispensary/${comp.slug}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.75,
+    }));
+
+    return [...staticPages, ...categoryPages, ...brandPages, ...provincialPages, ...provinceDeliveryPages, ...cityDeliveryPages2, ...cannabisLawPages, ...comparisonIndex, ...comparisonPages, ...blogPages, ...productPages, ...llmsEntry];
 }

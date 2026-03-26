@@ -22,7 +22,7 @@ interface SuggestionsResponse {
   freeShippingRemaining: number;
 }
 
-const FREE_SHIPPING_THRESHOLD = 199;
+const FREE_SHIPPING_THRESHOLD = 149;
 
 const REASON_LABELS: Record<string, string> = {
   freeShipping: "Get free shipping",

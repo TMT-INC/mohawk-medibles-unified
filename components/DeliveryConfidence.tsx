@@ -5,7 +5,7 @@ import { Truck, Clock, Package, ShieldCheck, MapPin } from "lucide-react";
 const badges = [
   {
     icon: Truck,
-    title: "Free Shipping $199+",
+    title: "Free Shipping $149+",
     desc: "Via Canada Post & Purolator",
   },
   {

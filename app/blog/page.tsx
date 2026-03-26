@@ -49,7 +49,7 @@ export default function BlogPage() {
                     </h1>
                     <p className="text-xl text-muted-foreground max-w-2xl">
                         Cannabis science, dosing guides, and product education from our team
-                        on Six Nations territory.
+                        on Tyendinaga Mohawk Territory.
                     </p>
                 </header>
 

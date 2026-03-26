@@ -917,7 +917,7 @@ export default async function ProvinceCannabisLawPage({
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Mohawk Medibles delivers premium, lab-tested cannabis products
                 to {law.name}. Browse our full selection of flower, edibles,
-                concentrates, vapes, and more. Free shipping on orders over $199.
+                concentrates, vapes, and more. Free shipping on orders over $149.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button asChild variant="brand" size="lg">

@@ -281,9 +281,9 @@ function CartStatusCard({ items, total, onCheckout, onClear }: {
                     <CreditCard className="h-3 w-3" /> Checkout
                 </button>
             </div>
-            {total < 199 && (
+            {total < 149 && (
                 <p className="text-[9px] text-lime/60 text-center">
-                    Add ${(199 - total).toFixed(2)} more for FREE shipping!
+                    Add ${(149 - total).toFixed(2)} more for FREE shipping!
                 </p>
             )}
         </div>

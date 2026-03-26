@@ -8,7 +8,7 @@ import DealsClient from "./DealsClient";
 export const metadata: Metadata = {
     title: "Cannabis Deals & Promotions — Save on Premium Weed",
     description:
-        "Save on premium lab-tested cannabis with active deals from Mohawk Medibles. Daily deals with countdown timers, free shipping over $199, bulk discounts, staff picks & best sellers. Indigenous-owned dispensary.",
+        "Save on premium lab-tested cannabis with active deals from Mohawk Medibles. Daily deals with countdown timers, free shipping over $149, bulk discounts, staff picks & best sellers. Indigenous-owned dispensary.",
     keywords: [
         "cannabis deals canada",
         "weed deals online",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Cannabis Deals & Promotions",
         description:
-            "Save on 360+ premium cannabis products. Daily deals with countdown timers, free shipping over $199, bulk discounts, and more.",
+            "Save on 360+ premium cannabis products. Daily deals with countdown timers, free shipping over $149, bulk discounts, and more.",
         url: "https://mohawkmedibles.ca/deals",
         type: "website",
         images: ["/og-image.png"],
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     twitter: {
         card: "summary_large_image",
         title: "Cannabis Deals",
-        description: "Premium cannabis deals. Free shipping over $199 Canada-wide.",
+        description: "Premium cannabis deals. Free shipping over $149 Canada-wide.",
     },
     alternates: {
         canonical: "https://mohawkmedibles.ca/deals",
@@ -93,7 +93,7 @@ export default async function DealsPage() {
                 </h2>
                 <div className="grid md:grid-cols-3 gap-8">
                     {[
-                        { title: "Free Shipping", desc: <>Free shipping on all orders over <span className="font-bold text-forest dark:text-lime">$199 CAD</span> — Canada-wide via Xpresspost. Fast, discreet, secure delivery.</>, href: "/shop", image: "/assets/cards/deals-shipping.webp" },
+                        { title: "Free Shipping", desc: <>Free shipping on all orders over <span className="font-bold text-forest dark:text-lime">$149 CAD</span> — Canada-wide via Xpresspost. Fast, discreet, secure delivery.</>, href: "/shop", image: "/assets/cards/deals-shipping.webp" },
                         { title: "Mix & Match", desc: <>Buy any <span className="font-bold text-forest dark:text-lime">3 edibles</span>, get <span className="font-bold text-forest dark:text-lime">10% off</span> your edible total. Mix flavors, strains, and potencies — your choice.</>, href: "/shop?category=Edibles", image: "/assets/cards/deals-mixmatch.webp" },
                         { title: "Bulk Savings", desc: <>Ounce deals starting at <span className="font-bold text-forest dark:text-lime">$40</span> — premium flower at unbeatable prices. Perfect for serious enthusiasts.</>, href: "/shop?category=Flower", image: "/assets/cards/deals-bulk.webp" },
                     ].map((offer) => (

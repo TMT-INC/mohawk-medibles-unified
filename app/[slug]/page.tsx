@@ -160,10 +160,10 @@ export default async function DynamicPage({ params }: PageProps) {
         "description": `Indigenous-owned premium cannabis dispensary delivering to ${provinceName}. Lab-tested, terpene-profiled products meeting the Empire Standard™.`,
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Six Nations of the Grand River",
-            "addressLocality": "Ohsweken",
+            "streetAddress": "Tyendinaga Mohawk Territory",
+            "addressLocality": "Deseronto",
             "addressRegion": "ON",
-            "postalCode": "N0A 1M0",
+            "postalCode": "K0K 1X0",
             "addressCountry": "CA"
         },
         "areaServed": {

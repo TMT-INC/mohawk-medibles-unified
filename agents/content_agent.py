@@ -23,7 +23,7 @@ from typing import Optional
 BRAND_VOICE = {
     "name": "Mohawk Medibles",
     "tagline": "The Empire Standard™",
-    "identity": "Indigenous-owned premium cannabis brand on Six Nations territory",
+    "identity": "Indigenous-owned premium cannabis brand on Tyendinaga Mohawk Territory",
     "tone": [
         "authoritative yet approachable",
         "scientifically grounded",
@@ -43,7 +43,7 @@ BRAND_VOICE = {
         "price comparisons",
     ],
     "hashtags": {
-        "primary": ["#MohawkMedibles", "#EmpireStandard", "#SixNationsGrown"],
+        "primary": ["#MohawkMedibles", "#EmpireStandard", "#TyendinagaGrown"],
         "product": ["#PremiumCannabis", "#CanadianCannabis", "#IndigenousOwned"],
         "education": ["#CannabisScience", "#TerpeneProfile", "#EntourageEffect"],
         "lifestyle": ["#ElevateYourExperience", "#CraftCannabis", "#CannabisCulture"],
@@ -76,11 +76,11 @@ CONTENT_PILLARS = {
     },
     "heritage": {
         "weight": 0.15,
-        "description": "Indigenous heritage and Six Nations pride",
+        "description": "Indigenous heritage and Tyendinaga pride",
         "topics": [
-            "Our journey: building the Empire Standard on Six Nations",
+            "Our journey: building the Empire Standard on Tyendinaga Mohawk Territory",
             "Traditional plant medicine meets modern cultivation",
-            "Community impact: how every purchase supports Six Nations",
+            "Community impact: how every purchase supports Tyendinaga",
             "The sacred relationship between indigenous peoples and the plant",
             "Preserving traditional knowledge through modern agriculture",
         ],
@@ -258,12 +258,12 @@ class ContentSocialAgent:
             "estimated_word_count": 1500,
             "author": {
                 "name": "Mohawk Medibles Cultivation Team",
-                "credentials": "Certified cannabis cultivators with 10+ years on Six Nations territory",
+                "credentials": "Certified cannabis cultivators with 10+ years on Tyendinaga Mohawk Territory",
                 "avatar": "/assets/logos/medibles-logo.png",
             },
             "outline": {
                 "h1": topic,
-                "intro": f"At Mohawk Medibles, we believe knowledge elevates experience. As Six Nations' premier cannabis authority, our cultivation team breaks down {topic.lower()} with the scientific rigor and traditional wisdom that defines the {self.brand['tagline']}.",
+                "intro": f"At Mohawk Medibles, we believe knowledge elevates experience. As Tyendinaga's premier cannabis authority, our cultivation team breaks down {topic.lower()} with the scientific rigor and traditional wisdom that defines the {self.brand['tagline']}.",
                 "sections": [
                     {
                         "h2": "What You Need to Know",
@@ -277,7 +277,7 @@ class ContentSocialAgent:
                     },
                     {
                         "h2": "Our Expert Perspective",
-                        "content": f"With over a decade of cultivation experience on Six Nations territory, our team has observed first-hand that...",
+                        "content": f"With over a decade of cultivation experience on Tyendinaga Mohawk Territory, our team has observed first-hand that...",
                         "word_count": 300,
                         "eeat_signal": "First-hand experience + expertise",
                     },
@@ -332,7 +332,7 @@ class ContentSocialAgent:
                 "This one's different. Here's why our team won't stop talking about it:",
             ],
             "heritage": [
-                "Built on Six Nations. Rooted in tradition. 🌿",
+                "Built on Tyendinaga Mohawk Territory. Rooted in tradition. 🌿",
                 "This isn't just a brand. It's a legacy.",
                 "From our ancestors to your experience — the story continues.",
             ],
@@ -352,9 +352,9 @@ class ContentSocialAgent:
         body_templates = {
             "education": f"{hook}\n\nWhen it comes to choosing the right product, knowledge is power. Here's what the science shows:\n\n→ Terpenes determine 70% of your experience\n→ Full-spectrum > isolate for therapeutic use\n→ The entourage effect is real and measurable\n\nAt Mohawk Medibles, we don't just sell cannabis — we educate. Because informed choices lead to better experiences.\n\nSave this for next time you're shopping. 📌",
             "product_story": f"{hook}\n\n{'🔬 Profile: Premium grade, hand-selected' if product else ''}\n{'📊 Lab-tested for potency and purity' if product else ''}\n{'🌿 Sourced with the Empire Standard™' if product else ''}\n\nEvery product on our shelf has been personally vetted by our cultivation team. No exceptions.\n\n{'Shop ' + product_name + ' → link in bio' if product else 'Explore → link in bio'}",
-            "heritage": f"{hook}\n\nAs an Indigenous-owned business on Six Nations territory, every product we curate carries the weight of tradition and the precision of modern science.\n\nThis isn't just commerce — it's cultural preservation through innovation.\n\nWe are Mohawk Medibles. And we hold ourselves to the Empire Standard™.",
+            "heritage": f"{hook}\n\nAs an Indigenous-owned business on Tyendinaga Mohawk Territory, every product we curate carries the weight of tradition and the precision of modern science.\n\nThis isn't just commerce — it's cultural preservation through innovation.\n\nWe are Mohawk Medibles. And we hold ourselves to the Empire Standard™.",
             "behind_scenes": f"{hook}\n\nQuality isn't a department here. It's every department.\n\n✓ Hand-inspected at every stage\n✓ Lab-tested for pesticides, potency, and purity\n✓ Stored at optimal temperature and humidity\n✓ Packaged with care — never rush-shipped\n\nThis is the Empire Standard™. And you deserve nothing less.",
-            "community": f"{hook}\n\nTo our community on Six Nations and beyond — thank you. Every order, every review, every recommendation means the world to us.\n\nWe're building something bigger than a business. We're building a movement.\n\n💚 Mohawk Medibles x Six Nations 🤝",
+            "community": f"{hook}\n\nTo our community on Tyendinaga Mohawk Territory and beyond — thank you. Every order, every review, every recommendation means the world to us.\n\nWe're building something bigger than a business. We're building a movement.\n\n💚 Mohawk Medibles x Tyendinaga 🤝",
         }
 
         caption = body_templates.get(pillar, body_templates["product_story"])
@@ -458,21 +458,21 @@ class ContentSocialAgent:
             "product_story": {
                 "type": "PRODUCT",
                 "title": f"New Arrival: {product.get('name', 'Premium Selection') if product else 'Premium Selection'}",
-                "body": f"Now available at Mohawk Medibles on Six Nations territory. Lab-tested, hand-selected, and held to the Empire Standard™. Visit us today or shop online at mohawkmedibles.ca.\n\n#MohawkMedibles #SixNations #PremiumCannabis",
+                "body": f"Now available at Mohawk Medibles on Tyendinaga Mohawk Territory. Lab-tested, hand-selected, and held to the Empire Standard™. Visit us today or shop online at mohawkmedibles.ca.\n\n#MohawkMedibles #Tyendinaga #PremiumCannabis",
                 "cta": "SHOP",
                 "cta_link": f"https://mohawkmedibles.ca/shop/{product.get('category', '')}/{product.get('slug', '')}/" if product else "https://mohawkmedibles.ca/shop/",
             },
             "education": {
                 "type": "WHATS_NEW",
                 "title": "Did You Know?",
-                "body": "Understanding terpene profiles can transform your cannabis experience. Our expert staff can help you find the perfect match for your needs. Visit Mohawk Medibles on Six Nations territory.\n\n#CannabisEducation #MohawkMedibles",
+                "body": "Understanding terpene profiles can transform your cannabis experience. Our expert staff can help you find the perfect match for your needs. Visit Mohawk Medibles on Tyendinaga Mohawk Territory.\n\n#CannabisEducation #MohawkMedibles",
                 "cta": "LEARN_MORE",
                 "cta_link": "https://mohawkmedibles.ca/blog/",
             },
             "community": {
                 "type": "EVENT",
                 "title": "Community Spotlight",
-                "body": "Supporting Six Nations through quality, employment, and cultural preservation. Every purchase at Mohawk Medibles strengthens our community.\n\n#IndigenousOwned #SixNations #MohawkMedibles",
+                "body": "Supporting Tyendinaga through quality, employment, and cultural preservation. Every purchase at Mohawk Medibles strengthens our community.\n\n#IndigenousOwned #Tyendinaga #MohawkMedibles",
                 "cta": "VISIT",
                 "cta_link": "https://mohawkmedibles.ca/about/",
             },
@@ -482,7 +482,7 @@ class ContentSocialAgent:
             "type": "gmb_post",
             **post_types.get(pillar, post_types["product_story"]),
             "local_seo_keywords": [
-                "cannabis Six Nations",
+                "cannabis Tyendinaga",
                 "dispensary near me",
                 "premium cannabis Ontario",
                 "Mohawk Medibles",
@@ -508,7 +508,7 @@ class ContentSocialAgent:
             "body": {
                 "header_image": "/assets/products/category-edibles.jpg",
                 "hero_text": f"Introducing {product_name}",
-                "body_copy": f"We don't release products lightly. Every item on our shelf has been personally vetted by our cultivation team on Six Nations territory.\n\n{product_name} met every metric of the Empire Standard™ — potency, purity, terpene profile, and visual quality.\n\nThis is what premium looks like.",
+                "body_copy": f"We don't release products lightly. Every item on our shelf has been personally vetted by our cultivation team on Tyendinaga Mohawk Territory.\n\n{product_name} met every metric of the Empire Standard™ — potency, purity, terpene profile, and visual quality.\n\nThis is what premium looks like.",
                 "cta_text": f"Shop {product_name}",
                 "cta_link": f"https://mohawkmedibles.ca/shop/{product.get('category', '')}/{product.get('slug', '')}/" if product else "https://mohawkmedibles.ca/shop/",
             },
@@ -530,7 +530,7 @@ class ContentSocialAgent:
                 "Lab-tested. Hand-selected. Held to the Empire Standard™.\n\nThat's the minimum.\n\nmohawkmedibles.ca\n\n#MohawkMedibles",
             ],
             "heritage": [
-                "Indigenous-owned. Six Nations grown. Empire Standard™ approved.\n\nThis is Mohawk Medibles.\n\n#IndigenousOwned #SixNations",
+                "Indigenous-owned. Tyendinaga grown. Empire Standard™ approved.\n\nThis is Mohawk Medibles.\n\n#IndigenousOwned #Tyendinaga",
                 "Our ancestors cultivated this plant for millennia.\n\nWe honor that legacy with every product.\n\n#MohawkMedibles #Heritage",
             ],
         }
@@ -573,9 +573,9 @@ class ContentSocialAgent:
             "product": name,
             "slug": slug,
             "short_description": f"✨ **{name}** — {profile['effect']}. Hand-selected for the Empire Standard™.",
-            "long_description": f"**{name}**\n\nCurated by our cultivation experts on Six Nations territory, {name} represents the pinnacle of the {category.replace('-2', '').replace('-', ' ')} category.\n\n**🔬 Aroma Profile:** {profile['aroma']}\n**⚡ Effect:** {profile['effect']}\n**👤 Best For:** {profile['best_for']}\n\nEvery batch is lab-tested for potency, purity, and pesticide-free verification. This is the Empire Standard™ — because you deserve transparency in every product.\n\n*Sourced and curated with pride on Six Nations territory.*",
+            "long_description": f"**{name}**\n\nCurated by our cultivation experts on Tyendinaga Mohawk Territory, {name} represents the pinnacle of the {category.replace('-2', '').replace('-', ' ')} category.\n\n**🔬 Aroma Profile:** {profile['aroma']}\n**⚡ Effect:** {profile['effect']}\n**👤 Best For:** {profile['best_for']}\n\nEvery batch is lab-tested for potency, purity, and pesticide-free verification. This is the Empire Standard™ — because you deserve transparency in every product.\n\n*Sourced and curated with pride on Tyendinaga Mohawk Territory.*",
             "seo": {
-                "alt_text": f"{name} — Premium {category.replace('-2', '').replace('-', ' ').title()} from Mohawk Medibles, Six Nations Ontario Canada",
+                "alt_text": f"{name} — Premium {category.replace('-2', '').replace('-', ' ').title()} from Mohawk Medibles, Tyendinaga Ontario Canada",
                 "meta_description": f"Shop {name} at Mohawk Medibles. {profile['effect']}. Lab-tested, Empire Standard™ approved. Free delivery across Canada.",
             },
         }

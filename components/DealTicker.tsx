@@ -2,7 +2,7 @@
 
 const DEALS = [
   { emoji: "🔥", text: "HOME OF THE $5 GRAM" },
-  { emoji: "🚚", text: "FREE SHIPPING ON ORDERS $199+" },
+  { emoji: "🚚", text: "FREE SHIPPING ON ORDERS $149+" },
   { emoji: "⚡", text: "SAME DAY DELIVERY AVAILABLE" },
   { emoji: "💳", text: "INTERAC • VISA/MC • BITCOIN" },
   { emoji: "🧪", text: "360+ LAB-TESTED PRODUCTS" },

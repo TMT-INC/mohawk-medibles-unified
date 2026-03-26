@@ -45,11 +45,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     // Tier 1 capitals get enhanced SEO titles
     const title = tier1
-        ? `Cannabis Delivery ${city.name} | Free Shipping Over $199`
+        ? `Cannabis Delivery ${city.name} | Free Shipping Over $149`
         : `Cannabis Delivery ${city.name} | Mohawk Medibles - Fast Shipping Across ${province.abbreviation}`;
     const description = tier1
-        ? `Order premium cannabis online in ${city.name}, ${province.abbreviation}. ${city.deliveryEstimate}. Lab-tested flower, edibles, concentrates & hash. Free shipping over $199. Discreet packaging.`
-        : `Order cannabis online in ${city.name}. Mohawk Medibles delivers premium flower, edibles, concentrates & more to ${city.name} & ${province.name}. Discreet packaging, free shipping over $199.`;
+        ? `Order premium cannabis online in ${city.name}, ${province.abbreviation}. ${city.deliveryEstimate}. Lab-tested flower, edibles, concentrates & hash. Free shipping over $149. Discreet packaging.`
+        : `Order cannabis online in ${city.name}. Mohawk Medibles delivers premium flower, edibles, concentrates & more to ${city.name} & ${province.name}. Discreet packaging, free shipping over $149.`;
     const url = `https://mohawkmedibles.ca/delivery/${province.slug}/${city.slug}`;
 
     const ogImageUrl = `/delivery/${province.slug}/${city.slug}/opengraph-image`;
@@ -162,8 +162,8 @@ export default async function CityDeliveryPage({ params }: PageProps) {
         description: `Indigenous-owned premium cannabis dispensary delivering to ${city.name}, ${province.name}. Lab-tested, terpene-profiled products meeting the Empire Standard™.`,
         address: {
             "@type": "PostalAddress",
-            streetAddress: "Six Nations of the Grand River",
-            addressLocality: "Ohsweken",
+            streetAddress: "Tyendinaga Mohawk Territory",
+            addressLocality: "Deseronto",
             addressRegion: "ON",
             addressCountry: "CA",
         },
@@ -259,7 +259,7 @@ export default async function CityDeliveryPage({ params }: PageProps) {
                                 </span>
                                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold text-white">
                                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" /></svg>
-                                    Free Shipping $199+
+                                    Free Shipping $149+
                                 </span>
                                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-semibold text-white">
                                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
@@ -385,7 +385,7 @@ export default async function CityDeliveryPage({ params }: PageProps) {
                                 },
                                 {
                                     title: "Free Shipping",
-                                    description: "Orders over $199 CAD ship free. Track your package every step of the way.",
+                                    description: "Orders over $149 CAD ship free. Track your package every step of the way.",
                                 },
                             ].map((feature) => (
                                 <div
@@ -420,11 +420,11 @@ export default async function CityDeliveryPage({ params }: PageProps) {
                                 },
                                 {
                                     label: "Free Shipping Threshold",
-                                    value: "$199 CAD or more",
+                                    value: "$149 CAD or more",
                                 },
                                 {
                                     label: "Shipping Cost",
-                                    value: "$15 flat rate under $199; Free over $199",
+                                    value: "$15 flat rate under $149; Free over $149",
                                 },
                                 {
                                     label: "Tracking",
@@ -604,7 +604,7 @@ export default async function CityDeliveryPage({ params }: PageProps) {
                             Order Cannabis in {city.name}
                         </h2>
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                            Fast, discreet delivery of premium cannabis products to {city.name}. Free shipping on orders over $199 CAD.
+                            Fast, discreet delivery of premium cannabis products to {city.name}. Free shipping on orders over $149 CAD.
                         </p>
                         <Link href="/shop">
                             <Button className="bg-secondary hover:bg-secondary/80 text-forest font-bold text-lg px-8 py-6 rounded-lg">

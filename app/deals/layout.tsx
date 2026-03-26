@@ -7,8 +7,8 @@ const breadcrumbJsonLd = breadcrumbSchema([
 ]);
 
 const dealsFaqJsonLd = faqSchema([
-    { question: "Does Mohawk Medibles offer free shipping?", answer: "Yes! All orders over $199 CAD ship free to any Canadian address via Canada Post Xpresspost with full tracking." },
-    { question: "What cannabis deals are currently available?", answer: "We offer free shipping on orders over $199, mix & match edible discounts when you buy 3+ items, and bulk ounce deals starting at $40 CAD. Check our deals page for the latest promotions." },
+    { question: "Does Mohawk Medibles offer free shipping?", answer: "Yes! All orders over $149 CAD ship free to any Canadian address via Canada Post Xpresspost with full tracking." },
+    { question: "What cannabis deals are currently available?", answer: "We offer free shipping on orders over $149, mix & match edible discounts when you buy 3+ items, and bulk ounce deals starting at $40 CAD. Check our deals page for the latest promotions." },
     { question: "Can I use a coupon code at checkout?", answer: "Yes, enter your coupon code in the checkout page. Coupons can provide percentage discounts, fixed amount savings, or free shipping. Only one coupon can be applied per order." },
     { question: "How often do new deals become available?", answer: "We update our deals and promotions regularly. Sign up for our newsletter to be the first to know about new offers, exclusive drops, and seasonal promotions." },
 ]);
@@ -16,7 +16,7 @@ const dealsFaqJsonLd = faqSchema([
 export const metadata: Metadata = {
     title: "Cannabis Deals & Promotions",
     description:
-        "Save on premium cannabis at Mohawk Medibles. Free shipping on orders over $199, mix & match edible discounts, ounce deals starting at $40 CAD. Indigenous-owned, Empire Standard™ quality. Ships Canada-wide.",
+        "Save on premium cannabis at Mohawk Medibles. Free shipping on orders over $149, mix & match edible discounts, ounce deals starting at $40 CAD. Indigenous-owned, Empire Standard™ quality. Ships Canada-wide.",
     keywords: [
         "cannabis deals Canada",
         "weed discounts",

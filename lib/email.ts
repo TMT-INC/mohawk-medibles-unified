@@ -56,13 +56,13 @@ export async function sendEmail({ to, subject, html, replyTo }: EmailOptions) {
 const BRAND_HEADER = `
 <div style="background-color:#2D5016;padding:24px;text-align:center;">
     <h1 style="color:white;font-size:24px;margin:0;font-family:system-ui;">🍃 Mohawk Medibles</h1>
-    <p style="color:#a0bba5;font-size:14px;margin:4px 0 0;">Premium Indigenous Cannabis • Six Nations Territory</p>
+    <p style="color:#a0bba5;font-size:14px;margin:4px 0 0;">Premium Indigenous Cannabis • Tyendinaga Mohawk Territory</p>
 </div>`;
 
 const BRAND_FOOTER = `
 <div style="background-color:#f5f5dc;padding:24px;text-align:center;font-size:12px;color:#4a5c40;">
     <p>Mohawk Medibles — Indigenous-Owned Cannabis Dispensary</p>
-    <p>Six Nations of the Grand River Territory, Ontario, Canada</p>
+    <p>Tyendinaga Mohawk Territory, Ontario, Canada</p>
     <p style="margin-top:12px;">
         <a href="https://mohawkmedibles.ca" style="color:#2D5016;">mohawkmedibles.ca</a>
     </p>
@@ -185,7 +185,7 @@ export async function sendWelcomeEmail(to: string, name: string) {
             <p style="margin:0;font-weight:bold;color:#2D5016;">What makes us different:</p>
             <ul style="color:#4a5c40;font-size:14px;">
                 <li>360+ lab-tested products meeting the Empire Standard™</li>
-                <li>Indigenous-owned, Six Nations of the Grand River Territory</li>
+                <li>Indigenous-owned, Tyendinaga Mohawk Territory</li>
                 <li>Discreet Canada-wide shipping via Xpresspost</li>
                 <li>Dedicated customer support</li>
             </ul>
@@ -275,7 +275,7 @@ export async function sendCartRecoveryEmail(
 
         <a href="https://mohawkmedibles.ca/checkout" style="display:inline-block;background:#2D5016;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">Complete Your Order</a>
 
-        <p style="color:#666;margin-top:20px;font-size:13px;">Orders over $199 ship FREE across Canada via Xpresspost.</p>
+        <p style="color:#666;margin-top:20px;font-size:13px;">Orders over $149 ship FREE across Canada via Xpresspost.</p>
     `);
 
     return sendEmail({ to, subject, html });
@@ -332,7 +332,7 @@ export async function sendAbandonedCartReminder(
 
         <a href="https://mohawkmedibles.ca/checkout" style="display:inline-block;background:#2D5016;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">Complete Your Order</a>
 
-        <p style="color:#666;margin-top:20px;font-size:13px;">Orders over $199 ship FREE across Canada. Don't miss out on your selection!</p>
+        <p style="color:#666;margin-top:20px;font-size:13px;">Orders over $149 ship FREE across Canada. Don't miss out on your selection!</p>
     `);
 
     return sendEmail({ to, subject: "Don't forget your cart! | Mohawk Medibles", html });

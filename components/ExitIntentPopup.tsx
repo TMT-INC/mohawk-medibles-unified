@@ -124,7 +124,7 @@ export function ExitIntentPopup() {
           </a>
 
           <p className="mt-4 text-xs text-muted-foreground">
-            Free shipping on orders over $199 &bull; Valid for 24 hours
+            Free shipping on orders over $149 &bull; Valid for 24 hours
           </p>
         </div>
       </div>

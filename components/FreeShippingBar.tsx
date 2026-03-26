@@ -3,7 +3,7 @@
 import { useCart } from "@/hooks/useCart";
 import { Truck } from "lucide-react";
 
-const FREE_SHIPPING_THRESHOLD = 199;
+const FREE_SHIPPING_THRESHOLD = 149;
 
 export default function FreeShippingBar() {
     const { total } = useCart();

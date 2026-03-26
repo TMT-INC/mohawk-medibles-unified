@@ -23,7 +23,7 @@ const CANADIAN_PROVINCES = [
   { code: 'NU', name: 'Nunavut' },
 ] as const;
 
-const FREE_SHIPPING_MIN = 199;
+const FREE_SHIPPING_MIN = 149;
 const FLAT_RATE_SHIPPING = 15;
 const HST_RATE = 0; // Tax-free — Indigenous sovereignty (Tyendinaga Mohawk Territory)
 

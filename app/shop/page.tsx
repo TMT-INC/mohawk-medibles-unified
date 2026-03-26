@@ -12,37 +12,37 @@ const CATEGORY_SEO: Record<string, { title: string; description: string }> = {
     Flower: {
         title: "Premium Cannabis Flower | Buy AAAA Weed Online",
         description:
-            "Shop premium AAAA cannabis flower at Mohawk Medibles. Indica, Sativa & Hybrid strains. Lab-tested, terpene-profiled, Indigenous-owned. Free shipping over $199. Ships Canada-wide via Xpresspost.",
+            "Shop premium AAAA cannabis flower at Mohawk Medibles. Indica, Sativa & Hybrid strains. Lab-tested, terpene-profiled, Indigenous-owned. Free shipping over $149. Ships Canada-wide via Xpresspost.",
     },
     Edibles: {
         title: "Cannabis Edibles | THC Gummies, Chocolates & More",
         description:
-            "Browse THC gummies, chocolates, beverages and cannabis edibles at Mohawk Medibles. Lab-tested dosing, premium ingredients. Indigenous-owned. Free shipping over $199 Canada-wide.",
+            "Browse THC gummies, chocolates, beverages and cannabis edibles at Mohawk Medibles. Lab-tested dosing, premium ingredients. Indigenous-owned. Free shipping over $149 Canada-wide.",
     },
     Concentrates: {
         title: "Cannabis Concentrates | Shatter, Wax, Live Resin",
         description:
-            "Shop premium cannabis concentrates including shatter, wax, live resin, diamonds and budder. Lab-tested potency. Indigenous-owned. Free shipping over $199 Canada-wide.",
+            "Shop premium cannabis concentrates including shatter, wax, live resin, diamonds and budder. Lab-tested potency. Indigenous-owned. Free shipping over $149 Canada-wide.",
     },
     Vapes: {
         title: "Cannabis Vapes & Cartridges | 510 Thread & Disposable",
         description:
-            "Shop 510 thread cartridges, disposable vape pens and cannabis vaporizers at Mohawk Medibles. Lab-tested, solvent-free. Indigenous-owned. Free shipping over $199 Canada-wide.",
+            "Shop 510 thread cartridges, disposable vape pens and cannabis vaporizers at Mohawk Medibles. Lab-tested, solvent-free. Indigenous-owned. Free shipping over $149 Canada-wide.",
     },
     Hash: {
         title: "Premium Hash | Imported & Domestic",
         description:
-            "Shop premium imported and domestic hash at Mohawk Medibles. Hand-pressed, bubble hash, temple balls and more. Lab-tested. Indigenous-owned. Free shipping over $199 Canada-wide.",
+            "Shop premium imported and domestic hash at Mohawk Medibles. Hand-pressed, bubble hash, temple balls and more. Lab-tested. Indigenous-owned. Free shipping over $149 Canada-wide.",
     },
     "Pre-Rolls": {
         title: "Pre-Rolled Joints | Cannabis Pre-Rolls Canada",
         description:
-            "Shop pre-rolled joints and cannabis pre-rolls at Mohawk Medibles. Singles, multi-packs, infused pre-rolls. Lab-tested flower. Indigenous-owned. Free shipping over $199 Canada-wide.",
+            "Shop pre-rolled joints and cannabis pre-rolls at Mohawk Medibles. Singles, multi-packs, infused pre-rolls. Lab-tested flower. Indigenous-owned. Free shipping over $149 Canada-wide.",
     },
     CBD: {
         title: "CBD Products | Oils, Topicals & Edibles",
         description:
-            "Shop CBD oils, topicals, edibles and capsules at Mohawk Medibles. Third-party lab-tested, full-spectrum and isolate options. Indigenous-owned. Free shipping over $199 Canada-wide.",
+            "Shop CBD oils, topicals, edibles and capsules at Mohawk Medibles. Third-party lab-tested, full-spectrum and isolate options. Indigenous-owned. Free shipping over $149 Canada-wide.",
     },
     Mushrooms: {
         title: "Magic Mushrooms & Psilocybin | Microdose to Macro",
@@ -52,7 +52,7 @@ const CATEGORY_SEO: Record<string, { title: string; description: string }> = {
     Disposables: {
         title: "Disposable Vape Pens | Premium Cannabis Vapes",
         description:
-            "Shop 19+ premium disposable vape pens at Mohawk Medibles. High-potency, solvent-free, lab-tested. Indigenous-owned. Free shipping over $199 Canada-wide.",
+            "Shop 19+ premium disposable vape pens at Mohawk Medibles. High-potency, solvent-free, lab-tested. Indigenous-owned. Free shipping over $149 Canada-wide.",
     },
     "Enhancement Pills": {
         title: "Enhancement Pills & Supplements",
@@ -72,7 +72,7 @@ const CATEGORY_SEO: Record<string, { title: string; description: string }> = {
     Capsules: {
         title: "Cannabis Capsules | THC & CBD Pills",
         description:
-            "Shop THC and CBD capsules at Mohawk Medibles. Precise dosing, lab-tested potency. Discreet and convenient. Free shipping over $199 Canada-wide.",
+            "Shop THC and CBD capsules at Mohawk Medibles. Precise dosing, lab-tested potency. Discreet and convenient. Free shipping over $149 Canada-wide.",
     },
 };
 

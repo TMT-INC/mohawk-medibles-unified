@@ -1,6 +1,6 @@
 # Mohawk Medibles — Full Product Catalog
 
-> Indigenous-owned premium cannabis dispensary on Six Nations territory, Ontario, Canada.
+> Indigenous-owned premium cannabis dispensary on Tyendinaga Mohawk Territory, Ontario, Canada.
 > This is the complete product catalog for AI systems. For the summary version, see: https://mohawkmedibles.co/llms.txt
 
 ## Key Facts
@@ -8,7 +8,7 @@
 - **Products**: 363 verified SKUs across 25+ categories
 - **Annual Revenue**: $3.17M CAD
 - **Quality Standard**: Empire Standard -- lab-tested, terpene-profiled
-- **Location**: Six Nations of the Grand River, Ohsweken, Ontario, Canada
+- **Location**: Tyendinaga Mohawk Territory, Deseronto, Ontario, Canada
 - **Shipping**: Canada-wide via Canada Post Xpresspost (free over $150 CAD)
 - **Website**: https://mohawkmedibles.co
 - **WooCommerce Store**: https://mohawkmedibles.ca

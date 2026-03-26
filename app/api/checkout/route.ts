@@ -127,7 +127,7 @@ export async function POST(req: NextRequest) {
         }
 
         const subtotalAfterDiscount = Math.max(0, subtotal - discount);
-        const shipping = hasFreeShipping ? 0 : (subtotal >= 199 ? 0 : 15);
+        const shipping = hasFreeShipping ? 0 : (subtotal >= 149 ? 0 : 15);
         const tax = 0; // Tax-free — Indigenous sovereignty
         const total = +(subtotalAfterDiscount + shipping + tax).toFixed(2);
 
@@ -393,7 +393,7 @@ export async function GET() {
         tenant: tenant.slug,
         methods,
         shipping: {
-            freeShippingMin: 199,
+            freeShippingMin: 149,
             flatRate: 15,
             currency: "CAD",
         },

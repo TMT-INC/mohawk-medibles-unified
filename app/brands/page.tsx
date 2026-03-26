@@ -142,7 +142,7 @@ export default async function BrandsPage() {
                         Mohawk Medibles curates cannabis products from Canada&apos;s most reputable brands. Each
                         brand in our directory has been vetted against the Empire Standard&trade; &mdash; our
                         rigorous quality benchmark that requires third-party lab testing, consistent potency,
-                        and clean cultivation practices. As an Indigenous-owned dispensary from Six Nations
+                        and clean cultivation practices. As an Indigenous-owned dispensary from Tyendinaga Mohawk Territory
                         territory, we take pride in supporting producers who share our values of quality,
                         transparency, and community.
                     </p>

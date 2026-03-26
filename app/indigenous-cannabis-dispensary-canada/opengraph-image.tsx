@@ -84,7 +84,7 @@ export default async function Image() {
                             letterSpacing: "0.15em",
                         }}
                     >
-                        Six Nations of the Grand River
+                        Tyendinaga Mohawk Territory
                     </span>
                     <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
                         <span
@@ -143,7 +143,7 @@ export default async function Image() {
                         }}
                     >
                         <span style={{ fontSize: "18px", fontWeight: 700, color: "#C8E63E" }}>
-                            Free Shipping Over $199
+                            Free Shipping Over $149
                         </span>
                     </div>
 
@@ -178,7 +178,7 @@ export default async function Image() {
                             color: "rgba(255, 255, 255, 0.5)",
                         }}
                     >
-                        Indigenous-Owned &bull; Since 2019
+                        Indigenous-Owned &bull; Since 2018
                     </span>
                 </div>
             </div>

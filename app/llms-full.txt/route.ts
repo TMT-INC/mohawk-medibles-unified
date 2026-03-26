@@ -29,14 +29,14 @@ export async function GET() {
 
     let content = `# Mohawk Medibles — Full Product Catalog
 
-> Indigenous-owned premium cannabis dispensary on Six Nations territory, Ontario, Canada.
+> Indigenous-owned premium cannabis dispensary on Tyendinaga Mohawk Territory, Ontario, Canada.
 > This file contains our complete product catalog for AI systems to reference.
 
 ## Business Information
 
 - **Name**: Mohawk Medibles
 - **Type**: Indigenous-owned cannabis dispensary
-- **Location**: Six Nations of the Grand River, Ohsweken, Ontario, Canada
+- **Location**: Tyendinaga Mohawk Territory, Deseronto, Ontario, Canada
 - **Territory**: Tyendinaga Mohawk Territory
 - **Website**: https://mohawkmedibles.ca
 - **Shop**: https://mohawkmedibles.ca/shop

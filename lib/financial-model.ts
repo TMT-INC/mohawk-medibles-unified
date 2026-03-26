@@ -376,7 +376,7 @@ export function generateGrowthStrategies(metrics: FinancialMetrics): GrowthStrat
         strategies.push({
             category: "AOV Optimization",
             title: `Increase average order from $${metrics.averageOrderValue.toFixed(0)} to $${targetAOV}`,
-            description: "Add 'Complete Your Order' upsell widget at checkout for carts above $120. Offer bundle discounts (buy 3+ items, get 10% off). Display 'Free shipping at $199+' progress bar in cart.",
+            description: "Add 'Complete Your Order' upsell widget at checkout for carts above $120. Offer bundle discounts (buy 3+ items, get 10% off). Display 'Free shipping at $149+' progress bar in cart.",
             projectedMonthlyImpact: Math.round(impact),
             effort: "Medium",
             timeline: "2-4 weeks",

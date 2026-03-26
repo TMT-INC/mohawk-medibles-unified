@@ -18,10 +18,10 @@ export async function generateMetadata({ params }: BrandPageProps): Promise<Meta
 
     return {
         title: `${brand.name} Products | Buy ${brand.name} Online`,
-        description: `Shop ${brand.name} cannabis products at Mohawk Medibles. Lab-tested, premium quality. Indigenous-owned dispensary. Free shipping over $199. Ships Canada-wide.`,
+        description: `Shop ${brand.name} cannabis products at Mohawk Medibles. Lab-tested, premium quality. Indigenous-owned dispensary. Free shipping over $149. Ships Canada-wide.`,
         openGraph: {
             title: `${brand.name}`,
-            description: `Shop ${brand.name} cannabis products. Lab-tested, premium quality. Free shipping over $199.`,
+            description: `Shop ${brand.name} cannabis products. Lab-tested, premium quality. Free shipping over $149.`,
             url: `https://mohawkmedibles.ca/brands/${slug}`,
             type: "website",
             images: brand.logo ? [brand.logo] : ["/og-image.png"],

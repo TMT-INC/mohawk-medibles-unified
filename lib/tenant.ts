@@ -65,7 +65,7 @@ const DEFAULT_TENANT: TenantConfig = {
   secondaryColor: '#F5E6C8',
   accentColor: '#D4A574',
   heroTitle: 'Premium Indigenous Cannabis',
-  heroSubtitle: 'Six Nations of the Grand River — Empire Standard™ Quality',
+  heroSubtitle: 'Tyendinaga Mohawk Territory — Empire Standard™ Quality',
   heroImage: null,
   aboutText: null,
 
@@ -76,9 +76,9 @@ const DEFAULT_TENANT: TenantConfig = {
   priceMin: null,
   priceMax: null,
 
-  seoTitle: 'Mohawk Medibles | Premium Indigenous Cannabis — Six Nations',
-  seoDescription: 'Indigenous-owned premium cannabis dispensary on Six Nations territory. 360+ lab-tested products. Ships Canada-wide.',
-  seoKeywords: ['mohawk medibles', 'indigenous cannabis', 'six nations dispensary'],
+  seoTitle: 'Mohawk Medibles | Premium Indigenous Cannabis — Tyendinaga',
+  seoDescription: 'Indigenous-owned premium cannabis dispensary on Tyendinaga Mohawk Territory. 360+ lab-tested products. Ships Canada-wide.',
+  seoKeywords: ['mohawk medibles', 'indigenous cannabis', 'tyendinaga dispensary'],
   ogImage: '/og-image.png',
 
   paymentMethods: [],

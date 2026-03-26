@@ -226,7 +226,7 @@ export function lookupPostalCode(postalCode: string, cartSubtotal?: number): Pos
 
   // Calculate shipping
   const subtotal = cartSubtotal ?? 0;
-  const freeThreshold = 199;
+  const freeThreshold = 149;
   const flatRate = 15;
   const isFree = subtotal >= freeThreshold;
 

@@ -55,8 +55,8 @@ export const SEED_KEYWORDS: SeedKW[] = [
     { keyword: "CBD vs THC difference", searchVolume: 14000, difficulty: 55, gap: "not_ranking", suggestedContentType: "blog", intent: "informational" },
     // Navigational / Long-tail
     { keyword: "mohawk medibles", searchVolume: 800, difficulty: 5, gap: "competitive", suggestedContentType: "landing_page", intent: "navigational" },
-    { keyword: "six nations dispensary", searchVolume: 1500, difficulty: 12, gap: "underperforming", suggestedContentType: "landing_page", intent: "navigational" },
-    { keyword: "best weed delivery six nations", searchVolume: 400, difficulty: 5, gap: "not_ranking", suggestedContentType: "landing_page", intent: "transactional" },
+    { keyword: "tyendinaga dispensary", searchVolume: 1500, difficulty: 12, gap: "underperforming", suggestedContentType: "landing_page", intent: "navigational" },
+    { keyword: "best weed delivery tyendinaga", searchVolume: 400, difficulty: 5, gap: "not_ranking", suggestedContentType: "landing_page", intent: "transactional" },
     { keyword: "premium craft cannabis ontario", searchVolume: 1200, difficulty: 18, gap: "not_ranking", suggestedContentType: "product_page", intent: "commercial" },
 ];
 

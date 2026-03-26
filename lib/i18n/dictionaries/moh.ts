@@ -25,7 +25,7 @@ const moh: DictionarySchema = {
         search: "Iesá:iere",         // "you search"
         login: "Satahónhstat",       // "enter"
         talkToSupport: "Tasatáti",   // "speak"
-        shippingBanner: "IESÁ:WIS CANADA-KÉ:KE — $15 IESÁ:WIS — SÉNHA $199 ÁHSEN IESÁ:WIS", // "shipping across Canada"
+        shippingBanner: "IESÁ:WIS CANADA-KÉ:KE — $15 IESÁ:WIS — SÉNHA $149 ÁHSEN IESÁ:WIS", // "shipping across Canada"
     },
 
     // ─── Hero / Home ────────────────────────────────────────
@@ -124,7 +124,7 @@ const moh: DictionarySchema = {
         labTestedDesc: "Teieiéstahkhwa ne kashatste, tsi niió:re tánon tsi niiakorihwí:io. Empire Standard™.",
         indigenousOwned: "Onkwehón:we",
         andOperated: "Raotirihwá:ke",
-        indigenousDesc: "Tyendinaga Mohawk Territory — 2019 tsi náhe. Onkwarihwá:ke ioianérehst.",
+        indigenousDesc: "Tyendinaga Mohawk Territory — 2018 tsi náhe. Onkwarihwá:ke ioianérehst.",
         discreetShipping: "Ionkwaterihwahkhwáhson",
         smellProof: "Iáh teiotsiá:ton",
         shippingDesc: "Ionkwaterihwahkhwáhson. Iáh ó:ia tekakwénion. Sanikonhrí:io.",
@@ -178,7 +178,7 @@ const moh: DictionarySchema = {
         faqQ1: "Oh ní:ioht tsi sewatiénni?",  // "How do I place an order?"
         faqA1: "Satká:tho ne atenniónhstha, kasennón:ni ne ka'sere'tsherá:ke, tánon sewatiénni. Visa, Mastercard, Interac e-Transfer, tánon Bitcoin tewá:iere. Akwékon ionkwaterihwahkhwáhson PayGo raonháke.",
         faqQ2: "Tó: kén niká:ien ohwistá:ke tsi sewatiénni?",  // "Is there a minimum order?"
-        faqA2: "Iáh! Nek tsi $199 CAD iahsiéhste — iáh tekaiénthos iesá:wis Canada akwékon.",
+        faqA2: "Iáh! Nek tsi $149 CAD iahsiéhste — iáh tekaiénthos iesá:wis Canada akwékon.",
         faqQ3: "Kén sewakarihwaiénthos?",  // "Do you charge tax?"
         faqA3: "Akwékon ohwistá:ke iáh tekaiénthos. Onkwehón:we atenniónhstha — Tyendinaga Kenhtè:ke onkwarihwá:ke. Iáh HST iáh ó:ia tekaiénthos.",
         faqQ4: "Kén enkatá:ti tsi wakatiénni?",  // "Can I modify/cancel my order?"
@@ -187,11 +187,11 @@ const moh: DictionarySchema = {
         faqA5: "Hen! Tewatennión:ni ne tewahwátsire ohwistá:ke. Iesanónhianion wholesale@mohawkmedibles.ca.",
         // Shipping & Delivery Q&A
         faqQ6: "Ka nón:we sewá:wis?",  // "Where do you ship?"
-        faqA6: "Canada akwékon — 13 niiohwentsiá:ke tánon nikaniatará:ke Canada Post Xpresspost. Tsi tkanató:ken — Hamilton, Brantford, tánon Six Nations.",
+        faqA6: "Canada akwékon — 13 niiohwentsiá:ke tánon nikaniatará:ke Canada Post Xpresspost. Tsi tkanató:ken — Deseronto, Belleville, Napanee, tánon Tyendinaga.",
         faqQ7: "Tó: niió:re tsi iesá:wis?",  // "How long does shipping take?"
         faqA7: "Tsi tkanató:ken: onwá tóka wahsón:te. Ontario: 1-3 niwahsontá:ke. Quebec/Maritimes: 2-4 niwahsontá:ke. Tsi tkaié:ri Canada: 3-5 niwahsontá:ke. Tsi iohna:tá:ke: 5-10 niwahsontá:ke.",
         faqQ8: "Tó: niká:ien ohwistá:ke tsi iesá:wis?",  // "How much is shipping?"
-        faqA8: "Iáh tekaiénthos tsi tkanató:ken tánon $199+. Ontario: $15. Quebec/Maritimes: $18. Tsi tkaié:ri Canada: $20. Tsi iohna:tá:ke: $25. CAD.",
+        faqA8: "Iáh tekaiénthos tsi tkanató:ken tánon $149+. Ontario: $15. Quebec/Maritimes: $18. Tsi tkaié:ri Canada: $20. Tsi iohna:tá:ke: $25. CAD.",
         faqQ9: "Kén ionkwaterihwahkhwáhson tsi iesá:wis?",  // "Is packaging discreet?"
         faqA9: "Hen tiotkon. Akwékon ionkwaterihwahkhwáhson — iáh tekakwénion tsi nahó:ten. Iáh teiotsiá:ton tánon ionkwarihwaié:na.",
         faqQ10: "Kén wa'katón:ni ne ID?",  // "Will I need to show ID?"
@@ -252,7 +252,7 @@ const moh: DictionarySchema = {
         supportShipQ3: "Oh ní:ioht tsi iesa'nikón:rare?",
         supportShipA3: "Tsi iesá:wis — email tracking number. Shé:kon satká:tho ne account dashboard.",
         supportShipQ4: "Kén iáh tekaiénthos tsi iesá:wis?",
-        supportShipA4: "$199 CAD iahsiéhste — iáh tekaiénthos Canada akwékon. Tsi tkanató:ken — tiotkon iáh tekaiénthos.",
+        supportShipA4: "$149 CAD iahsiéhste — iáh tekaiénthos Canada akwékon. Tsi tkanató:ken — tiotkon iáh tekaiénthos.",
         // Topic: Payments & Billing
         topicPaymentsTitle: "Ohwistá:ke tánon Iakohwistanáhkhwa",  // "Payments & Billing"
         topicPaymentsDesc: "Ohwistá:ke tsi sewatiénni, otién:na, tánon iakohwistanáhkhwa",
@@ -301,10 +301,10 @@ const moh: DictionarySchema = {
     about: {
         title: "Oh Nahò:ten",                          // "About"
         // Hero
-        heroBadge: "Tsí Ia:iak Niionkwetá:ke",         // "Six Nations"
+        heroBadge: "Tsí Ia:iak Niionkwetá:ke",         // "Tyendinaga"
         heroHeadline1: "Onkwarihwá:ke Teiakotáhsawen.",  // "Rooted in Sovereignty"
         heroHeadline2: "Ionkhi'nisténhsera Á:kta.",       // "Built for Community"
-        heroDescription: "Mohawk Medibles ne Onkwehón:we kahionhátie atenniónhstha — Tyendinaga Mohawk Territory tánon Tsí Ia:iak Niionkwetá:ke. 2019 tsi náhe, tewatennión:ni Canada akwékon ne ioianérehst, teieiéstahkhwa kahionhátie — ioianérehst, karihwí:io, tánon Onkwehón:we tsi niionkwarihó:ten.",
+        heroDescription: "Mohawk Medibles ne Onkwehón:we kahionhátie atenniónhstha — Tyendinaga Mohawk Territory tánon Tsí Ia:iak Niionkwetá:ke. 2018 tsi náhe, tewatennión:ni Canada akwékon ne ioianérehst, teieiéstahkhwa kahionhátie — ioianérehst, karihwí:io, tánon Onkwehón:we tsi niionkwarihó:ten.",
         // Stats
         statProducts: "Ioianérehst Kahionhátie",
         statCustomers: "Iehatíhstha",                   // "Customers served"
@@ -327,13 +327,13 @@ const moh: DictionarySchema = {
         valuesQualityTitle: "Empire Standard™ Ioianérehst",
         valuesQualityDesc: "Akwékon kahionhátie tehotiienáweron Empire Standard™ — teieiéstahkhwa, ionkerihwá:ienhs, tánon iehia:ráhstha. Iáh nonwén:ton teionkwaté:nion ne kashatste, ioianérehst, tánon á:se.",
         valuesCommunityTitle: "Ionkhi'nisténhsera Áhsen",  // "Community First"
-        valuesCommunityDesc: "Ohwistá:ke sé:waton ne Six Nations ionkhi'nisténhsera — ratiksá:ke, ionkhinikonhrahséronnion, tánon tsi niionkwarihó:ten ionkerihwá:ienhs. Tsi sewatennión:ni — Onkwehón:we iethinihsnién:ni.",
+        valuesCommunityDesc: "Ohwistá:ke sé:waton ne Tyendinaga ionkhi'nisténhsera — ratiksá:ke, ionkhinikonhrahséronnion, tánon tsi niionkwarihó:ten ionkerihwá:ienhs. Tsi sewatennión:ni — Onkwehón:we iethinihsnién:ni.",
         valuesSustainabilityTitle: "Ohwén:tsia Ionkwarihwá:ke",  // "Sustainable Practices"
         valuesSustainabilityDesc: "Ohwén:tsia ionkwarihwá:ke — ionkwaterihwahkhwáhson, sé:waton, tánon iáh teiokwáhson. Ohwén:tsia ionkhinonhwará:ton tsi niionkwarihó:ten.",
         // Timeline
         journeyLabel: "Tsi Ionkwahá:wi",                // "Our Journey"
         journeyHeadline: "Tsi Teiakotáhsawen Tsi Nonwá.",  // "From Roots to Now"
-        milestone2019: "Tsi Ia:iak Niionkwetá:ke teionkwatáhsawen",  // "Founded on Six Nations"
+        milestone2018: "Tsi Ia:iak Niionkwetá:ke teionkwatáhsawen",  // "Founded on Tyendinaga"
         milestone2020: "Canada akwékon iesá:wis Canada Post Xpresspost",
         milestone2021: "Kanatarowanénhtha tánon tsi niiokwáhson á:se",  // "Launched edibles & concentrates"
         milestone2022: "10,000+ iehatíhstha akwékon niiohwentsiá:ke",
@@ -442,11 +442,11 @@ const moh: DictionarySchema = {
         paymentCryptoTitle: "Cryptocurrency",
         paymentCryptoDesc: "Bitcoin tánon Ethereum.",
         paymentCashTitle: "Ohwistá:ke (Tsi Tkanató:ken)",  // "Cash (Local Pickup)"
-        paymentCashDesc: "Ohwistá:ke tsi tkanató:ken — Hamilton, Brantford, tóka Six Nations.",
+        paymentCashDesc: "Ohwistá:ke tsi tkanató:ken — Deseronto, tóka Tyendinaga.",
         // Shipping Information
         shippingInfoTitle: "Iesá:wis Tsi Nahó:ten",         // "Shipping Information"
         shippingFreeTitle: "Iáh Tekaiénthos Iesá:wis",      // "Free Shipping"
-        shippingFreeDesc: "$199 CAD iahsiéhste — iáh tekaiénthos Canada akwékon Xpresspost.",
+        shippingFreeDesc: "$149 CAD iahsiéhste — iáh tekaiénthos Canada akwékon Xpresspost.",
         shippingMethodTitle: "Tsi Iesá:wis",                 // "Shipping Method"
         shippingMethodDesc: "Akwékon Canada Post Xpresspost — ionkwaterihwahkhwáhson tánon iesa'nikón:rare Canada akwékon.",
         shippingDeliveryTimesTitle: "Tó: Niió:re Iesá:wis",  // "Delivery Times"
@@ -475,14 +475,14 @@ const moh: DictionarySchema = {
         subtitle: "Ó:nen ok, ionkwaterihwahkhwáhson, Canada akwékon.",
         // Sections
         shippingMethodsTitle: "Tsi Iesá:wis",
-        shippingMethodsDesc: "Akwékon Canada Post Xpresspost — ionkwaterihwahkhwáhson, iesa'nikón:rare Canada akwékon. Tsi tkanató:ken — Hamilton, Brantford, tánon Six Nations.",
+        shippingMethodsDesc: "Akwékon Canada Post Xpresspost — ionkwaterihwahkhwáhson, iesa'nikón:rare Canada akwékon. Tsi tkanató:ken — Deseronto, Belleville, Napanee, tánon Tyendinaga.",
         deliveryTimesTitle: "Tó: Niió:re Iesá:wis",
         // Table headers
         tableRegion: "Ka Nón:we",                        // "Region"
         tableEstimatedDelivery: "Tó: Niió:re",           // "Estimated Delivery"
         tableCost: "Ohwistá:ke",                         // "Cost"
         // Table rows
-        regionLocal: "Tsi Tkanató:ken (Hamilton/Brantford/Six Nations)",
+        regionLocal: "Tsi Tkanató:ken (Deseronto/Belleville/Tyendinaga)",
         regionLocalTime: "Onwá / Wahsón:te",             // "Same day / Next day"
         regionLocalCost: "IÁH TEKAIÉNTHOS",              // "FREE"
         regionOntario: "Ontario",
@@ -497,7 +497,7 @@ const moh: DictionarySchema = {
         regionNorthern: "Tsi Iohna:tá:ke Canada",
         regionNorthernTime: "5-10 niwahsontá:ke",
         regionNorthernCost: "$25.00",
-        freeShippingNote: "IÁH TEKAIÉNTHOS $199 CAD iahsiéhste, Canada akwékon.",
+        freeShippingNote: "IÁH TEKAIÉNTHOS $149 CAD iahsiéhste, Canada akwékon.",
         // Other sections
         discreetPackagingTitle: "Ionkwaterihwahkhwáhson",
         discreetPackagingDesc: "Akwékon ionkwaterihwahkhwáhson — iáh tekakwénion tsi nahó:ten. Iáh ó:ia tekakwénion. Iáh teiotsiá:ton tánon ionkwarihwaié:na.",
@@ -608,7 +608,7 @@ const moh: DictionarySchema = {
         dataRetentionDesc: "Sewatiénni — 7 niiohseró:ten ionkwarihwá:ienhs. Account — tsi satá:ti ionkwarihwá:ienhs. Iethinihsnién:ni — 2 niiohseró:ten.",
         // Section 9
         privacyContactTitle: "9. Iesanónhianion",
-        privacyContactDesc: "Tsi nikanaktiió:ten otién:na — privacy@mohawkmedibles.ca tóka: Mohawk Medibles, Six Nations of the Grand River, Ontario, Canada.",
+        privacyContactDesc: "Tsi nikanaktiió:ten otién:na — privacy@mohawkmedibles.ca tóka: Mohawk Medibles, Tyendinaga Mohawk Territory, Ontario, Canada.",
     },
 
     // ─── Tsi Niiohserá:ke — Terms of Service ──────────────
@@ -665,7 +665,7 @@ const moh: DictionarySchema = {
         activeOffers: "Nonwá Ioterihwakweniéhstha",       // "Active Offers"
         // Free Shipping offer
         freeShippingTitle: "Iáh Tekaiénthos Iesá:wis",
-        freeShippingDesc: "$199 CAD iahsiéhste — iáh tekaiénthos Canada akwékon Xpresspost. Ó:nen ok, ionkwaterihwahkhwáhson.",
+        freeShippingDesc: "$149 CAD iahsiéhste — iáh tekaiénthos Canada akwékon Xpresspost. Ó:nen ok, ionkwaterihwahkhwáhson.",
         // Mix & Match offer
         mixMatchTitle: "Satié:ren tánon Sá:ier",           // "Mix & Match"
         mixMatchDesc: "3 kanatarowanénhtha sewatiénni — 10% ohwistánohon. Satié:ren otsí:tsia, kashatste, tánon tó: nahé:ien.",
@@ -689,7 +689,7 @@ const moh: DictionarySchema = {
         shopTitle: "Atenniónni Kahionhátie | Mohawk Medibles",
         shopDescription: "Satká:tho 360+ teieiéstahkhwa kahionhátie. Oié:ri, kanatarowanénhtha, tsi niió:re — Empire Standard™. Canada akwékon iesá:wis.",
         dealsTitle: "Ioterihwakweniéhstha Kahionhátie | Mohawk Medibles",
-        dealsDescription: "Ohwistánohon ne ioianérehst kahionhátie. Iáh tekaiénthos $199, tewahwátsire. Onkwehón:we, teieiéstahkhwa.",
+        dealsDescription: "Ohwistánohon ne ioianérehst kahionhátie. Iáh tekaiénthos $149, tewahwátsire. Onkwehón:we, teieiéstahkhwa.",
         aboutTitle: "Oh Nahò:ten Mohawk Medibles | Onkwehón:we Kahionhátie",
         aboutDescription: "Sewatahonhsí:iohst Mohawk Medibles — Onkwehón:we kahionhátie Tyendinaga Kenhtè:ke. Tsi niionkwarihó:ten tánon tsi nihá:ti.",
         faqTitle: "Otién:na | Mohawk Medibles Kahionhátie",
@@ -705,7 +705,7 @@ const moh: DictionarySchema = {
         termsTitle: "Tsi Niiohserá:ke | Mohawk Medibles",
         termsDescription: "Tsi niiohserá:ke atenniónhstha Mohawk Medibles. Aosón:te, atenniónni, tánon karihwanón:ni.",
         shippingTitle: "Iesá:wis Karihwanón:ni | Mohawk Medibles",
-        shippingDescription: "Mohawk Medibles iesá:wis. $199 iáh tekaiénthos. Canada akwékon Xpresspost. Ionkwaterihwahkhwáhson.",
+        shippingDescription: "Mohawk Medibles iesá:wis. $149 iáh tekaiénthos. Canada akwékon Xpresspost. Ionkwaterihwahkhwáhson.",
         returnsTitle: "Iesakaríwahton | Mohawk Medibles",
         returnsDescription: "Mohawk Medibles iesakaríwahton. Kaié:ri iahsiéhste, atenniónni otién:na.",
         howToOrderTitle: "Tó: Ní:se Ensénni | Mohawk Medibles",

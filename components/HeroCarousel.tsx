@@ -51,7 +51,7 @@ const SLIDES = [
     headline: "CONCENTRATES",
     highlight: "SHATTER \u2022 WAX \u2022 HASH",
     description:
-      "Lab-tested concentrates up to 90% THC. Full melt hash, live resin, diamonds & shatter — crafted by top extractors and delivered tax-free from Six Nations.",
+      "Lab-tested concentrates up to 90% THC. Full melt hash, live resin, diamonds & shatter — crafted by top extractors and delivered tax-free from Tyendinaga Mohawk Territory.",
     cta: { label: "Shop Concentrates", href: "/shop?category=concentrates" },
     ctaSecondary: { label: "New Arrivals", href: "/shop?sort=newest" },
   },
@@ -61,9 +61,9 @@ const SLIDES = [
     alt: "Mohawk Medibles Indigenous-owned cannabis dispensary — Tyendinaga Mohawk Territory heritage, Haudenosaunee culture, premium vape cartridges and disposables shipped discreetly across Canada",
     badge: "INDIGENOUS HERITAGE",
     headline: "MOHAWK TERRITORY",
-    highlight: "TYENDINAGA \u2022 EST. 2019",
+    highlight: "TYENDINAGA \u2022 EST. 2018",
     description:
-      "Proudly Indigenous-owned & operated on Tyendinaga Mohawk Territory since 2019. 360+ lab-tested products shipped discreetly Canada-wide. Tax-free. Free shipping over $199.",
+      "Proudly Indigenous-owned & operated on Tyendinaga Mohawk Territory since 2018. 360+ lab-tested products shipped discreetly Canada-wide. Tax-free. Free shipping over $149.",
     cta: { label: "Shop All Products", href: "/shop" },
     ctaSecondary: { label: "Our Story", href: "/about" },
   },
@@ -203,7 +203,7 @@ export function HeroCarousel() {
               <span className="w-1 h-1 rounded-full bg-lime/70" /> Lab Tested
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-1 h-1 rounded-full bg-lime/70" /> Free Shipping $199+
+              <span className="w-1 h-1 rounded-full bg-lime/70" /> Free Shipping $149+
             </span>
             <span className="hidden sm:flex items-center gap-1.5">
               <span className="w-1 h-1 rounded-full bg-lime/70" /> Same Day Delivery

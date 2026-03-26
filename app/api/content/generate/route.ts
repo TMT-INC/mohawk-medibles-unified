@@ -93,7 +93,7 @@ function generateFallbackContent(channel: string, pillar?: string) {
         gmb_post: {
             type: "gmb_post",
             title: "New Arrivals at Mohawk Medibles",
-            body: "Lab-tested, hand-selected premium cannabis now available. Visit Mohawk Medibles on Six Nations territory or shop online.",
+            body: "Lab-tested, hand-selected premium cannabis now available. Visit Mohawk Medibles on Tyendinaga Mohawk Territory or shop online.",
             cta: "SHOP",
             cta_link: "https://mohawkmedibles.ca/shop/",
         },

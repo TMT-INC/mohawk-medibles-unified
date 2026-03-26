@@ -50,7 +50,7 @@ export default function AboutClientContent() {
     ];
 
     const MILESTONES = [
-        { year: "2019", event: t("about.milestone2019"), highlight: true },
+        { year: "2018", event: t("about.milestone2018"), highlight: true },
         { year: "2020", event: t("about.milestone2020"), highlight: false },
         { year: "2021", event: t("about.milestone2021"), highlight: false },
         { year: "2022", event: t("about.milestone2022"), highlight: true },

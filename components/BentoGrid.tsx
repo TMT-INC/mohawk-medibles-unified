@@ -187,7 +187,7 @@ export function BentoGrid() {
                         <div className="rounded-xl bg-gradient-to-br from-lime/10 to-forest/5 dark:from-lime/10 dark:to-lime/5 p-3.5 text-center shadow-sm">
                             <p className="text-xs font-bold text-lime uppercase tracking-wider mb-1">Indigenous Owned & Operated</p>
                             <p className="text-[9px] text-muted-foreground leading-relaxed">
-                                Proudly serving Canada from Tyendinaga Mohawk Territory since 2019. Lab-tested. Tax-free. Free shipping over $199.
+                                Proudly serving Canada from Tyendinaga Mohawk Territory since 2018. Lab-tested. Tax-free. Free shipping over $149.
                             </p>
                         </div>
 

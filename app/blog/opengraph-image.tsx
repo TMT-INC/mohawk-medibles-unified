@@ -127,7 +127,7 @@ export default async function OGImage() {
                             }}
                         >
                             Expert guides, dosage information, strain reviews, and
-                            industry news from Six Nations territory.
+                            industry news from Tyendinaga Mohawk Territory.
                         </p>
 
                         {/* Lime underline */}

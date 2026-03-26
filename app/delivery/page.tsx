@@ -135,7 +135,7 @@ export default function DeliveryPage() {
                 </p>
               </div>
               <div className="text-center">
-                <p className="text-5xl font-bold text-foreground mb-2">$199+</p>
+                <p className="text-5xl font-bold text-foreground mb-2">$149+</p>
                 <p className="text-[10px] font-bold tracking-widest uppercase text-forest dark:text-lime">
                   FREE Shipping
                 </p>
@@ -315,9 +315,9 @@ export default function DeliveryPage() {
                 },
                 {
                   icon: Gift,
-                  title: "FREE Shipping Over $199",
+                  title: "FREE Shipping Over $149",
                   description:
-                    "Orders over $199 CAD ship free to any Canadian address. No hidden fees or surprises.",
+                    "Orders over $149 CAD ship free to any Canadian address. No hidden fees or surprises.",
                 },
               ].map((feature, i) => {
                 const Icon = feature.icon;

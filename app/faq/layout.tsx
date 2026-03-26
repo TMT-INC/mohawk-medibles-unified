@@ -4,8 +4,8 @@ import { faqSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 // FAQ data matching the client component's FAQ_DATA — all static trusted content
 const FAQ_ITEMS = [
     { question: "How do I place an order?", answer: "Browse our shop, add items to your cart, and proceed to checkout. We accept Visa, Mastercard, Interac e-Transfer, and Bitcoin. All orders are processed securely through our payment gateway." },
-    { question: "Is there a minimum order amount?", answer: "No minimum order required! However, orders over $199 CAD qualify for FREE shipping Canada-wide." },
-    { question: "Where do you ship?", answer: "We ship Canada-wide to all 13 provinces and territories via Canada Post Xpresspost. Local delivery is available for Hamilton, Brantford, and the Six Nations area." },
+    { question: "Is there a minimum order amount?", answer: "No minimum order required! However, orders over $149 CAD qualify for FREE shipping Canada-wide." },
+    { question: "Where do you ship?", answer: "We ship Canada-wide to all 13 provinces and territories via Canada Post Xpresspost. Local delivery is available for Deseronto, Belleville, Napanee, and the Tyendinaga area." },
     { question: "How long does shipping take?", answer: "Local delivery: Same day or next day. Ontario: 1-3 business days. Quebec/Maritimes: 2-4 business days. Western Canada: 3-5 business days. Northern Canada: 5-10 business days." },
     { question: "Is the packaging discreet?", answer: "Absolutely. All orders ship in plain, unbranded boxes with no indication of contents. The return address shows a generic business name. Products are vacuum-sealed for freshness and odour control." },
     { question: "Are your products lab-tested?", answer: "Yes. All products meet our Empire Standard\u2122 quality benchmarks. We work with certified labs to verify THC/CBD content, check for contaminants, and ensure consistent potency across batches." },

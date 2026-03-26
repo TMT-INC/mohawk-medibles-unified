@@ -9,7 +9,7 @@ export function SocialProofStrip() {
   const STATS = [
     { icon: "⭐", value: "4.8/5", label: t("home.customerRating"), detail: t("home.reviewCount") },
     { icon: "🚚", value: "47,000+", label: t("home.ordersShipped"), detail: t("home.canadaWide") },
-    { icon: "📦", value: t("home.servingCanada"), label: "Since 2019", detail: t("home.yearsTrusted") },
+    { icon: "📦", value: t("home.servingCanada"), label: "Since 2018", detail: t("home.yearsTrusted") },
     { icon: "🏆", value: "#1", label: t("home.indigenousDispensary"), detail: t("home.premiumQuality") },
   ];
 

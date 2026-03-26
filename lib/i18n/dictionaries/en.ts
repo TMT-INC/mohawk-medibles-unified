@@ -17,12 +17,12 @@ const en = {
         search: "Search",
         login: "Member Login",
         talkToSupport: "Talk to Support",
-        shippingBanner: "WE SHIP EVERYWHERE IN CANADA VIA CANADA POST & PUROLATOR — $15 SHIPPING FEE — FREE SHIPPING ON ORDERS OVER $199",
+        shippingBanner: "WE SHIP EVERYWHERE IN CANADA VIA CANADA POST & PUROLATOR — $15 SHIPPING FEE — FREE SHIPPING ON ORDERS OVER $149",
     },
 
     // ─── Hero / Home ────────────────────────────────────────
     hero: {
-        badge: "Indigenous Owned · Six Nations Territory",
+        badge: "Indigenous Owned · Tyendinaga Mohawk Territory",
         headline: "Premium Cannabis, Rooted in Heritage",
         subheadline: "360+ lab-tested products meeting the Empire Standard™. Flower, edibles, concentrates, and more — delivered Canada-wide.",
         shopNow: "Shop Now",
@@ -114,13 +114,13 @@ const en = {
 
         // Trust Pillars
         whyMohawk: "Why Mohawk Medibles",
-        trustedBy: "Trusted by 47,000+ Canadians since 2019",
+        trustedBy: "Trusted by 47,000+ Canadians since 2018",
         labTested: "Lab Tested",
         everyBatch: "Every Batch",
         labTestedDesc: "Third-party lab tested for potency, purity, and safety. Empire Standard™ certified.",
         indigenousOwned: "Indigenous Owned",
         andOperated: "& Operated",
-        indigenousDesc: "Proudly serving from Tyendinaga Mohawk Territory since 2019. Sovereign quality.",
+        indigenousDesc: "Proudly serving from Tyendinaga Mohawk Territory since 2018. Sovereign quality.",
         discreetShipping: "Discreet Shipping",
         smellProof: "Smell-Proof",
         shippingDesc: "Vacuum-sealed, odor-proof packaging. No external branding. Your privacy guaranteed.",
@@ -177,7 +177,7 @@ const en = {
         faqQ1: "How do I place an order?",
         faqA1: "Browse our shop, add items to your cart, and proceed to checkout. We accept Visa, Mastercard, Interac e-Transfer, and Bitcoin. All orders are processed securely through our secure payment gateway.",
         faqQ2: "Is there a minimum order amount?",
-        faqA2: "No minimum order required! However, orders over $199 CAD qualify for FREE shipping Canada-wide.",
+        faqA2: "No minimum order required! However, orders over $149 CAD qualify for FREE shipping Canada-wide.",
         faqQ3: "Do you charge tax?",
         faqA3: "All prices are tax-free. As an Indigenous-owned business operating under sovereignty from Tyendinaga Mohawk Territory, no HST or sales tax is applied to your order.",
         faqQ4: "Can I modify or cancel my order?",
@@ -186,11 +186,11 @@ const en = {
         faqA5: "Yes! We offer bulk pricing for qualified retailers and dispensaries. Contact our wholesale team at wholesale@mohawkmedibles.ca for pricing and minimum order requirements.",
         // Shipping & Delivery Q&A
         faqQ6: "Where do you ship?",
-        faqA6: "We ship Canada-wide to all 13 provinces and territories via Canada Post Xpresspost. Local delivery is available for Hamilton, Brantford, and the Six Nations area.",
+        faqA6: "We ship Canada-wide to all 13 provinces and territories via Canada Post Xpresspost. Local delivery is available for Deseronto, Belleville, Napanee, and the Tyendinaga area.",
         faqQ7: "How long does shipping take?",
         faqA7: "Local delivery: Same day or next day. Ontario: 1-3 business days. Quebec/Maritimes: 2-4 business days. Western Canada: 3-5 business days. Northern Canada: 5-10 business days.",
         faqQ8: "How much does shipping cost?",
-        faqA8: "FREE for local delivery and orders over $199. Ontario: $15. Quebec/Maritimes: $18. Western Canada: $20. Northern territories: $25. All prices in CAD.",
+        faqA8: "FREE for local delivery and orders over $149. Ontario: $15. Quebec/Maritimes: $18. Western Canada: $20. Northern territories: $25. All prices in CAD.",
         faqQ9: "Is the packaging discreet?",
         faqA9: "Absolutely. All orders ship in plain, unbranded boxes with no indication of contents. The return address shows a generic business name. Products are vacuum-sealed for freshness and odour control.",
         faqQ10: "Will I need to show ID on delivery?",
@@ -251,7 +251,7 @@ const en = {
         supportShipQ3: "How do I track my order?",
         supportShipA3: "Once your order ships, you'll receive a tracking number via email. You can also check your order status in your account dashboard.",
         supportShipQ4: "Do you offer free shipping?",
-        supportShipA4: "Orders over $199 CAD qualify for free Canada-wide shipping. Local delivery is always free within our same-day zones.",
+        supportShipA4: "Orders over $149 CAD qualify for free Canada-wide shipping. Local delivery is always free within our same-day zones.",
         // Topic: Payments & Billing
         topicPaymentsTitle: "Payments & Billing",
         topicPaymentsDesc: "Payment methods, billing questions, and refunds",
@@ -300,10 +300,10 @@ const en = {
     about: {
         title: "About Us",
         // Hero
-        heroBadge: "Six Nations of the Grand River",
+        heroBadge: "Tyendinaga Mohawk Territory",
         heroHeadline1: "Rooted in Sovereignty.",
         heroHeadline2: "Built for Community.",
-        heroDescription: "Mohawk Medibles is an Indigenous-owned cannabis dispensary operating from Tyendinaga Mohawk Territory and Six Nations of the Grand River. Since 2019, we've been serving Canadians with premium, lab-tested cannabis backed by quality, integrity, and respect for Indigenous traditions.",
+        heroDescription: "Mohawk Medibles is an Indigenous-owned cannabis dispensary operating from Tyendinaga Mohawk Territory. Since 2018, we've been serving Canadians with premium, lab-tested cannabis backed by quality, integrity, and respect for Indigenous traditions.",
         // Stats
         statProducts: "Premium Products",
         statCustomers: "Customers Served",
@@ -326,13 +326,13 @@ const en = {
         valuesQualityTitle: "Empire Standard\u2122 Quality",
         valuesQualityDesc: "Every product we carry meets our rigorous Empire Standard\u2122 — lab-tested, properly stored, and carefully curated. We never compromise on potency, purity, or freshness.",
         valuesCommunityTitle: "Community First",
-        valuesCommunityDesc: "A significant portion of our revenue flows back into Six Nations community programs, youth initiatives, and cultural preservation. When you shop with us, you support Indigenous communities.",
+        valuesCommunityDesc: "A significant portion of our revenue flows back into Tyendinaga community programs, youth initiatives, and cultural preservation. When you shop with us, you support Indigenous communities.",
         valuesSustainabilityTitle: "Sustainable Practices",
         valuesSustainabilityDesc: "We prioritize environmentally conscious suppliers, recyclable packaging, and minimal waste operations. Our commitment to the land reflects our deep connection to the natural world.",
         // Timeline
         journeyLabel: "Our Journey",
         journeyHeadline: "From Roots to Empire.",
-        milestone2019: "Founded on Six Nations of the Grand River Territory",
+        milestone2018: "Founded on Tyendinaga Mohawk Territory",
         milestone2020: "Expanded to Canada-wide shipping via Canada Post Xpresspost",
         milestone2021: "Launched premium edibles and concentrates line",
         milestone2022: "Reached 10,000+ satisfied customers across all provinces",
@@ -441,11 +441,11 @@ const en = {
         paymentCryptoTitle: "Cryptocurrency",
         paymentCryptoDesc: "Bitcoin and Ethereum for decentralized payments.",
         paymentCashTitle: "Cash (Local Pickup)",
-        paymentCashDesc: "Pay cash for local pickup in Hamilton, Brantford, or Six Nations.",
+        paymentCashDesc: "Pay cash for local pickup in Deseronto or Tyendinaga.",
         // Shipping Information
         shippingInfoTitle: "Shipping Information",
         shippingFreeTitle: "Free Shipping",
-        shippingFreeDesc: "Orders over $199 CAD ship FREE Canada-wide via Canada Post Xpresspost.",
+        shippingFreeDesc: "Orders over $149 CAD ship FREE Canada-wide via Canada Post Xpresspost.",
         shippingMethodTitle: "Shipping Method",
         shippingMethodDesc: "All orders ship via Canada Post Xpresspost for reliable, insured delivery across Canada.",
         shippingDeliveryTimesTitle: "Delivery Times",
@@ -474,14 +474,14 @@ const en = {
         subtitle: "Fast, discreet, Canada-wide delivery.",
         // Sections
         shippingMethodsTitle: "Shipping Methods",
-        shippingMethodsDesc: "All orders are shipped via Canada Post Xpresspost for reliable, tracked delivery across Canada. We also offer local delivery for Hamilton, Brantford, and the Six Nations area.",
+        shippingMethodsDesc: "All orders are shipped via Canada Post Xpresspost for reliable, tracked delivery across Canada. We also offer local delivery for Deseronto, Belleville, Napanee, and the Tyendinaga area.",
         deliveryTimesTitle: "Delivery Times",
         // Table headers
         tableRegion: "Region",
         tableEstimatedDelivery: "Estimated Delivery",
         tableCost: "Cost",
         // Table rows
-        regionLocal: "Local (Hamilton/Brantford/Six Nations)",
+        regionLocal: "Local (Deseronto/Belleville/Tyendinaga)",
         regionLocalTime: "Same day / Next day",
         regionLocalCost: "FREE",
         regionOntario: "Ontario",
@@ -496,7 +496,7 @@ const en = {
         regionNorthern: "Northern Canada (Territories)",
         regionNorthernTime: "5-10 business days",
         regionNorthernCost: "$25.00",
-        freeShippingNote: "FREE shipping on all orders over $199 CAD, Canada-wide.",
+        freeShippingNote: "FREE shipping on all orders over $149 CAD, Canada-wide.",
         // Other sections
         discreetPackagingTitle: "Discreet Packaging",
         discreetPackagingDesc: "All orders are shipped in plain, unbranded packaging with no indication of the contents. Return address shows a generic business name. All products are vacuum-sealed for freshness and odor control.",
@@ -556,7 +556,7 @@ const en = {
         lastUpdated: "Last updated: February 2026",
         // Section 1
         whoWeAreTitle: "1. Who We Are",
-        whoWeAreDesc: "Mohawk Medibles is an Indigenous-owned cannabis dispensary operating from Six Nations of the Grand River Territory, Ontario, Canada. This policy explains how we handle your personal data when you use our website, place orders, or interact with our services including our AI-powered MedAgent assistant.",
+        whoWeAreDesc: "Mohawk Medibles is an Indigenous-owned cannabis dispensary operating from Tyendinaga Mohawk Territory, Ontario, Canada. This policy explains how we handle your personal data when you use our website, place orders, or interact with our services including our AI-powered MedAgent assistant.",
         // Section 2
         infoCollectTitle: "2. Information We Collect",
         infoYouProvide: "Information you provide:",
@@ -607,7 +607,7 @@ const en = {
         dataRetentionDesc: "We retain order records for 7 years for tax and regulatory compliance. Account data is retained until you request deletion. Chat and support logs are retained for 2 years.",
         // Section 9
         privacyContactTitle: "9. Contact",
-        privacyContactDesc: "For privacy inquiries, contact us at privacy@mohawkmedibles.ca or by mail at: Mohawk Medibles, Six Nations of the Grand River, Ontario, Canada.",
+        privacyContactDesc: "For privacy inquiries, contact us at privacy@mohawkmedibles.ca or by mail at: Mohawk Medibles, Tyendinaga Mohawk Territory, Ontario, Canada.",
     },
 
     // ─── Terms of Service Page ──────────────────────────────
@@ -622,7 +622,7 @@ const en = {
         ageRequirementDesc: "You must be 19 years of age or older to browse, purchase, or interact with any products on this website. By using our services, you confirm that you meet this age requirement. We reserve the right to request age verification at any time, including upon delivery.",
         // Section 3
         sovereigntyTitle: "3. Indigenous Sovereignty",
-        sovereigntyDesc: "Mohawk Medibles operates under the inherent sovereignty of the Haudenosaunee Confederacy and the Mohawk Nation on the territory of Six Nations of the Grand River. Our operations are governed by Indigenous rights and self-determination principles.",
+        sovereigntyDesc: "Mohawk Medibles operates under the inherent sovereignty of the Haudenosaunee Confederacy and the Mohawk Nation on the territory of Tyendinaga Mohawk Territory. Our operations are governed by Indigenous rights and self-determination principles.",
         // Section 4
         productsQualityTitle: "4. Products & Quality",
         productsQualityDesc: "All products sold through Mohawk Medibles meet our Empire Standard\u2122 quality benchmarks. Product descriptions, images, and specifications are provided as accurately as possible. Actual THC/CBD percentages may vary slightly between batches.",
@@ -664,7 +664,7 @@ const en = {
         activeOffers: "Active Offers",
         // Free Shipping offer
         freeShippingTitle: "Free Shipping",
-        freeShippingDesc: "Free shipping on all orders over $199 CAD — Canada-wide via Xpresspost. Fast, discreet, secure delivery.",
+        freeShippingDesc: "Free shipping on all orders over $149 CAD — Canada-wide via Xpresspost. Fast, discreet, secure delivery.",
         // Mix & Match offer
         mixMatchTitle: "Mix & Match",
         mixMatchDesc: "Buy any 3 edibles, get 10% off your edible total. Mix flavors, strains, and potencies — your choice.",
@@ -683,12 +683,12 @@ const en = {
 
     // ─── SEO Meta (per-page titles & descriptions for locale) ──
     seo: {
-        siteTitle: "Mohawk Medibles | Premium Indigenous Cannabis — Six Nations",
-        siteDescription: "Indigenous-owned premium cannabis dispensary on Six Nations territory. 360+ lab-tested products: flower, edibles, concentrates, vapes. Empire Standard™ quality. Ships Canada-wide.",
+        siteTitle: "Mohawk Medibles | Premium Indigenous Cannabis — Tyendinaga",
+        siteDescription: "Indigenous-owned premium cannabis dispensary on Tyendinaga Mohawk Territory. 360+ lab-tested products: flower, edibles, concentrates, vapes. Empire Standard™ quality. Ships Canada-wide.",
         shopTitle: "Shop Premium Cannabis Online | Mohawk Medibles",
         shopDescription: "Browse 360+ lab-tested cannabis products. Flower, edibles, concentrates, vapes & more. Empire Standard™ quality. Fast Canada-wide delivery.",
         dealsTitle: "Cannabis Deals & Promotions | Mohawk Medibles",
-        dealsDescription: "Save on premium cannabis. Free shipping over $199, mix & match edibles, bulk flower deals. Indigenous-owned, lab-tested quality.",
+        dealsDescription: "Save on premium cannabis. Free shipping over $149, mix & match edibles, bulk flower deals. Indigenous-owned, lab-tested quality.",
         aboutTitle: "About Mohawk Medibles | Indigenous Cannabis Heritage",
         aboutDescription: "Learn about Mohawk Medibles — Indigenous-owned cannabis dispensary on Tyendinaga Mohawk Territory. Our story, values, and commitment to quality.",
         faqTitle: "FAQ | Mohawk Medibles Cannabis Dispensary",
@@ -704,7 +704,7 @@ const en = {
         termsTitle: "Terms of Service | Mohawk Medibles",
         termsDescription: "Terms and conditions for using Mohawk Medibles online store. Age verification, ordering, and legal terms.",
         shippingTitle: "Shipping Policy | Mohawk Medibles",
-        shippingDescription: "Mohawk Medibles shipping info. Free shipping over $199. Canada-wide Xpresspost delivery. Discreet packaging.",
+        shippingDescription: "Mohawk Medibles shipping info. Free shipping over $149. Canada-wide Xpresspost delivery. Discreet packaging.",
         returnsTitle: "Returns & Refunds | Mohawk Medibles",
         returnsDescription: "Mohawk Medibles return and refund policy. Damaged product claims, order issues, and customer satisfaction guarantee.",
         howToOrderTitle: "How to Order | Mohawk Medibles",

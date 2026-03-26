@@ -105,7 +105,7 @@ export default function DeliveryLanding({
                     <div className="space-y-4 text-muted-foreground leading-relaxed">
                         <p>
                             Mohawk Medibles is an <strong>Indigenous-owned premium cannabis dispensary</strong> located
-                            on Six Nations of the Grand River territory. We deliver lab-tested, terpene-profiled
+                            on Tyendinaga Mohawk Territory. We deliver lab-tested, terpene-profiled
                             cannabis products to {city} and surrounding {region} communities.
                         </p>
                         <p>

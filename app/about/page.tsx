@@ -8,22 +8,22 @@ import AboutClientContent from "./AboutClientContent";
 export const metadata: Metadata = {
     title: "About Us — Indigenous-Owned Cannabis Dispensary",
     description:
-        "Learn about Mohawk Medibles — an Indigenous-owned cannabis dispensary operating from Six Nations of the Grand River Territory, serving Canada since 2019.",
+        "Learn about Mohawk Medibles — an Indigenous-owned cannabis dispensary operating from Tyendinaga Mohawk Territory, serving Canada since 2018.",
     keywords: [
         "mohawk medibles",
         "indigenous cannabis dispensary",
-        "six nations dispensary",
+        "tyendinaga dispensary",
         "about mohawk medibles",
         "indigenous owned cannabis canada",
         "first nations dispensary",
         "tyendinaga mohawk territory",
         "cannabis dispensary canada",
         "native owned dispensary",
-        "six nations of the grand river",
+        "tyendinaga mohawk territory",
     ],
     openGraph: {
-        title: "About Mohawk Medibles — Indigenous-Owned Cannabis Since 2019",
-        description: "Indigenous-owned cannabis dispensary serving Canada with 360+ premium, lab-tested products from Six Nations territory.",
+        title: "About Mohawk Medibles — Indigenous-Owned Cannabis Since 2018",
+        description: "Indigenous-owned cannabis dispensary serving Canada with 360+ premium, lab-tested products from Tyendinaga Mohawk Territory.",
         url: "https://mohawkmedibles.ca/about",
         type: "website",
         images: ["/og-image.png"],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     twitter: {
         card: "summary_large_image",
         title: "About Mohawk Medibles",
-        description: "Indigenous-owned cannabis dispensary serving Canada since 2019.",
+        description: "Indigenous-owned cannabis dispensary serving Canada since 2018.",
     },
     alternates: {
         canonical: "https://mohawkmedibles.ca/about",
@@ -45,15 +45,15 @@ const aboutSchema = {
     "@id": "https://mohawkmedibles.ca/about/#aboutpage",
     name: "About Mohawk Medibles",
     description:
-        "Learn about Mohawk Medibles — an Indigenous-owned cannabis dispensary operating from Six Nations of the Grand River Territory, serving Canada since 2019.",
+        "Learn about Mohawk Medibles — an Indigenous-owned cannabis dispensary operating from Tyendinaga Mohawk Territory, serving Canada since 2018.",
     url: "https://mohawkmedibles.ca/about",
     isPartOf: { "@id": "https://mohawkmedibles.ca/#website" },
     about: {
         "@type": "Organization",
         "@id": "https://mohawkmedibles.ca/#organization",
         name: "Mohawk Medibles",
-        foundingDate: "2019",
-        foundingLocation: "Six Nations of the Grand River, Ontario, Canada",
+        foundingDate: "2018",
+        foundingLocation: "Tyendinaga Mohawk Territory, Ontario, Canada",
         description:
             "Indigenous-owned premium cannabis dispensary serving Canada with 360+ lab-tested products meeting the Empire Standard™.",
         ethicsPolicy: "https://mohawkmedibles.ca/privacy",
@@ -72,9 +72,9 @@ const teamSchema = {
             "@type": "Person",
             name: "Mohawk Medibles Founder",
             jobTitle: "Founder & CEO",
-            description: "Indigenous entrepreneur from Six Nations of the Grand River. Founded Mohawk Medibles in 2019 to provide premium, lab-tested cannabis while supporting community economic sovereignty.",
+            description: "Indigenous entrepreneur from Tyendinaga Mohawk Territory. Founded Mohawk Medibles in February 2018 to provide premium, lab-tested cannabis while supporting community economic sovereignty.",
             worksFor: { "@id": "https://mohawkmedibles.ca/#organization" },
-            knowsAbout: ["Cannabis cultivation", "Indigenous business", "Six Nations heritage", "Cannabis quality control"],
+            knowsAbout: ["Cannabis cultivation", "Indigenous business", "Tyendinaga Mohawk heritage", "Cannabis quality control"],
         },
         {
             "@type": "Person",

@@ -29,13 +29,13 @@ const BASE_BLOG_POSTS: BlogPost[] = [
     {
         slug: "terpene-guide-cannabis-effects",
         title: "The Complete Terpene Guide: How Terpenes Shape Your Cannabis Experience",
-        metaDescription: "Learn how terpenes like myrcene, limonene, and pinene determine cannabis effects. Science-backed guide from Mohawk Medibles' 10+ years of cultivation expertise on Six Nations territory.",
-        excerpt: "Terpenes are the unsung heroes of cannabis. These aromatic compounds do far more than create flavour — they fundamentally shape your high. Here's what 10+ years of cultivation on Six Nations territory has taught us.",
+        metaDescription: "Learn how terpenes like myrcene, limonene, and pinene determine cannabis effects. Science-backed guide from Mohawk Medibles' 10+ years of cultivation expertise on Tyendinaga Mohawk Territory.",
+        excerpt: "Terpenes are the unsung heroes of cannabis. These aromatic compounds do far more than create flavour — they fundamentally shape your high. Here's what 10+ years of cultivation on Tyendinaga Mohawk Territory has taught us.",
         category: "Cannabis Science",
-        image: "/assets/products/sun-rock-premium-aaaa-flower-2-25g-canada.jpg",
-        imageAlt: "Premium AAAA cannabis flower showing trichome-covered buds with visible terpene crystals — Mohawk Medibles Sun Rock",
+        image: "/assets/blog/terpene-guide-cannabis-effects.jpg",
+        imageAlt: "Colorful artistic illustration of terpene molecules floating among botanical leaves with glowing molecular structures",
         author: "Mohawk Medibles Team",
-        authorCredentials: "Cannabis cultivation specialists with 10+ years of terpene profiling experience on Six Nations territory",
+        authorCredentials: "Cannabis cultivation specialists with 10+ years of terpene profiling experience on Tyendinaga Mohawk Territory",
         datePublished: "2026-02-15",
         dateModified: "2026-03-01",
         readTime: "8 min",
@@ -44,7 +44,7 @@ const BASE_BLOG_POSTS: BlogPost[] = [
 
 Terpenes are naturally occurring aromatic compounds found in cannabis (and many other plants). They're produced in the same trichome glands that create cannabinoids like THC and CBD. While over 200 terpenes have been identified in cannabis, a handful dominate most strains.
 
-At Mohawk Medibles, every flower product undergoes full terpene profiling as part of our **Empire Standard™** quality process. This isn't marketing — it's science-driven quality control refined over a decade of cultivation on Six Nations territory.
+At Mohawk Medibles, every flower product undergoes full terpene profiling as part of our **Empire Standard™** quality process. This isn't marketing — it's science-driven quality control refined over a decade of cultivation on Tyendinaga Mohawk Territory.
 
 ## The Top 7 Cannabis Terpenes
 
@@ -131,8 +131,8 @@ This comprehensive approach ensures every product we sell delivers consistent, p
         metaDescription: "Complete cannabis edible dosing guide for Canadian beginners. Learn safe THC doses from 2.5mg to 50mg+, onset times, and tips from Mohawk Medibles' experts.",
         excerpt: "Edibles hit different — literally. The difference between a perfect evening and an overwhelming experience comes down to dosage. Here's our expert guide to getting it right every time.",
         category: "Education",
-        image: "/assets/products/stellar-strawberry-kiwi-gummies-canada.jpg",
-        imageAlt: "Stellar Strawberry Kiwi THC gummies with precise dosing — cannabis edibles available at Mohawk Medibles Canada",
+        image: "/assets/blog/edible-dosing-guide-beginners-canada.jpg",
+        imageAlt: "Assorted colorful gummies and edibles on dark slate with dosage measurement tools — cannabis edible dosing guide",
         author: "Mohawk Medibles Team",
         authorCredentials: "Cannabis wellness educators with expertise in edible formulation and responsible dosing",
         datePublished: "2026-02-20",
@@ -226,8 +226,8 @@ All edible products ship Canada-wide via Canada Post Xpresspost with discreet pa
         metaDescription: "Indica vs Sativa vs Hybrid explained by experts. Learn why terpene profiles matter more than strain type, plus top picks from Mohawk Medibles' 360+ product catalog.",
         excerpt: "The indica/sativa debate is evolving. Modern cannabis science shows that terpene and cannabinoid profiles matter more than strain classification. Here's what you actually need to know.",
         category: "Cannabis Science",
-        image: "/assets/products/amnesia-haze-5g.jpg",
-        imageAlt: "Amnesia Haze sativa cannabis flower with dense trichome coverage — premium cannabis from Mohawk Medibles",
+        image: "/assets/blog/indica-vs-sativa-vs-hybrid-guide.jpg",
+        imageAlt: "Split composition of purple indica vs green sativa with hybrid blend — indica vs sativa guide",
         author: "Mohawk Medibles Team",
         authorCredentials: "Certified cannabis specialists with 10+ years of strain selection and cultivation expertise",
         datePublished: "2026-02-25",
@@ -330,8 +330,8 @@ Browse our complete flower collection at mohawkmedibles.co/shop to find your ide
         metaDescription: "Complete guide to cannabis hash types: Afghan, Moroccan, bubble hash, temple balls, and more. Expert breakdown of potency, effects, and prices from Mohawk Medibles.",
         excerpt: "From centuries-old Afghan traditions to modern full-melt techniques, hash is cannabis in its most concentrated traditional form. Here's everything you need to know about choosing the right hash.",
         category: "Product Guides",
-        image: "/assets/products/nepalese-temple-ball-hash-2.jpg",
-        imageAlt: "Nepalese Temple Ball hash showing traditional hand-pressed texture with dark exterior — premium hash at Mohawk Medibles",
+        image: "/assets/blog/hash-guide-types-potency-canada.jpg",
+        imageAlt: "Premium hashish varieties on wooden board including pressed hash, bubble hash, and temple balls — ultimate hash guide",
         author: "Mohawk Medibles Team",
         authorCredentials: "Hash specialists with expertise in traditional and modern extraction methods",
         datePublished: "2026-03-01",
@@ -443,8 +443,8 @@ Browse our complete hash collection at mohawkmedibles.co/shop — over 40 variet
         metaDescription: "Expert CBD oil guide covering benefits, dosing charts, full-spectrum vs isolate, and product recommendations. Lab-tested CBD from Mohawk Medibles, shipped Canada-wide.",
         excerpt: "CBD oil has become one of the most popular wellness products in Canada. But with so many options, how do you choose? Our comprehensive guide covers everything from benefits to dosing.",
         category: "Wellness",
-        image: "/assets/products/full-spectrum-cbd-oil-60ml-canada.jpg",
-        imageAlt: "Full Spectrum CBD Oil 60ml bottle with dropper — lab-tested CBD from Mohawk Medibles Canada",
+        image: "/assets/blog/cbd-oil-guide-benefits-dosing-canada.jpg",
+        imageAlt: "CBD oil dropper with golden liquid against dark background — comprehensive CBD oil guide",
         author: "Mohawk Medibles Team",
         authorCredentials: "Cannabis wellness specialists with expertise in cannabinoid therapy and CBD formulations",
         datePublished: "2026-02-28",
@@ -555,8 +555,8 @@ All CBD products ship Canada-wide via Canada Post Xpresspost. CBD is legal acros
         metaDescription: "Step-by-step guide to buying cannabis online in Canada. Learn about quality standards, safe shipping, payment options, and why Mohawk Medibles is trusted by thousands.",
         excerpt: "Buying cannabis online in Canada has never been easier — or more confusing. With hundreds of options, how do you find a trusted source? Here's our complete guide to shopping smart.",
         category: "Guides",
-        image: "/assets/hero/cannabis-closeup.jpg",
-        imageAlt: "Close-up of premium cannabis flower with visible trichomes and orange pistils — buy quality cannabis online at Mohawk Medibles",
+        image: "/assets/blog/buying-cannabis-online-canada-guide.jpg",
+        imageAlt: "Modern laptop showing online dispensary with Canadian flag — how to buy cannabis online in Canada",
         author: "Mohawk Medibles Team",
         authorCredentials: "Indigenous-owned cannabis dispensary operators with years of online retail experience",
         datePublished: "2026-03-04",
@@ -658,7 +658,7 @@ Every product sold by Mohawk Medibles is backed by our Empire Standard™ guaran
 
 ## Why Choose an Indigenous Dispensary?
 
-Mohawk Medibles operates from Six Nations of the Grand River territory, rooted in Indigenous sovereignty and self-determination. Purchasing from Indigenous-owned businesses:
+Mohawk Medibles operates from Tyendinaga Mohawk Territory, rooted in Indigenous sovereignty and self-determination. Purchasing from Indigenous-owned businesses:
 
 - Supports Indigenous economic development
 - Funds community programs and youth initiatives

@@ -20,12 +20,12 @@ const fr: DictionarySchema = {
         search: "Recherche",
         login: "Connexion membre",
         talkToSupport: "Parler au soutien",
-        shippingBanner: "LIVRAISON PARTOUT AU CANADA VIA POSTES CANADA ET PUROLATOR — FRAIS DE 15$ — LIVRAISON GRATUITE POUR LES COMMANDES DE PLUS DE 199$",
+        shippingBanner: "LIVRAISON PARTOUT AU CANADA VIA POSTES CANADA ET PUROLATOR — FRAIS DE 15$ — LIVRAISON GRATUITE POUR LES COMMANDES DE PLUS DE 149$",
     },
 
     // ─── Hero / Accueil ─────────────────────────────────────
     hero: {
-        badge: "Propriété autochtone · Territoire des Six Nations",
+        badge: "Propriété autochtone · Territoire mohawk de Tyendinaga",
         headline: "Cannabis de qualité supérieure, enraciné dans le patrimoine",
         subheadline: "Plus de 360 produits testés en laboratoire conformes au Empire Standard™. Fleurs, comestibles, concentrés et plus — livrés partout au Canada.",
         shopNow: "Magasiner maintenant",
@@ -117,13 +117,13 @@ const fr: DictionarySchema = {
 
         // Piliers de confiance
         whyMohawk: "Pourquoi Mohawk Medibles",
-        trustedBy: "La confiance de plus de 47 000 Canadiens depuis 2019",
+        trustedBy: "La confiance de plus de 47 000 Canadiens depuis 2018",
         labTested: "Testé en laboratoire",
         everyBatch: "Chaque lot",
         labTestedDesc: "Tests en laboratoire tiers pour la puissance, la pureté et la sécurité. Certifié Empire Standard™.",
         indigenousOwned: "Propriété autochtone",
         andOperated: "et exploité",
-        indigenousDesc: "Fièrement au service depuis le territoire mohawk de Tyendinaga depuis 2019. Qualité souveraine.",
+        indigenousDesc: "Fièrement au service depuis le territoire mohawk de Tyendinaga depuis 2018. Qualité souveraine.",
         discreetShipping: "Expédition discrète",
         smellProof: "Anti-odeurs",
         shippingDesc: "Emballage sous vide, anti-odeurs. Aucune marque extérieure. Votre vie privée est garantie.",
@@ -180,7 +180,7 @@ const fr: DictionarySchema = {
         faqQ1: "Comment passer une commande?",
         faqA1: "Parcourez notre boutique, ajoutez des articles à votre panier et passez à la caisse. Nous acceptons Visa, Mastercard, le virement Interac et le Bitcoin. Toutes les commandes sont traitées de manière sécurisée par PayGo.",
         faqQ2: "Y a-t-il un montant minimum de commande?",
-        faqA2: "Aucun montant minimum requis! Cependant, les commandes de plus de 199 $ CA bénéficient de la livraison GRATUITE partout au Canada.",
+        faqA2: "Aucun montant minimum requis! Cependant, les commandes de plus de 149 $ CA bénéficient de la livraison GRATUITE partout au Canada.",
         faqQ3: "Facturez-vous la taxe?",
         faqA3: "Tous les prix sont sans taxe. En tant qu'entreprise autochtone opérant sous la souveraineté du territoire mohawk de Tyendinaga, aucune TVH ni taxe de vente n'est appliquée à votre commande.",
         faqQ4: "Puis-je modifier ou annuler ma commande?",
@@ -189,11 +189,11 @@ const fr: DictionarySchema = {
         faqA5: "Oui! Nous offrons des prix en vrac pour les détaillants et dispensaires qualifiés. Contactez notre équipe de gros à wholesale@mohawkmedibles.ca pour les prix et les quantités minimales de commande.",
         // Expédition et livraison — Q&R
         faqQ6: "Où livrez-vous?",
-        faqA6: "Nous livrons partout au Canada dans les 13 provinces et territoires via Postes Canada Xpresspost. La livraison locale est disponible pour Hamilton, Brantford et la région des Six Nations.",
+        faqA6: "Nous livrons partout au Canada dans les 13 provinces et territoires via Postes Canada Xpresspost. La livraison locale est disponible pour Deseronto, Belleville, Napanee et la région de Tyendinaga.",
         faqQ7: "Combien de temps prend la livraison?",
         faqA7: "Livraison locale : le jour même ou le lendemain. Ontario : 1 à 3 jours ouvrables. Québec/Maritimes : 2 à 4 jours ouvrables. Ouest canadien : 3 à 5 jours ouvrables. Nord canadien : 5 à 10 jours ouvrables.",
         faqQ8: "Combien coûte la livraison?",
-        faqA8: "GRATUITE pour la livraison locale et les commandes de plus de 199 $. Ontario : 15 $. Québec/Maritimes : 18 $. Ouest canadien : 20 $. Territoires nordiques : 25 $. Tous les prix sont en CAD.",
+        faqA8: "GRATUITE pour la livraison locale et les commandes de plus de 149 $. Ontario : 15 $. Québec/Maritimes : 18 $. Ouest canadien : 20 $. Territoires nordiques : 25 $. Tous les prix sont en CAD.",
         faqQ9: "L'emballage est-il discret?",
         faqA9: "Absolument. Toutes les commandes sont expédiées dans des boîtes neutres, sans marque, sans indication du contenu. L'adresse de retour affiche un nom d'entreprise générique. Les produits sont emballés sous vide pour la fraîcheur et le contrôle des odeurs.",
         faqQ10: "Devrai-je présenter une pièce d'identité à la livraison?",
@@ -254,7 +254,7 @@ const fr: DictionarySchema = {
         supportShipQ3: "Comment suivre ma commande?",
         supportShipA3: "Dès que votre commande est expédiée, vous recevrez un numéro de suivi par courriel. Vous pouvez également vérifier l'état de votre commande dans votre tableau de bord de compte.",
         supportShipQ4: "Offrez-vous la livraison gratuite?",
-        supportShipA4: "Les commandes de plus de 199 $ CA bénéficient de la livraison gratuite partout au Canada. La livraison locale est toujours gratuite dans nos zones de livraison le jour même.",
+        supportShipA4: "Les commandes de plus de 149 $ CA bénéficient de la livraison gratuite partout au Canada. La livraison locale est toujours gratuite dans nos zones de livraison le jour même.",
         // Sujet : Paiements et facturation
         topicPaymentsTitle: "Paiements et facturation",
         topicPaymentsDesc: "Modes de paiement, questions de facturation et remboursements",
@@ -303,10 +303,10 @@ const fr: DictionarySchema = {
     about: {
         title: "À propos",
         // Héros
-        heroBadge: "Six Nations de la rivière Grand",
+        heroBadge: "Tyendinaga Mohawk Territory",
         heroHeadline1: "Enraciné dans la souveraineté.",
         heroHeadline2: "Bâti pour la communauté.",
-        heroDescription: "Mohawk Medibles est un dispensaire de cannabis de propriété autochtone opérant depuis le territoire mohawk de Tyendinaga et les Six Nations de la rivière Grand. Depuis 2019, nous servons les Canadiens avec du cannabis de qualité supérieure, testé en laboratoire, soutenu par la qualité, l'intégrité et le respect des traditions autochtones.",
+        heroDescription: "Mohawk Medibles est un dispensaire de cannabis de propriété autochtone opérant depuis le territoire mohawk de Tyendinaga et le territoire mohawk de Tyendinaga. Depuis 2018, nous servons les Canadiens avec du cannabis de qualité supérieure, testé en laboratoire, soutenu par la qualité, l'intégrité et le respect des traditions autochtones.",
         // Statistiques
         statProducts: "Produits de qualité supérieure",
         statCustomers: "Clients servis",
@@ -329,13 +329,13 @@ const fr: DictionarySchema = {
         valuesQualityTitle: "Qualité Empire Standard™",
         valuesQualityDesc: "Chaque produit que nous offrons respecte notre rigoureux Empire Standard™ — testé en laboratoire, entreposé adéquatement et soigneusement sélectionné. Nous ne faisons jamais de compromis sur la puissance, la pureté ou la fraîcheur.",
         valuesCommunityTitle: "La communauté d'abord",
-        valuesCommunityDesc: "Une portion importante de nos revenus est réinvestie dans les programmes communautaires des Six Nations, les initiatives jeunesse et la préservation culturelle. Lorsque vous magasinez chez nous, vous soutenez les communautés autochtones.",
+        valuesCommunityDesc: "Une portion importante de nos revenus est réinvestie dans les programmes communautaires de Tyendinaga, les initiatives jeunesse et la préservation culturelle. Lorsque vous magasinez chez nous, vous soutenez les communautés autochtones.",
         valuesSustainabilityTitle: "Pratiques durables",
         valuesSustainabilityDesc: "Nous priorisons les fournisseurs soucieux de l'environnement, les emballages recyclables et les opérations à déchets minimaux. Notre engagement envers la terre reflète notre lien profond avec le monde naturel.",
         // Chronologie
         journeyLabel: "Notre parcours",
         journeyHeadline: "Des racines à l'empire.",
-        milestone2019: "Fondé sur le territoire des Six Nations de la rivière Grand",
+        milestone2018: "Fondé sur le territoire mohawk de Tyendinaga",
         milestone2020: "Expansion de la livraison partout au Canada via Postes Canada Xpresspost",
         milestone2021: "Lancement de la gamme de comestibles et de concentrés de qualité supérieure",
         milestone2022: "Plus de 10 000 clients satisfaits dans toutes les provinces",
@@ -444,11 +444,11 @@ const fr: DictionarySchema = {
         paymentCryptoTitle: "Cryptomonnaie",
         paymentCryptoDesc: "Bitcoin et Ethereum pour des paiements décentralisés.",
         paymentCashTitle: "Comptant (ramassage local)",
-        paymentCashDesc: "Payez comptant pour le ramassage local à Hamilton, Brantford ou Six Nations.",
+        paymentCashDesc: "Payez comptant pour le ramassage local à Deseronto ou Tyendinaga.",
         // Renseignements sur l'expédition
         shippingInfoTitle: "Renseignements sur l'expédition",
         shippingFreeTitle: "Livraison gratuite",
-        shippingFreeDesc: "Les commandes de plus de 199 $ CA sont expédiées GRATUITEMENT partout au Canada via Postes Canada Xpresspost.",
+        shippingFreeDesc: "Les commandes de plus de 149 $ CA sont expédiées GRATUITEMENT partout au Canada via Postes Canada Xpresspost.",
         shippingMethodTitle: "Méthode d'expédition",
         shippingMethodDesc: "Toutes les commandes sont expédiées via Postes Canada Xpresspost pour une livraison fiable et assurée partout au Canada.",
         shippingDeliveryTimesTitle: "Délais de livraison",
@@ -477,14 +477,14 @@ const fr: DictionarySchema = {
         subtitle: "Livraison rapide, discrète, partout au Canada.",
         // Sections
         shippingMethodsTitle: "Méthodes d'expédition",
-        shippingMethodsDesc: "Toutes les commandes sont expédiées via Postes Canada Xpresspost pour une livraison fiable et suivie partout au Canada. Nous offrons également la livraison locale pour Hamilton, Brantford et la région des Six Nations.",
+        shippingMethodsDesc: "Toutes les commandes sont expédiées via Postes Canada Xpresspost pour une livraison fiable et suivie partout au Canada. Nous offrons également la livraison locale pour Deseronto, Belleville, Napanee et la région de Tyendinaga.",
         deliveryTimesTitle: "Délais de livraison",
         // En-têtes du tableau
         tableRegion: "Région",
         tableEstimatedDelivery: "Livraison estimée",
         tableCost: "Coût",
         // Lignes du tableau
-        regionLocal: "Local (Hamilton/Brantford/Six Nations)",
+        regionLocal: "Local (Deseronto/Belleville/Tyendinaga)",
         regionLocalTime: "Jour même / Lendemain",
         regionLocalCost: "GRATUIT",
         regionOntario: "Ontario",
@@ -499,7 +499,7 @@ const fr: DictionarySchema = {
         regionNorthern: "Nord canadien (Territoires)",
         regionNorthernTime: "5 à 10 jours ouvrables",
         regionNorthernCost: "25,00 $",
-        freeShippingNote: "Livraison GRATUITE pour toutes les commandes de plus de 199 $ CA, partout au Canada.",
+        freeShippingNote: "Livraison GRATUITE pour toutes les commandes de plus de 149 $ CA, partout au Canada.",
         // Autres sections
         discreetPackagingTitle: "Emballage discret",
         discreetPackagingDesc: "Toutes les commandes sont expédiées dans un emballage neutre, sans marque, sans indication du contenu. L'adresse de retour affiche un nom d'entreprise générique. Tous les produits sont emballés sous vide pour la fraîcheur et le contrôle des odeurs.",
@@ -559,7 +559,7 @@ const fr: DictionarySchema = {
         lastUpdated: "Dernière mise à jour : février 2026",
         // Section 1
         whoWeAreTitle: "1. Qui sommes-nous",
-        whoWeAreDesc: "Mohawk Medibles est un dispensaire de cannabis de propriété autochtone opérant depuis le territoire des Six Nations de la rivière Grand, Ontario, Canada. Cette politique explique comment nous traitons vos données personnelles lorsque vous utilisez notre site Web, passez des commandes ou interagissez avec nos services, y compris notre assistant MedAgent alimenté par l'IA.",
+        whoWeAreDesc: "Mohawk Medibles est un dispensaire de cannabis de propriété autochtone opérant depuis le territoire mohawk de Tyendinaga, Ontario, Canada. Cette politique explique comment nous traitons vos données personnelles lorsque vous utilisez notre site Web, passez des commandes ou interagissez avec nos services, y compris notre assistant MedAgent alimenté par l'IA.",
         // Section 2
         infoCollectTitle: "2. Renseignements que nous recueillons",
         infoYouProvide: "Renseignements que vous fournissez :",
@@ -610,7 +610,7 @@ const fr: DictionarySchema = {
         dataRetentionDesc: "Nous conservons les dossiers de commandes pendant 7 ans à des fins fiscales et de conformité réglementaire. Les données de compte sont conservées jusqu'à ce que vous demandiez leur suppression. Les journaux de clavardage et de soutien sont conservés pendant 2 ans.",
         // Section 9
         privacyContactTitle: "9. Contact",
-        privacyContactDesc: "Pour les demandes relatives à la confidentialité, contactez-nous à privacy@mohawkmedibles.ca ou par courrier à : Mohawk Medibles, Six Nations de la rivière Grand, Ontario, Canada.",
+        privacyContactDesc: "Pour les demandes relatives à la confidentialité, contactez-nous à privacy@mohawkmedibles.ca ou par courrier à : Mohawk Medibles, Tyendinaga Mohawk Territory, Ontario, Canada.",
     },
 
     // ─── Page Conditions d'utilisation ──────────────────────
@@ -625,7 +625,7 @@ const fr: DictionarySchema = {
         ageRequirementDesc: "Vous devez avoir 19 ans ou plus pour naviguer, acheter ou interagir avec tout produit sur ce site Web. En utilisant nos services, vous confirmez que vous respectez cette exigence d'âge. Nous nous réservons le droit de demander une vérification de l'âge à tout moment, y compris lors de la livraison.",
         // Section 3
         sovereigntyTitle: "3. Souveraineté autochtone",
-        sovereigntyDesc: "Mohawk Medibles opère en vertu de la souveraineté inhérente de la Confédération haudenosaunee et de la Nation mohawk sur le territoire des Six Nations de la rivière Grand. Nos opérations sont régies par les droits autochtones et les principes d'autodétermination.",
+        sovereigntyDesc: "Mohawk Medibles opère en vertu de la souveraineté inhérente de la Confédération haudenosaunee et de la Nation mohawk sur le territoire mohawk de Tyendinaga. Nos opérations sont régies par les droits autochtones et les principes d'autodétermination.",
         // Section 4
         productsQualityTitle: "4. Produits et qualité",
         productsQualityDesc: "Tous les produits vendus par Mohawk Medibles respectent nos normes de qualité Empire Standard™. Les descriptions, images et spécifications des produits sont fournies de la manière la plus précise possible. Les pourcentages réels de THC/CBD peuvent varier légèrement d'un lot à l'autre.",
@@ -667,7 +667,7 @@ const fr: DictionarySchema = {
         activeOffers: "Offres en cours",
         // Offre livraison gratuite
         freeShippingTitle: "Livraison gratuite",
-        freeShippingDesc: "Livraison gratuite pour toutes les commandes de plus de 199 $ CA — partout au Canada via Xpresspost. Livraison rapide, discrète et sécurisée.",
+        freeShippingDesc: "Livraison gratuite pour toutes les commandes de plus de 149 $ CA — partout au Canada via Xpresspost. Livraison rapide, discrète et sécurisée.",
         // Offre Mélangez et assortissez
         mixMatchTitle: "Mélangez et assortissez",
         mixMatchDesc: "Achetez 3 comestibles, obtenez 10 % de rabais sur votre total de comestibles. Mélangez les saveurs, les variétés et les puissances — à votre choix.",
@@ -686,12 +686,12 @@ const fr: DictionarySchema = {
 
     // ─── SEO Meta (titres & descriptions par page pour le référencement) ──
     seo: {
-        siteTitle: "Mohawk Medibles | Cannabis autochtone de qualité supérieure — Six Nations",
-        siteDescription: "Dispensaire de cannabis autochtone sur le territoire des Six Nations. Plus de 360 produits testés en laboratoire : fleurs, comestibles, concentrés, vapoteuses. Qualité Empire Standard™. Livraison partout au Canada.",
+        siteTitle: "Mohawk Medibles | Cannabis autochtone de qualité supérieure — Tyendinaga",
+        siteDescription: "Dispensaire de cannabis autochtone sur le territoire de Tyendinaga. Plus de 360 produits testés en laboratoire : fleurs, comestibles, concentrés, vapoteuses. Qualité Empire Standard™. Livraison partout au Canada.",
         shopTitle: "Acheter du cannabis en ligne | Mohawk Medibles",
         shopDescription: "Parcourez plus de 360 produits de cannabis testés en laboratoire. Fleurs, comestibles, concentrés, vapoteuses et plus. Qualité Empire Standard™. Livraison rapide partout au Canada.",
         dealsTitle: "Promotions et rabais cannabis | Mohawk Medibles",
-        dealsDescription: "Économisez sur du cannabis de qualité. Livraison gratuite dès 199 $, comestibles à mélanger, offres en vrac. Qualité autochtone, testée en laboratoire.",
+        dealsDescription: "Économisez sur du cannabis de qualité. Livraison gratuite dès 149 $, comestibles à mélanger, offres en vrac. Qualité autochtone, testée en laboratoire.",
         aboutTitle: "À propos de Mohawk Medibles | Patrimoine cannabis autochtone",
         aboutDescription: "Découvrez Mohawk Medibles — dispensaire de cannabis autochtone sur le territoire Mohawk de Tyendinaga. Notre histoire, nos valeurs et notre engagement envers la qualité.",
         faqTitle: "FAQ | Dispensaire de cannabis Mohawk Medibles",
@@ -707,7 +707,7 @@ const fr: DictionarySchema = {
         termsTitle: "Conditions d'utilisation | Mohawk Medibles",
         termsDescription: "Conditions générales d'utilisation de la boutique en ligne Mohawk Medibles. Vérification de l'âge, commandes et conditions légales.",
         shippingTitle: "Politique de livraison | Mohawk Medibles",
-        shippingDescription: "Informations sur la livraison Mohawk Medibles. Livraison gratuite dès 199 $. Livraison Xpresspost partout au Canada. Emballage discret.",
+        shippingDescription: "Informations sur la livraison Mohawk Medibles. Livraison gratuite dès 149 $. Livraison Xpresspost partout au Canada. Emballage discret.",
         returnsTitle: "Retours et remboursements | Mohawk Medibles",
         returnsDescription: "Politique de retour et de remboursement de Mohawk Medibles. Réclamations pour produits endommagés, problèmes de commande et garantie de satisfaction.",
         howToOrderTitle: "Comment commander | Mohawk Medibles",

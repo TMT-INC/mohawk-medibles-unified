@@ -9,7 +9,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
     title: "Find Mohawk Medibles | Cannabis Directory Listings Across Canada",
     description:
-        "Find Mohawk Medibles on top cannabis directories across Canada. Weedmaps, Leafly, AllBud, Yelp, and more. Indigenous-owned dispensary on Six Nations territory.",
+        "Find Mohawk Medibles on top cannabis directories across Canada. Weedmaps, Leafly, AllBud, Yelp, and more. Indigenous-owned dispensary on Tyendinaga Mohawk Territory.",
     keywords: [
         "mohawk medibles weedmaps",
         "mohawk medibles leafly",

@@ -304,7 +304,7 @@ Each cluster = 1 pillar page + 8-12 supporting articles + internal linking
 
 | Strategy | Mechanism | Target AOV Impact |
 |----------|-----------|-------------------|
-| Free Shipping Threshold | $199 minimum for free shipping | +$25-40 per order |
+| Free Shipping Threshold | $149 minimum for free shipping | +$25-40 per order |
 | Bundle Builder | "Complete Your Session" — grinder + papers + flower | +$30-50 per order |
 | Frequently Bought Together | AI-powered product pairing at checkout | +$15-25 per order |
 | Tiered Loyalty (Wampum Belt) | Bronze/Silver/Gold/Diamond with escalating perks | +$50-100 per VIP order |
@@ -361,7 +361,7 @@ CAPABILITIES:
 REVENUE OPTIMIZATION ACTIONS:
 - Upsell complementary products during cart review
 - Suggest bundle deals when cart contains 2+ items from same category
-- Offer free shipping threshold nudge when cart is within $30 of $199
+- Offer free shipping threshold nudge when cart is within $30 of $149
 - Recommend subscription box to repeat customers (3+ orders)
 - Present VIP tier benefits to high-AOV customers
 
@@ -677,7 +677,7 @@ REVENUE OPTIMIZATION ACTIONS:
 | 3 | Move cart to database-backed persistence | Dev | `lib/sage/commerce.ts` |
 | 3 | Implement persistent memory service | Dev | `agents/skills/memory_service.py` |
 | 3 | Launch abandoned cart recovery flow | Campaign Agent | `agents/campaign_agent.py` |
-| 4 | Configure free shipping threshold ($199) | Dev | `lib/stripe.ts` |
+| 4 | Configure free shipping threshold ($149) | Dev | `lib/stripe.ts` |
 | 4 | Build bundle builder UI component | Dev | `components/BundleBuilder.tsx` |
 | 4 | Submit to 20+ local SEO directories | Content Agent | Manual + `lib/seo/local-seo.ts` |
 

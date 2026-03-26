@@ -18,9 +18,9 @@ const BRAND = {
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
     description:
-        "Indigenous-owned premium cannabis dispensary on Six Nations territory. Lab-tested, terpene-profiled products meeting the Empire Standard™.",
+        "Indigenous-owned premium cannabis dispensary on Tyendinaga Mohawk Territory. Lab-tested, terpene-profiled products meeting the Empire Standard™.",
     slogan: "The Empire Standard™",
-    foundingLocation: "Six Nations of the Grand River, Ontario, Canada",
+    foundingLocation: "Tyendinaga Mohawk Territory, Ontario, Canada",
     sameAs: [
         "https://www.tiktok.com/@mediblesdeseronto",
         "https://x.com/mohawkmedibles",
@@ -29,10 +29,10 @@ const BRAND = {
     ],
     address: {
         "@type": "PostalAddress" as const,
-        streetAddress: "Six Nations of the Grand River",
-        addressLocality: "Ohsweken",
+        streetAddress: "Tyendinaga Mohawk Territory",
+        addressLocality: "Deseronto",
         addressRegion: "ON",
-        postalCode: "N0A 1M0",
+        postalCode: "K0K 1X0",
         addressCountry: "CA",
     },
     geo: {
@@ -84,7 +84,7 @@ export function organizationSchema() {
             "Cannabis edibles",
             "Cannabis concentrates",
             "Indigenous cannabis culture",
-            "Six Nations",
+            "Tyendinaga",
         ],
     };
 }
@@ -113,7 +113,7 @@ export function localBusinessSchema() {
         url: BRAND.url,
         sameAs: BRAND.sameAs,
         parentOrganization: { "@id": `${BASE_URL}/#organization` },
-        hasMap: "https://maps.google.com/?q=Six+Nations+of+the+Grand+River+Ontario+Canada",
+        hasMap: "https://maps.google.com/?q=Tyendinaga+Mohawk+Territory+Deseronto+Ontario+Canada",
         areaServed: [
             // Dynamically include all 72+ cities from the delivery network
             ...getAllCities().map(({ city }) => ({
@@ -294,7 +294,7 @@ export function productSchema(product: ProductSchemaInput) {
                 },
                 freeShippingThreshold: {
                     "@type": "MonetaryAmount",
-                    value: "199",
+                    value: "149",
                     currency: "CAD",
                 },
             },
@@ -431,7 +431,7 @@ export function articleSchema(article: ArticleSchemaInput) {
             jobTitle: "Cannabis Expert",
             description:
                 article.authorCredentials ||
-                "Certified cannabis specialist with 10+ years cultivation experience on Six Nations territory",
+                "Certified cannabis specialist with 10+ years cultivation experience on Tyendinaga Mohawk Territory",
             worksFor: { "@id": `${BASE_URL}/#organization` },
         },
         publisher: { "@id": `${BASE_URL}/#organization` },

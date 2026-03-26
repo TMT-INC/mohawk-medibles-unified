@@ -141,7 +141,7 @@ export default function CheckoutPage() {
     const subtotalAfterDiscount = Math.max(0, total - discount);
     const hasFreeShipping = appliedCoupon?.valid && appliedCoupon.freeShipping;
     const isPickup = deliveryMethod === "pickup";
-    const shipping = isPickup ? 0 : (hasFreeShipping ? 0 : (total >= 199 ? 0 : 15));
+    const shipping = isPickup ? 0 : (hasFreeShipping ? 0 : (total >= 149 ? 0 : 15));
     const tax = 0; // Tax-free — Indigenous sovereignty (Tyendinaga Mohawk Territory)
     const grandTotal = +(subtotalAfterDiscount + shipping + tax).toFixed(2);
 
@@ -714,9 +714,9 @@ export default function CheckoutPage() {
                                 )}
                             </div>
 
-                            {total < 199 && !hasFreeShipping && (
+                            {total < 149 && !hasFreeShipping && (
                                 <div className="mb-4 p-3 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300 rounded-lg text-xs">
-                                    Add ${(199 - total).toFixed(2)} more for FREE shipping!
+                                    Add ${(149 - total).toFixed(2)} more for FREE shipping!
                                 </div>
                             )}
 
