@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
   const featured = searchParams.get("featured");
   const slugs = searchParams.get("slugs"); // comma-separated
 
-  let products = PRODUCTS;
+  let products = PRODUCTS.filter(p => p.price > 0);
 
   if (category) {
     products = products.filter(
