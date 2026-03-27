@@ -304,6 +304,7 @@ model OrderItem {
     price     Float
     total     Float
     name      String    // Snapshot of product name at time of order
+    costPrice Float?    // Snapshot of product cost at time of order
 
     order   Order   @relation(fields: [orderId], references: [id])
     product Product @relation(fields: [productId], references: [id])
@@ -2787,4 +2788,24 @@ enum PriceMatchStatus {
     APPROVED
     REJECTED
     EXPIRED
+}
+
+// ─── Accounting / Expenses ────────────────────────────────
+
+model Expense {
+    id                 Int      @id @default(autoincrement())
+    category           String   // "inventory", "shipping", "rent", "utilities", "wages", "marketing", "packaging", "equipment", "other"
+    description        String
+    amount             Float
+    date               DateTime
+    recurring          Boolean  @default(false)
+    recurringFrequency String?  // "weekly", "monthly", "yearly"
+    vendor             String?
+    receiptUrl         String?
+    notes              String?  @db.Text
+    createdAt          DateTime @default(now())
+    updatedAt          DateTime @updatedAt
+
+    @@index([category])
+    @@index([date])
 }

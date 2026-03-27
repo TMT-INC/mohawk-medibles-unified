@@ -30,6 +30,7 @@ import { wishlistShareRouter } from "./routers/wishlistShare";
 import { dailyDealsRouter } from "./routers/dailyDeals";
 import { priceMatchRouter } from "./routers/priceMatch";
 import { pricingRouter } from "./routers/pricing";
+import { accountingRouter } from "./routers/accounting";
 
 export const appRouter = router({
   pos: posRouter,
@@ -59,6 +60,7 @@ export const appRouter = router({
   dailyDeals: dailyDealsRouter,
   priceMatch: priceMatchRouter,
   pricing: pricingRouter,
+  accounting: accountingRouter,
 });
 
 export type AppRouter = typeof appRouter;

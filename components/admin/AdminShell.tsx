@@ -8,7 +8,7 @@ import {
     Search, Bell, ChevronDown, TrendingUp, Truck, DollarSign,
     ChevronLeft, ChevronRight, Percent,
     LayoutDashboard, Megaphone, BookOpen, MessageSquare,
-    Zap, Gift, Tag, Warehouse, ClipboardList,
+    Zap, Gift, Tag, Warehouse, ClipboardList, Receipt,
     UserCog, Monitor, PieChart, CreditCard,
     ShoppingBag, Star, Beaker, ArrowLeftRight,
     Globe, Heart, Clock, Mail, Layers, Share2, Newspaper,
@@ -43,6 +43,7 @@ const NAV_SECTIONS = [
         { href: "/admin/wholesale", label: "Wholesale B2B", icon: Building2 },
         { href: "/admin/gift-tiers", label: "Gift Tiers", icon: Gift },
         { href: "/admin/price-match", label: "Price Match", icon: Shield },
+        { href: "/admin/accounting", label: "Accounting", icon: Receipt },
     ]},
     { heading: "Point of Sale", items: [
         { href: "/admin/pos", label: "POS Terminal", icon: CreditCard },
