@@ -230,9 +230,34 @@ function formatWeight(grams: number): string {
 
 /**
  * Get the lowest price-per-gram for a product (for shop card display).
+ * Falls back to parsing product name for pricing patterns like "$5/Gram", "$40/oz".
  */
-export function getLowestPricePerGram(product: ProductForPricing): number | null {
+export function getLowestPricePerGram(product: ProductForPricing & { name?: string }): number | null {
     const tiers = getBulkPricingTiers(product);
-    if (tiers.length === 0) return null;
-    return Math.min(...tiers.map(t => t.pricePerGram));
+    if (tiers.length > 0) return Math.min(...tiers.map(t => t.pricePerGram));
+
+    // Fallback: parse per-gram price from product name
+    if (product.name) {
+        const name = product.name;
+
+        // Match "$X/Gram" or "$X/g"
+        const perGramMatch = name.match(/\$(\d+(?:\.\d+)?)\s*\/\s*(?:gram|g)\b/i);
+        if (perGramMatch) return parseFloat(perGramMatch[1]);
+
+        // Match "$X/oz" — divide by 28 to get per-gram
+        const perOzMatch = name.match(/\$(\d+(?:\.\d+)?)\s*\/\s*oz\b/i);
+        if (perOzMatch) return parseFloat(perOzMatch[1]) / 28;
+
+        // Match "$X/OZ" in product names like "Pink Moon $40/oz"
+        const ozPriceMatch = name.match(/\$(\d+)\s*\/\s*oz/i);
+        if (ozPriceMatch) return parseFloat(ozPriceMatch[1]) / 28;
+    }
+
+    // Fallback: if it's flower category and we know the price, estimate per-gram
+    // Assume single-gram products if price <= $15 for flower
+    if (product.category?.toLowerCase() === 'flower' && product.price > 0 && product.price <= 15) {
+        return product.price;
+    }
+
+    return null;
 }

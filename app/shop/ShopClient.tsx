@@ -844,7 +844,7 @@ export default function ShopClient() {
                                                     ${product.price.toFixed(2)}
                                                 </span>
                                                 {(() => {
-                                                    const ppg = getLowestPricePerGram({ price: product.price, category: product.category, specs: { weight: product.specs.weight } });
+                                                    const ppg = getLowestPricePerGram({ price: product.price, category: product.category, name: product.name, specs: { weight: product.specs?.weight } });
                                                     return ppg ? (
                                                         <span className="block text-[10px] text-muted-foreground font-medium">
                                                             From ${ppg.toFixed(2)}/g
