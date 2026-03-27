@@ -120,7 +120,8 @@ export default function GoogleReviewsWidget() {
     ? `https://www.google.com/maps/place/?q=place_id:${data.placeId}`
     : "https://www.google.com/maps/search/Mohawk+Medibles";
 
-  const currentReview = data.reviews[currentIndex];
+  const currentReview = data.reviews?.[currentIndex];
+  if (!currentReview) return null;
 
   return (
     <section
@@ -182,7 +183,7 @@ export default function GoogleReviewsWidget() {
                   />
                 ) : (
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-white font-bold text-base shadow-lg ring-2 ring-amber-400/30">
-                    {currentReview.authorName.charAt(0).toUpperCase()}
+                    {(currentReview.authorName || "?").charAt(0).toUpperCase()}
                   </div>
                 )}
                 <div>
