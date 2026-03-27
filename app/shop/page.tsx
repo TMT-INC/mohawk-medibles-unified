@@ -116,6 +116,8 @@ export async function generateMetadata({ searchParams }: ShopPageProps): Promise
     };
 }
 
+export const revalidate = 60;
+
 // ─── Server Component (JSON-LD schemas + client shell) ──────────
 
 export default async function ShopPage({ searchParams }: ShopPageProps) {

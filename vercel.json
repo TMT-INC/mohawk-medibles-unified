@@ -1,4 +1,13 @@
 {
+  "functions": {
+    "app/**/*.tsx": {
+      "maxDuration": 30
+    },
+    "app/api/**/*.ts": {
+      "maxDuration": 60
+    }
+  },
+  "regions": ["iad1"],
   "crons": [
     {
       "path": "/api/cron/abandoned-carts",
