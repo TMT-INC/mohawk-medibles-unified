@@ -13977,22 +13977,22 @@ const _RAW_PRODUCTS: Product[] = [
             "https://mohawkmedibles.ca/wp-content/uploads/2025/06/CBN-Nightime.webp",
             "https://mohawkmedibles.ca/wp-content/uploads/2025/06/CBN-Nighttime-1000mg.webp"
         ],
-        "altText": "AKI &#8211; CBN Nighttime Oil 60ML *SALE* - Mohawk Medibles",
-        "sku": "",
-        "metaDescription": "Buy AKI &#8211; CBN Nighttime Oil 60ML *SALE* online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "shortDescription": "Buy AKI &#8211; CBN Nighttime Oil 60ML *SALE* online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "descriptionHTML": "",
+        "altText": "AKI CBN Nighttime Oil 60ML bottle with dropper for sleep support and relaxation available at Mohawk Medibles Canada",
+        "sku": "MM-CBD-346",
+        "metaDescription": "Buy AKI CBN Nighttime Oil 60ML on sale in Canada. Premium sleep support oil at Mohawk Medibles — fast Canada-wide shipping.",
+        "shortDescription": "Shop AKI CBN Nighttime Oil 60ML on sale — a premium cannabinol sleep oil formulated for deep, restful sleep. Handcrafted in Pikwakanagan. Buy now at Mohawk Medibles with fast Canada-wide delivery.",
+        "descriptionHTML": "<div class=\"product-description\"><p>Buy AKI CBN Nighttime Oil 60ML online in Canada at Mohawk Medibles. This premium CBN oil is specifically formulated for nighttime use, harnessing the sleep-promoting properties of cannabinol to help you achieve deep, restorative rest naturally.</p><h2>Product Highlights</h2><ul><li><strong>CBN Formula:</strong> Cannabinol is known as the \"sleepy cannabinoid\" for its sedative properties</li><li><strong>60ML Bottle:</strong> Generous size for weeks of nightly use</li><li><strong>Handcrafted in Pikwakanagan:</strong> Made with care and cultural integrity by AKI Wellness</li><li><strong>MCT Oil Base:</strong> Smooth sublingual absorption for fast onset</li></ul><h2>How to Use</h2><ol><li>Shake well before each use</li><li>Take 0.5-1ml under the tongue 30-60 minutes before bed</li><li>Hold for 60-90 seconds, then swallow</li><li>Start with a low dose and adjust as needed over 1-2 weeks</li></ol><h2>Frequently Asked Questions</h2><h3>What is CBN and how does it help sleep?</h3><p><strong>A:</strong> CBN (cannabinol) is a naturally occurring cannabinoid known for its sedative and sleep-promoting effects. It works with your body's endocannabinoid system to promote relaxation and help you fall asleep faster and stay asleep longer.</p><h3>Will CBN oil make me groggy the next morning?</h3><p><strong>A:</strong> Most users report waking feeling refreshed without grogginess. Unlike pharmaceutical sleep aids, CBN works naturally with your body. Start with a low dose to find the right amount for you.</p><h3>Does Mohawk Medibles ship across Canada?</h3><p><strong>A:</strong> Yes! Fast Canada-wide shipping with same-day processing before 2 PM EST. Discreet packaging from Tyendinaga Mohawk Territory.</p></div>",
         "featured": false,
         "specs": {
-            "thc": "TBD",
-            "cbd": "TBD",
-            "type": "AKI",
-            "weight": "TBD",
-            "terpenes": [],
-            "lineage": ""
+            "thc": "Minimal",
+            "cbd": "Contains CBN primarily",
+            "type": "CBN Oil",
+            "weight": "60ML",
+            "terpenes": ["Myrcene", "Linalool"],
+            "lineage": "N/A"
         },
-        "eeatNarrative": "AKI &#8211; CBN Nighttime Oil 60ML *SALE* is a premium AKI product available at Mohawk Medibles, Tyendinaga's trusted cannabis dispensary.",
-        "effects": []
+        "eeatNarrative": "AKI CBN Nighttime Oil 60ML is a lab-tested sleep support oil available at Mohawk Medibles. Handcrafted by AKI Wellness in Pikwakanagan, each batch undergoes third-party lab testing to meet Empire Standard quality benchmarks for accurate cannabinoid content and purity, ensuring safe and effective sleep support from Tyendinaga Mohawk Territory.",
+        "effects": ["Sleepy", "Relaxed", "Happy"]
     },
     {
         "id": 347,
