@@ -10,8 +10,7 @@ import { validatePhone, formatPhone } from "@/lib/phoneValidation";
 // Helper to get userId from session cookie
 async function getUserId(req: NextRequest): Promise<string | null> {
   const token =
-    req.cookies.get("session_token")?.value ||
-    req.cookies.get("token")?.value ||
+    req.cookies.get("mm-session")?.value ||
     null;
 
   if (!token) return null;

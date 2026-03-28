@@ -16,6 +16,8 @@ import { buildDigipayPaymentUrl } from "@/lib/digipay";
 import { runFraudCheck } from "@/lib/fraudDetection";
 import { sendOrderConfirmationSMS, sendAndLogSMS } from "@/lib/sms";
 import { autoEnterPurchaseContests } from "@/lib/contestDrawing";
+import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
+import { verifyCsrf } from "@/lib/csrf";
 
 // ─── Types ───────────────────────────────────────────────────
 
@@ -47,6 +49,14 @@ interface CheckoutRequest {
 // ─── POST Handler ────────────────────────────────────────────
 
 export async function POST(req: NextRequest) {
+    // Rate limiting
+    const limited = await applyRateLimit(req, RATE_LIMITS.api);
+    if (limited) return limited;
+
+    // CSRF verification
+    const csrfError = verifyCsrf(req);
+    if (csrfError) return csrfError;
+
     try {
         const tenant = await getCurrentTenant();
         const body: CheckoutRequest = await req.json();

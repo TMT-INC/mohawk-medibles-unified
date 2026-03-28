@@ -1,12 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { timingSafeEqual } from 'crypto';
 import { prisma } from '@/lib/db';
 import { log } from '@/lib/logger';
 import { fetchAllCustomers, type WCCustomer } from '@/lib/wc-api';
 
+function verifySyncSecret(header: string | null): boolean {
+  const secret = process.env.AUTH_SECRET;
+  if (!secret || !header) return false;
+  if (header.length !== secret.length) return false;
+  return timingSafeEqual(Buffer.from(header), Buffer.from(secret));
+}
+
 // POST /api/sync/customers — Sync customers from WooCommerce
 export async function POST(req: NextRequest) {
-  const authHeader = req.headers.get('x-sync-secret');
-  if (authHeader !== process.env.AUTH_SECRET) {
+  if (!verifySyncSecret(req.headers.get('x-sync-secret'))) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { timingSafeEqual } from 'crypto';
 import { prisma } from '@/lib/db';
 import { log } from '@/lib/logger';
 import { fetchAllProducts, type WCStoreProduct } from '@/lib/wc-api';
@@ -12,6 +13,13 @@ const EXCLUDED_CATEGORIES = new Set([
   'euphoria psychedelics', 'her highness from the 6ix',
 ]);
 
+function verifySyncSecret(header: string | null): boolean {
+  const secret = process.env.AUTH_SECRET;
+  if (!secret || !header) return false;
+  if (header.length !== secret.length) return false;
+  return timingSafeEqual(Buffer.from(header), Buffer.from(secret));
+}
+
 function isExcludedProduct(wcProduct: WCStoreProduct): boolean {
   return (wcProduct.categories || []).some(
     (c) => EXCLUDED_CATEGORIES.has(c.name.toLowerCase())
@@ -21,8 +29,7 @@ function isExcludedProduct(wcProduct: WCStoreProduct): boolean {
 // POST /api/sync/products — Full product sync from WooCommerce Store API
 export async function POST(req: NextRequest) {
   // Simple auth check — require AUTH_SECRET header
-  const authHeader = req.headers.get('x-sync-secret');
-  if (authHeader !== process.env.AUTH_SECRET) {
+  if (!verifySyncSecret(req.headers.get('x-sync-secret'))) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -162,8 +169,7 @@ export async function POST(req: NextRequest) {
 
 // GET /api/sync/products — Check sync status
 export async function GET(req: NextRequest) {
-  const authHeader = req.headers.get('x-sync-secret');
-  if (authHeader !== process.env.AUTH_SECRET) {
+  if (!verifySyncSecret(req.headers.get('x-sync-secret'))) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

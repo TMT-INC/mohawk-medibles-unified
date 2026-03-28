@@ -7,11 +7,11 @@ import crypto from "crypto";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 import { log } from "@/lib/logger";
 
-const HMAC_SECRET = process.env.AUTH_SECRET || "mohawk-medibles-unsubscribe-secret";
-
 /** Generate HMAC token for an email to prevent abuse */
 export function generateUnsubscribeToken(email: string): string {
-    return crypto.createHmac("sha256", HMAC_SECRET).update(email.toLowerCase()).digest("hex").substring(0, 32);
+    const secret = process.env.AUTH_SECRET;
+    if (!secret) throw new Error("AUTH_SECRET not configured");
+    return crypto.createHmac("sha256", secret).update(email.toLowerCase()).digest("hex").substring(0, 32);
 }
 
 /** Build a full unsubscribe URL */
@@ -24,6 +24,10 @@ export function buildUnsubscribeUrl(email: string, campaignId?: string): string 
 }
 
 export async function GET(req: NextRequest) {
+    if (!process.env.AUTH_SECRET) {
+        return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
+    }
+
     const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 

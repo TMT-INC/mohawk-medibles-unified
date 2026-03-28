@@ -82,6 +82,7 @@ export async function proxy(request: NextRequest) {
             path: "/",
             httpOnly: false,
             sameSite: "lax",
+            secure: process.env.NODE_ENV === "production",
             maxAge: 60 * 60 * 24, // 1 day
         });
         // Set CSRF cookie if not already present (for page responses)
@@ -100,6 +101,7 @@ export async function proxy(request: NextRequest) {
                 path: "/",
                 httpOnly: false,
                 sameSite: "lax",
+                secure: process.env.NODE_ENV === "production",
                 maxAge: 60 * 60 * 24 * 30, // 30 days
             });
             // Fire-and-forget: track the click via internal API
@@ -247,11 +249,13 @@ async function decodeSessionToken(token: string): Promise<SessionPayload | null>
 
         // Verify HMAC-SHA256 signature using Web Crypto
         const secret = process.env.AUTH_SECRET;
-        if (secret) {
-            const expected = await hmacSign(`${headerB64}.${payloadB64}`, secret);
-            if (!safeCompare(signature, expected)) {
-                return null;
-            }
+        if (!secret) {
+            console.error("[proxy] CRITICAL: AUTH_SECRET not configured — rejecting all tokens");
+            throw new Error("AUTH_SECRET not configured");
+        }
+        const expected = await hmacSign(`${headerB64}.${payloadB64}`, secret);
+        if (!safeCompare(signature, expected)) {
+            return null;
         }
 
         const payload = JSON.parse(atob(payloadB64.replace(/-/g, "+").replace(/_/g, "/")));
