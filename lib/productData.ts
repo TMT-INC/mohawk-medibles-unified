@@ -14522,22 +14522,22 @@ const _RAW_PRODUCTS: Product[] = [
             "https://mohawkmedibles.ca/wp-content/uploads/2025/05/5000mg-THC-MCT-Oil-with-loo.png",
             "https://mohawkmedibles.ca/wp-content/uploads/2025/05/5000mg-THC-MCT-Oil-with-loo.png"
         ],
-        "altText": "THC Tincture 5000MG MCT - Mohawk Medibles",
-        "sku": "",
-        "metaDescription": "Buy THC Tincture 5000MG MCT online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "shortDescription": "Buy THC Tincture 5000MG MCT online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "descriptionHTML": "",
+        "altText": "THC Tincture 5000MG MCT oil bottle with dropper for sublingual dosing available at Mohawk Medibles Canada",
+        "sku": "MM-WELL-360",
+        "metaDescription": "Buy THC Tincture 5000MG MCT Oil in Canada. High-potency sublingual cannabis oil at Mohawk Medibles — fast Canada-wide shipping.",
+        "shortDescription": "Shop the THC Tincture 5000MG MCT — a high-potency cannabis tincture in MCT oil base for sublingual dosing. Perfect for experienced users seeking strong, controlled effects. Buy at Mohawk Medibles with fast Canada-wide delivery.",
+        "descriptionHTML": "<div class=\"product-description\"><p>Buy THC Tincture 5000MG MCT online in Canada at Mohawk Medibles. This high-potency tincture packs 5000mg of THC into a smooth MCT oil base, perfect for experienced users who need precise, powerful dosing via sublingual application or adding to food and beverages.</p><h2>Product Highlights</h2><ul><li><strong>5000mg THC:</strong> One of the highest-potency tinctures available in Canada</li><li><strong>MCT Oil Base:</strong> Premium coconut-derived MCT for fast absorption</li><li><strong>Dropper Included:</strong> Precise dosing with graduated dropper</li><li><strong>Versatile Use:</strong> Sublingual, add to drinks, or mix into food</li></ul><h2>Dosing Guide</h2><ol><li><strong>Beginners:</strong> Start with 0.1ml (approximately 10mg THC) under the tongue</li><li><strong>Moderate users:</strong> 0.25-0.5ml (25-50mg THC) for therapeutic effects</li><li><strong>Experienced users:</strong> 0.5-1ml (50-100mg THC) for strong effects</li><li>Hold under tongue 60-90 seconds, then swallow</li><li>Wait 30-90 minutes before re-dosing</li></ol><h2>Frequently Asked Questions</h2><h3>How potent is the 5000mg THC tincture?</h3><p><strong>A:</strong> This is a very high-potency product. Each milliliter contains approximately 100mg THC. Beginners should start with very small doses (0.1ml) and titrate up slowly.</p><h3>What is MCT oil and why is it used?</h3><p><strong>A:</strong> MCT (Medium Chain Triglyceride) oil is derived from coconuts and improves THC absorption, especially for sublingual use. It also has a neutral taste and long shelf life.</p><h3>Does Mohawk Medibles ship tinctures across Canada?</h3><p><strong>A:</strong> Yes! Fast Canada-wide shipping with same-day processing on orders before 2 PM EST. Discreet packaging from Tyendinaga Mohawk Territory.</p></div>",
         "featured": false,
         "specs": {
-            "thc": "TBD",
-            "cbd": "TBD",
-            "type": "THC",
-            "weight": "TBD",
+            "thc": "5000mg total",
+            "cbd": "Minimal",
+            "type": "Tincture",
+            "weight": "Bottle",
             "terpenes": [],
-            "lineage": ""
+            "lineage": "N/A"
         },
-        "eeatNarrative": "THC Tincture 5000MG MCT is a premium THC product available at Mohawk Medibles, Tyendinaga's trusted cannabis dispensary.",
-        "effects": []
+        "eeatNarrative": "The THC Tincture 5000MG MCT is a lab-tested, high-potency cannabis tincture available at Mohawk Medibles. Every batch undergoes third-party lab testing to meet Empire Standard quality benchmarks for accurate THC potency and purity, ensuring safe and consistent dosing from Tyendinaga Mohawk Territory.",
+        "effects": ["Relaxed", "Euphoric", "Sleepy", "Happy", "Hungry"]
     },
     {
         "id": 361,
