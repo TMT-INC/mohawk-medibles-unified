@@ -12098,25 +12098,25 @@ const _RAW_PRODUCTS: Product[] = [
             "https://mohawkmedibles.ca/wp-content/uploads/2026/02/M39-Brick-stacked.png",
             "https://mohawkmedibles.ca/wp-content/uploads/2026/02/M39-Brick-stacked-sideways.png"
         ],
-        "altText": "M39 Hash - Mohawk Medibles",
+        "altText": "M39 Hash premium pressed cannabis hash brick concentrate made from M39 strain available at Mohawk Medibles Canada",
         "sku": "M39HASH",
-        "metaDescription": "Buy M39 Hash online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "shortDescription": "Buy M39 Hash online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "descriptionHTML": "",
+        "metaDescription": "Buy M39 Hash in Canada. Premium pressed cannabis hash from the classic M39 strain. Mohawk Medibles — fast Canada-wide shipping.",
+        "shortDescription": "Shop M39 Hash — a premium pressed cannabis hash made from the classic M39 strain with smooth, balanced effects. Affordable quality at just $12. Buy now at Mohawk Medibles with fast Canada-wide delivery.",
+        "descriptionHTML": "<div class=\"product-description\"><p>Buy M39 Hash online in Canada at Mohawk Medibles. Made from the classic M39 cannabis strain, this pressed hash delivers a smooth, balanced high with the earthy, herbal flavour profile that has made M39 a Canadian favourite for decades.</p><h2>Product Highlights</h2><ul><li><strong>Classic M39 Strain:</strong> A legendary Canadian cannabis variety known for reliable effects</li><li><strong>Smooth Flavour:</strong> Earthy, herbal with subtle sweet notes</li><li><strong>Dense Press:</strong> Well-pressed brick hash for easy handling and storage</li><li><strong>Affordable:</strong> Premium hash at just $12 per gram</li></ul><h2>About M39</h2><p>M39 is a classic Canadian cannabis strain that has been a staple for decades. Known for its balanced indica-leaning effects, M39 produces a relaxing, mellow high that is perfect for unwinding without heavy sedation. The hash made from this strain retains these signature balanced properties.</p><h2>Frequently Asked Questions</h2><h3>What is M39 Hash?</h3><p><strong>A:</strong> M39 Hash is a concentrated cannabis product made by pressing trichomes from the M39 cannabis strain. It typically contains 25-45% THC and delivers a smooth, balanced high.</p><h3>Does Mohawk Medibles ship across Canada?</h3><p><strong>A:</strong> Yes! Fast Canada-wide shipping with same-day processing before 2 PM EST. Discreet packaging from Tyendinaga Mohawk Territory.</p></div>",
         "featured": false,
         "specs": {
-            "thc": "TBD",
-            "cbd": "TBD",
-            "type": "Concentrates",
-            "weight": "TBD",
+            "thc": "25-45%",
+            "cbd": "Minimal",
+            "type": "Hash",
+            "weight": "1g",
             "terpenes": [
                 "Myrcene",
                 "Limonene",
                 "Caryophyllene"
             ],
-            "lineage": ""
+            "lineage": "M39 (Canadian classic indica-leaning hybrid)"
         },
-        "eeatNarrative": "M39 Hash is a premium Concentrates product available at Mohawk Medibles, Tyendinaga's trusted cannabis dispensary.",
+        "eeatNarrative": "M39 Hash is a lab-tested, premium cannabis hash available at Mohawk Medibles. Made from the legendary M39 strain, each batch undergoes third-party lab testing to meet Empire Standard quality benchmarks for potency and purity, ensuring an authentic hash experience from Tyendinaga Mohawk Territory.",
         "effects": [
             "euphoric",
             "relaxed",
