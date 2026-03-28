@@ -14300,25 +14300,25 @@ const _RAW_PRODUCTS: Product[] = [
             "https://mohawkmedibles.ca/wp-content/uploads/2025/05/love2-1.jpg",
             "https://mohawkmedibles.ca/wp-content/uploads/2025/05/love3-1.jpg"
         ],
-        "altText": "Moroccan Love Hash - Mohawk Medibles",
-        "sku": "",
-        "metaDescription": "Buy Moroccan Love Hash online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "shortDescription": "Buy Moroccan Love Hash online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "descriptionHTML": "",
+        "altText": "Moroccan Love Hash traditional pressed cannabis hash concentrate available at Mohawk Medibles Canada",
+        "sku": "MM-CONC-354",
+        "metaDescription": "Buy Moroccan Love Hash in Canada. Traditional pressed cannabis hash at Mohawk Medibles — fast Canada-wide shipping from $12.",
+        "shortDescription": "Shop Moroccan Love Hash — a traditional pressed cannabis hash with smooth, earthy flavour and potent effects. Premium quality at just $12. Buy now at Mohawk Medibles with fast Canada-wide delivery.",
+        "descriptionHTML": "<div class=\"product-description\"><p>Buy Moroccan Love Hash online in Canada at Mohawk Medibles. This traditional pressed hash is crafted in the classic Moroccan style, delivering smooth, earthy flavour with potent THC effects that hash enthusiasts know and love.</p><h2>Product Highlights</h2><ul><li><strong>Traditional Moroccan Style:</strong> Pressed using time-honoured techniques</li><li><strong>Smooth Flavour:</strong> Earthy, slightly spicy with subtle sweetness</li><li><strong>Affordable at $12:</strong> Premium hash at an accessible price point</li><li><strong>Versatile Use:</strong> Smoke in a pipe, bong, joint, or vaporize</li></ul><h2>How to Use</h2><ol><li><strong>In a Joint:</strong> Crumble and mix with flower for enhanced potency</li><li><strong>In a Pipe/Bong:</strong> Break off a small piece and place on a screen</li><li><strong>Knife Hits:</strong> Traditional method using heated knives</li><li><strong>Vaporizer:</strong> Use a concentrate-compatible vaporizer at 180-220°C</li></ol><h2>Frequently Asked Questions</h2><h3>What is Moroccan hash?</h3><p><strong>A:</strong> Moroccan hash is made by collecting and pressing trichomes (kief) from cannabis plants. The traditional pressing technique creates a dense, aromatic concentrate with a smooth smoking experience.</p><h3>How potent is Moroccan Love Hash?</h3><p><strong>A:</strong> Traditional Moroccan hash typically contains 25-45% THC. It provides a mellow, full-body high that is smoother than many modern concentrates.</p><h3>Does Mohawk Medibles ship across Canada?</h3><p><strong>A:</strong> Yes! Fast Canada-wide shipping with same-day processing before 2 PM EST. Discreet packaging from Tyendinaga Mohawk Territory.</p></div>",
         "featured": false,
         "specs": {
-            "thc": "TBD",
-            "cbd": "TBD",
-            "type": "Concentrates",
-            "weight": "TBD",
+            "thc": "25-45%",
+            "cbd": "Minimal",
+            "type": "Hash",
+            "weight": "1g",
             "terpenes": [
                 "Myrcene",
                 "Limonene",
                 "Caryophyllene"
             ],
-            "lineage": ""
+            "lineage": "Moroccan landrace"
         },
-        "eeatNarrative": "Moroccan Love Hash is a premium Concentrates product available at Mohawk Medibles, Tyendinaga's trusted cannabis dispensary.",
+        "eeatNarrative": "Moroccan Love Hash is a lab-tested, premium cannabis concentrate available at Mohawk Medibles. All hash products undergo third-party lab testing to meet Empire Standard quality benchmarks for potency and purity, ensuring a safe and authentic hash experience from Tyendinaga Mohawk Territory.",
         "effects": [
             "euphoric",
             "relaxed",
