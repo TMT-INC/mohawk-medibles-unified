@@ -14631,22 +14631,22 @@ const _RAW_PRODUCTS: Product[] = [
             "https://mohawkmedibles.ca/wp-content/uploads/2025/05/euphoria_psychedelics_cookies_and_cream_1200mg_1200x1200.jpg",
             "https://mohawkmedibles.ca/wp-content/uploads/2025/05/euphoria_psychedelics_cookies_and_cream_1200mg_1200x1200.jpg"
         ],
-        "altText": "Euphoria Psychedelics Cookies and Cream Mushroom Bar - Mohawk Medibles",
-        "sku": "",
-        "metaDescription": "Buy Euphoria Psychedelics Cookies and Cream Mushroom Bar online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "shortDescription": "Buy Euphoria Psychedelics Cookies and Cream Mushroom Bar online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "descriptionHTML": "",
+        "altText": "Euphoria Psychedelics Cookies and Cream psilocybin mushroom chocolate bar 1200mg available in Canada",
+        "sku": "MM-MUSH-363",
+        "metaDescription": "Buy Euphoria Psychedelics Cookies and Cream Mushroom Bar in Canada. 1200mg psilocybin chocolate. Mohawk Medibles — fast shipping.",
+        "shortDescription": "Shop the Euphoria Psychedelics Cookies and Cream Mushroom Bar — a delicious 1200mg psilocybin chocolate bar with rich cookies and cream flavour. Buy now at Mohawk Medibles with discreet Canada-wide delivery.",
+        "descriptionHTML": "<div class=\"product-description\"><p>Buy Euphoria Psychedelics Cookies and Cream Mushroom Bar online in Canada at Mohawk Medibles. This indulgent psilocybin chocolate bar combines the classic cookies and cream flavour with 1200mg of premium psilocybin mushroom extract for a controlled, enjoyable psychedelic experience.</p><h2>Product Highlights</h2><ul><li><strong>1200mg Psilocybin:</strong> Precisely dosed for consistent effects</li><li><strong>Cookies and Cream Flavour:</strong> Delicious chocolate that masks earthy mushroom taste</li><li><strong>Scored Squares:</strong> Easy to break into smaller doses for micro-dosing</li><li><strong>Premium Ingredients:</strong> High-quality chocolate and mushroom extract</li></ul><h2>Dosing Guide</h2><ol><li><strong>Micro-dose (1-2 squares):</strong> Subtle mood lift and enhanced creativity</li><li><strong>Light dose (3-4 squares):</strong> Gentle visuals and heightened awareness</li><li><strong>Moderate dose (half bar):</strong> Full psychedelic experience with vivid visuals</li><li><strong>Full dose (entire bar):</strong> Deep, transformative psychedelic journey</li></ol><h2>Frequently Asked Questions</h2><h3>How long do effects take to kick in?</h3><p><strong>A:</strong> Psilocybin edibles typically take 30-90 minutes to onset. Peak effects occur at 2-3 hours with total duration of 4-6 hours. Eating on an empty stomach may speed onset.</p><h3>What does it taste like?</h3><p><strong>A:</strong> Rich cookies and cream chocolate with minimal mushroom taste. Euphoria Psychedelics is known for premium flavour profiles that make consumption enjoyable.</p><h3>Does Mohawk Medibles ship across Canada?</h3><p><strong>A:</strong> Yes! Fast Canada-wide shipping with same-day processing before 2 PM EST. Discreet packaging from Tyendinaga Mohawk Territory.</p></div>",
         "featured": false,
         "specs": {
-            "thc": "TBD",
-            "cbd": "TBD",
-            "type": "Euphoria Psychedelics",
-            "weight": "TBD",
+            "thc": "N/A",
+            "cbd": "N/A",
+            "type": "Psilocybin Edible",
+            "weight": "1200mg psilocybin",
             "terpenes": [],
-            "lineage": ""
+            "lineage": "Psilocybin mushroom extract"
         },
-        "eeatNarrative": "Euphoria Psychedelics Cookies and Cream Mushroom Bar is a premium Euphoria Psychedelics product available at Mohawk Medibles, Tyendinaga's trusted cannabis dispensary.",
-        "effects": []
+        "eeatNarrative": "Euphoria Psychedelics Cookies and Cream Mushroom Bar is a precisely dosed psilocybin edible available at Mohawk Medibles. Each Euphoria Psychedelics product undergoes quality testing to meet Empire Standard benchmarks for accurate psilocybin content and food safety, ensuring a reliable psychedelic experience from Tyendinaga Mohawk Territory.",
+        "effects": ["Euphoric", "Creative", "Happy", "Uplifted", "Giggly"]
     }
 ];
 
