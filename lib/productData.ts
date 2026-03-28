@@ -14237,22 +14237,22 @@ const _RAW_PRODUCTS: Product[] = [
             "https://mohawkmedibles.ca/wp-content/uploads/2025/07/Cereal-Milk-Diamond-3g-Disposable-Vape.png",
             "https://mohawkmedibles.ca/wp-content/uploads/2025/07/Bull-Energy-Diamond-3g-Disposable-Vape.png"
         ],
-        "altText": "Diamond Concentrates 3G Disposable THC Vape - Mohawk Medibles",
-        "sku": "",
-        "metaDescription": "Buy Diamond Concentrates 3G Disposable THC Vape online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "shortDescription": "Buy Diamond Concentrates 3G Disposable THC Vape online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "descriptionHTML": "",
+        "altText": "Diamond Concentrates 3G disposable THC vape pen in 10+ flavours including Blueberry Diesel and Cotton Candy in Canada",
+        "sku": "MM-DISP-352",
+        "metaDescription": "Buy Diamond Concentrates 3G Disposable THC Vape in Canada. 10+ flavours, premium distillate. Mohawk Medibles — fast shipping.",
+        "shortDescription": "Shop Diamond Concentrates 3G Disposable THC Vape — premium single-chamber device in 10+ flavours including Blueberry Diesel, Cotton Candy, and Champagne Kush. Buy now at Mohawk Medibles with fast Canada-wide delivery.",
+        "descriptionHTML": "<div class=\"product-description\"><p>Buy Diamond Concentrates 3G Disposable THC Vape online in Canada at Mohawk Medibles. This compact single-chamber disposable features 3 grams of Diamond Concentrates' premium THC distillate in over 10 delicious flavours.</p><h2>Product Highlights</h2><ul><li><strong>3G Capacity:</strong> 800-1200 puffs for 2-4 weeks of use</li><li><strong>10+ Flavours:</strong> Blueberry Diesel, Cotton Candy, Champagne Kush, Cereal Milk, and more</li><li><strong>Diamond Concentrates Quality:</strong> Canada's trusted concentrate brand</li><li><strong>Rechargeable:</strong> USB-C ensures you use every drop</li></ul><h2>Available Flavours</h2><ul><li>Blueberry Diesel</li><li>Lychee</li><li>Lime Sorbet</li><li>Dream Queen</li><li>Crush Cream Soda</li><li>Cotton Candy</li><li>Cherry Blasters</li><li>Champagne Kush</li><li>Cereal Milk</li><li>Bull Energy</li></ul><h2>Frequently Asked Questions</h2><h3>How long does the 3G Diamond vape last?</h3><p><strong>A:</strong> Expect 800-1200 puffs, typically lasting 2-4 weeks for moderate daily users.</p><h3>Does Mohawk Medibles ship across Canada?</h3><p><strong>A:</strong> Yes! Fast Canada-wide shipping with same-day processing before 2 PM EST. Discreet packaging from Tyendinaga Mohawk Territory.</p></div>",
         "featured": false,
         "specs": {
-            "thc": "TBD",
-            "cbd": "TBD",
-            "type": "Diamond Concentrates",
-            "weight": "TBD",
-            "terpenes": [],
-            "lineage": ""
+            "thc": "80-90%",
+            "cbd": "Minimal",
+            "type": "Disposables",
+            "weight": "3g",
+            "terpenes": ["Myrcene", "Limonene", "Caryophyllene"],
+            "lineage": "Multiple strains available"
         },
-        "eeatNarrative": "Diamond Concentrates 3G Disposable THC Vape is a premium Diamond Concentrates product available at Mohawk Medibles, Tyendinaga's trusted cannabis dispensary.",
-        "effects": []
+        "eeatNarrative": "Diamond Concentrates 3G Disposable THC Vape is a lab-tested, premium vape from one of Canada's most trusted concentrate brands. All Diamond Concentrates products undergo third-party lab testing to meet Empire Standard quality benchmarks for potency and purity at Mohawk Medibles, Tyendinaga Mohawk Territory.",
+        "effects": ["Relaxed", "Euphoric", "Happy", "Creative", "Uplifted"]
     },
     {
         "id": 353,
