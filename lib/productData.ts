@@ -13519,21 +13519,21 @@ const _RAW_PRODUCTS: Product[] = [
             "https://mohawkmedibles.ca/wp-content/uploads/2025/05/1_1-bright-logo-moved-2.png",
             "https://mohawkmedibles.ca/wp-content/uploads/2025/05/1_1-bright-logo-moved-2.png"
         ],
-        "altText": "1:1 Capsules &#8211; 2000mg - Mohawk Medibles",
-        "sku": "",
-        "metaDescription": "Buy 1:1 Capsules &#8211; 2000mg online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "shortDescription": "Buy 1:1 Capsules &#8211; 2000mg online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "descriptionHTML": "",
+        "altText": "1:1 CBD THC Capsules 2000mg balanced ratio cannabis capsules for therapeutic use available at Mohawk Medibles Canada",
+        "sku": "MM-CAPS-334",
+        "metaDescription": "Buy 1:1 Capsules 2000mg (CBD+THC) in Canada. Balanced ratio cannabis capsules at Mohawk Medibles — fast Canada-wide shipping.",
+        "shortDescription": "Shop 1:1 Capsules 2000mg — balanced CBD and THC cannabis capsules for precise, discreet dosing. 1000mg CBD + 1000mg THC per bottle. Buy now at Mohawk Medibles with fast Canada-wide delivery.",
+        "descriptionHTML": "<div class=\"product-description\"><p>Buy 1:1 Capsules 2000mg online in Canada at Mohawk Medibles. These balanced-ratio cannabis capsules deliver 1000mg CBD and 1000mg THC per bottle for precise, discreet dosing — ideal for therapeutic users seeking the synergistic benefits of both cannabinoids.</p><h2>Product Highlights</h2><ul><li><strong>1:1 Balanced Ratio:</strong> Equal parts CBD and THC for optimal entourage effect</li><li><strong>2000mg Total:</strong> 1000mg CBD + 1000mg THC per bottle</li><li><strong>Precise Dosing:</strong> Each capsule contains a consistent, measured dose</li><li><strong>Discreet Format:</strong> Looks like any standard supplement capsule</li></ul><h2>Dosing Guide</h2><ol><li>Start with one capsule and wait 60-90 minutes for full effects</li><li>Increase gradually as needed over several days</li><li>Take with food for improved absorption</li><li>Consult packaging for exact mg per capsule</li></ol><h2>Frequently Asked Questions</h2><h3>Why choose 1:1 ratio capsules?</h3><p><strong>A:</strong> The 1:1 CBD:THC ratio provides balanced therapeutic effects. CBD modulates the THC experience, reducing anxiety while enhancing pain relief and relaxation. This ratio is often recommended for managing pain, inflammation, and sleep issues.</p><h3>How long do effects last?</h3><p><strong>A:</strong> Cannabis capsules typically take 30-90 minutes to onset and effects last 4-8 hours. This makes them ideal for sustained, all-day relief.</p><h3>Does Mohawk Medibles ship across Canada?</h3><p><strong>A:</strong> Yes! Fast Canada-wide shipping with same-day processing before 2 PM EST. Discreet packaging from Tyendinaga Mohawk Territory.</p></div>",
         "featured": false,
         "specs": {
-            "thc": "TBD",
-            "cbd": "TBD",
+            "thc": "1000mg total",
+            "cbd": "1000mg total",
             "type": "Capsules",
-            "weight": "TBD",
+            "weight": "Bottle",
             "terpenes": [],
-            "lineage": ""
+            "lineage": "N/A"
         },
-        "eeatNarrative": "1:1 Capsules &#8211; 2000mg is a premium Capsules product available at Mohawk Medibles, Tyendinaga's trusted cannabis dispensary.",
+        "eeatNarrative": "The 1:1 Capsules 2000mg are lab-tested, balanced-ratio cannabis capsules available at Mohawk Medibles. Each batch undergoes third-party lab testing to meet Empire Standard quality benchmarks for accurate CBD and THC potency, ensuring consistent therapeutic dosing from Tyendinaga Mohawk Territory.",
         "effects": [
             "calm",
             "relaxed",
