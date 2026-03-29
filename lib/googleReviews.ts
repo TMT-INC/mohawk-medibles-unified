@@ -38,11 +38,12 @@ export async function syncGoogleReviews(): Promise<{
     return { synced: 0, averageRating: 0, totalReviews: 0 };
   }
 
-  // Use Places API (New) — fieldMask approach
-  const url = `https://places.googleapis.com/v1/places/${GOOGLE_PLACE_ID}?fields=rating,userRatingCount,reviews&key=${GOOGLE_PLACES_API_KEY}`;
+  // Use Places API (New) — fieldMask via header (not query param)
+  const url = `https://places.googleapis.com/v1/places/${GOOGLE_PLACE_ID}`;
 
   const res = await fetch(url, {
     headers: {
+      "X-Goog-Api-Key": GOOGLE_PLACES_API_KEY,
       "X-Goog-FieldMask": "rating,userRatingCount,reviews",
     },
   });
