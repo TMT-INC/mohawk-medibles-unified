@@ -1,0 +1,194 @@
+<h2>Product Detail Page — Ian's Layout + Our Data</h2>
+<p class="subtitle">Ian's live site has a classic 2-column PDP. How much of our extra data should we surface?</p>
+
+<div class="cards">
+  <!-- Option A: Faithful to Ian -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1e1e26;border-radius:8px;padding:16px;font-family:system-ui;color:#fff;font-size:11px;">
+        <!-- Breadcrumb -->
+        <div style="font-size:8px;color:#666;margin-bottom:8px;">Home / Flower / OG Kush</div>
+        <!-- Two column layout -->
+        <div style="display:flex;gap:12px;">
+          <!-- Left: Image gallery -->
+          <div style="flex:55%;">
+            <div style="display:flex;gap:4px;">
+              <!-- Thumbnails -->
+              <div style="display:flex;flex-direction:column;gap:3px;width:40px;">
+                <div style="width:36px;height:36px;background:#333;border-radius:3px;border:2px solid #c8e63e;"></div>
+                <div style="width:36px;height:36px;background:#333;border-radius:3px;border:1px solid #3a3a48;"></div>
+                <div style="width:36px;height:36px;background:#333;border-radius:3px;border:1px solid #3a3a48;"></div>
+              </div>
+              <!-- Main image -->
+              <div style="flex:1;background:#252530;border-radius:6px;height:140px;display:flex;align-items:center;justify-content:center;">
+                <span style="color:#555;font-size:9px;">🔍 Zoom on hover</span>
+              </div>
+            </div>
+          </div>
+          <!-- Right: Info -->
+          <div style="flex:45%;">
+            <div style="font-size:8px;color:#c8e63e;text-transform:uppercase;margin-bottom:2px;">FLOWER</div>
+            <div style="font-size:14px;font-weight:700;margin-bottom:4px;">OG Kush — Premium AA+</div>
+            <div style="font-size:9px;color:#888;margin-bottom:6px;">Sold: 247</div>
+            <div style="font-size:16px;color:#c8e63e;font-weight:700;margin-bottom:8px;">$40.00 <span style="color:#666;text-decoration:line-through;font-size:11px;">$55.00</span></div>
+            <div style="font-size:9px;color:#aaa;margin-bottom:8px;line-height:1.4;">Premium indica-dominant hybrid. Earthy pine aroma with notes of citrus. Perfect for evening relaxation.</div>
+            <!-- Variant selector -->
+            <div style="margin-bottom:8px;">
+              <div style="font-size:8px;color:#888;margin-bottom:3px;">Weight:</div>
+              <div style="display:flex;gap:3px;">
+                <div style="background:#252530;border:1px solid #c8e63e;padding:3px 8px;border-radius:4px;font-size:8px;color:#c8e63e;">1oz</div>
+                <div style="background:#252530;border:1px solid #3a3a48;padding:3px 8px;border-radius:4px;font-size:8px;color:#aaa;">½oz</div>
+                <div style="background:#252530;border:1px solid #3a3a48;padding:3px 8px;border-radius:4px;font-size:8px;color:#aaa;">¼oz</div>
+              </div>
+            </div>
+            <!-- Add to cart -->
+            <div style="display:flex;gap:4px;margin-bottom:8px;">
+              <div style="background:#252530;border:1px solid #3a3a48;padding:4px 8px;border-radius:4px;font-size:10px;color:#fff;width:36px;text-align:center;">1</div>
+              <div style="background:#c8e63e;color:#1e1e26;padding:4px 12px;border-radius:4px;font-size:10px;font-weight:700;flex:1;text-align:center;">ADD TO CART</div>
+            </div>
+            <!-- Trust badges -->
+            <div style="display:flex;gap:6px;padding-top:6px;border-top:1px solid #3a3a48;">
+              <div style="text-align:center;flex:1;">
+                <div style="font-size:12px;">🚚</div>
+                <div style="font-size:6px;color:#888;">Free Ship $199+</div>
+              </div>
+              <div style="text-align:center;flex:1;">
+                <div style="font-size:12px;">✅</div>
+                <div style="font-size:6px;color:#888;">Quality Guaranteed</div>
+              </div>
+              <div style="text-align:center;flex:1;">
+                <div style="font-size:12px;">💬</div>
+                <div style="font-size:6px;color:#888;">Expert Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tabs -->
+        <div style="margin-top:10px;border-top:1px solid #3a3a48;padding-top:8px;">
+          <div style="display:flex;gap:12px;margin-bottom:6px;">
+            <span style="font-size:9px;color:#c8e63e;border-bottom:2px solid #c8e63e;padding-bottom:3px;">Description</span>
+            <span style="font-size:9px;color:#666;">Additional Info</span>
+            <span style="font-size:9px;color:#666;">Reviews (12)</span>
+          </div>
+          <div style="font-size:8px;color:#888;line-height:1.5;">Product description text goes here with full details about strain, effects, and usage...</div>
+        </div>
+        <div style="text-align:center;margin-top:6px;font-size:8px;color:#555;">Ian's classic WooCommerce PDP — clean, proven, familiar</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A: Ian's Classic PDP (Faithful)</h3>
+      <p>Exact match to mohawkmedibles.ca — vertical thumbnail gallery, 55/45 split, "Sold: X" count, trust badges, tabbed content (Description, Additional Info, Reviews). Proven WooCommerce layout customers already know.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Ian's + Our Cannabis Data -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1e1e26;border-radius:8px;padding:16px;font-family:system-ui;color:#fff;font-size:11px;">
+        <!-- Breadcrumb -->
+        <div style="font-size:8px;color:#666;margin-bottom:8px;">Home / Flower / OG Kush</div>
+        <!-- Two column layout -->
+        <div style="display:flex;gap:12px;">
+          <!-- Left: Image gallery -->
+          <div style="flex:55%;">
+            <div style="display:flex;gap:4px;">
+              <div style="display:flex;flex-direction:column;gap:3px;width:40px;">
+                <div style="width:36px;height:36px;background:#333;border-radius:3px;border:2px solid #c8e63e;"></div>
+                <div style="width:36px;height:36px;background:#333;border-radius:3px;border:1px solid #3a3a48;"></div>
+                <div style="width:36px;height:36px;background:#333;border-radius:3px;border:1px solid #3a3a48;"></div>
+              </div>
+              <div style="flex:1;background:#252530;border-radius:6px;height:140px;display:flex;align-items:center;justify-content:center;">
+                <span style="color:#555;font-size:9px;">🔍 Zoom on hover</span>
+              </div>
+            </div>
+          </div>
+          <!-- Right: Info + cannabis data -->
+          <div style="flex:45%;">
+            <div style="font-size:8px;color:#c8e63e;text-transform:uppercase;margin-bottom:2px;">FLOWER • INDICA</div>
+            <div style="font-size:14px;font-weight:700;margin-bottom:2px;">OG Kush — Premium AA+</div>
+            <!-- Star rating -->
+            <div style="margin-bottom:4px;">
+              <span style="color:#f59e0b;font-size:10px;">★★★★★</span>
+              <span style="color:#888;font-size:8px;">(12 reviews)</span>
+              <span style="color:#666;font-size:8px;margin-left:4px;">Sold: 247</span>
+            </div>
+            <div style="font-size:16px;color:#c8e63e;font-weight:700;margin-bottom:6px;">$40.00 <span style="color:#666;text-decoration:line-through;font-size:11px;">$55.00</span> <span style="background:#ef4444;color:#fff;font-size:7px;padding:1px 4px;border-radius:3px;margin-left:4px;">-27%</span></div>
+            <!-- THC/CBD bar -->
+            <div style="display:flex;gap:8px;margin-bottom:6px;">
+              <div style="flex:1;">
+                <div style="font-size:7px;color:#888;margin-bottom:2px;">THC</div>
+                <div style="background:#333;border-radius:3px;height:6px;overflow:hidden;">
+                  <div style="background:linear-gradient(90deg,#c8e63e,#9abf2e);width:78%;height:100%;border-radius:3px;"></div>
+                </div>
+                <div style="font-size:8px;color:#c8e63e;margin-top:1px;">24-28%</div>
+              </div>
+              <div style="flex:1;">
+                <div style="font-size:7px;color:#888;margin-bottom:2px;">CBD</div>
+                <div style="background:#333;border-radius:3px;height:6px;overflow:hidden;">
+                  <div style="background:linear-gradient(90deg,#60a5fa,#3b82f6);width:5%;height:100%;border-radius:3px;"></div>
+                </div>
+                <div style="font-size:8px;color:#60a5fa;margin-top:1px;">&lt;1%</div>
+              </div>
+            </div>
+            <!-- Terpene pills -->
+            <div style="display:flex;gap:3px;flex-wrap:wrap;margin-bottom:6px;">
+              <span style="background:rgba(245,158,11,0.15);color:#f59e0b;font-size:7px;padding:2px 5px;border-radius:8px;">Myrcene</span>
+              <span style="background:rgba(234,179,8,0.15);color:#eab308;font-size:7px;padding:2px 5px;border-radius:8px;">Limonene</span>
+              <span style="background:rgba(16,185,129,0.15);color:#10b981;font-size:7px;padding:2px 5px;border-radius:8px;">Pinene</span>
+            </div>
+            <!-- Effects -->
+            <div style="display:flex;gap:3px;margin-bottom:6px;">
+              <span style="background:#252530;border:1px solid #3a3a48;font-size:7px;padding:2px 5px;border-radius:4px;color:#aaa;">😌 Relaxed</span>
+              <span style="background:#252530;border:1px solid #3a3a48;font-size:7px;padding:2px 5px;border-radius:4px;color:#aaa;">😊 Happy</span>
+              <span style="background:#252530;border:1px solid #3a3a48;font-size:7px;padding:2px 5px;border-radius:4px;color:#aaa;">😴 Sleepy</span>
+            </div>
+            <!-- Variant + Cart (same as Ian's) -->
+            <div style="display:flex;gap:3px;margin-bottom:4px;">
+              <div style="background:#252530;border:1px solid #c8e63e;padding:3px 6px;border-radius:4px;font-size:8px;color:#c8e63e;">1oz</div>
+              <div style="background:#252530;border:1px solid #3a3a48;padding:3px 6px;border-radius:4px;font-size:8px;color:#aaa;">½oz</div>
+              <div style="background:#252530;border:1px solid #3a3a48;padding:3px 6px;border-radius:4px;font-size:8px;color:#aaa;">¼oz</div>
+            </div>
+            <div style="display:flex;gap:4px;margin-bottom:6px;">
+              <div style="background:#252530;border:1px solid #3a3a48;padding:4px 8px;border-radius:4px;font-size:10px;color:#fff;width:32px;text-align:center;">1</div>
+              <div style="background:#c8e63e;color:#1e1e26;padding:4px 10px;border-radius:4px;font-size:10px;font-weight:700;flex:1;text-align:center;">ADD TO CART</div>
+              <div style="background:#252530;border:1px solid #3a3a48;padding:4px 8px;border-radius:4px;font-size:10px;color:#fff;">♡</div>
+            </div>
+            <!-- Trust badges -->
+            <div style="display:flex;gap:4px;padding-top:5px;border-top:1px solid #3a3a48;">
+              <div style="text-align:center;flex:1;"><div style="font-size:10px;">🚚</div><div style="font-size:6px;color:#888;">Free $199+</div></div>
+              <div style="text-align:center;flex:1;"><div style="font-size:10px;">✅</div><div style="font-size:6px;color:#888;">Guaranteed</div></div>
+              <div style="text-align:center;flex:1;"><div style="font-size:10px;">💬</div><div style="font-size:6px;color:#888;">Support</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Enhanced tabs -->
+        <div style="margin-top:8px;border-top:1px solid #3a3a48;padding-top:6px;">
+          <div style="display:flex;gap:10px;margin-bottom:5px;">
+            <span style="font-size:9px;color:#c8e63e;border-bottom:2px solid #c8e63e;padding-bottom:2px;">Details</span>
+            <span style="font-size:9px;color:#666;">Specs</span>
+            <span style="font-size:9px;color:#666;">Reviews (12)</span>
+            <span style="font-size:9px;color:#666;">FAQ</span>
+          </div>
+          <div style="font-size:8px;color:#888;line-height:1.4;">Includes terpene profile breakdown, lineage info, growing conditions, and auto-generated FAQ for SEO...</div>
+        </div>
+        <div style="text-align:center;margin-top:6px;font-size:8px;color:#555;">Ian's layout + THC/CBD bars, terpene pills, effects, enhanced tabs</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B: Ian's PDP + Cannabis Intelligence (Recommended)</h3>
+      <p>Same 55/45 layout, gallery, trust badges. ADDS: THC/CBD visual bars, terpene profile pills (color-coded), effect tags, star ratings inline, sale percentage badge, wishlist button, 4-tab system (Details, Specs, Reviews, FAQ). All data already in our DB — just needs rendering.</p>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:24px;padding:16px;background:rgba(200,230,62,0.08);border:1px solid rgba(200,230,62,0.2);border-radius:8px;">
+  <h3 style="color:#c8e63e;margin-top:0;">SEO Advantage of Option B</h3>
+  <ul style="font-size:14px;line-height:1.8;">
+    <li><strong>FAQ tab</strong> → auto-generated FAQSchema for rich snippets</li>
+    <li><strong>Terpene + THC data</strong> → structured data for cannabis search intent</li>
+    <li><strong>Review stars</strong> → AggregateRating schema (already built)</li>
+    <li><strong>Breadcrumb</strong> → BreadcrumbList schema (already built)</li>
+    <li><strong>Speakable</strong> → voice search optimization (already built)</li>
+    <li>All schemas already exist in page.tsx — just need the UI to match</li>
+  </ul>
+</div>

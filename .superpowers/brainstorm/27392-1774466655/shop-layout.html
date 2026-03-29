@@ -1,0 +1,148 @@
+<h2>Shop Page — Matching Ian's Design</h2>
+<p class="subtitle">Here's what Ian's live site does vs what we have now. Which direction for the unified version?</p>
+
+<div class="cards">
+  <!-- Option A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1e1e26;border-radius:8px;padding:16px;font-family:system-ui;color:#fff;font-size:11px;">
+        <!-- Ian's current site mockup -->
+        <div style="background:#000;padding:8px 12px;border-radius:6px 6px 0 0;display:flex;justify-content:space-between;align-items:center;">
+          <span style="color:#c8e63e;font-weight:700;font-size:13px;">MOHAWK MEDIBLES</span>
+          <span style="color:#888;font-size:10px;">Shop | About | FAQ | Cart</span>
+        </div>
+        <!-- Promo banner -->
+        <div style="background:linear-gradient(135deg,#1a1a2e,#0f3460);padding:8px;text-align:center;margin-bottom:8px;">
+          <span style="color:#c8e63e;font-size:10px;font-weight:600;">$40 OUNCES | HASH $140/OZ | 25K PUFFS $35</span>
+        </div>
+        <!-- Category cards row -->
+        <div style="display:flex;gap:4px;margin-bottom:8px;">
+          <div style="flex:1;background:#252530;border-radius:4px;padding:6px;text-align:center;">
+            <div style="background:#333;height:24px;border-radius:3px;margin-bottom:3px;"></div>
+            <span style="font-size:8px;color:#aaa;">Flower</span>
+          </div>
+          <div style="flex:1;background:#252530;border-radius:4px;padding:6px;text-align:center;">
+            <div style="background:#333;height:24px;border-radius:3px;margin-bottom:3px;"></div>
+            <span style="font-size:8px;color:#aaa;">Edibles</span>
+          </div>
+          <div style="flex:1;background:#252530;border-radius:4px;padding:6px;text-align:center;">
+            <div style="background:#333;height:24px;border-radius:3px;margin-bottom:3px;"></div>
+            <span style="font-size:8px;color:#aaa;">Vapes</span>
+          </div>
+          <div style="flex:1;background:#252530;border-radius:4px;padding:6px;text-align:center;">
+            <div style="background:#333;height:24px;border-radius:3px;margin-bottom:3px;"></div>
+            <span style="font-size:8px;color:#aaa;">Concentrates</span>
+          </div>
+        </div>
+        <!-- Product grid (no sidebar) -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;">
+          <div style="background:#252530;border-radius:4px;padding:4px;">
+            <div style="background:#333;height:28px;border-radius:3px;margin-bottom:3px;"></div>
+            <div style="font-size:7px;color:#aaa;">Product Name</div>
+            <div style="font-size:8px;color:#c8e63e;font-weight:600;">$35.00</div>
+          </div>
+          <div style="background:#252530;border-radius:4px;padding:4px;">
+            <div style="background:#333;height:28px;border-radius:3px;margin-bottom:3px;"></div>
+            <div style="font-size:7px;color:#aaa;">Product Name</div>
+            <div style="font-size:8px;color:#c8e63e;font-weight:600;">$40.00</div>
+          </div>
+          <div style="background:#252530;border-radius:4px;padding:4px;">
+            <div style="background:#333;height:28px;border-radius:3px;margin-bottom:3px;"></div>
+            <div style="font-size:7px;color:#aaa;">Product Name</div>
+            <div style="font-size:8px;color:#c8e63e;font-weight:600;">$25.00</div>
+          </div>
+          <div style="background:#252530;border-radius:4px;padding:4px;">
+            <div style="background:#333;height:28px;border-radius:3px;margin-bottom:3px;"></div>
+            <div style="font-size:7px;color:#aaa;">Product Name</div>
+            <div style="font-size:8px;color:#c8e63e;font-weight:600;">$70.00</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:6px;font-size:8px;color:#666;">No sidebar — full-width grid + top category cards + promo banner</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A: Ian's Current Layout (Faithful)</h3>
+      <p>Full-width product grid, no sidebar. Promo deal banner at top. Category image cards for navigation. 4-column grid. Lime green accents on dark charcoal. Matches mohawkmedibles.ca exactly.</p>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1e1e26;border-radius:8px;padding:16px;font-family:system-ui;color:#fff;font-size:11px;">
+        <div style="background:#000;padding:8px 12px;border-radius:6px 6px 0 0;display:flex;justify-content:space-between;align-items:center;">
+          <span style="color:#c8e63e;font-weight:700;font-size:13px;">MOHAWK MEDIBLES</span>
+          <span style="color:#888;font-size:10px;">Shop | About | FAQ | Cart</span>
+        </div>
+        <!-- Promo banner -->
+        <div style="background:linear-gradient(135deg,#1a1a2e,#0f3460);padding:8px;text-align:center;margin-bottom:8px;">
+          <span style="color:#c8e63e;font-size:10px;font-weight:600;">$40 OUNCES | HASH $140/OZ | 25K PUFFS $35</span>
+        </div>
+        <!-- Top filter bar -->
+        <div style="display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap;">
+          <div style="background:#c8e63e;color:#1e1e26;padding:3px 8px;border-radius:12px;font-size:8px;font-weight:600;">All</div>
+          <div style="background:#252530;padding:3px 8px;border-radius:12px;font-size:8px;color:#aaa;border:1px solid #3a3a48;">Flower</div>
+          <div style="background:#252530;padding:3px 8px;border-radius:12px;font-size:8px;color:#aaa;border:1px solid #3a3a48;">Edibles</div>
+          <div style="background:#252530;padding:3px 8px;border-radius:12px;font-size:8px;color:#aaa;border:1px solid #3a3a48;">Vapes</div>
+          <div style="background:#252530;padding:3px 8px;border-radius:12px;font-size:8px;color:#aaa;border:1px solid #3a3a48;">Concentrates</div>
+          <div style="background:#252530;padding:3px 8px;border-radius:12px;font-size:8px;color:#aaa;border:1px solid #3a3a48;">Hash</div>
+        </div>
+        <!-- Intent pills -->
+        <div style="display:flex;gap:3px;margin-bottom:8px;">
+          <div style="background:#252530;padding:2px 6px;border-radius:8px;font-size:7px;color:#888;">😌 Relax</div>
+          <div style="background:#252530;padding:2px 6px;border-radius:8px;font-size:7px;color:#888;">⚡ Energy</div>
+          <div style="background:#252530;padding:2px 6px;border-radius:8px;font-size:7px;color:#888;">🌿 Nature</div>
+          <div style="background:#252530;padding:2px 6px;border-radius:8px;font-size:7px;color:#888;">🌙 Sleep</div>
+        </div>
+        <!-- Full width grid -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;">
+          <div style="background:#252530;border-radius:4px;padding:4px;">
+            <div style="background:#333;height:28px;border-radius:3px;margin-bottom:3px;position:relative;">
+              <span style="position:absolute;top:2px;left:2px;background:#ef4444;color:#fff;font-size:6px;padding:1px 3px;border-radius:2px;">-23%</span>
+            </div>
+            <div style="font-size:7px;color:#aaa;">Product Name</div>
+            <div style="display:flex;gap:3px;align-items:center;">
+              <span style="font-size:8px;color:#c8e63e;font-weight:600;">$35</span>
+              <span style="font-size:7px;color:#666;text-decoration:line-through;">$45</span>
+            </div>
+          </div>
+          <div style="background:#252530;border-radius:4px;padding:4px;">
+            <div style="background:#333;height:28px;border-radius:3px;margin-bottom:3px;"></div>
+            <div style="font-size:7px;color:#aaa;">Product Name</div>
+            <div style="font-size:8px;color:#c8e63e;font-weight:600;">$40.00</div>
+          </div>
+          <div style="background:#252530;border-radius:4px;padding:4px;">
+            <div style="background:#333;height:28px;border-radius:3px;margin-bottom:3px;"></div>
+            <div style="font-size:7px;color:#aaa;">Product Name</div>
+            <div style="font-size:8px;color:#c8e63e;font-weight:600;">$25.00</div>
+          </div>
+          <div style="background:#252530;border-radius:4px;padding:4px;">
+            <div style="background:#333;height:28px;border-radius:3px;margin-bottom:3px;"></div>
+            <div style="font-size:7px;color:#aaa;">Product Name</div>
+            <div style="font-size:8px;color:#c8e63e;font-weight:600;">$70.00</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:6px;font-size:8px;color:#666;">Ian's layout + our smart filters (intent pills, category pills, sort)</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B: Ian's Layout + Our Smart Filters (Recommended)</h3>
+      <p>Same full-width grid and promo banner as Ian's site. BUT adds our horizontal category pills, intent/mood pills, and sort dropdown above the grid. No sidebar. Best of both — Ian's visual identity with our discovery UX. Sale badges + quick-add on hover.</p>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:24px;padding:16px;background:rgba(200,230,62,0.08);border:1px solid rgba(200,230,62,0.2);border-radius:8px;">
+  <h3 style="color:#c8e63e;margin-top:0;">Key Design Elements from Ian's Live Site</h3>
+  <ul style="font-size:14px;line-height:1.8;">
+    <li><strong>Dark charcoal background</strong> (#1e1e26) — already in our globals.css</li>
+    <li><strong>Lime green accent</strong> (#c8e63e / #b7cf1f) for prices, CTAs, highlights</li>
+    <li><strong>No sidebar</strong> — full-width product grid (4 cols desktop, 2 mobile)</li>
+    <li><strong>Promo deal banner</strong> at top — scrolling deals ticker</li>
+    <li><strong>Category cards</strong> with images for navigation</li>
+    <li><strong>Sale badges</strong> (-23%) on discounted products</li>
+    <li><strong>Quick view + wishlist + add-to-cart</strong> on hover</li>
+    <li><strong>Trust badges</strong> below product info (free shipping, quality, support)</li>
+    <li><strong>"Sold: X"</strong> count on product pages</li>
+  </ul>
+</div>

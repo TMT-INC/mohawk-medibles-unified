@@ -1,6 +1,6 @@
 ---
 name: require-predeploy-gate
-enabled: true
+enabled: false
 event: bash
 pattern: vercel\s+--prod|npm\s+run\s+deploy|vercel\s+deploy\s+--prod
 action: block

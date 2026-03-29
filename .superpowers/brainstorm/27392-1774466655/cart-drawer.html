@@ -1,0 +1,225 @@
+<h2>Cart Drawer — Slide-Out Panel Design</h2>
+<p class="subtitle">Currently there's no cart drawer — just a checkout page. What style of slide-out cart?</p>
+
+<div class="cards">
+  <!-- Option A: Minimal -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1e1e26;border-radius:8px;padding:16px;font-family:system-ui;color:#fff;font-size:11px;position:relative;min-height:320px;">
+        <!-- Page behind (dimmed) -->
+        <div style="opacity:0.3;">
+          <div style="background:#000;padding:6px 10px;border-radius:4px;display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span style="color:#c8e63e;font-weight:700;font-size:11px;">MOHAWK</span>
+            <span style="color:#888;font-size:9px;">Shop | Cart</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;">
+            <div style="background:#252530;border-radius:4px;height:60px;"></div>
+            <div style="background:#252530;border-radius:4px;height:60px;"></div>
+            <div style="background:#252530;border-radius:4px;height:60px;"></div>
+          </div>
+        </div>
+        <!-- Drawer -->
+        <div style="position:absolute;top:0;right:0;width:55%;height:100%;background:#1e1e26;border-left:1px solid #3a3a48;padding:12px;border-radius:0 8px 8px 0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:12px;font-weight:700;">Your Cart (2)</span>
+            <span style="color:#888;font-size:14px;cursor:pointer;">✕</span>
+          </div>
+          <!-- Cart items -->
+          <div style="border-bottom:1px solid #3a3a48;padding-bottom:8px;margin-bottom:8px;">
+            <div style="display:flex;gap:6px;margin-bottom:6px;">
+              <div style="width:36px;height:36px;background:#252530;border-radius:4px;flex-shrink:0;"></div>
+              <div style="flex:1;">
+                <div style="font-size:9px;font-weight:600;">OG Kush — 1oz</div>
+                <div style="font-size:8px;color:#888;">Flower</div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:3px;">
+                  <div style="display:flex;align-items:center;gap:4px;">
+                    <span style="background:#252530;border:1px solid #3a3a48;padding:1px 5px;border-radius:3px;font-size:8px;color:#888;">−</span>
+                    <span style="font-size:9px;">1</span>
+                    <span style="background:#252530;border:1px solid #3a3a48;padding:1px 5px;border-radius:3px;font-size:8px;color:#888;">+</span>
+                  </div>
+                  <span style="font-size:10px;color:#c8e63e;font-weight:600;">$40.00</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:6px;">
+              <div style="width:36px;height:36px;background:#252530;border-radius:4px;flex-shrink:0;"></div>
+              <div style="flex:1;">
+                <div style="font-size:9px;font-weight:600;">Gummy Bears 500mg</div>
+                <div style="font-size:8px;color:#888;">Edibles</div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:3px;">
+                  <div style="display:flex;align-items:center;gap:4px;">
+                    <span style="background:#252530;border:1px solid #3a3a48;padding:1px 5px;border-radius:3px;font-size:8px;color:#888;">−</span>
+                    <span style="font-size:9px;">2</span>
+                    <span style="background:#252530;border:1px solid #3a3a48;padding:1px 5px;border-radius:3px;font-size:8px;color:#888;">+</span>
+                  </div>
+                  <span style="font-size:10px;color:#c8e63e;font-weight:600;">$50.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Subtotal + CTA -->
+          <div style="margin-top:auto;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+              <span style="font-size:10px;color:#888;">Subtotal</span>
+              <span style="font-size:12px;font-weight:700;color:#c8e63e;">$90.00</span>
+            </div>
+            <div style="background:#c8e63e;color:#1e1e26;padding:8px;border-radius:6px;text-align:center;font-weight:700;font-size:11px;">CHECKOUT</div>
+            <div style="text-align:center;margin-top:4px;font-size:8px;color:#888;cursor:pointer;">Continue Shopping</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A: Clean & Minimal</h3>
+      <p>Simple slide-out from right. Product thumbnail, name, qty controls, price. Subtotal and checkout button at bottom. No upsells, no extras. Fast and focused — gets out of the customer's way.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Smart Cart -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1e1e26;border-radius:8px;padding:16px;font-family:system-ui;color:#fff;font-size:11px;position:relative;min-height:320px;">
+        <!-- Page behind (dimmed) -->
+        <div style="opacity:0.3;">
+          <div style="background:#000;padding:6px 10px;border-radius:4px;display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span style="color:#c8e63e;font-weight:700;font-size:11px;">MOHAWK</span>
+            <span style="color:#888;font-size:9px;">Shop | Cart</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;">
+            <div style="background:#252530;border-radius:4px;height:60px;"></div>
+            <div style="background:#252530;border-radius:4px;height:60px;"></div>
+            <div style="background:#252530;border-radius:4px;height:60px;"></div>
+          </div>
+        </div>
+        <!-- Drawer -->
+        <div style="position:absolute;top:0;right:0;width:58%;height:100%;background:#1e1e26;border-left:1px solid #3a3a48;padding:12px;border-radius:0 8px 8px 0;display:flex;flex-direction:column;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span style="font-size:12px;font-weight:700;">Your Cart (2)</span>
+            <span style="color:#888;font-size:14px;cursor:pointer;">✕</span>
+          </div>
+          <!-- Free shipping progress -->
+          <div style="background:#252530;border-radius:6px;padding:6px 8px;margin-bottom:8px;">
+            <div style="font-size:8px;color:#aaa;margin-bottom:3px;">🚚 $109 away from <span style="color:#c8e63e;">FREE shipping</span></div>
+            <div style="background:#333;border-radius:3px;height:4px;overflow:hidden;">
+              <div style="background:linear-gradient(90deg,#c8e63e,#9abf2e);width:45%;height:100%;border-radius:3px;"></div>
+            </div>
+          </div>
+          <!-- Cart items -->
+          <div style="flex:1;overflow:hidden;">
+            <div style="display:flex;gap:6px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid #2a2a36;">
+              <div style="width:32px;height:32px;background:#252530;border-radius:4px;flex-shrink:0;"></div>
+              <div style="flex:1;">
+                <div style="font-size:8px;font-weight:600;">OG Kush — 1oz</div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:2px;">
+                  <div style="display:flex;align-items:center;gap:3px;">
+                    <span style="background:#252530;border:1px solid #3a3a48;padding:1px 4px;border-radius:3px;font-size:7px;color:#888;">−</span>
+                    <span style="font-size:8px;">1</span>
+                    <span style="background:#252530;border:1px solid #3a3a48;padding:1px 4px;border-radius:3px;font-size:7px;color:#888;">+</span>
+                  </div>
+                  <span style="font-size:9px;color:#c8e63e;font-weight:600;">$40.00</span>
+                </div>
+              </div>
+              <span style="color:#666;font-size:10px;cursor:pointer;">🗑</span>
+            </div>
+            <div style="display:flex;gap:6px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid #2a2a36;">
+              <div style="width:32px;height:32px;background:#252530;border-radius:4px;flex-shrink:0;"></div>
+              <div style="flex:1;">
+                <div style="font-size:8px;font-weight:600;">Gummy Bears 500mg</div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:2px;">
+                  <div style="display:flex;align-items:center;gap:3px;">
+                    <span style="background:#252530;border:1px solid #3a3a48;padding:1px 4px;border-radius:3px;font-size:7px;color:#888;">−</span>
+                    <span style="font-size:8px;">2</span>
+                    <span style="background:#252530;border:1px solid #3a3a48;padding:1px 4px;border-radius:3px;font-size:7px;color:#888;">+</span>
+                  </div>
+                  <span style="font-size:9px;color:#c8e63e;font-weight:600;">$50.00</span>
+                </div>
+              </div>
+              <span style="color:#666;font-size:10px;cursor:pointer;">🗑</span>
+            </div>
+          </div>
+          <!-- Upsell nudge -->
+          <div style="background:#252530;border:1px dashed #3a3a48;border-radius:6px;padding:6px;margin-bottom:6px;">
+            <div style="font-size:8px;color:#c8e63e;font-weight:600;margin-bottom:3px;">💡 Frequently bought together</div>
+            <div style="display:flex;gap:4px;">
+              <div style="background:#333;width:28px;height:28px;border-radius:3px;flex-shrink:0;"></div>
+              <div style="flex:1;">
+                <div style="font-size:7px;color:#aaa;">Rolling Papers</div>
+                <div style="font-size:8px;color:#c8e63e;">$5.00</div>
+              </div>
+              <div style="background:#c8e63e;color:#1e1e26;font-size:7px;padding:2px 6px;border-radius:3px;align-self:center;font-weight:600;">+ ADD</div>
+            </div>
+          </div>
+          <!-- Footer -->
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:2px;">
+              <span style="font-size:8px;color:#888;">Subtotal</span>
+              <span style="font-size:8px;color:#aaa;">$90.00</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+              <span style="font-size:8px;color:#888;">Savings</span>
+              <span style="font-size:8px;color:#10b981;">-$15.00</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px;padding-top:4px;border-top:1px solid #3a3a48;">
+              <span style="font-size:11px;font-weight:700;">Total</span>
+              <span style="font-size:13px;font-weight:700;color:#c8e63e;">$90.00</span>
+            </div>
+            <div style="background:#c8e63e;color:#1e1e26;padding:8px;border-radius:6px;text-align:center;font-weight:700;font-size:11px;margin-bottom:3px;">CHECKOUT — $90.00</div>
+            <div style="text-align:center;font-size:7px;color:#888;">Continue Shopping</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B: Smart Cart with Upsells (Recommended)</h3>
+      <p>Same slide-out, but adds: free shipping progress bar, "frequently bought together" upsell nudge, savings display, delete buttons, and total in checkout CTA. These components already exist (FreeShippingBar, CartUpsellNudge, ComboSuggestions) — just need to move them into a drawer.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Cart Peek -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1e1e26;border-radius:8px;padding:16px;font-family:system-ui;color:#fff;font-size:11px;position:relative;min-height:320px;">
+        <!-- Page (not dimmed — cart is smaller) -->
+        <div>
+          <div style="background:#000;padding:6px 10px;border-radius:4px;display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span style="color:#c8e63e;font-weight:700;font-size:11px;">MOHAWK</span>
+            <span style="color:#888;font-size:9px;">Shop | Cart</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;">
+            <div style="background:#252530;border-radius:4px;height:60px;"></div>
+            <div style="background:#252530;border-radius:4px;height:60px;"></div>
+            <div style="background:#252530;border-radius:4px;height:60px;"></div>
+          </div>
+        </div>
+        <!-- Mini popup from cart icon -->
+        <div style="position:absolute;top:14px;right:16px;width:48%;background:#252530;border:1px solid #3a3a48;border-radius:8px;padding:10px;box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+          <div style="font-size:10px;font-weight:600;margin-bottom:6px;">Cart (2 items)</div>
+          <div style="display:flex;gap:4px;margin-bottom:4px;padding-bottom:4px;border-bottom:1px solid #3a3a48;">
+            <div style="width:24px;height:24px;background:#333;border-radius:3px;flex-shrink:0;"></div>
+            <div style="flex:1;">
+              <div style="font-size:8px;">OG Kush</div>
+              <div style="font-size:8px;color:#c8e63e;">$40</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:4px;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid #3a3a48;">
+            <div style="width:24px;height:24px;background:#333;border-radius:3px;flex-shrink:0;"></div>
+            <div style="flex:1;">
+              <div style="font-size:8px;">Gummy Bears</div>
+              <div style="font-size:8px;color:#c8e63e;">$50</div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+            <span style="font-size:9px;color:#888;">Total:</span>
+            <span style="font-size:10px;color:#c8e63e;font-weight:600;">$90</span>
+          </div>
+          <div style="background:#c8e63e;color:#1e1e26;padding:6px;border-radius:4px;text-align:center;font-weight:600;font-size:9px;">VIEW CART & CHECKOUT</div>
+        </div>
+        <div style="text-align:center;margin-top:80px;font-size:8px;color:#555;">Mini popup — hover/click cart icon to preview, click through to full cart page</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C: Cart Peek (Mini Popup)</h3>
+      <p>Not a full drawer — a dropdown popup from the cart icon showing item previews and total. Click "View Cart" to go to full checkout page. Lightest touch, doesn't interrupt browsing. Common on WooCommerce sites.</p>
+    </div>
+  </div>
+</div>
