@@ -46,7 +46,7 @@ const nextConfig: NextConfig = {
               "font-src 'self' https://fonts.gstatic.com data:",
               "img-src 'self' data: blob: https:",
               "media-src 'self' blob:",
-              "connect-src 'self' blob: https://*.mohawkmedibles.ca https://*.vercel-insights.com https://*.vercel.app wss:",
+              "connect-src 'self' blob: https://*.mohawkmedibles.ca https://*.mohawkmedibles.co https://*.vercel-insights.com https://*.vercel.app wss:",
               "worker-src 'self' blob:",
               "frame-src 'none'",
               "frame-ancestors 'none'",
