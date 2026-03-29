@@ -177,11 +177,9 @@ export default function Header() {
                         )}
                     </Link>
 
-                    <button onClick={openCart} className="relative" aria-label={`Shopping cart${cartCount > 0 ? `, ${cartCount} items` : ""}`}>
-                        <Button variant="brand" size="sm" aria-label="Shopping cart" className="rounded-full flex items-center gap-2 px-4 shadow-lg glow-lime">
-                            <ShoppingCart className="h-4 w-4" />
-                            <span className="hidden md:inline text-[10px] font-bold tracking-widest uppercase">Cart</span>
-                        </Button>
+                    <button onClick={openCart} className="relative rounded-full flex items-center gap-2 px-4 py-2 bg-forest text-white dark:bg-lime dark:text-charcoal-deep text-sm font-bold shadow-lg glow-lime hover:opacity-90 transition-opacity" aria-label={`Shopping cart${cartCount > 0 ? `, ${cartCount} items` : ""}`}>
+                        <ShoppingCart className="h-4 w-4" />
+                        <span className="hidden md:inline text-[10px] font-bold tracking-widest uppercase">Cart</span>
                         {cartCount > 0 && (
                             <span className="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1 shadow-sm">
                                 {cartCount > 99 ? "99+" : cartCount}

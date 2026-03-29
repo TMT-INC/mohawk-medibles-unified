@@ -248,7 +248,7 @@ export default async function RootLayout({
               <main id="main-content">
                 {children}
               </main>
-              {/* <CartDrawer /> */}
+              <CartDrawer />
               <Footer />
               <CompareBar />
               <LazyWidgets />
