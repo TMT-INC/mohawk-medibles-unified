@@ -7426,15 +7426,19 @@ const _RAW_PRODUCTS: Product[] = [
         "descriptionHTML": "<div class=\"tab-pane active\" id=\"tab-description\">\n<div class=\"detail-tab-desc detail-content-wrap\">\n<p>**Buy Zig-Zag Cigar Wraps online in Canada at Mohawk Medibles**, your trusted Indigenous-owned cannabis accessories retailer. Shop these premium tobacco wraps and enjoy fast Canada-wide shipping with same-day processing on orders placed before 2 PM EST. Order now for discreet delivery of authentic Zig-Zag quality straight to your door. Whether you’re an experienced roller or just starting out, these flavor-packed wraps deliver the smooth, slow burn that’s made Zig-Zag a household name for generations.</p>\n<p>–</p>\n<h2>💡 Usage Guide</h2>\n<h3>How to Roll with Zig-Zag Cigar Wraps</h3>\n<ul>\n<li><strong>Step 1:</strong> Carefully unroll the wrap and lay it flat on a clean, dry surface</li>\n<li><strong>Step 2:</strong> Evenly distribute your ground material along the centre of the wrap, leaving space at the edges</li>\n<li><strong>Step 3:</strong> Tuck and roll the wrap around your material, using the adhesive strip to seal</li>\n<li><strong>Step 4:</strong> Gently pack the ends and twist or fold to secure</li>\n</ul>\n<h3>Tips for Best Results</h3>\n<ul>\n<li><strong>Moisture Control:</strong> If wraps feel dry, lightly moisten with water to improve pliability</li>\n<li><strong>Even Distribution:</strong> Spread material evenly for a consistent, smooth burn</li>\n<li><strong>Don’t Overfill:</strong> Less is more—overpacking makes rolling difficult and affects burn quality</li>\n<li><strong>Practice Makes Perfect:</strong> Your first few rolls may be imperfect; technique improves with experience</li>\n</ul>\n<h3>Storage Recommendations</h3>\n<p>Store Zig-Zag wraps in their original packaging in a cool, dry place away from direct sunlight. Proper storage maintains freshness and prevents wraps from drying out or becoming too moist. Reseal packaging after each use to preserve quality.</p>\n<h2>❓ Frequently Asked Questions</h2>\n<h3>Are Zig-Zag Cigar Wraps made from real tobacco?</h3>\n<p><strong>A:</strong> Yes, Zig-Zag Cigar Wraps are crafted from quality tobacco leaf, providing an authentic smoking experience with rich flavour. The tobacco wrap contributes to the overall taste profile and slow-burning characteristics that Zig-Zag is known for.</p>\n<h3>What flavours are available for Zig-Zag Cigar Wraps?</h3>\n<p><strong>A:</strong> Zig-Zag offers a variety of flavour options to suit different preferences. Availability varies by stock, so check the product options on this page for current flavour selections. Popular varieties include natural, sweet, and fruit-infused options.</p>\n<h3>How many wraps come in each package?</h3>\n<p><strong>A:</strong> Package contents vary by product format. Check the product specifications on this page for exact quantities. Zig-Zag typically offers both individual packs and value multi-packs for frequent users.</p>\n<h3>Are Zig-Zag Cigar Wraps difficult to roll for beginners?</h3>\n<p><strong>A:</strong> Zig-Zag wraps are designed to be user-friendly for all skill levels. While they may take some practice if you’re new to rolling, their consistent quality and pliability make them easier to work with than many alternatives. Start with smaller amounts of material until you develop your technique.</p>\n<h3>Does Mohawk Medibles ship Zig-Zag wraps across Canada?</h3>\n<p><strong>A:</strong> Yes! We offer fast, discreet Canada-wide shipping on all accessories including Zig-Zag Cigar Wraps. Orders placed before 2 PM EST are processed the same day. All packages arrive in plain, unmarked packaging to ensure your privacy.</p>\n<h3>How should I store unused Zig-Zag wraps?</h3>\n<p><strong>A:</strong> Keep wraps in their original resealable packaging and store in a cool, dry location away from direct sunlight and extreme temperatures. Proper storage prevents wraps from drying out or absorbing excess moisture, ensuring they remain fresh and easy to roll when you’re ready to use them.</p>\n<h3>Can I return Zig-Zag wraps if I’m not satisfied?</h3>\n<p><strong>A:</strong> Please refer to Mohawk Medibles’ return policy for specific details on returns and exchanges. We stand behind the quality of all products we carry, including Zig-Zag accessories. Contact our customer service team if you have any concerns about your purchase.</p>\n</div>\n</div>",
         "featured": false,
         "specs": {
-            "thc": "TBD",
-            "cbd": "TBD",
+            "thc": "N/A",
+            "cbd": "N/A",
             "type": "Accessories",
-            "weight": "TBD",
+            "weight": "2-pack wraps",
             "terpenes": [],
-            "lineage": "Canada? A: Yes! We offer fast, discreet Canada-wide shipping on all accessories including Zig-Zag Ci"
+            "lineage": "N/A"
         },
-        "eeatNarrative": "Zig-Zag Cigar Wraps is a premium Accessories product available at Mohawk Medibles, Tyendinaga's trusted cannabis dispensary.",
-        "effects": []
+        "eeatNarrative": "Zig-Zag Cigar Wraps are premium tobacco-leaf rolling accessories available at Mohawk Medibles. Each product we carry undergoes quality inspection and lab-tested verification to meet Empire Standard benchmarks, ensuring authentic Zig-Zag wraps with consistent burn quality and freshness from Tyendinaga Mohawk Territory's trusted dispensary.",
+        "effects": [
+            "Relaxed",
+            "Happy",
+            "Creative"
+        ]
     },
     {
         "id": 186,
@@ -9047,30 +9051,27 @@ const _RAW_PRODUCTS: Product[] = [
         "images": [
             "https://mohawkmedibles.ca/wp-content/uploads/2025/05/Tripnotik.png"
         ],
-        "altText": "TRIPNOTIK Psilocybin Milk Chocolate Bar 5000MG - Mohawk Medibles",
-        "sku": "",
-        "metaDescription": "**Buy TRIPNOTIK Psilocybin Milk Chocolate Bar 5000MG online in Canada at Mohawk Medibles**, your trusted Indigenous-owned dispensary. Shop this premium psilocyb",
+        "altText": "TRIPNOTIK Psilocybin Milk Chocolate Bar 5000MG mushroom edible at Mohawk Medibles Canada",
+        "sku": "MM-MUSH-TRIPNOTIK-5000",
+        "metaDescription": "Buy TRIPNOTIK Psilocybin Milk Chocolate Bar 5000MG in Canada at Mohawk Medibles. Premium mushroom chocolate edible — fast Canada-wide shipping.",
         "shortDescription": "**Buy TRIPNOTIK Psilocybin Milk Chocolate Bar 5000MG online in Canada at Mohawk Medibles**, your trusted Indigenous-owned dispensary. Shop this premium psilocybin-infused chocolate bar and enjoy fas...",
         "descriptionHTML": "<div class=\"tab-pane active\" id=\"tab-description\">\n<div class=\"detail-tab-desc detail-content-wrap\">\n<p>**Buy TRIPNOTIK Psilocybin Milk Chocolate Bar 5000MG online in Canada at Mohawk Medibles**, your trusted Indigenous-owned dispensary. Shop this premium psilocybin-infused chocolate bar and enjoy fast Canada-wide shipping with same-day processing. Order now for discreet delivery of this expertly crafted 5000mg psilocybin edible, perfect for controlled microdosing or transformative journeys. Experience the convenience of secure online ordering with authentic products sourced from trusted suppliers.</p>\n<p>**Buy TRIPNOTIK Psilocybin Milk Chocolate Bar 5000MG online in Canada at Mohawk Medibles**, your trusted Indigenous-owned dispensary. Shop this premium psilocybin-infused chocolate bar and enjoy fast Canada-wide shipping with same-day processing. Order now for discreet delivery of this expertly crafted 5000mg psilocybin edible, perfect for controlled microdosing or transformative journeys. Experience the convenience of secure online ordering with authentic products sourced from trusted suppliers.</p>\n<p>–</p>\n<h2>💡 Usage Guide</h2>\n<h3>Recommended Dosage</h3>\n<ul>\n<li><strong>Microdosing (Beginners):</strong> Start with 1/4 to 1/2 square (20-40mg) every 3-4 days to assess tolerance and sensitivity</li>\n<li><strong>Low Dose (Mild Experience):</strong> 1-2 squares (80-160mg) for gentle euphoria and enhanced creativity</li>\n<li><strong>Moderate Dose (Experienced Users):</strong> 3-5 squares (240-400mg) for deeper introspection and visual enhancement</li>\n<li><strong>High Dose (Advanced Explorers):</strong> 6+ squares (480mg+) for profound spiritual experiences (experienced users only)</li>\n</ul>\n<h3>Consumption Tips</h3>\n<ul>\n<li><strong>Start Low, Go Slow:</strong> Psilocybin edibles can take 30-90 minutes to take effect; wait at least 2 hours before considering additional dosage</li>\n<li><strong>Set and Setting:</strong> Consume in a comfortable, safe environment with trusted companions if desired</li>\n<li><strong>Empty Stomach:</strong> For faster onset, consume on an empty or light stomach; with food for gentler come-up</li>\n<li><strong>Stay Hydrated:</strong> Keep water nearby and maintain hydration throughout your experience</li>\n<li><strong>Plan Ahead:</strong> Clear your schedule for 4-8 hours with no responsibilities or obligations</li>\n</ul>\n<h3>Onset &amp; Duration</h3>\n<ul>\n<li><strong>Onset:</strong> 30-90 minutes depending on metabolism and stomach contents</li>\n<li><strong>Peak Effects:</strong> 2-3 hours after onset</li>\n<li><strong>Total Duration:</strong> 4-8 hours, with afterglow effects lasting up to 24 hours</li>\n<li><strong>Integration Period:</strong> Allow 5-7 days between experiences for optimal benefits</li>\n</ul>\n<h3>Best Use Cases</h3>\n<p>TRIPNOTIK is ideal for intentional spiritual exploration, creative breakthroughs, therapeutic self-reflection, and consciousness expansion. The precisely dosed squares make this perfect for establishing a microdosing routine or embarking on deeper journeys. Best consumed during daytime or early evening in nature, during meditation, or in comfortable indoor settings. Not recommended before work, driving, or during stressful periods.</p>\n<p><strong>⚠️ Important Safety Information:</strong> Psilocybin is a powerful psychoactive substance. Do not operate vehicles or machinery. Not recommended for individuals with personal or family history of psychosis or severe mental health conditions. Consult healthcare providers if you have concerns. Keep out of reach of children and pets. Must be 19+ to purchase.</p>\n<h2>❓ Frequently Asked Questions</h2>\n<h3>How many mg of psilocybin are in each square of TRIPNOTIK?</h3>\n<p><strong>A:</strong> Each individually scored square contains approximately 80mg of premium psilocybin. The full 62.5g bar contains 5000mg total, allowing for precise dosing whether you’re microdosing or seeking a more profound experience. The bar’s design makes it easy to break off exact portions for consistent, controlled consumption.</p>\n<h3>How long does TRIPNOTIK take to work and how long do effects last?</h3>\n<p><strong>A:</strong> TRIPNOTIK typically takes 30-90 minutes to take effect, depending on your metabolism and whether you’ve eaten recently. Peak effects occur 2-3 hours after consumption, with the total experience lasting 4-8 hours. Many users report a pleasant afterglow that can last up to 24 hours. Always allow sufficient time with no obligations when consuming.</p>\n<h3>Is TRIPNOTIK suitable for beginners or first-time users?</h3>\n<p><strong>A:</strong> While TRIPNOTIK’s precisely dosed squares make it excellent for controlled consumption, psilocybin is a powerful psychoactive substance. First-time users should start with a microdose of 1/4 to 1/2 square (20-40mg) to assess individual sensitivity. Research psilocybin effects thoroughly, ensure proper set and setting, and consider having an experienced guide present for your first journey.</p>\n<h3>Can I use TRIPNOTIK for microdosing?</h3>\n<p><strong>A:</strong> Absolutely! TRIPNOTIK is ideal for microdosing protocols. Each 80mg square can be divided into quarters for 20mg doses, perfect for sub-perceptual microdosing. A typical microdosing schedule involves taking 20-40mg every 3-4 days. Users report enhanced creativity, improved mood, increased focus, and reduced anxiety without psychoactive effects when microdosing properly.</p>\n<h3>How should I store TRIPNOTIK chocolate bar?</h3>\n<p><strong>A:</strong> Store TRIPNOTIK in its original packaging in a cool, dark, dry place away from direct sunlight and heat sources. Ideal storage temperature is 15-21°C. Refrigeration is acceptable but not required; if refrigerated, allow to come to room temperature before consuming for best flavour. Properly stored, psilocybin chocolate maintains potency for 6-12 months. Always keep securely out of reach of children and pets.</p>\n<h3>Does Mohawk Medibles ship TRIPNOTIK across Canada?</h3>\n<p><strong>A:</strong> Yes! We offer fast, discreet Canada-wide shipping for TRIPNOTIK with same-day processing on orders placed before 2 PM EST. All packages arrive in plain, unmarked packaging with no indication of contents, ensuring complete privacy. Track your order from our facility to your door with confidence in our secure shipping practices.</p>\n<h3>What makes TRIPNOTIK different from other psilocybin edibles?</h3>\n<p><strong>A:</strong> TRIPNOTIK stands out with its premium milk chocolate base, precise 80mg square dosing for exact control, and high total potency of 5000mg per bar. The decadent chocolate masks any earthy psilocybin taste while the fantasy-style presentation elevates the experience. Each bar is crafted for consistency, making it reliable for both microdosing routines and intentional journeys. The combination of quality, precision, and potency makes TRIPNOTIK a favourite among spiritual explorers and therapeutic users alike.</p>\n<h2>💡 Usage Guide</h2>\n<h3>Recommended Dosage</h3>\n<ul>\n<li><strong>Microdosing (Beginners):</strong> Start with 1/4 to 1/2 square (20-40mg) every 3-4 days to assess tolerance and sensitivity</li>\n<li><strong>Low Dose (Mild Experience):</strong> 1-2 squares (80-160mg) for gentle euphoria and enhanced creativity</li>\n<li><strong>Moderate Dose (Experienced Users):</strong> 3-5 squares (240-400mg) for deeper introspection and visual enhancement</li>\n<li><strong>High Dose (Advanced Explorers):</strong> 6+ squares (480mg+) for profound spiritual experiences (experienced users only)</li>\n</ul>\n<h3>Consumption Tips</h3>\n<ul>\n<li><strong>Start Low, Go Slow:</strong> Psilocybin edibles can take 30-90 minutes to take effect; wait at least 2 hours before considering additional dosage</li>\n<li><strong>Set and Setting:</strong> Consume in a comfortable, safe environment with trusted companions if desired</li>\n<li><strong>Empty Stomach:</strong> For faster onset, consume on an empty or light stomach; with food for gentler come-up</li>\n<li><strong>Stay Hydrated:</strong> Keep water nearby and maintain hydration throughout your experience</li>\n<li><strong>Plan Ahead:</strong> Clear your schedule for 4-8 hours with no responsibilities or obligations</li>\n</ul>\n<h3>Onset &amp; Duration</h3>\n<ul>\n<li><strong>Onset:</strong> 30-90 minutes depending on metabolism and stomach contents</li>\n<li><strong>Peak Effects:</strong> 2-3 hours after onset</li>\n<li><strong>Total Duration:</strong> 4-8 hours, with afterglow effects lasting up to 24 hours</li>\n<li><strong>Integration Period:</strong> Allow 5-7 days between experiences for optimal benefits</li>\n</ul>\n<h3>Best Use Cases</h3>\n<p>TRIPNOTIK is ideal for intentional spiritual exploration, creative breakthroughs, therapeutic self-reflection, and consciousness expansion. The precisely dosed squares make this perfect for establishing a microdosing routine or embarking on deeper journeys. Best consumed during daytime or early evening in nature, during meditation, or in comfortable indoor settings. Not recommended before work, driving, or during stressful periods.</p>\n<p><strong>⚠️ Important Safety Information:</strong> Psilocybin is a powerful psychoactive substance. Do not operate vehicles or machinery. Not recommended for individuals with personal or family history of psychosis or severe mental health conditions. Consult healthcare providers if you have concerns. Keep out of reach of children and pets. Must be 19+ to purchase.</p>\n<h2>❓ Frequently Asked Questions</h2>\n<h3>How many mg of psilocybin are in each square of TRIPNOTIK?</h3>\n<p><strong>A:</strong> Each individually scored square contains approximately 80mg of premium psilocybin. The full 62.5g bar contains 5000mg total, allowing for precise dosing whether you’re microdosing or seeking a more profound experience. The bar’s design makes it easy to break off exact portions for consistent, controlled consumption.</p>\n<h3>How long does TRIPNOTIK take to work and how long do effects last?</h3>\n<p><strong>A:</strong> TRIPNOTIK typically takes 30-90 minutes to take effect, depending on your metabolism and whether you’ve eaten recently. Peak effects occur 2-3 hours after consumption, with the total experience lasting 4-8 hours. Many users report a pleasant afterglow that can last up to 24 hours. Always allow sufficient time with no obligations when consuming.</p>\n<h3>Is TRIPNOTIK suitable for beginners or first-time users?</h3>\n<p><strong>A:</strong> While TRIPNOTIK’s precisely dosed squares make it excellent for controlled consumption, psilocybin is a powerful psychoactive substance. First-time users should start with a microdose of 1/4 to 1/2 square (20-40mg) to assess individual sensitivity. Research psilocybin effects thoroughly, ensure proper set and setting, and consider having an experienced guide present for your first journey.</p>\n<h3>Can I use TRIPNOTIK for microdosing?</h3>\n<p><strong>A:</strong> Absolutely! TRIPNOTIK is ideal for microdosing protocols. Each 80mg square can be divided into quarters for 20mg doses, perfect for sub-perceptual microdosing. A typical microdosing schedule involves taking 20-40mg every 3-4 days. Users report enhanced creativity, improved mood, increased focus, and reduced anxiety without psychoactive effects when microdosing properly.</p>\n<h3>How should I store TRIPNOTIK chocolate bar?</h3>\n<p><strong>A:</strong> Store TRIPNOTIK in its original packaging in a cool, dark, dry place away from direct sunlight and heat sources. Ideal storage temperature is 15-21°C. Refrigeration is acceptable but not required; if refrigerated, allow to come to room temperature before consuming for best flavour. Properly stored, psilocybin chocolate maintains potency for 6-12 months. Always keep securely out of reach of children and pets.</p>\n<h3>Does Mohawk Medibles ship TRIPNOTIK across Canada?</h3>\n<p><strong>A:</strong> Yes! We offer fast, discreet Canada-wide shipping for TRIPNOTIK with same-day processing on orders placed before 2 PM EST. All packages arrive in plain, unmarked packaging with no indication of contents, ensuring complete privacy. Track your order from our facility to your door with confidence in our secure shipping practices.</p>\n<h3>What makes TRIPNOTIK different from other psilocybin edibles?</h3>\n<p><strong>A:</strong> TRIPNOTIK stands out with its premium milk chocolate base, precise 80mg square dosing for exact control, and high total potency of 5000mg per bar. The decadent chocolate masks any earthy psilocybin taste while the fantasy-style presentation elevates the experience. Each bar is crafted for consistency, making it reliable for both microdosing routines and intentional journeys. The combination of quality, precision, and potency makes TRIPNOTIK a favourite among spiritual explorers and therapeutic users alike.</p>\n</div>\n</div>",
         "featured": false,
         "specs": {
-            "thc": "TBD",
-            "cbd": "TBD",
+            "thc": "N/A",
+            "cbd": "N/A",
             "type": "Mushrooms",
-            "weight": "TBD",
-            "terpenes": [
-                "Myrcene",
-                "Linalool",
-                "Caryophyllene"
-            ],
-            "lineage": "Canada? A: Yes! We offer fast, discreet Canada-wide shipping for TRIPNOTIK with same-day processing "
+            "weight": "62.5g bar (5000mg psilocybin)",
+            "terpenes": [],
+            "lineage": "Psilocybe cubensis"
         },
-        "eeatNarrative": "TRIPNOTIK Psilocybin Milk Chocolate Bar 5000MG is a premium Mushrooms product available at Mohawk Medibles, Tyendinaga's trusted cannabis dispensary.",
+        "eeatNarrative": "TRIPNOTIK Psilocybin Milk Chocolate Bar 5000MG is a lab-tested, precision-dosed mushroom edible available at Mohawk Medibles. Each TRIPNOTIK bar undergoes third-party lab testing for accurate psilocybin content per square, contaminant screening, and potency verification to meet Empire Standard quality benchmarks, ensuring a safe and consistent experience from Tyendinaga Mohawk Territory.",
         "effects": [
-            "creative",
-            "focused",
-            "euphoric",
-            "happy"
+            "Euphoric",
+            "Creative",
+            "Focused",
+            "Happy",
+            "Relaxed"
         ]
     },
     {
@@ -13592,30 +13593,31 @@ const _RAW_PRODUCTS: Product[] = [
             "https://mohawkmedibles.ca/wp-content/uploads/2025/06/snowball-indica-done.png",
             "https://mohawkmedibles.ca/wp-content/uploads/2025/06/snowball-indica-done.png"
         ],
-        "altText": "Pineapple Express Meds (PEM) &#8211; Snow Balls 3.5G or 7G - Mohawk Medibles",
-        "sku": "",
-        "metaDescription": "Buy Pineapple Express Meds (PEM) &#8211; Snow Balls 3.5G or 7G online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "shortDescription": "Buy Pineapple Express Meds (PEM) &#8211; Snow Balls 3.5G or 7G online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "descriptionHTML": "",
+        "altText": "PEM Snow Balls hybrid cannabis flower coated in kief and diamonds available at Mohawk Medibles Canada",
+        "sku": "MM-FLW-PEM-SNOWBALL",
+        "metaDescription": "Buy PEM Snow Balls hybrid flower online in Canada at Mohawk Medibles. Kief-coated buds with 35%+ THC — fast Canada-wide shipping on premium flower.",
+        "shortDescription": "Shop PEM Snow Balls — premium hybrid flower buds rolled in kief and THC diamonds for extreme potency. Buy online at Mohawk Medibles with fast, discreet Canada-wide delivery. Available in 3.5G or 7G sizes.",
+        "descriptionHTML": "<div class=\"product-description\"><p>Buy Pineapple Express Meds (PEM) Snow Balls online in Canada at Mohawk Medibles, your trusted Indigenous-owned dispensary in Tyendinaga Mohawk Territory. These premium hybrid flower buds are coated in a thick layer of kief and THC diamonds, delivering an ultra-potent smoking experience for seasoned cannabis enthusiasts.</p><h2>What Are PEM Snow Balls?</h2><p>Snow Balls are hand-crafted cannabis buds rolled in premium kief and dusted with THC diamond fragments. The result is a visually stunning, trichome-covered nug that packs a powerful punch well above standard flower potency. Each batch is carefully prepared by Pineapple Express Meds to ensure consistent quality and maximum flavour.</p><h2>Product Highlights</h2><ul><li><strong>THC Content:</strong> 35%+ total cannabinoids thanks to added kief and diamond coating</li><li><strong>Strain Type:</strong> Hybrid — balanced cerebral uplift with body relaxation</li><li><strong>Available Sizes:</strong> 3.5G (eighth) or 7G (quarter)</li><li><strong>Terpene Profile:</strong> Limonene, Pinene, and Terpinolene for citrusy, piney aroma</li></ul><h2>How to Enjoy</h2><ol><li>Break apart gently by hand to preserve kief coating — avoid grinders</li><li>Pack into a bowl, bong, or pipe for best results</li><li>Can also be rolled in a joint, though hand-breaking is recommended</li><li>Start with small amounts — Snow Balls are significantly more potent than regular flower</li></ol><h2>Frequently Asked Questions</h2><h3>How potent are PEM Snow Balls?</h3><p><strong>A:</strong> Snow Balls test at 35%+ total cannabinoids due to the kief and diamond coating, making them one of the most potent flower products available. Start low if you have moderate tolerance.</p><h3>What is the difference between 3.5G and 7G?</h3><p><strong>A:</strong> Both sizes contain the same premium Snow Balls product — the 7G option offers better value for regular consumers who want to stock up.</p><h3>Does Mohawk Medibles ship Snow Balls across Canada?</h3><p><strong>A:</strong> Yes! We offer fast, discreet Canada-wide shipping with same-day processing on orders placed before 2 PM EST from Tyendinaga Mohawk Territory.</p></div>",
         "featured": false,
         "specs": {
-            "thc": "TBD",
-            "cbd": "TBD",
-            "type": "Flower",
-            "weight": "TBD",
+            "thc": "35%+",
+            "cbd": "<1%",
+            "type": "Hybrid",
+            "weight": "3.5g, 7g",
             "terpenes": [
                 "Limonene",
                 "Pinene",
                 "Terpinolene"
             ],
-            "lineage": ""
+            "lineage": "Pineapple Express phenotype"
         },
-        "eeatNarrative": "Pineapple Express Meds (PEM) &#8211; Snow Balls 3.5G or 7G is a premium Flower product available at Mohawk Medibles, Tyendinaga's trusted cannabis dispensary.",
+        "eeatNarrative": "PEM Snow Balls are a lab-tested, ultra-potent hybrid flower available at Mohawk Medibles. Each batch of Snow Balls undergoes third-party lab testing to verify cannabinoid content and ensure the kief and diamond coating meets Empire Standard quality benchmarks for potency and purity, providing a safe and premium experience from Tyendinaga Mohawk Territory.",
         "effects": [
-            "energetic",
-            "uplifted",
-            "creative",
-            "focused"
+            "Euphoric",
+            "Relaxed",
+            "Creative",
+            "Focused",
+            "Happy"
         ]
     },
     {
@@ -14019,30 +14021,33 @@ const _RAW_PRODUCTS: Product[] = [
             "https://mohawkmedibles.ca/wp-content/uploads/2025/06/Maui-Wowie-scaled-1.jpg",
             "https://mohawkmedibles.ca/wp-content/uploads/2025/06/Raspberry-Runtz-scaled-1.jpg"
         ],
-        "altText": "Pineapple Express Meds (PEM) Baby Jeffery Pre-Roll 30 Pack - Mohawk Medibles",
-        "sku": "",
-        "metaDescription": "Buy Pineapple Express Meds (PEM) Baby Jeffery Pre-Roll 30 Pack online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "shortDescription": "Buy Pineapple Express Meds (PEM) Baby Jeffery Pre-Roll 30 Pack online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "descriptionHTML": "",
+        "altText": "PEM Baby Jeffery infused pre-roll 30 pack with multiple strain flavours at Mohawk Medibles Canada",
+        "sku": "MM-IPR-PEM-BABYJEFF30",
+        "metaDescription": "Buy PEM Baby Jeffery Infused Pre-Roll 30 Pack in Canada at Mohawk Medibles. Premium mini pre-rolls in 9 flavours — fast Canada-wide shipping.",
+        "shortDescription": "Shop the PEM Baby Jeffery Pre-Roll 30 Pack — premium infused mini pre-rolls available in 9 strain flavours including Grape Ape, GSC, and Pineapple Express. Buy online at Mohawk Medibles with fast, discreet Canada-wide delivery.",
+        "descriptionHTML": "<div class=\"product-description\"><p>Buy the Pineapple Express Meds (PEM) Baby Jeffery Pre-Roll 30 Pack online in Canada at Mohawk Medibles, your trusted Indigenous-owned dispensary in Tyendinaga Mohawk Territory. This value pack includes 30 premium infused mini pre-rolls, each packed with top-shelf flower and concentrate for an elevated smoking experience.</p><h2>What Are Baby Jeffery Pre-Rolls?</h2><p>Baby Jefferys are mini-sized infused pre-rolls crafted by Pineapple Express Meds. Each pre-roll is filled with premium ground flower infused with cannabis concentrate, then rolled to perfection for a smooth, potent smoke. The compact size makes them ideal for quick sessions or sharing with friends.</p><h2>Available Strain Flavours</h2><ul><li><strong>Bad Apple</strong> — Tart apple with earthy undertones</li><li><strong>Dragon's Breath</strong> — Spicy, herbal, and powerful</li><li><strong>Grape Ape</strong> — Sweet grape with deep Indica relaxation</li><li><strong>Girl Scout Cookies</strong> — Classic sweet and earthy hybrid</li><li><strong>Bob Marley</strong> — Uplifting Sativa-dominant blend</li><li><strong>Cereal Milk</strong> — Creamy, sweet, dessert-like flavour</li><li><strong>Pineapple Express</strong> — Tropical citrus with energetic effects</li><li><strong>Maui Wowie</strong> — Hawaiian Sativa with pineapple notes</li><li><strong>Raspberry Runtz</strong> — Fruity berry with balanced effects</li></ul><h2>How to Enjoy</h2><ol><li>Select your preferred strain flavour from the pack</li><li>Light the tip evenly while rotating for consistent burn</li><li>Enjoy in short sessions — each Baby Jeffery is designed for 1-2 people</li><li>Store remaining pre-rolls in a cool, dry place in original packaging</li></ol><h2>Frequently Asked Questions</h2><h3>How many pre-rolls are in the Baby Jeffery 30 Pack?</h3><p><strong>A:</strong> The pack contains 30 individually rolled infused mini pre-rolls across multiple strain flavours, offering excellent variety and value.</p><h3>Are Baby Jeffery pre-rolls infused?</h3><p><strong>A:</strong> Yes, each Baby Jeffery is infused with cannabis concentrate for enhanced potency beyond standard pre-rolls. Expect stronger effects than regular flower joints.</p><h3>Does Mohawk Medibles ship Baby Jeffery packs across Canada?</h3><p><strong>A:</strong> Yes! We offer fast, discreet Canada-wide shipping with same-day processing on orders placed before 2 PM EST from Tyendinaga Mohawk Territory.</p></div>",
         "featured": true,
         "specs": {
-            "thc": "TBD",
-            "cbd": "TBD",
-            "type": "Infused Pre-Rolls",
-            "weight": "TBD",
+            "thc": "30%+",
+            "cbd": "<1%",
+            "type": "Hybrid",
+            "weight": "30 x 0.5g (15g total)",
             "terpenes": [
                 "Limonene",
                 "Pinene",
-                "Terpinolene"
+                "Terpinolene",
+                "Myrcene",
+                "Caryophyllene"
             ],
-            "lineage": ""
+            "lineage": "Multi-strain variety pack"
         },
-        "eeatNarrative": "Pineapple Express Meds (PEM) Baby Jeffery Pre-Roll 30 Pack is a premium Infused Pre-Rolls product available at Mohawk Medibles, Tyendinaga's trusted cannabis dispensary.",
+        "eeatNarrative": "PEM Baby Jeffery Pre-Roll 30 Pack is a lab-tested, premium infused pre-roll product available at Mohawk Medibles. Each batch undergoes third-party lab testing to meet Empire Standard quality benchmarks for cannabinoid potency, residual solvent screening, and purity, ensuring a consistently safe and enjoyable experience from Tyendinaga Mohawk Territory.",
         "effects": [
-            "energetic",
-            "uplifted",
-            "creative",
-            "focused"
+            "Euphoric",
+            "Relaxed",
+            "Creative",
+            "Focused",
+            "Happy"
         ]
     },
     {
@@ -14486,29 +14491,32 @@ const _RAW_PRODUCTS: Product[] = [
             "https://mohawkmedibles.ca/wp-content/uploads/2025/05/Gas-Gang-Connoisseur-Mix-Box.png",
             "https://mohawkmedibles.ca/wp-content/uploads/2025/05/Gas-Gang-Connoisseur-Mix-Box2.png"
         ],
-        "altText": "Gas Gang Connoisseur Mix Box 4G - Mohawk Medibles",
-        "sku": "",
-        "metaDescription": "Buy Gas Gang Connoisseur Mix Box 4G online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "shortDescription": "Buy Gas Gang Connoisseur Mix Box 4G online in Canada at Mohawk Medibles, your trusted Indigenous-owned cannabis dispensary.",
-        "descriptionHTML": "",
+        "altText": "Gas Gang Connoisseur Mix Box 4G cannabis concentrates sampler with four 1g jars at Mohawk Medibles Canada",
+        "sku": "MM-CONC-GASGANG-MIX4G",
+        "metaDescription": "Buy Gas Gang Connoisseur Mix Box 4G concentrates in Canada at Mohawk Medibles. Four 1g premium concentrate jars — fast Canada-wide shipping.",
+        "shortDescription": "Shop the Gas Gang Connoisseur Mix Box 4G — a premium concentrates sampler featuring four 1g jars of top-shelf extracts in assorted strains. Buy online at Mohawk Medibles with fast, discreet Canada-wide delivery.",
+        "descriptionHTML": "<div class=\"product-description\"><p>Buy the Gas Gang Connoisseur Mix Box 4G online in Canada at Mohawk Medibles, your trusted Indigenous-owned dispensary in Tyendinaga Mohawk Territory. This premium concentrates sampler pack includes four 1-gram jars of high-quality cannabis extracts, giving you a curated variety of strains and flavours in one convenient box.</p><h2>What Is the Connoisseur Mix Box?</h2><p>Gas Gang is known for crafting potent, flavourful cannabis concentrates. The Connoisseur Mix Box is their signature sampler — four hand-selected 1g jars featuring different strains, allowing you to explore a range of terpene profiles and effects without committing to a single variety. Perfect for concentrate enthusiasts who appreciate variety.</p><h2>Product Highlights</h2><ul><li><strong>Total Weight:</strong> 4g (4 x 1g jars)</li><li><strong>THC Potency:</strong> 70-85% per jar depending on strain</li><li><strong>Variety:</strong> Four different strain selections per box</li><li><strong>Format:</strong> Premium glass jars for freshness preservation</li><li><strong>Brand:</strong> Gas Gang — trusted Canadian concentrate brand</li></ul><h2>How to Enjoy</h2><ol><li>Use a dab tool to scoop a rice-grain-sized amount from your chosen jar</li><li>Heat your dab rig, e-nail, or concentrate vaporizer to 200-260°C</li><li>Apply concentrate to the heated surface and inhale slowly</li><li>Start with small dabs — Gas Gang concentrates are highly potent</li></ol><h2>Frequently Asked Questions</h2><h3>What strains are included in the Gas Gang Mix Box?</h3><p><strong>A:</strong> Strain selections rotate based on availability. Each box includes four different premium strains hand-picked by Gas Gang for variety and quality. Check current stock for specific strain details.</p><h3>How should I store my Gas Gang concentrates?</h3><p><strong>A:</strong> Store in a cool, dark place in the original sealed glass jars. Refrigeration can help preserve terpenes and potency for longer periods. Avoid exposure to heat and direct sunlight.</p><h3>Does Mohawk Medibles ship concentrates across Canada?</h3><p><strong>A:</strong> Yes! We offer fast, discreet Canada-wide shipping with same-day processing on orders placed before 2 PM EST from Tyendinaga Mohawk Territory.</p></div>",
         "featured": false,
         "specs": {
-            "thc": "TBD",
-            "cbd": "TBD",
-            "type": "Concentrates",
-            "weight": "TBD",
+            "thc": "70-85%",
+            "cbd": "<1%",
+            "type": "Hybrid",
+            "weight": "4g (4 x 1g)",
             "terpenes": [
                 "Myrcene",
                 "Limonene",
-                "Caryophyllene"
+                "Caryophyllene",
+                "Linalool"
             ],
-            "lineage": ""
+            "lineage": "Assorted strain selections"
         },
-        "eeatNarrative": "Gas Gang Connoisseur Mix Box 4G is a premium Concentrates product available at Mohawk Medibles, Tyendinaga's trusted cannabis dispensary.",
+        "eeatNarrative": "Gas Gang Connoisseur Mix Box 4G is a lab-tested, premium concentrates sampler available at Mohawk Medibles. Gas Gang products undergo third-party lab testing to verify cannabinoid potency and screen for residual solvents, pesticides, and heavy metals, meeting Empire Standard quality benchmarks for safe consumption from Tyendinaga Mohawk Territory.",
         "effects": [
-            "euphoric",
-            "relaxed",
-            "creative"
+            "Euphoric",
+            "Relaxed",
+            "Creative",
+            "Happy",
+            "Focused"
         ]
     },
     {
