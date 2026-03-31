@@ -168,22 +168,24 @@ export function HeroCarousel() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-2 sm:pt-4">
-              <Link href={slide.cta.href}>
-                <Button
-                  size="lg"
-                  className="rounded-full text-sm sm:text-base md:text-lg h-11 sm:h-12 md:h-14 px-6 sm:px-8 md:px-10 bg-lime hover:bg-lime-light text-charcoal-deep font-bold hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(200,230,62,0.4)] border-none w-full sm:w-auto"
-                >
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full text-sm sm:text-base md:text-lg h-11 sm:h-12 md:h-14 px-6 sm:px-8 md:px-10 bg-lime hover:bg-lime-light text-charcoal-deep font-bold hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(200,230,62,0.4)] border-none w-full sm:w-auto"
+              >
+                <Link href={slide.cta.href}>
                   {slide.cta.label}
-                </Button>
-              </Link>
-              <Link href={slide.ctaSecondary.href}>
-                <Button
-                  size="lg"
-                  className="rounded-full text-sm sm:text-base md:text-lg h-11 sm:h-12 md:h-14 px-6 sm:px-8 md:px-10 bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white/25 font-semibold w-full sm:w-auto"
-                >
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full text-sm sm:text-base md:text-lg h-11 sm:h-12 md:h-14 px-6 sm:px-8 md:px-10 bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white/25 font-semibold w-full sm:w-auto"
+              >
+                <Link href={slide.ctaSecondary.href}>
                   {slide.ctaSecondary.label}
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
 

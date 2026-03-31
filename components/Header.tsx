@@ -155,27 +155,29 @@ export default function Header() {
                         <LanguageSwitcher />
                         <ThemeToggle />
                         <SearchAutocomplete />
-                        <Link href="/account">
-                            <Button variant="ghost" size="icon" className={`rounded-xl ${onHeroTransparent ? "text-white/70 hover:text-lime hover:bg-white/10" : "text-charcoal-deep/60 dark:text-white/60 hover:text-forest dark:hover:text-lime hover:bg-charcoal-deep/5 dark:hover:bg-white/5"}`} aria-label="My account">
+                        <Button asChild variant="ghost" size="icon" className={`rounded-xl ${onHeroTransparent ? "text-white/70 hover:text-lime hover:bg-white/10" : "text-charcoal-deep/60 dark:text-white/60 hover:text-forest dark:hover:text-lime hover:bg-charcoal-deep/5 dark:hover:bg-white/5"}`}>
+                            <Link href="/account" aria-label="My account">
                                 <User className="h-4 w-4" />
-                            </Button>
-                        </Link>
+                            </Link>
+                        </Button>
                     </div>
                     {/* Mobile search trigger — full-screen overlay handled by SearchAutocomplete */}
                     <div className="md:hidden">
                         <SearchAutocomplete />
                     </div>
 
-                    <Link href="/wishlist" className="relative" aria-label={`Wishlist${wishlistCount > 0 ? `, ${wishlistCount} items` : ""}`}>
-                        <Button variant="ghost" size="icon" aria-label="Wishlist" className={`rounded-xl ${onHeroTransparent ? "text-white/70 hover:text-red-400 hover:bg-white/10" : "text-charcoal-deep/60 dark:text-white/60 hover:text-red-500 dark:hover:text-red-400 hover:bg-charcoal-deep/5 dark:hover:bg-white/5"}`}>
-                            <Heart className="h-4 w-4" />
+                    <span className="relative">
+                        <Button asChild variant="ghost" size="icon" className={`rounded-xl ${onHeroTransparent ? "text-white/70 hover:text-red-400 hover:bg-white/10" : "text-charcoal-deep/60 dark:text-white/60 hover:text-red-500 dark:hover:text-red-400 hover:bg-charcoal-deep/5 dark:hover:bg-white/5"}`}>
+                            <Link href="/wishlist" aria-label={`Wishlist${wishlistCount > 0 ? `, ${wishlistCount} items` : ""}`}>
+                                <Heart className="h-4 w-4" />
+                            </Link>
                         </Button>
                         {wishlistCount > 0 && (
                             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] font-bold rounded-full min-w-[16px] h-[16px] flex items-center justify-center px-0.5">
                                 {wishlistCount > 99 ? "99+" : wishlistCount}
                             </span>
                         )}
-                    </Link>
+                    </span>
 
                     <button onClick={openCart} className="relative rounded-full flex items-center gap-2 px-4 py-2 bg-forest text-white dark:bg-lime dark:text-charcoal-deep text-sm font-bold shadow-lg glow-lime hover:opacity-90 transition-opacity" aria-label={`Shopping cart${cartCount > 0 ? `, ${cartCount} items` : ""}`}>
                         <ShoppingCart className="h-4 w-4" />
@@ -269,12 +271,12 @@ export default function Header() {
                                 <LanguageSwitcher />
                                 <ThemeToggle />
                             </div>
-                            <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
-                                <Button variant="outline" className="w-full rounded-2xl h-12 uppercase font-bold glass">{t("nav.login")}</Button>
-                            </Link>
-                            <Link href="/support" onClick={() => setIsMobileMenuOpen(false)}>
-                                <Button variant="brand" className="w-full rounded-2xl h-12 uppercase font-bold glow-lime">{t("nav.talkToSupport")}</Button>
-                            </Link>
+                            <Button asChild variant="outline" className="w-full rounded-2xl h-12 uppercase font-bold glass">
+                                <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>{t("nav.login")}</Link>
+                            </Button>
+                            <Button asChild variant="brand" className="w-full rounded-2xl h-12 uppercase font-bold glow-lime">
+                                <Link href="/support" onClick={() => setIsMobileMenuOpen(false)}>{t("nav.talkToSupport")}</Link>
+                            </Button>
                         </div>
                     </div>
                 )}
