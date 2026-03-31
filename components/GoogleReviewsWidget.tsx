@@ -116,13 +116,14 @@ export default function GoogleReviewsWidget() {
     return () => clearInterval(interval);
   }, [isPaused, reviewCount, next]);
 
-  if (!data || data.totalReviews === 0) return null;
+  if (!data || !data.averageRating || !data.reviews || data.totalReviews === 0) return null;
 
   const mapsUrl = data.placeId
     ? `https://www.google.com/maps/place/?q=place_id:${data.placeId}`
     : "https://www.google.com/maps/search/Mohawk+Medibles";
 
-  const currentReview = data.reviews[currentIndex];
+  const currentReview = data.reviews?.[currentIndex];
+  if (!currentReview) return null;
 
   return (
     <section
