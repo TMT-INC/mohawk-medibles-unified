@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +10,21 @@ import { breadcrumbSchema, faqSchema } from "@/lib/seo/schemas";
 
 // Load pages from seed data
 import pagesData from "@/data/seed/pages.json";
+
+// Slugs that should permanently redirect elsewhere
+const SLUG_REDIRECTS: Record<string, string> = {
+    "territory-grown": "/shop",
+    "our-story": "/about",
+    "about-us": "/about",
+    "privacy-policy": "/privacy",
+    "terms-of-use": "/terms",
+    "return-policy": "/returns-policy",
+    "medibles-blog": "/blog",
+    "knowledgebase": "/faq",
+    "medibles-support": "/support",
+    "mohawk-medibles-support": "/support",
+    "contact-medibles-wholesale": "/wholesale",
+};
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -59,6 +74,7 @@ export const dynamicParams = true;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
+    if (SLUG_REDIRECTS[slug]) return {};
     const page = pagesData.find((p: { slug: string; title: string }) => p.slug === slug);
 
     if (!page) return {};
@@ -105,6 +121,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function DynamicPage({ params }: PageProps) {
     const { slug } = await params;
+
+    // Handle legacy slugs with permanent redirect
+    const redirectTo = SLUG_REDIRECTS[slug];
+    if (redirectTo) {
+        redirect(redirectTo);
+    }
+
     const page = pagesData.find((p: { slug: string; title: string }) => p.slug === slug);
 
     if (!page) {
