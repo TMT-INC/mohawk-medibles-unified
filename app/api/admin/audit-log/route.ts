@@ -55,6 +55,6 @@ export async function GET(req: NextRequest) {
         });
     } catch (err: any) {
         log.admin.error("Audit Log GET error", { error: err instanceof Error ? err.message : "Unknown" });
-        return NextResponse.json({ error: err.message }, { status: 500 });
+        return NextResponse.json({ error: "Internal server error" }, { status: 500 });
     }
 }

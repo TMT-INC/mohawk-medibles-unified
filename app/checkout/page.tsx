@@ -312,6 +312,20 @@ export default function CheckoutPage() {
                             <ArrowLeft className="h-4 w-4" /> Continue Shopping
                         </Button>
                     </Link>
+
+                    {/* Quick links */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 max-w-lg mx-auto">
+                        {[
+                            { label: "Flower", href: "/shop?category=Flower" },
+                            { label: "Edibles", href: "/shop?category=Edibles" },
+                            { label: "Concentrates", href: "/shop?category=Concentrates" },
+                            { label: "Deals", href: "/deals" },
+                        ].map((link) => (
+                            <Link key={link.label} href={link.href} className="px-3 py-2 rounded-lg border border-border text-sm font-medium text-muted-foreground hover:text-foreground hover:border-lime/50 transition-colors text-center">
+                                {link.label}
+                            </Link>
+                        ))}
+                    </div>
                 </motion.div>
             </div>
         );

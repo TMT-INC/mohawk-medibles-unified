@@ -170,9 +170,7 @@ export const reviewRequestsRouter = router({
               productSlug,
               orderNumber: order.orderNumber || order.id.toString(),
             });
-            console.log(
-              `[Review Request] Sent to ${order.user.email} for ${item.name}`
-            );
+            // Sent review request email
           } catch (emailErr) {
             // Email failure should not break the flow
             console.error("[Review Request] Email send failed:", emailErr);

@@ -78,17 +78,26 @@ export default function DealsClient() {
 
   if (!deals || deals.length === 0) {
     return (
-      <div className="text-center py-16 rounded-2xl border border-border bg-card/50">
-        <Tag className="h-12 w-12 text-muted-foreground/30 mx-auto mb-3" />
-        <h3 className="text-xl font-bold mb-2">No Daily Deals Right Now</h3>
-        <p className="text-muted-foreground max-w-md mx-auto mb-6">
-          Check back soon for limited-time deals on premium cannabis products.
+      <div className="text-center py-16 rounded-2xl border border-border bg-gradient-to-b from-card/80 to-card/30">
+        <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-amber-500/10 flex items-center justify-center">
+          <Tag className="h-10 w-10 text-amber-500" />
+        </div>
+        <h3 className="text-2xl font-bold mb-2">New Deals Drop Daily</h3>
+        <p className="text-muted-foreground max-w-md mx-auto mb-8">
+          Our deal rotation picks a new product every morning at 5 AM. Check back tomorrow for fresh savings on premium cannabis.
         </p>
-        <Link href="/flash-sale">
-          <Button variant="outline" className="rounded-full">
-            View Flash Sales
-          </Button>
-        </Link>
+        <div className="flex gap-4 justify-center flex-wrap">
+          <Link href="/shop?sort=price-asc">
+            <Button variant="brand" className="rounded-full">
+              Browse Sale Items
+            </Button>
+          </Link>
+          <Link href="/shop">
+            <Button variant="outline" className="rounded-full">
+              Shop All Products
+            </Button>
+          </Link>
+        </div>
       </div>
     );
   }

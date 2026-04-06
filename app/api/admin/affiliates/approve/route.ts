@@ -3,8 +3,12 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 export async function POST(request: NextRequest) {
+    const auth = requireAdmin(request);
+    if (isAuthError(auth)) return auth;
+
     try {
         const { applicationId, commissionRate = 10 } = await request.json();
 
@@ -47,7 +51,7 @@ export async function POST(request: NextRequest) {
 
         return NextResponse.json({ application: updatedApp, affiliate });
     } catch (error) {
-        console.error("[affiliates/approve] Error:", error);
+        // affiliates approve error
         return NextResponse.json({ error: "Failed to approve" }, { status: 500 });
     }
 }

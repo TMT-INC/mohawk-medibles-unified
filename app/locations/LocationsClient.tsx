@@ -93,7 +93,7 @@ export default function LocationsClient() {
                         alt="Mohawk Medibles store — premium cannabis dispensary"
                         fill
                         priority
-                        className="object-cover opacity-30"
+                        className="object-cover opacity-50"
                         sizes="100vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal-deep via-charcoal-deep/50 to-transparent" />

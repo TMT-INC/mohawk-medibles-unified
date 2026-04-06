@@ -158,6 +158,58 @@ export async function POST(req: NextRequest) {
             log.webhook.error("Email failed", { error: emailErr instanceof Error ? emailErr.message : "Unknown" });
         }
 
+        // ── Push order to ShipStation (non-blocking) ────────
+        try {
+            const { processOrderForShipping, MOHAWK_MEDIBLES_ADDRESS } = await import("@/lib/shipstation");
+            const user = await prisma.user.findUnique({ where: { id: order.userId } });
+            const items = await prisma.orderItem.findMany({
+                where: { orderId: order.id },
+                include: { product: true },
+            });
+            const shippingData = order.shippingData ? JSON.parse(order.shippingData as string) : null;
+
+            if (shippingData?.address_1) {
+                const shippingResult = await processOrderForShipping({
+                    customerName: user?.name || "Customer",
+                    customerEmail: user?.email || "",
+                    shippingAddress: {
+                        name: `${shippingData.first_name || ""} ${shippingData.last_name || ""}`.trim(),
+                        address_line1: shippingData.address_1,
+                        address_line2: shippingData.address_2 || undefined,
+                        city_locality: shippingData.city,
+                        state_province: shippingData.state,
+                        postal_code: (shippingData.postcode || "").replace(/\s+/g, ""),
+                        country_code: shippingData.country || "CA",
+                    },
+                    items: items.map((i) => ({
+                        name: i.name,
+                        quantity: i.quantity,
+                        sku: i.product?.sku || undefined,
+                        unit_price: { amount: i.price, currency: "CAD" },
+                    })),
+                    totalWeight: { value: Math.max(items.reduce((sum, i) => sum + i.quantity * 0.1, 0), 0.5), unit: "kilogram" },
+                });
+
+                // Save tracking info to order
+                await prisma.order.update({
+                    where: { id: order.id },
+                    data: {
+                        trackingNumber: shippingResult.trackingNumber,
+                        carrier: shippingResult.carrier,
+                        shippingLabel: shippingResult.labelPdfUrl || null,
+                    },
+                });
+
+                log.webhook.info("ShipStation label created", {
+                    orderId: order.id,
+                    tracking: shippingResult.trackingNumber,
+                });
+            }
+        } catch (shipErr) {
+            // Don't fail the postback if ShipStation fails — can be handled manually
+            log.webhook.error("ShipStation push failed", { orderId: order.id, error: shipErr instanceof Error ? shipErr.message : "Unknown" });
+        }
+
         return new NextResponse(
             digipayXmlResponse("ok", "Purchase successfully processed", 100, String(order.id)),
             { headers: xmlHeaders }

@@ -6,7 +6,7 @@
 import crypto from "crypto";
 
 const DIGIPAY_BASE_URL = "https://secure.digipay.co/order/creditcard/cc_form_enc.php";
-const DIGIPAY_ALLOWED_IPS = ["185.240.29.227"];
+const DIGIPAY_ALLOWED_IPS = (process.env.DIGIPAY_ALLOWED_IPS || "185.240.29.227").split(",").map(ip => ip.trim());
 
 // ─── Encryption (AES-256-CBC, matches Digipay PHP SDK) ──────
 
@@ -69,7 +69,7 @@ export function buildDigipayPaymentUrl(params: DigipayOrderParams): string {
     }
 
     const queryParams = new URLSearchParams({
-        site_id: siteId || "6099",
+        site_id: siteId!,
         charge_amount: params.amount.toFixed(2),
         type: "purchase",
         order_description: params.description.substring(0, 255),
@@ -167,6 +167,8 @@ export function digipayXmlResponse(
 // ─── Test Session ───────────────────────────────────────────
 
 export function isTestSession(session: string): boolean {
-    const siteId = process.env.DIGIPAY_SITE_ID || "6099";
+    if (process.env.NODE_ENV === "production") return false;
+    const siteId = process.env.DIGIPAY_SITE_ID;
+    if (!siteId) return false;
     return session === `${siteId}_test`;
 }

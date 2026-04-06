@@ -208,6 +208,6 @@ export async function POST(req: NextRequest) {
       where: { id: syncLog.id },
       data: { status: 'failed', error: err.message, completedAt: new Date() },
     });
-    return NextResponse.json({ error: err.message }, { status: 500 });
+    return NextResponse.json({ error: "Customer sync failed" }, { status: 500 });
   }
 }

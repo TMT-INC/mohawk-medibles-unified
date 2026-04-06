@@ -18,6 +18,10 @@ const ENV_SCHEMA: EnvVar[] = [
     { key: "DATABASE_URL", required: true, description: "PostgreSQL connection string" },
     { key: "AUTH_SECRET", required: true, description: "JWT signing secret (64-byte hex)" },
 
+    // Payments (Digipay)
+    { key: "DIGIPAY_SITE_ID", required: true, description: "Digipay merchant site ID" },
+    { key: "DIGIPAY_ENCRYPTION_KEY", required: true, description: "Digipay AES-256-CBC encryption key" },
+
     // Fulfillment (ShipStation V2 — single API key auth)
     { key: "SHIPSTATION_API_KEY", required: true, description: "ShipStation V2 API key" },
     { key: "SHIPSTATION_WEBHOOK_SECRET", required: false, description: "ShipStation webhook HMAC secret" },

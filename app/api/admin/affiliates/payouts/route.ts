@@ -1,10 +1,14 @@
 /**
  * GET /api/admin/affiliates/payouts — List all payout requests
  */
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+    const auth = requireAdmin(req);
+    if (isAuthError(auth)) return auth;
+
     try {
         const payouts = await prisma.affiliatePayout.findMany({
             include: {
@@ -19,7 +23,7 @@ export async function GET() {
         });
         return NextResponse.json({ payouts });
     } catch (error) {
-        console.error("[affiliates/payouts] Error:", error);
+        // affiliates payouts error
         return NextResponse.json({ payouts: [] }, { status: 500 });
     }
 }

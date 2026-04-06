@@ -386,7 +386,7 @@ export const restockAlertsRouter = router({
         subject: `Restock Alert: ${activeAlerts.length} product${activeAlerts.length === 1 ? "" : "s"} low on stock`,
         html,
       });
-      console.log(`[Restock Digest] Sent digest with ${activeAlerts.length} alerts to ${adminEmail}`);
+      // Restock digest sent
     } catch (emailErr) {
       // Email failure should not break the flow
       console.error("[Restock Digest] Email send failed:", emailErr);

@@ -32,7 +32,7 @@ function getPaymentMethodTitle(method: string): string {
 // ─── POST /api/sage/checkout ────────────────────────────────
 
 export async function POST(req: NextRequest) {
-    const limited = await applyRateLimit(req, RATE_LIMITS.api);
+    const limited = await applyRateLimit(req, RATE_LIMITS.checkout);
     if (limited) return limited;
 
     try {

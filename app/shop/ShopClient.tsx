@@ -738,8 +738,27 @@ export default function ShopClient() {
                             </div>
                         </div>
 
+                        {/* Loading Skeleton */}
+                        {productsLoading && (
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {Array.from({ length: 12 }).map((_, i) => (
+                                    <div key={i} className="bg-white dark:bg-card rounded-xl border border-border overflow-hidden animate-pulse">
+                                        <div className="aspect-square bg-muted" />
+                                        <div className="p-4 space-y-3">
+                                            <div className="h-4 bg-muted rounded w-3/4" />
+                                            <div className="h-3 bg-muted rounded w-1/2" />
+                                            <div className="flex justify-between items-center pt-2">
+                                                <div className="h-5 bg-muted rounded w-20" />
+                                                <div className="h-8 bg-muted rounded w-24" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
                         {/* No Results */}
-                        {processedProducts.length === 0 && (
+                        {!productsLoading && processedProducts.length === 0 && (
                             <div className="text-center py-20">
                                 <Search className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                                 <h3 className="text-lg font-bold text-forest dark:text-cream mb-2">No products found</h3>
@@ -753,7 +772,7 @@ export default function ShopClient() {
                         )}
 
                         {/* Product Grid */}
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list" aria-label="Products">
+                        <div className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-6${productsLoading ? " hidden" : ""}`} role="list" aria-label="Products">
                             {visibleProducts.map((product) => (
                                 <div key={product.id} role="listitem" className="group bg-white dark:bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-all duration-300">
                                     <Link href={`/shop/${product.slug}`}>

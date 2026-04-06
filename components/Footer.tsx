@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { CreditCard, Bitcoin, ShieldCheck, Zap, Loader2, Check } from "lucide-react";
+import { CreditCard, ShieldCheck, Zap, Loader2, Check } from "lucide-react";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsWidget";
 
 const provinces = [
@@ -157,7 +157,6 @@ export default function Footer() {
                         {[
                             { icon: Zap, label: "INTERAC", sub: "Instant Pay", color: "text-yellow-400" },
                             { icon: CreditCard, label: "VISA / MC", sub: "Global Credit", color: "text-blue-400" },
-                            { icon: Bitcoin, label: "BITCOIN", sub: "Crypto Ready", color: "text-orange-400" },
                             { icon: ShieldCheck, label: "SSL SECURE", sub: "256-bit AES", color: "text-lime" },
                         ].map((badge) => (
                             <div key={badge.label} className="flex flex-col items-center gap-1.5 group">

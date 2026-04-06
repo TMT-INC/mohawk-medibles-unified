@@ -56,6 +56,28 @@ export default function TrackOrderPage() {
       >
         <OrderTracker />
       </Suspense>
+
+      {/* Shipping FAQ */}
+      <section className="max-w-3xl mx-auto px-4 py-16">
+        <h2 className="text-2xl font-bold text-center mb-8 text-foreground">Shipping FAQ</h2>
+        <div className="space-y-4">
+          {[
+            { q: "How long does shipping take?", a: "Most orders ship same-day and arrive within 1-3 business days via Canada Post Xpresspost or Purolator." },
+            { q: "How much does shipping cost?", a: "Flat rate $15 shipping. FREE on all orders over $199. Click & Collect in-store is always free." },
+            { q: "Is the packaging discreet?", a: "Yes. All orders ship in plain, unbranded packaging with no indication of contents. Your privacy is our priority." },
+            { q: "What carriers do you use?", a: "We ship via Canada Post Xpresspost, Purolator, UPS, and FedEx depending on your location for the fastest delivery." },
+            { q: "Can I change my shipping address?", a: "Contact us immediately at info@mohawkmedibles.ca or (613) 396-6728. We can update before the order ships." },
+          ].map((item) => (
+            <details key={item.q} className="group rounded-xl border border-border bg-card/50 overflow-hidden">
+              <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-medium text-foreground hover:bg-muted/30 transition-colors">
+                {item.q}
+                <span className="text-muted-foreground group-open:rotate-180 transition-transform">&#9660;</span>
+              </summary>
+              <div className="px-6 pb-4 text-muted-foreground text-sm">{item.a}</div>
+            </details>
+          ))}
+        </div>
+      </section>
     </>
   );
 }

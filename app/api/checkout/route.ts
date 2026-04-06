@@ -150,6 +150,39 @@ export async function POST(req: NextRequest) {
         const orderNumber = `MM-${Date.now().toString(36).toUpperCase()}`;
 
         const order = await prisma.$transaction(async (tx) => {
+            // ── Stock check & decrement ────────────────────
+            for (const item of resolvedItems) {
+                const inv = await tx.inventory.findUnique({
+                    where: { productId: item.productId },
+                });
+                if (inv && inv.quantity < item.quantity && !inv.backorder) {
+                    throw new Error(`Insufficient stock for "${item.name}" (available: ${inv.quantity}, requested: ${item.quantity})`);
+                }
+                if (inv) {
+                    await tx.inventory.update({
+                        where: { productId: item.productId },
+                        data: { quantity: { decrement: item.quantity } },
+                    });
+                    await tx.inventoryLog.create({
+                        data: {
+                            productId: item.productId,
+                            previousQuantity: inv.quantity,
+                            newQuantity: inv.quantity - item.quantity,
+                            changeAmount: -item.quantity,
+                            reason: "order",
+                            notes: `Order ${orderNumber}`,
+                        },
+                    });
+                    // Mark product OUT_OF_STOCK if quantity hits zero
+                    if (inv.quantity - item.quantity <= 0 && !inv.backorder) {
+                        await tx.product.update({
+                            where: { id: item.productId },
+                            data: { status: "OUT_OF_STOCK" },
+                        });
+                    }
+                }
+            }
+
             const newOrder = await tx.order.create({
                 data: {
                     orderNumber,
@@ -339,17 +372,11 @@ export async function POST(req: NextRequest) {
             });
         }
 
-        // Crypto or other — placeholder
-        return NextResponse.json({
-            success: true,
-            orderId: order.id,
-            orderNumber,
-            status: "pending",
-            paymentMethod: body.payment_method,
-            total: total.toFixed(2),
-            currency: "CAD",
-            message: "Payment method processing. You will receive instructions via email.",
-        });
+        // Unsupported payment method
+        return NextResponse.json(
+            { error: "This payment method is not currently available. Please use Credit Card or Interac e-Transfer." },
+            { status: 400 }
+        );
     } catch (error) {
         const message = error instanceof Error ? error.message : "Checkout failed";
         log.checkout.error("Checkout error", { error: message });

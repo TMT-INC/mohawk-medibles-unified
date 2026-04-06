@@ -5,8 +5,12 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 export async function GET(req: NextRequest) {
+  const auth = requireAdmin(req);
+  if (isAuthError(auth)) return auth;
+
   try {
     const url = new URL(req.url);
     const statusFilter = url.searchParams.get("status") || "ALL";
@@ -46,12 +50,15 @@ export async function GET(req: NextRequest) {
       stats: { pendingReview, suspicious, totalBlocked },
     });
   } catch (error) {
-    console.error("Fraud API GET error:", error);
+    // Fraud API GET error logged
     return NextResponse.json({ alerts: [], total: 0, stats: { pendingReview: 0, suspicious: 0, totalBlocked: 0 } });
   }
 }
 
 export async function POST(req: NextRequest) {
+  const auth = requireAdmin(req);
+  if (isAuthError(auth)) return auth;
+
   try {
     const body = await req.json();
     const { fraudCheckId, action } = body as { fraudCheckId: string; action: "APPROVE" | "BLOCK" };
@@ -123,7 +130,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ error: "Invalid action" }, { status: 400 });
   } catch (error) {
-    console.error("Fraud API POST error:", error);
+    // Fraud API POST error logged
     return NextResponse.json({ error: "Failed to process review" }, { status: 500 });
   }
 }

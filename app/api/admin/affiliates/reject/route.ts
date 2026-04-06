@@ -3,8 +3,12 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { requireAdmin, isAuthError } from "@/lib/adminAuth";
 
 export async function POST(request: NextRequest) {
+    const auth = requireAdmin(request);
+    if (isAuthError(auth)) return auth;
+
     try {
         const { applicationId, note } = await request.json();
 
@@ -18,7 +22,7 @@ export async function POST(request: NextRequest) {
 
         return NextResponse.json({ application: updated });
     } catch (error) {
-        console.error("[affiliates/reject] Error:", error);
+        // affiliates reject error
         return NextResponse.json({ error: "Failed to reject" }, { status: 500 });
     }
 }

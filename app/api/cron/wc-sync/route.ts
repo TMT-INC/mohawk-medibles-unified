@@ -98,7 +98,8 @@ export async function GET(req: NextRequest) {
 
     results.orders = { total, synced, since: lastOrderSync || 'full' };
   } catch (err: any) {
-    results.orders = { error: err.message };
+    log.wc.error("Cron orders sync failed", { error: err instanceof Error ? err.message : "Unknown" });
+    results.orders = { error: "Orders sync failed" };
   }
 
   // ── Sync Customers (incremental) ──
@@ -129,7 +130,8 @@ export async function GET(req: NextRequest) {
 
     results.customers = { total, synced, since: lastCustomerSync || 'full' };
   } catch (err: any) {
-    results.customers = { error: err.message };
+    log.wc.error("Cron customers sync failed", { error: err instanceof Error ? err.message : "Unknown" });
+    results.customers = { error: "Customers sync failed" };
   }
 
   return NextResponse.json({ success: true, timestamp: new Date().toISOString(), results });

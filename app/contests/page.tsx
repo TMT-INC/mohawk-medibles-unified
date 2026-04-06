@@ -451,15 +451,24 @@ export default function ContestsPage() {
               <Lock className="w-10 h-10 text-gray-600" />
             </div>
             <h3 className="text-2xl font-bold text-gray-300 mb-3">No Active Contests Right Now</h3>
-            <p className="text-gray-500 max-w-md mx-auto mb-6">
-              New contests are added regularly. Check back soon or sign up for notifications!
+            <p className="text-gray-500 max-w-md mx-auto mb-4">
+              We run contests regularly with prizes like free ounces, gift cards, and exclusive drops. Sign up for our newsletter to get notified first!
             </p>
-            <Link
-              href="/shop"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-bold text-sm uppercase tracking-wider rounded-xl hover:from-amber-500 hover:to-orange-500 transition-all shadow-lg shadow-amber-600/20"
-            >
-              <ShoppingCart className="w-4 h-4" /> Shop While You Wait
-            </Link>
+            <p className="text-sm text-amber-400/80 mb-6">Tip: Every purchase earns you automatic contest entries</p>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <Link
+                href="/shop"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-bold text-sm uppercase tracking-wider rounded-xl hover:from-amber-500 hover:to-orange-500 transition-all shadow-lg shadow-amber-600/20"
+              >
+                <ShoppingCart className="w-4 h-4" /> Shop &amp; Earn Entries
+              </Link>
+              <Link
+                href="/rewards"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-gray-700 text-gray-300 font-bold text-sm uppercase tracking-wider rounded-xl hover:border-gray-500 transition-all"
+              >
+                View Rewards Program
+              </Link>
+            </div>
           </div>
         )}
 

@@ -12,7 +12,7 @@ export default function TerritoryGrownBadge({ size = "sm", className = "" }: Ter
   if (size === "sm") {
     return (
       <Link
-        href="/territory-grown"
+        href="/about"
         className={`inline-flex items-center gap-1 bg-amber-700/10 dark:bg-amber-600/15 text-amber-800 dark:text-amber-400 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide uppercase hover:bg-amber-700/20 transition-colors ${className}`}
       >
         <Leaf className="h-3 w-3" />
@@ -23,7 +23,7 @@ export default function TerritoryGrownBadge({ size = "sm", className = "" }: Ter
 
   return (
     <Link
-      href="/territory-grown"
+      href="/about"
       className={`inline-flex items-center gap-2 bg-amber-700/10 dark:bg-amber-600/15 text-amber-800 dark:text-amber-400 px-3 py-1.5 rounded-lg text-xs font-bold tracking-wide uppercase hover:bg-amber-700/20 transition-colors ${className}`}
     >
       <Leaf className="h-4 w-4" />

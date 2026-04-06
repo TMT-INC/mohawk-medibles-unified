@@ -13,6 +13,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { timingSafeEqual } from "crypto";
 import { prisma } from "@/server/trpc/trpc";
+import { log } from "@/lib/logger";
 
 // ─── Config ──────────────────────────────────────────────
 const DEAL_DURATION_HOURS = 24;
@@ -174,9 +175,7 @@ export async function GET(req: NextRequest) {
       },
     });
 
-    console.log(
-      `[deal-rotation] Created deal: "${winner.name}" $${winner.price} → $${dealPrice} (${discountPercent}% off, ${winnerSales} sales in ${SALES_LOOKBACK_DAYS}d)`
-    );
+    log.admin.info("Deal rotation created", { product: winner.name, price: winner.price, dealPrice, discountPercent });
 
     return NextResponse.json({
       success: true,

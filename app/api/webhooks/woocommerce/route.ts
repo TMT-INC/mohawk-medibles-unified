@@ -442,6 +442,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ success: true, topic, resource, id: payload.id });
   } catch (err: any) {
     log.wc.error("Error processing webhook", { topic, error: err.message });
-    return NextResponse.json({ error: err.message }, { status: 500 });
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
