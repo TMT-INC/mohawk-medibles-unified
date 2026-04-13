@@ -5,6 +5,7 @@
  */
 import type { Metadata } from "next";
 import HomeClient from "@/components/HomeClient";
+import TopStrainsSection from "@/components/TopStrainsSection";
 
 export const metadata: Metadata = {
     title: "Mohawk Medibles — Premium Indigenous Cannabis Dispensary | Buy Weed Online Canada",
@@ -92,6 +93,7 @@ export default function Home() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchema) }}
             />
             <HomeClient />
+            <TopStrainsSection />
         </>
     );
 }

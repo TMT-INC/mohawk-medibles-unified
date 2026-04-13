@@ -242,6 +242,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
     ];
 
+    // ─── Strain Landing Pages ──────────────────────────────
+    const strainPages: MetadataRoute.Sitemap = [
+        { url: `${BASE_URL}/strains`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
+        { url: `${BASE_URL}/strains/indica`, lastModified: now, changeFrequency: "daily", priority: 0.85 },
+        { url: `${BASE_URL}/strains/sativa`, lastModified: now, changeFrequency: "daily", priority: 0.85 },
+        { url: `${BASE_URL}/strains/hybrid`, lastModified: now, changeFrequency: "daily", priority: 0.85 },
+    ];
+
     // ─── Dispensary Comparison Pages ─────────────────────────
     const comparisonIndex: MetadataRoute.Sitemap = [
         {
@@ -258,5 +266,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.75,
     }));
 
-    return [...staticPages, ...categoryPages, ...brandPages, ...provincialPages, ...provinceDeliveryPages, ...cityDeliveryPages2, ...cannabisLawPages, ...comparisonIndex, ...comparisonPages, ...blogPages, ...productPages, ...llmsEntry];
+    return [...staticPages, ...strainPages, ...categoryPages, ...brandPages, ...provincialPages, ...provinceDeliveryPages, ...cityDeliveryPages2, ...cannabisLawPages, ...comparisonIndex, ...comparisonPages, ...blogPages, ...productPages, ...llmsEntry];
 }

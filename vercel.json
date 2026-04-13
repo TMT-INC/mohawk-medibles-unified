@@ -32,6 +32,10 @@
     {
       "path": "/api/cron/deal-rotation",
       "schedule": "0 5 * * *"
+    },
+    {
+      "path": "/api/cron/gsc-ping",
+      "schedule": "0 6 * * *"
     }
   ]
 }

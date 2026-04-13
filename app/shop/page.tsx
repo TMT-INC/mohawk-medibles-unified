@@ -4,6 +4,7 @@ import { getAllProducts } from "@/lib/products";
 import { getCurrentTenant } from "@/lib/tenant";
 import { itemListSchema, breadcrumbSchema, buildSchemaGraph } from "@/lib/seo/schemas";
 import ShopClient from "./ShopClient";
+import TopStrainsSection from "@/components/TopStrainsSection";
 
 // ─── Category SEO Metadata Map ──────────────────────────────────
 // Optimized titles and descriptions for each cannabis category.
@@ -216,6 +217,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
             <Suspense>
                 <ShopClient />
             </Suspense>
+            <TopStrainsSection />
         </>
     );
 }

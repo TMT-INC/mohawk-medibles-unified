@@ -186,6 +186,7 @@ import LazyWidgets from "@/components/LazyWidgets";
 import { CompareProvider } from "@/hooks/useCompare";
 import CompareBar from "@/components/CompareBar";
 import HappyHourBanner from "@/components/HappyHourBanner";
+import PopularStrainsFooter from "@/components/PopularStrainsFooter";
 
 export default async function RootLayout({
   children,
@@ -248,6 +249,7 @@ export default async function RootLayout({
               <main id="main-content">
                 {children}
               </main>
+              <PopularStrainsFooter />
               <Footer />
               <CompareBar />
               <LazyWidgets />
