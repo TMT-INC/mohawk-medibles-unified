@@ -288,10 +288,12 @@ async function callGemini(
                     topP: 0.92,
                 },
                 safetySettings: [
+                    // Licensed Indigenous-owned cannabis dispensary — BLOCK_NONE on dangerous content
+                    // since legal cannabis discussion otherwise trips Gemini's default filters.
                     { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_ONLY_HIGH" },
                     { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_ONLY_HIGH" },
                     { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_ONLY_HIGH" },
-                    { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_ONLY_HIGH" },
+                    { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" },
                 ],
             }),
         }
@@ -304,8 +306,18 @@ async function callGemini(
     }
 
     const data = await response.json();
-    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-    return text || "I didn't quite catch that. Could you rephrase?";
+    const candidate = data?.candidates?.[0];
+    const text = candidate?.content?.parts?.[0]?.text;
+    if (!text) {
+        // Surface why Gemini returned empty — usually safety, recitation, or an empty-finish.
+        console.error(`Gemini empty response (${model}):`, JSON.stringify({
+            finishReason: candidate?.finishReason,
+            safetyRatings: candidate?.safetyRatings,
+            promptFeedback: data?.promptFeedback,
+        }));
+        return "I didn't quite catch that. Could you rephrase?";
+    }
+    return text;
 }
 
 // ─── Action Parser ──────────────────────────────────────────

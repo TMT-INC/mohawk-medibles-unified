@@ -431,9 +431,14 @@ export default function AgentChatWidget() {
 
     // ── Text-to-Speech with API TTS (browser fallback) ──
     const audioRef = useRef<HTMLAudioElement | null>(null);
+    // Once /api/sage/tts returns 5xx (no ElevenLabs key configured), skip it for the rest of the
+    // session and go straight to browser TTS — avoids per-message delay + repeated 502s.
+    const ttsApiUnavailableRef = useRef(false);
 
     const speakWithBrowser = useCallback((text: string, onEnd?: () => void) => {
         if (typeof window === "undefined" || !window.speechSynthesis) {
+            // Caller may have pre-set isSpeaking=true; ensure it's cleared so the UI doesn't hang.
+            setIsSpeaking(false);
             onEnd?.();
             return;
         }
@@ -448,6 +453,13 @@ export default function AgentChatWidget() {
         utterance.onend = () => { setIsSpeaking(false); onEnd?.(); };
         utterance.onerror = () => { setIsSpeaking(false); onEnd?.(); };
         window.speechSynthesis.speak(utterance);
+        // Safety: if synth never fires onstart (some browsers swallow it silently),
+        // clear the spinner state after a short window so the UI never sticks.
+        setTimeout(() => {
+            if (!window.speechSynthesis.speaking && !window.speechSynthesis.pending) {
+                setIsSpeaking(false);
+            }
+        }, 1500);
     }, []);
 
     const speak = useCallback((text: string, onEnd?: () => void) => {
@@ -461,20 +473,33 @@ export default function AgentChatWidget() {
 
         setIsSpeaking(true);
 
+        // If a prior call discovered the TTS API isn't configured, skip the round-trip.
+        if (ttsApiUnavailableRef.current) {
+            speakWithBrowser(text, () => {
+                onEnd?.();
+                if (voiceConversationMode) setTimeout(() => startListeningRound(), 150);
+            });
+            return;
+        }
+
         const currentPersona = localStorage.getItem("medagent_persona") || "medagent";
         // Clean markdown for natural speech
         const clean = text.replace(/\*\*/g, "").replace(/\n/g, ". ").replace(/•/g, "").replace(/[#_~`]/g, "");
 
         const controller = new AbortController();
 
-        fetch("/api/sage/tts", {
+        fetch("/api/sage/tts/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ text: clean, persona: currentPersona }),
             signal: controller.signal,
         })
             .then(async (res) => {
-                if (!res.ok || !res.body) throw new Error(`tts-${res.status}`);
+                if (!res.ok || !res.body) {
+                    // Lock out the API for the rest of the session if it's misconfigured (502/500).
+                    if (res.status >= 500) ttsApiUnavailableRef.current = true;
+                    throw new Error(`tts-${res.status}`);
+                }
 
                 // Try streaming playback via MediaSource (Chrome/Edge), fall back to full buffer (Safari/Firefox)
                 const canStream = typeof MediaSource !== "undefined" && MediaSource.isTypeSupported("audio/mpeg");
