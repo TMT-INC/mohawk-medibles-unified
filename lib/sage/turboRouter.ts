@@ -73,7 +73,9 @@ const SEMANTIC_CATEGORY_PATTERNS: [RegExp, string][] = [
     // Flower / buds
     [/\b(i\s*want|i\s*need|looking\s*for|interested\s*in|got\s*any|any|what)\s*(some\s*|your\s*)?(flower|flowers|buds?|nugs?|weed|dried\s*flower)\b/i, "Flower"],
     [/\b(what|which)\s*(flower|flowers|buds?|strains?)\s*(do\s*you\s*have|you\s*got|are\s*available)\b/i, "Flower"],
-    [/\b(sativa|indica|hybrid)\s*(strains?|buds?|flower)?\b/i, "Flower"],
+    // Only intercept "sativa/indica/hybrid" when paired with explicit shopping intent —
+    // educational queries ("difference between indica and sativa", "what is sativa") fall through to Gemini.
+    [/\b(i\s*want|i\s*need|looking\s*for|got\s*any|show\s*me|got)\s+(a\s+|some\s+|any\s+)?(sativa|indica|hybrid)s?\b/i, "Flower"],
     // Edibles
     [/\b(i\s*want|i\s*need|looking\s*for|interested\s*in|got\s*any|any|what)\s*(some\s*|your\s*)?(edible|edibles|gummies?|chocolate|candy|candies|brownie|cookie)\b/i, "Edibles"],
     [/\b(what|which)\s*(edible|edibles|gummies?)\s*(do\s*you\s*have|you\s*got|are\s*available)\b/i, "Edibles"],
