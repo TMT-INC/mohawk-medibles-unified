@@ -18,6 +18,13 @@ import { sendOrderConfirmationSMS, sendAndLogSMS } from "@/lib/sms";
 import { sendOrderConfirmation } from "@/lib/email";
 import { autoEnterPurchaseContests } from "@/lib/contestDrawing";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
+import {
+    buildEtransferInstructions,
+    ETRANSFER_RECIPIENT_EMAIL,
+    ETRANSFER_RECIPIENT_NAME,
+    ETRANSFER_SECURITY_QUESTION,
+    ETRANSFER_SECURITY_ANSWER,
+} from "@/lib/wampum";
 
 // ─── Types ───────────────────────────────────────────────────
 
@@ -312,7 +319,7 @@ export async function POST(req: NextRequest) {
                     shipping,
                     tax,
                     total,
-                    etransferInstructions: "Please send your Interac e-Transfer to orders@mohawkmedibles.ca with your order number as the message. Auto-deposit is enabled — no security question needed.",
+                    etransferInstructions: buildEtransferInstructions(orderNumber),
                 });
             } catch (emailErr) {
                 log.checkout.error("e-Transfer confirmation email failed", {
@@ -331,9 +338,13 @@ export async function POST(req: NextRequest) {
                 total: total.toFixed(2),
                 currency: "CAD",
                 etransfer: {
-                    instructions: "Please send your Interac e-Transfer to orders@mohawkmedibles.ca with your order number as the message. Auto-deposit is enabled — no security question needed.",
+                    instructions: buildEtransferInstructions(orderNumber),
                     orderReference: orderNumber,
-                    email: "orders@mohawkmedibles.ca",
+                    email: ETRANSFER_RECIPIENT_EMAIL,
+                    recipientName: ETRANSFER_RECIPIENT_NAME,
+                    securityQuestion: ETRANSFER_SECURITY_QUESTION,
+                    securityAnswer: ETRANSFER_SECURITY_ANSWER,
+                    memo: orderNumber,
                 },
             });
         }
@@ -411,7 +422,7 @@ export async function GET() {
         {
             id: "etransfer",
             title: "Interac e-Transfer",
-            description: "Send money via e-Transfer to orders@mohawkmedibles.ca. Auto-deposit enabled.",
+            description: "Pay from your bank via Interac e-Transfer. Full instructions shown after checkout.",
             icon: "interac",
         },
     ];

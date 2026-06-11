@@ -41,7 +41,7 @@ const PAYMENT_METHODS: { id: PaymentMethod; title: string; description: string; 
     {
         id: "etransfer",
         title: "Interac e-Transfer",
-        description: "Send money via e-Transfer — auto-deposit enabled",
+        description: "Pay from your bank — instructions shown after checkout",
         icon: <Banknote className="h-5 w-5" />,
     },
 ];
@@ -87,6 +87,10 @@ export default function CheckoutPage() {
         instructions: string;
         orderReference: string;
         total: string;
+        email?: string;
+        recipientName?: string;
+        securityQuestion?: string;
+        securityAnswer?: string;
     } | null>(null);
 
     // Fetch user profile on mount (non-blocking, silent on failure)
@@ -248,8 +252,12 @@ export default function CheckoutPage() {
                 // Show e-Transfer instructions
                 setEtransferInfo({
                     instructions: data.etransfer?.instructions || "Check your email for e-Transfer instructions.",
-                    orderReference: data.etransfer?.orderReference || `WC-${data.orderNumber}`,
+                    orderReference: data.etransfer?.orderReference || data.orderNumber,
                     total: data.total || String(grandTotal),
+                    email: data.etransfer?.email,
+                    recipientName: data.etransfer?.recipientName,
+                    securityQuestion: data.etransfer?.securityQuestion,
+                    securityAnswer: data.etransfer?.securityAnswer,
                 });
                 clearCart();
             } else if (data.payUrl) {
@@ -280,11 +288,33 @@ export default function CheckoutPage() {
                     <h1 className="text-3xl font-bold text-forest dark:text-cream">Order Placed!</h1>
                     <div className="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-xl text-left space-y-3">
                         <h2 className="font-bold text-amber-800 dark:text-amber-300">Interac e-Transfer Instructions</h2>
-                        <p className="text-sm text-amber-700 dark:text-amber-400">{etransferInfo.instructions}</p>
-                        <div className="text-sm">
-                            <p><strong>Order Reference:</strong> {etransferInfo.orderReference}</p>
-                            <p><strong>Total:</strong> ${etransferInfo.total} CAD</p>
-                        </div>
+                        {etransferInfo.email ? (
+                            <div className="text-sm space-y-1.5 text-amber-900 dark:text-amber-200">
+                                <p className="flex justify-between gap-4"><span>Recipient Email</span><strong className="text-right">{etransferInfo.email}</strong></p>
+                                {etransferInfo.recipientName && (
+                                    <p className="flex justify-between gap-4"><span>Recipient Name</span><strong className="text-right">{etransferInfo.recipientName}</strong></p>
+                                )}
+                                {etransferInfo.securityQuestion && (
+                                    <p className="flex justify-between gap-4"><span>Security Question</span><strong className="text-right">{etransferInfo.securityQuestion}</strong></p>
+                                )}
+                                {etransferInfo.securityAnswer && (
+                                    <p className="flex justify-between gap-4"><span>Security Answer</span><strong className="text-right">{etransferInfo.securityAnswer}</strong></p>
+                                )}
+                                <p className="flex justify-between gap-4"><span>Amount</span><strong className="text-right">${etransferInfo.total} CAD</strong></p>
+                                <p className="flex justify-between gap-4"><span>Message / Memo</span><strong className="text-right font-mono">{etransferInfo.orderReference}</strong></p>
+                                <p className="pt-2 text-amber-700 dark:text-amber-400">
+                                    <strong>Important:</strong> the memo must contain your full order number <strong className="font-mono">{etransferInfo.orderReference}</strong> exactly as shown — including the MM- prefix — or your payment will be delayed.
+                                </p>
+                            </div>
+                        ) : (
+                            <>
+                                <p className="text-sm text-amber-700 dark:text-amber-400">{etransferInfo.instructions}</p>
+                                <div className="text-sm">
+                                    <p><strong>Order Reference:</strong> {etransferInfo.orderReference}</p>
+                                    <p><strong>Total:</strong> ${etransferInfo.total} CAD</p>
+                                </div>
+                            </>
+                        )}
                     </div>
                     <Link href="/shop">
                         <Button variant="brand" size="lg" className="gap-2">
