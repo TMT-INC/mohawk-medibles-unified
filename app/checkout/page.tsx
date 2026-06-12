@@ -29,7 +29,7 @@ interface CouponResult {
     freeShipping?: boolean;
 }
 
-type PaymentMethod = "credit_card" | "etransfer";
+type PaymentMethod = "credit_card" | "etransfer" | "crypto";
 
 const PAYMENT_METHODS: { id: PaymentMethod; title: string; description: string; icon: React.ReactNode }[] = [
     {
@@ -43,6 +43,12 @@ const PAYMENT_METHODS: { id: PaymentMethod; title: string; description: string; 
         title: "Interac e-Transfer",
         description: "Pay from your bank — instructions shown after checkout",
         icon: <Banknote className="h-5 w-5" />,
+    },
+    {
+        id: "crypto",
+        title: "Cryptocurrency",
+        description: "Bitcoin via our self-hosted BTCPay — zero fees",
+        icon: <Bitcoin className="h-5 w-5" />,
     },
 ];
 

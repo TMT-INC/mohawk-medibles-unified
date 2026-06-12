@@ -14,6 +14,34 @@ import { verifyCsrf } from "@/lib/csrf";
 import { log } from "@/lib/logger";
 import { autoEnterSignupContests } from "@/lib/contestDrawing";
 
+/**
+ * Create a hashed reset-token session for the user and email them the
+ * set-password link. Shared by forgot-password and the existing-customer
+ * register path (account claim must be verified via email — an instant
+ * upgrade would let anyone who knows a customer's email take over their
+ * order history).
+ */
+async function sendResetLink(user: { id: string; email: string }) {
+    const resetToken = generateToken(32);
+    const expiresAt = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
+
+    // Store hashed token (prevents exposure if DB is breached)
+    const hashedToken = hashResetToken(resetToken);
+    await prisma.session.create({
+        data: {
+            userId: user.id,
+            token: `reset_${hashedToken}`,
+            expiresAt,
+        },
+    });
+
+    const resetUrl = `${process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.ca"}/reset-password?token=${resetToken}`;
+
+    sendPasswordReset(user.email, resetUrl).catch((err) =>
+        log.auth.error("Password reset email failed", { error: err instanceof Error ? err.message : "Unknown" })
+    );
+}
+
 export async function POST(req: NextRequest) {
     const limited = await applyRateLimit(req, RATE_LIMITS.auth);
     if (limited) return limited;
@@ -47,34 +75,17 @@ export async function POST(req: NextRequest) {
                 // Check if email already exists
                 const existing = await prisma.user.findUnique({ where: { email } });
                 if (existing) {
-                    // Guest user (created during checkout with empty passwordHash) — upgrade account
+                    // Existing customer without a password (synced from the old
+                    // store, or guest checkout). Never instant-upgrade — that
+                    // would hand their order history to anyone who knows the
+                    // email. Prove inbox ownership via the reset link instead.
                     if (existing.passwordHash === "") {
-                        const hashed = await hashPassword(password);
-                        const updated = await prisma.user.update({
-                            where: { id: existing.id },
-                            data: { name, passwordHash: hashed, lastLogin: new Date() },
-                        });
-
-                        const token = createSessionToken({
-                            id: updated.id,
-                            email: updated.email,
-                            role: updated.role,
-                            name: updated.name,
-                        });
-
-                        const res = NextResponse.json({
+                        await sendResetLink(existing);
+                        return NextResponse.json({
                             success: true,
-                            user: { name: updated.name, email: updated.email, role: updated.role },
-                            message: "Account upgraded from guest. Welcome back!",
+                            requiresEmailVerification: true,
+                            message: "Welcome back! This email already has order history with us. We've sent you a secure link to set your password — check your inbox.",
                         });
-                        res.cookies.set("mm-session", token, {
-                            httpOnly: true,
-                            secure: process.env.NODE_ENV === "production",
-                            sameSite: "lax",
-                            path: "/",
-                            maxAge: 60 * 60 * 24 * 7,
-                        });
-                        return res;
                     }
 
                     return NextResponse.json({ error: "Email already registered" }, { status: 409 });
@@ -232,28 +243,14 @@ export async function POST(req: NextRequest) {
                     return NextResponse.json({ error: "Email is required" }, { status: 400 });
                 }
 
-                // Always return success to prevent email enumeration
+                // Always return success to prevent email enumeration.
+                // Users with an empty passwordHash (synced from the old store
+                // or guest checkout) are included — this IS their path to
+                // setting a first password.
                 const user = await prisma.user.findUnique({ where: { email } });
 
-                if (user && user.passwordHash !== "") {
-                    const resetToken = generateToken(32);
-                    const expiresAt = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
-
-                    // Store hashed token (prevents exposure if DB is breached)
-                    const hashedToken = hashResetToken(resetToken);
-                    await prisma.session.create({
-                        data: {
-                            userId: user.id,
-                            token: `reset_${hashedToken}`,
-                            expiresAt,
-                        },
-                    });
-
-                    const resetUrl = `${process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.ca"}/reset-password?token=${resetToken}`;
-
-                    sendPasswordReset(email, resetUrl).catch((err) =>
-                        log.auth.error("Password reset email failed", { error: err instanceof Error ? err.message : "Unknown" })
-                    );
+                if (user) {
+                    await sendResetLink(user);
                 }
 
                 return NextResponse.json({

@@ -15,12 +15,12 @@ import { useLocale } from "@/components/LocaleProvider";
 
 /* Representative product images for the showcase strip */
 const SHOWCASE_IMAGES = [
-    { src: "https://mohawkmedibles.ca/wp-content/uploads/2025/09/Sun-Rock-04-with-logo.png", alt: "Premium AAAA flower", href: "/shop/sun-rock-premium-aaaa-flower-2-25g-canada" },
-    { src: "https://mohawkmedibles.ca/wp-content/uploads/2025/11/Rainbow-Pieces-get-wrecked-on-the-rainbow-with-logo.png", alt: "THC edible gummies", href: "/shop/rainbow-pieces-stoner-pack-1000mg-canada" },
-    { src: "https://mohawkmedibles.ca/wp-content/uploads/2025/07/Zillionaire-Shatter-Photoroom.png", alt: "Premium shatter concentrate", href: "/shop/zillionaire-shatter-1g-canada" },
-    { src: "https://mohawkmedibles.ca/wp-content/uploads/2025/06/Premium-Pre-Rolls-Photoroom.png", alt: "Premium pre-rolls", href: "/shop/pre-rolled-joint-canada" },
-    { src: "https://mohawkmedibles.ca/wp-content/uploads/2025/05/2000mg-CBD-MCT-Oil-with-logo.png", alt: "CBD oil tincture", href: "/shop/cbd-tincture-2000mg-canada" },
-    { src: "https://mohawkmedibles.ca/wp-content/uploads/2025/05/pem_gummy_bears_1200x1200-1.jpg", alt: "THC gummy bears", href: "/shop/pineapple-express-meds-pem-gummy-canada" },
+    { src: "https://farluiuyvvqjbuxj.public.blob.vercel-storage.com/wp-media/2025/09/Sun-Rock-04-with-logo.png", alt: "Premium AAAA flower", href: "/shop/sun-rock-premium-aaaa-flower-2-25g-canada" },
+    { src: "https://farluiuyvvqjbuxj.public.blob.vercel-storage.com/wp-media/2025/11/Rainbow-Pieces-get-wrecked-on-the-rainbow-with-logo.png", alt: "THC edible gummies", href: "/shop/rainbow-pieces-stoner-pack-1000mg-canada" },
+    { src: "https://farluiuyvvqjbuxj.public.blob.vercel-storage.com/wp-media/2025/07/Zillionaire-Shatter-Photoroom.png", alt: "Premium shatter concentrate", href: "/shop/zillionaire-shatter-1g-canada" },
+    { src: "https://farluiuyvvqjbuxj.public.blob.vercel-storage.com/wp-media/2025/06/Premium-Pre-Rolls-Photoroom.png", alt: "Premium pre-rolls", href: "/shop/pre-rolled-joint-canada" },
+    { src: "https://farluiuyvvqjbuxj.public.blob.vercel-storage.com/wp-media/2025/05/2000mg-CBD-MCT-Oil-with-logo.png", alt: "CBD oil tincture", href: "/shop/cbd-tincture-2000mg-canada" },
+    { src: "https://farluiuyvvqjbuxj.public.blob.vercel-storage.com/wp-media/2025/05/pem_gummy_bears_1200x1200-1.jpg", alt: "THC gummy bears", href: "/shop/pineapple-express-meds-pem-gummy-canada" },
 ];
 
 export default function AboutClientContent() {
@@ -411,7 +411,7 @@ export default function AboutClientContent() {
                         <div className="grid grid-cols-2 gap-4">
                             <Link href="/shop/sun-rock-premium-aaaa-flower-2-25g-canada" className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-border group">
                                 <Image
-                                    src="https://mohawkmedibles.ca/wp-content/uploads/2025/09/Sun-Rock-04-with-logo.png"
+                                    src="https://farluiuyvvqjbuxj.public.blob.vercel-storage.com/wp-media/2025/09/Sun-Rock-04-with-logo.png"
                                     alt="Premium AAAA flower from Mohawk Medibles"
                                     fill
                                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -421,7 +421,7 @@ export default function AboutClientContent() {
                             </Link>
                             <Link href="/shop/rainbow-pieces-stoner-pack-1000mg-canada" className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-border mt-8 group">
                                 <Image
-                                    src="https://mohawkmedibles.ca/wp-content/uploads/2025/11/Rainbow-Pieces-get-wrecked-on-the-rainbow-with-logo.png"
+                                    src="https://farluiuyvvqjbuxj.public.blob.vercel-storage.com/wp-media/2025/11/Rainbow-Pieces-get-wrecked-on-the-rainbow-with-logo.png"
                                     alt="Premium THC edibles from Mohawk Medibles"
                                     fill
                                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -431,7 +431,7 @@ export default function AboutClientContent() {
                             </Link>
                             <Link href="/shop/zillionaire-shatter-1g-canada" className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-border -mt-4 group">
                                 <Image
-                                    src="https://mohawkmedibles.ca/wp-content/uploads/2025/07/Zillionaire-Shatter-Photoroom.png"
+                                    src="https://farluiuyvvqjbuxj.public.blob.vercel-storage.com/wp-media/2025/07/Zillionaire-Shatter-Photoroom.png"
                                     alt="Premium shatter concentrates from Mohawk Medibles"
                                     fill
                                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -441,7 +441,7 @@ export default function AboutClientContent() {
                             </Link>
                             <Link href="/shop/pre-rolled-joint-canada" className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-border mt-4 group">
                                 <Image
-                                    src="https://mohawkmedibles.ca/wp-content/uploads/2025/06/Premium-Pre-Rolls-Photoroom.png"
+                                    src="https://farluiuyvvqjbuxj.public.blob.vercel-storage.com/wp-media/2025/06/Premium-Pre-Rolls-Photoroom.png"
                                     alt="Premium pre-rolls from Mohawk Medibles"
                                     fill
                                     className="object-cover group-hover:scale-105 transition-transform duration-500"

@@ -13,6 +13,7 @@ import { log } from "@/lib/logger";
 import { prisma } from "@/lib/db";
 import { getCurrentTenant } from "@/lib/tenant";
 import { buildDigipayPaymentUrl } from "@/lib/digipay";
+import { createBTCPayInvoice } from "@/lib/btcpay";
 import { runFraudCheck } from "@/lib/fraudDetection";
 import { sendOrderConfirmationSMS, sendAndLogSMS } from "@/lib/sms";
 import { sendOrderConfirmation } from "@/lib/email";
@@ -383,6 +384,48 @@ export async function POST(req: NextRequest) {
             });
         }
 
+        if (body.payment_method === "crypto" || body.payment_method === "wcpg_crypto") {
+            // Crypto: create a BTCPay invoice and redirect to its checkout page
+            const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.ca";
+            try {
+                const { invoiceId, checkoutLink } = await createBTCPayInvoice({
+                    orderId: order.id,
+                    orderNumber,
+                    total,
+                    currency: "CAD",
+                    customerEmail: body.billing.email,
+                    customerName: `${body.billing.first_name} ${body.billing.last_name}`,
+                    redirectUrl: `${siteUrl}/checkout/success/?order=${order.id}&ref=${orderNumber}`,
+                });
+
+                // Link the invoice to the order so the BTCPay webhook can find it
+                await prisma.order.update({
+                    where: { id: order.id },
+                    data: { paymentReference: invoiceId },
+                });
+
+                return NextResponse.json({
+                    success: true,
+                    orderId: order.id,
+                    orderNumber,
+                    status: "pending",
+                    paymentMethod: "crypto",
+                    total: total.toFixed(2),
+                    currency: "CAD",
+                    payUrl: checkoutLink,
+                });
+            } catch (btcpayErr) {
+                log.checkout.error("BTCPay invoice creation failed", {
+                    orderId: order.id,
+                    error: btcpayErr instanceof Error ? btcpayErr.message : "Unknown",
+                });
+                return NextResponse.json(
+                    { error: "Crypto payment is temporarily unavailable. Please use Credit Card or Interac e-Transfer." },
+                    { status: 502 }
+                );
+            }
+        }
+
         // Unsupported payment method
         return NextResponse.json(
             { error: "This payment method is not currently available. Please use Credit Card or Interac e-Transfer." },
@@ -424,6 +467,12 @@ export async function GET() {
             title: "Interac e-Transfer",
             description: "Pay from your bank via Interac e-Transfer. Full instructions shown after checkout.",
             icon: "interac",
+        },
+        {
+            id: "crypto",
+            title: "Cryptocurrency",
+            description: "Pay with Bitcoin via our self-hosted BTCPay Server. Zero processing fees.",
+            icon: "bitcoin",
         },
     ];
 

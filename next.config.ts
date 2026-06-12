@@ -107,11 +107,55 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "*.wpengine.com",
       },
+      {
+        protocol: "https",
+        hostname: "*.public.blob.vercel-storage.com",
+      },
     ],
   },
 
   // ─── Trailing Slashes (match WordPress URL structure) ───
   trailingSlash: true,
+
+  // ─── Redirects (indexed WordPress URLs with no Next.js page) ───
+  // Every URL in the live WP sitemap must keep resolving after cutover.
+  // Products (/shop/:slug) and categories (/product-category/*) are
+  // handled elsewhere; these cover blog posts, knowledge base, and
+  // archive pages. 301s preserve the link equity.
+  async redirects() {
+    return [
+      // WP blog posts → closest new blog content
+      { source: "/cbd-vs-thc-know-the-differences/", destination: "/blog/cbd-vs-thc-science-guide/", permanent: true },
+      { source: "/facts-about-cannabis-strains/", destination: "/blog/indica-vs-sativa-vs-hybrid-guide/", permanent: true },
+      { source: "/benefits-uses-of-cbd/", destination: "/blog/cbd-oil-guide-benefits-dosing-canada/", permanent: true },
+      { source: "/cbd-oil-for-pain/", destination: "/blog/cbd-oil-guide-benefits-dosing-canada/", permanent: true },
+      { source: "/benefits-uses-of-thc-oil/", destination: "/blog/", permanent: true },
+      { source: "/how-long-premium-edibles-take-to-kick-in-canada/", destination: "/blog/edible-dosing-guide-beginners-canada/", permanent: true },
+      { source: "/guide-to-premium-cannabis-concentrates-canada/", destination: "/blog/cannabis-concentrates-guide-shatter-wax/", permanent: true },
+      { source: "/thc-pens-canada/", destination: "/product-category/vapes/", permanent: true },
+      { source: "/dispensary-near-me-canada-2026-guide/", destination: "/locations/", permanent: true },
+      { source: "/why-customers-choose-our-deseronto-dispensary-on-tyendinaga-mohawk-territory-for-the-best-weed-and-cannabis/", destination: "/about/", permanent: true },
+
+      // Knowledge base → closest guide or FAQ
+      { source: "/knowledge-base/proper-vape-storage/", destination: "/blog/how-to-store-cannabis-properly/", permanent: true },
+      { source: "/knowledge-base/proper-methods-for-storing-hash/", destination: "/blog/how-to-store-cannabis-properly/", permanent: true },
+      { source: "/knowledge-base/proper-storage-of-gummies/", destination: "/blog/how-to-store-cannabis-properly/", permanent: true },
+      { source: "/knowledge-base/proper-flower-storage/", destination: "/blog/how-to-store-cannabis-properly/", permanent: true },
+      { source: "/knowledge-base/looking-for-flavour-list-of-high-terpene-strains/", destination: "/blog/terpene-guide-cannabis-effects/", permanent: true },
+      { source: "/knowledge-base/the-facts-about-terpenes/", destination: "/blog/terpene-guide-cannabis-effects/", permanent: true },
+      { source: "/knowledge-base/:slug/", destination: "/faq/", permanent: true },
+      { source: "/knowledgebase/", destination: "/faq/", permanent: true },
+      { source: "/knowledge-base-category/:slug/", destination: "/faq/", permanent: true },
+      { source: "/knowledge-base-tag/:slug/", destination: "/faq/", permanent: true },
+
+      // Blog category + author archives
+      { source: "/category/:slug/", destination: "/blog/", permanent: true },
+      { source: "/author/:slug/", destination: "/blog/", permanent: true },
+
+      // Legacy WP shop listing
+      { source: "/mohawk-medibles-shop/", destination: "/shop/", permanent: true },
+    ];
+  },
 
   // ─── Rewrites (serve old WordPress URL patterns) ───────
   // These map old .ca URLs to the existing Next.js routes
