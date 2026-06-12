@@ -33,10 +33,16 @@ const MAX_LIMIT = 25; // hard clamp — never exceed
 const ALLOWED_SPEC_FIELDS = ["thc", "cbd", "type", "terpenes", "lineage", "eeatNarrative"] as const;
 type SpecField = (typeof ALLOWED_SPEC_FIELDS)[number];
 
+// Mirror of scripts/strain-merge.mjs POTENCY_OK_CATEGORIES (do not relax):
+// strain thc/cbd are FLOWER percentages — writing them to concentrates
+// (60-90% products) or mg-dosed edibles would be factually wrong on-page.
+const POTENCY_OK_CATEGORIES = new Set(["Flower", "Pre-Rolls"]);
+
 interface PlanItem {
   productId: number;
   productSlug: string;
   productName: string;
+  category: string;
   strainSlug: string;
   method: string;
   fields: Partial<Record<SpecField, string>>;
@@ -110,6 +116,9 @@ export async function GET(req: NextRequest) {
         for (const f of ALLOWED_SPEC_FIELDS) {
           const incoming = item.fields[f];
           if (!incoming) continue;
+          // Potency guard (mirror of plan generator): flower % never lands
+          // on concentrates/edibles even if a future plan forgets the rule.
+          if ((f === "thc" || f === "cbd") && !POTENCY_OK_CATEGORIES.has(item.category)) continue;
           const existing = spec ? (spec[f] as string | null) : null;
           if (existing == null || existing.trim() === "") data[f] = incoming;
         }

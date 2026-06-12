@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T04:08:17.790Z",
+  "generatedAt": "2026-06-12T04:17:43.107Z",
   "stats": {
     "exact": 57,
     "fuzzy": 5,
@@ -20,8 +20,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "20-22.4%",
-        "cbd": "0.5%",
         "type": "Indica",
         "eeatNarrative": "Death Bubba, bred by Matteo Suleyman of Vancouver BC's Sea to Sky, is a beautiful, purple-hued strain with trichromes and terpenes abound. Created by crossing Death Star and Bubba Kush, this pungent pairing reeks of grass and skunk while the smoke is sweet, earthy, and clean on the palate. Its semi-sedative effects lock the consumer to the couch, unknotting tension and soothing minor physical discomfort with ease. This stinky BC native has been serving cannabis enthusiasts since 2012 and was most recently smelled off Fraser St. the Vancouver metro area."
       }
@@ -37,8 +35,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "20-25%",
-        "cbd": "25%",
         "type": "Hybrid",
         "terpenes": "[\"Myrcene\",\"Limonene\",\"Caryophyllene\"]",
         "lineage": "ing the strain with Cookies Auto, we produced a fast, compact, and tasty specimen",
@@ -56,8 +52,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "25%",
-        "cbd": "0.1%",
         "type": "Hybrid",
         "terpenes": "[\"Humulene\",\"Myrcene\",\"Pinene\"]",
         "lineage": "the many breeders we work with",
@@ -75,8 +69,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "20-23.5%",
-        "cbd": "0.4%",
         "type": "Hybrid",
         "eeatNarrative": "Guava Kush is a hybrid strain that competed in the 2014 L.A. Cannabis Cup."
       }
@@ -92,8 +84,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "12.4-16.4%",
-        "cbd": "0.3%",
         "type": "Indica",
         "eeatNarrative": "LA Kush Cake Feminized Seeds, a masterpiece forged from the fusion of Wedding Cake and Kush Mints, invites you on a sensory journey. From the very first encounter, these feminized seeds pledge a symphony of flavors and effects, redefining the cannabis experience.LA Kush Cake Feminized Seeds: Bud BasicsExplore the art of cultivating LA Kush Cakeâan indulgence in elegance and sensory delight. This indica-dominant beauty, boasting a THC content of 18-20%, orchestrates a therapeutic dance of arousal, relaxation, and tranquil sleep, delivering relief for anxiety, depression, and pain.EffectsDelve into the exquisite effects of LA Kush Cake, where each puff becomes a journey into euphoric bliss. With its tantalizing blend of vanilla, mint, pepper, sour, and skunk flavors, this strain is a celebration of the sensesâa true expression of genetic sophistication.Growing LA Kush Cake SeedsCultivating LA Kush Cake Seeds is an art form where photoperiod wonders gracefully thrive indoors and outdoors, embracing warm climates with poise. As a beginner-friendly option resistant to pests and diseases, LA Kush Cake unfurls its genetic magic with each growth stage, including the delightful flowering weeks spanning 8-9 weeks.Delight in the world of LA Kush Cake Feminized Seeds, a genetic masterpiece merging Wedding Cake and Kush Mints. Elevate your cannabis garden with the captivating blend of flavors, allowing LA Kush Cake to take center stageâa living masterpiece that transcends the ordinary. Cannabis affects everyone differently. Your experience with this strain may not be the same as someone elseâs. Growing conditionsâincluding light, nutrients, and pot sizeâplay a major role in shaping the plantâs yield, potency, and flavor profile. Results will always vary based on how and where itâs grown."
       }
@@ -109,8 +99,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "19.2-22%",
-        "cbd": "0.3%",
         "type": "Hybrid"
       }
     },
@@ -125,8 +113,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "15%",
-        "cbd": "0.2%",
         "type": "Sativa",
         "terpenes": "[\"Humulene\",\"Myrcene\",\"Caryophyllene\"]",
         "lineage": "to make it heartier",
@@ -162,8 +148,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "20.8-23.7%",
-        "cbd": "0.4%",
         "type": "Hybrid",
         "terpenes": "[\"Myrcene\",\"Linalool\"]"
       }
@@ -198,8 +182,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "25%",
-        "cbd": "25%",
         "type": "Indica",
         "terpenes": "[\"Caryophyllene\",\"Camphene\",\"Linalool\"]",
         "lineage": "your tongue",
@@ -217,8 +199,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "25%",
-        "cbd": "25%",
         "type": "Indica",
         "terpenes": "[\"Caryophyllene\",\"Camphene\",\"Linalool\"]",
         "lineage": "your tongue",
@@ -253,8 +233,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "22%",
-        "cbd": "1%",
         "type": "Sativa",
         "terpenes": "[\"Caryophyllene\",\"Humulene\",\"Terpinolene\"]",
         "lineage": "Bay Platinum Cookies",
@@ -325,7 +303,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "200%",
         "cbd": "0.1%",
         "type": "Hybrid",
         "terpenes": "[\"Humulene\",\"Caryophyllene\",\"Terpinolene\"]",
@@ -407,8 +384,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "9%",
-        "cbd": "0.1%",
         "type": "Hybrid"
       }
     },
@@ -423,8 +398,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "9%",
-        "cbd": "0.1%",
         "type": "Hybrid"
       }
     },
@@ -439,8 +412,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "14-17.2%",
-        "cbd": "0.4%",
         "type": "Hybrid"
       }
     },
@@ -455,7 +426,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "1.27%",
         "cbd": "0.1%",
         "type": "Hybrid",
         "terpenes": "[\"Myrcene\",\"Limonene\",\"Caryophyllene\"]",
@@ -528,8 +498,6 @@
       "confidence": 0.911,
       "hasSpecRow": true,
       "fields": {
-        "thc": "13.1-16.3%",
-        "cbd": "0.2%",
         "type": "Sativa",
         "eeatNarrative": "The Real Seed Company Nepalese The Seed Company Nepalese charas needs little introduction, and this Nepalese is one of the Himalaya's finest charas cultivars. This line has it's roots in one of Western Nepal's most highly regarded mountain regions and has all the power, illuminating warmth, and duration you would expect from a quality Himalayan charas cultivar. There are two main phenotypes to be found: a large plant reaching up to 4m in height, and a shorter plant with wider leaves, reaching around 1.5m - 2m. The shorter \"indica\" phenotype is regarded as making the best quality charas. This Nepalese is one of the best pure Himalayan lines available and is highly recommended. Nepalese aroma is hashy and sweet scents, malty and fruity"
       }
@@ -545,8 +513,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "17-22%",
-        "cbd": "0.2%",
         "type": "Hybrid",
         "terpenes": "[\"Linalool\",\"Humulene\",\"Caryophyllene\"]",
         "lineage": "between a landrace Hawaiian sativa evolved over generations selected by the farmers of the region and Trainwreck, a pioneering fusion of genetics born from the selective crossings of Afghani, Mexican sativa, and Thai landraces",
@@ -564,8 +530,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "17-22%",
-        "cbd": "0.2%",
         "type": "Hybrid",
         "terpenes": "[\"Linalool\",\"Humulene\",\"Caryophyllene\"]",
         "lineage": "between a landrace Hawaiian sativa evolved over generations selected by the farmers of the region and Trainwreck, a pioneering fusion of genetics born from the selective crossings of Afghani, Mexican sativa, and Thai landraces",
@@ -583,8 +547,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "17-22%",
-        "cbd": "0.2%",
         "type": "Hybrid",
         "terpenes": "[\"Linalool\",\"Humulene\",\"Caryophyllene\"]",
         "lineage": "between a landrace Hawaiian sativa evolved over generations selected by the farmers of the region and Trainwreck, a pioneering fusion of genetics born from the selective crossings of Afghani, Mexican sativa, and Thai landraces",
@@ -602,8 +564,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "17-22%",
-        "cbd": "0.2%",
         "type": "Hybrid",
         "terpenes": "[\"Linalool\",\"Humulene\",\"Caryophyllene\"]",
         "lineage": "between a landrace Hawaiian sativa evolved over generations selected by the farmers of the region and Trainwreck, a pioneering fusion of genetics born from the selective crossings of Afghani, Mexican sativa, and Thai landraces",
@@ -621,8 +581,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "17-22%",
-        "cbd": "0.2%",
         "type": "Hybrid",
         "terpenes": "[\"Linalool\",\"Humulene\",\"Caryophyllene\"]",
         "lineage": "between a landrace Hawaiian sativa evolved over generations selected by the farmers of the region and Trainwreck, a pioneering fusion of genetics born from the selective crossings of Afghani, Mexican sativa, and Thai landraces",
@@ -640,8 +598,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "17-22%",
-        "cbd": "0.2%",
         "type": "Hybrid",
         "terpenes": "[\"Linalool\",\"Humulene\",\"Caryophyllene\"]",
         "lineage": "between a landrace Hawaiian sativa evolved over generations selected by the farmers of the region and Trainwreck, a pioneering fusion of genetics born from the selective crossings of Afghani, Mexican sativa, and Thai landraces",
@@ -678,8 +634,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "0.6-0.7%",
-        "cbd": "13-17%",
         "type": "Hybrid",
         "terpenes": "[\"Caryophyllene\",\"Myrcene\",\"Terpinolene\"]",
         "lineage": "ErdPurt x Cannatonic S1 Sex",
@@ -851,8 +805,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "25%",
-        "cbd": "25%",
         "type": "Hybrid",
         "eeatNarrative": "Cherry Cola AUTO Cannabis Seeds By FastBuds Seeds Cherry Cola Auto is a potent variety, with up to 25% of THC and well-balanced effects. The powerful high arrives quickly with incredibly relaxing effects, boosting your mood and leaving you stress-free and generally happy. Besides, it can be helpful with sore muscles, anxiety, and eating disorders. Perfect choice for those looking to start the day with their right foot! Thanks to the highest-class genetics, this vigorous autoflowering variety grows quickly, reaching up to 150 cm and yielding 500 - 600 g / m2 in less than 70 days. Cherry Cola Auto appears with a strong main cola with a few thick side branches around it. It's rather bushy, developing thin and narrow dark green leaves that turn into a beautiful pinkish light green color and are completely covered with trichomes by the time of harvest. The buds are dense, super frosty, and full of stunning cherry aroma and flavour. A tropical taste with a strong gaseous background fills your throat and grows stronger as you inhale. As you exhale, the gassy disappears, giving way to a sparkling flavor with intense hints of cherries, strawberries, and raspberries that cover the mouth and leave a strong berry scent throughout the room. A perfect strain for hash makers, extractors, and terpheads! Genetics: Cherry Cola Auto Type: Sativa 45% / Indica 55% Area: Indoor / Outdoor Flowering Time: 9 - 10 weeks Yield: 500 â 600 gr/m2 Height: 90 - 150 cm Size: XXL THC: up to 25% CBD: < 1% Taste: Fruit, Coke, Cherry"
       }
@@ -868,8 +820,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "15.7-18.8%",
-        "cbd": "0.2%",
         "type": "Hybrid",
         "lineage": "Cream Cannabis Seeds by Exotic Geneti x Mother",
         "eeatNarrative": "Strawberries & Cream Cannabis Seeds by Exotic Genetix Mother: Strawberry Father: Cookies & Cream F2 Type: 60% Indica / 40% Sativa Sex: Reg Flowering Time: 56 - 63 Days Growing Conditions: Sea of Green/ Multi-topped Bush Height: Medium Yield: Heavy Producer"
@@ -887,7 +837,6 @@
       "hasSpecRow": true,
       "fields": {
         "thc": "20%",
-        "cbd": "20%",
         "type": "Hybrid",
         "terpenes": "[\"Linalool\",\"Pinene\",\"Caryophyllene\"]",
         "lineage": "the world for her quintessential sativa high and vibrant citrus aromas/flavors",
@@ -905,8 +854,6 @@
       "confidence": 0.76,
       "hasSpecRow": true,
       "fields": {
-        "thc": "16.5-20.3%",
-        "cbd": "0.2%",
         "type": "Hybrid",
         "terpenes": "[\"Pinene\",\"Ocimene\"]"
       }
@@ -923,7 +870,6 @@
       "hasSpecRow": true,
       "fields": {
         "thc": "17-22%",
-        "cbd": "19%",
         "type": "Hybrid",
         "terpenes": "[\"Linalool\",\"Caryophyllene\",\"Myrcene\"]",
         "lineage": "the many breeders we work with",
@@ -956,8 +902,6 @@
       "confidence": 1,
       "hasSpecRow": true,
       "fields": {
-        "thc": "13%",
-        "cbd": "0.1%",
         "type": "Hybrid",
         "terpenes": "[\"Linalool\",\"Caryophyllene\",\"Myrcene\"]",
         "lineage": "Super Skunk x White Widow Type",

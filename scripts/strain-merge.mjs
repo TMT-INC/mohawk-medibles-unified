@@ -17,6 +17,12 @@
  *      so every daily batch is predictable and resumable.
  *   4. Idempotent via the strain_merge_ledger table — a product is enriched
  *      exactly once; re-runs skip ledgered products.
+ *   5. POTENCY GUARD (verifier fix 2026-06-11) — strain thc/cbd are FLOWER
+ *      percentages. They are only written to Flower/Pre-Rolls products
+ *      (concentrates run 60-90%, edibles are dosed in mg — flower % would be
+ *      factually wrong on those pages). Values are also sanity-checked:
+ *      impossible (thc 200%) or chemotype-contradictory (cbd 25% on a
+ *      25%-THC strain) encyclopedia data is dropped, never written.
  *
  * Modes:
  *   (default)      --dry-run : print the next batch plan. WRITES NOTHING.
@@ -127,6 +133,11 @@ const FUZZY_AI_CATEGORIES = new Set([
     'Flower', 'Concentrates', 'Pre-Rolls', 'Infused Pre-Rolls',
     'Vapes', 'Cartridges', 'Disposables',
 ]);
+
+// Strain thc/cbd are FLOWER potency percentages. Only these categories may
+// receive them — concentrates/vapes run 60-90% and edibles are mg-dosed,
+// so flower % on those product pages would be factually wrong.
+const POTENCY_OK_CATEGORIES = new Set(['Flower', 'Pre-Rolls']);
 
 const STRONG_SINGLES = new Set([
     'biscotti', 'gushers', 'zkittlez', 'zkittles', 'tangie', 'chemdawg',
@@ -351,6 +362,34 @@ function buildSpecFields(strain, indexEntry) {
     return fields;
 }
 
+// ─── Potency guard (verifier fix 2026-06-11) ────────────────
+// Strain thc/cbd are flower percentages and the encyclopedia contains bad
+// rows (thc "200%", cbd "25%" on 25%-THC strains — value swapped). This
+// guard (a) restricts thc/cbd to POTENCY_OK_CATEGORIES and (b) drops
+// implausible values. Mutates and returns `fields`.
+function parsePctMax(v) {
+    const m = String(v).match(/([\d.]+)%$/);
+    return m ? parseFloat(m[1]) : NaN;
+}
+
+function applyPotencyGuards(fields, category) {
+    const thcMax = 'thc' in fields ? parsePctMax(fields.thc) : NaN;
+    const cbdMax = 'cbd' in fields ? parsePctMax(fields.cbd) : NaN;
+    if (!POTENCY_OK_CATEGORIES.has(category)) {
+        delete fields.thc;
+        delete fields.cbd;
+        return fields;
+    }
+    // THC: flower-plausible window only (drops 200% garbage and <5% rows
+    // that contradict a THC-dominant strain, e.g. Kandy Kush "1.27%").
+    if ('thc' in fields && !(thcMax >= 5 && thcMax <= 35)) delete fields.thc;
+    // CBD: cap at 30%, and drop chemotype contradictions — a strain cannot
+    // be 10%+ THC AND 5%+ CBD in this catalog (those rows are data errors).
+    if ('cbd' in fields && !(cbdMax >= 0 && cbdMax <= 30)) delete fields.cbd;
+    if ('cbd' in fields && cbdMax > 5 && thcMax > 10) delete fields.cbd;
+    return fields;
+}
+
 // ─── DB helpers ─────────────────────────────────────────────
 const LEDGER_DDL = `CREATE TABLE IF NOT EXISTS strain_merge_ledger (
     id SERIAL PRIMARY KEY,
@@ -473,7 +512,7 @@ function buildPlan(matched, index) {
         const indexEntry = index[m.strainSlug];
         if (!indexEntry) continue;
         const full = fullStrainRecord(m.strainSlug, indexEntry);
-        const allFields = buildSpecFields(full, indexEntry);
+        const allFields = applyPotencyGuards(buildSpecFields(full, indexEntry), m.product.category);
         // ADDITIVE-ONLY: keep a field only if the product's current value is empty
         const fields = {};
         for (const f of ALLOWED_SPEC_FIELDS) {
