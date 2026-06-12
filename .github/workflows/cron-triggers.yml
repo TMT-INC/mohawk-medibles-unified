@@ -1,0 +1,45 @@
+# External cron trigger for the Vercel app.
+#
+# Vercel's native cron jobs have not fired since 2026-03-27 (they invoke the
+# *.vercel.app deployment URL, which sits behind SSO deployment protection;
+# custom domains are exempt). This workflow drives the same endpoints
+# through the public custom domain instead, where runs are visible in the
+# Actions tab and failures are loud.
+#
+# Requires repo secret CRON_SECRET (same value as the Vercel env var).
+name: cron-triggers
+
+on:
+  schedule:
+    - cron: "0 * * * *" # hourly; per-endpoint cadence handled below
+  workflow_dispatch: {}
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Invoke due cron endpoints
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          set -u
+          BASE="https://mohawkmedibles.co/api/cron"
+          HOUR=$(date -u +%H)
+          hit() {
+            echo "→ $1"
+            code=$(curl -s -o /tmp/resp.json -w "%{http_code}" -H "Authorization: Bearer ${CRON_SECRET}" "${BASE}/$1/")
+            echo "  HTTP ${code}: $(head -c 300 /tmp/resp.json)"
+            [ "${code}" = "200" ] || exit 1
+          }
+
+          # hourly
+          hit cart-recovery
+          # every 2 hours
+          [ $((10#$HOUR % 2)) -eq 0 ] && hit abandoned-carts
+          # every 6 hours
+          [ $((10#$HOUR % 6)) -eq 0 ] && hit wc-sync
+          # daily
+          [ "$HOUR" = "05" ] && hit deal-rotation
+          [ "$HOUR" = "06" ] && hit google-reviews
+          [ "$HOUR" = "10" ] && hit review-requests
+          exit 0
