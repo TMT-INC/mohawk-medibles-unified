@@ -40,6 +40,7 @@ jobs:
           [ $((10#$HOUR % 6)) -eq 0 ] && hit wc-sync
           # daily
           [ "$HOUR" = "05" ] && hit deal-rotation
+          [ "$HOUR" = "05" ] && hit strain-merge
           [ "$HOUR" = "06" ] && hit google-reviews
           [ "$HOUR" = "10" ] && hit review-requests
           exit 0

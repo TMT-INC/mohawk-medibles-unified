@@ -1,7 +1,8 @@
 /**
  * Strain Merge Cron — Daily Google-safe strain → ProductSpec enrichment
  *
- * Schedule: 05:00 UTC daily (configured in vercel.json)
+ * Schedule: 05:00 UTC daily, driven by .github/workflows/cron-triggers.yml
+ * (Vercel-native crons stopped firing 2026-03-27 — SSO deployment protection).
  * Flow: read committed merge plan (data/strains/_merge-plan.json, generated
  * locally by scripts/strain-merge.mjs --write-plan, where the exact/fuzzy/
  * local-Ollama match pipeline runs) → apply next N unledgered products →
