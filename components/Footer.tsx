@@ -217,9 +217,9 @@ export default function Footer() {
             {/* Copyright */}
             <div className="container mx-auto px-6 mt-4 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-cream/50 uppercase tracking-widest">
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-                    <span>45 Dundas Street Deseronto, Ontario</span>
+                    <span>45 Dundas Street, Deseronto, ON K0K 1X0</span>
                     <span className="hidden md:inline text-cream/20">|</span>
-                    <span>(613) 396 6728</span>
+                    <span>(613) 396-6728</span>
                     <span className="hidden md:inline text-cream/20">|</span>
                     <span>info@mohawkmedibles.ca</span>
                 </div>

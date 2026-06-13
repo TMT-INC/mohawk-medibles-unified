@@ -29,7 +29,10 @@ const BRAND = {
     ],
     address: {
         "@type": "PostalAddress" as const,
-        streetAddress: "Tyendinaga Mohawk Territory",
+        // NAP consistency: must match contact/locations pages exactly.
+        // "Tyendinaga Mohawk Territory" is the area, not the street
+        // address Google cross-references against GBP and citations.
+        streetAddress: "45 Dundas Street",
         addressLocality: "Deseronto",
         addressRegion: "ON",
         postalCode: "K0K 1X0",
@@ -37,8 +40,10 @@ const BRAND = {
     },
     geo: {
         "@type": "GeoCoordinates" as const,
-        latitude: 43.0667,
-        longitude: -80.1167,
+        // Deseronto, ON (Bay of Quinte). The previous values
+        // (43.0667, -80.1167) pointed ~290 km away near Brantford.
+        latitude: 44.1945,
+        longitude: -77.0494,
     },
     contactPoint: {
         "@type": "ContactPoint" as const,
@@ -113,7 +118,9 @@ export function localBusinessSchema() {
         url: BRAND.url,
         sameAs: BRAND.sameAs,
         parentOrganization: { "@id": `${BASE_URL}/#organization` },
-        hasMap: "https://maps.google.com/?q=Tyendinaga+Mohawk+Territory+Deseronto+Ontario+Canada",
+        // Point at the verified Google Business Profile place id (the same
+        // one the Google-reviews sync reads) instead of a loose text query.
+        hasMap: "https://www.google.com/maps/place/?q=place_id:ChIJUa3RTdDW14kRUbQUjhh1AWg",
         areaServed: [
             // Dynamically include all 72+ cities from the delivery network
             ...getAllCities().map(({ city }) => ({
