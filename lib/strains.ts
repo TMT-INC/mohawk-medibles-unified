@@ -150,6 +150,27 @@ export function getLetterCounts(): { letter: string; count: number }[] {
         .map((l) => ({ letter: l, count: counts.get(l)! }));
 }
 
+// ── Strain mention detection (for the chat agent) ──────────
+// name (normalized) → slug, longest names matched first.
+const nameIndex: { n: string; slug: string }[] = STRAINS
+    .map((s) => ({ n: ` ${s.name.toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim()} `, slug: s.slug }))
+    .filter((x) => x.n.trim().length >= 4)
+    .sort((a, b) => b.n.length - a.n.length);
+
+/**
+ * Find the first (longest) strain name mentioned in free text — used by
+ * the chat engine to deterministically navigate terpene/strain questions
+ * to the strain's profile page. Word-boundary match, longest-name-first.
+ */
+export function findStrainInText(text: string): SiteStrain | undefined {
+    const t = ` ${text.toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim()} `;
+    if (t.length < 6) return undefined;
+    for (const { n, slug } of nameIndex) {
+        if (t.includes(n)) return bySlug.get(slug);
+    }
+    return undefined;
+}
+
 /** Display label for the strain type chip. */
 export function strainTypeLabel(s: SiteStrain): string {
     if (s.indicaPercent && s.sativaPercent) {

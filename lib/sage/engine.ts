@@ -11,6 +11,8 @@
  */
 
 import { chat, searchProducts, type GeminiMessage } from "@/lib/gemini";
+import { grokChat, grokConfigured, grokModel } from "@/lib/grok";
+import { findStrainInText } from "@/lib/strains";
 import {
     generateSessionId,
     getOrCreateSession,
@@ -80,7 +82,7 @@ export interface MedAgentResponse {
     sessionId: string;
     text: string;
     actions: { type: string; payload: string }[];
-    model: "turbo" | "flash" | "pro";
+    model: "turbo" | "flash" | "pro" | "grok";
     products?: unknown[];
     categories?: CategoryInfo[];
     cart?: MedAgentCart;
@@ -132,6 +134,15 @@ const BROWSING_INTENT = /\b(want|need|looking\s*for|interested|got\s*any|shop|br
 
 function inferSemanticAction(message: string): { type: "NAVIGATE" | "ADD_TO_CART" | "SEARCH" | "FILTER"; payload: string } | null {
     const lower = message.toLowerCase();
+
+    // Strain/terpene questions deterministically navigate to the strain's
+    // terpene-profile page — don't rely on the LLM remembering to emit it.
+    if (/\b(terpene|terpenes|strain|indica|sativa|similar to|profile|lineage)\b/i.test(lower)) {
+        const strain = findStrainInText(message);
+        if (strain) {
+            return { type: "NAVIGATE", payload: `/strains/${strain.slug}` };
+        }
+    }
 
     // Skip if it's clearly a question about policies/info (no browsing intent)
     const isQuestion = /^(what|how|when|where|why|is|are|can|do|does)\b/i.test(lower);
@@ -270,7 +281,11 @@ export async function processMessage(req: MedAgentRequest): Promise<MedAgentResp
     const configOverride = agentConfig.systemPromptOverride ? `\n\nADMIN INSTRUCTIONS: ${agentConfig.systemPromptOverride}` : "";
     const emotionalPrompt = toneInstruction + behavioralPrompt + (personaOverlay ? `\n${personaOverlay}` : "") + configOverride;
     const history: GeminiMessage[] = getMessages(sessionId);
-    const response = await chat(trimmed, history, emotionalPrompt);
+    // Grok fast first (same architecture as LocalAIHub's voice agent —
+    // lowest-latency retrieval), Gemini fallback. grokChat returns null on
+    // any failure, so a Grok outage degrades silently to Gemini.
+    const response = (await grokChat(trimmed, history, emotionalPrompt))
+        ?? (await chat(trimmed, history, emotionalPrompt));
 
     addMessage(sessionId, { role: "user", parts: [{ text: trimmed }] });
     addMessage(sessionId, { role: "model", parts: [{ text: response.text }] });
@@ -370,11 +385,12 @@ export function healthCheck() {
         status: "ok",
         service: "MedAgent Bot",
         version: "2.2.0",
-        engine: "3-Tier: Turbo (local) → Flash → Pro",
+        engine: "3-Tier: Turbo (local) → Grok fast (primary) → Gemini (fallback)",
         routing: {
             turbo: "Pattern-matched transactional intents (0ms, no API call)",
-            flash: "Gemini 2.5 Flash — simple conversational (sub-second)",
-            pro: "Gemini 2.5 Pro — complex reasoning (1-3s)",
+            grok: `${grokModel()} — primary fast retrieval (same architecture as LocalAIHub)`,
+            flash: "Gemini 2.5 Flash — fallback, simple conversational",
+            pro: "Gemini 2.5 Pro — fallback, complex reasoning",
         },
         ucp: {
             compatible: true,
@@ -389,6 +405,10 @@ export function healthCheck() {
         productCount: PRODUCTS.length,
         categoryCount: getCategories().length,
         sessions: stats,
+        grok: {
+            configured: grokConfigured(),
+            model: grokModel(),
+        },
         gemini: {
             configured: !!process.env.GEMINI_API_KEY,
             models: ["gemini-2.5-flash", "gemini-2.5-pro"],
