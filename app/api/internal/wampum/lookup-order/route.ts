@@ -62,7 +62,12 @@ export async function POST(req: NextRequest) {
         if (!orderNumber) {
             return NextResponse.json({ ok: false, error: "missing_orderNumber" }, { status: 400 });
         }
-        const row = await prisma.order.findUnique({ where: { orderNumber } });
+        let row = await prisma.order.findUnique({ where: { orderNumber } });
+        // Transition shim: legacy WooCommerce memos carry the bare numeric id
+        // (e.g. "93123"); those orders were synced here as MM-{wcId}.
+        if (!row && /^\d+$/.test(orderNumber)) {
+            row = await prisma.order.findUnique({ where: { orderNumber: `MM-${orderNumber}` } });
+        }
         if (!row) {
             return NextResponse.json({ found: false });
         }
