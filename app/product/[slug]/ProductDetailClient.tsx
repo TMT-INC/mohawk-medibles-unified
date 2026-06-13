@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import type { Product } from "@/lib/productData";
 import { getShortName } from "@/lib/productUtils";
+import { getTerpeneColor } from "@/lib/terpenes";
 import ProductImage from "@/components/ProductImage";
 import { trackProductView, trackServerEvent } from "@/lib/sage/behavioral";
 import { trackViewItem, trackAddToCart } from "@/lib/analytics";
@@ -45,6 +46,12 @@ interface ReviewStats {
     distribution: Record<number, number>;
 }
 
+interface StrainProfileLink {
+    slug: string;
+    name: string;
+    terpenes: string[];
+}
+
 interface Props {
     product: Product;
     related: Product[];
@@ -53,25 +60,11 @@ interface Props {
     stockStatus?: "in_stock" | "low_stock" | "out_of_stock";
     stockQuantity?: number | null;
     reviewStats?: ReviewStats;
+    /** Strain Library cross-link (server-resolved from vetted matches) */
+    strainProfile?: StrainProfileLink | null;
 }
 
-// Terpene → color mapping for visual chips
-const TERPENE_COLORS: Record<string, string> = {
-    Myrcene: "bg-amber-100 text-amber-800 border-amber-300",
-    Limonene: "bg-yellow-100 text-yellow-800 border-yellow-300",
-    Caryophyllene: "bg-orange-100 text-orange-800 border-orange-300",
-    Pinene: "bg-emerald-100 text-emerald-800 border-emerald-300",
-    Linalool: "bg-purple-100 text-purple-800 border-purple-300",
-    Terpinolene: "bg-teal-100 text-teal-800 border-teal-300",
-    Humulene: "bg-lime-100 text-lime-800 border-lime-300",
-    Ocimene: "bg-rose-100 text-rose-800 border-rose-300",
-};
-
-function getTerpeneColor(terpene: string) {
-    return TERPENE_COLORS[terpene] || "bg-green-100 text-green-800 border-green-300";
-}
-
-export default function ProductDetailClient({ product, related, shortName, faqs, stockStatus = "in_stock", stockQuantity, reviewStats: initialStats }: Props) {
+export default function ProductDetailClient({ product, related, shortName, faqs, stockStatus = "in_stock", stockQuantity, reviewStats: initialStats, strainProfile }: Props) {
     const { addItem, items } = useCart();
     const [qty, setQty] = useState(1);
     const [activeTab, setActiveTab] = useState<"details" | "specs" | "reviews" | "faq">("details");
@@ -344,19 +337,29 @@ export default function ProductDetailClient({ product, related, shortName, faqs,
                             )}
                         </div>
 
-                        {/* Terpene Profile */}
-                        {product.specs.terpenes.length > 0 && (
+                        {/* Terpene Profile — falls back to the strain library's
+                            profile when the product spec hasn't been enriched yet */}
+                        {(product.specs.terpenes.length > 0 || strainProfile) && (
                             <div className="mb-6">
                                 <div className="text-sm font-semibold text-forest dark:text-cream mb-2 flex items-center gap-2">
                                     <Beaker className="h-4 w-4" /> Terpene Profile
                                 </div>
                                 <div className="flex flex-wrap gap-2">
-                                    {product.specs.terpenes.map((t) => (
+                                    {(product.specs.terpenes.length > 0 ? product.specs.terpenes : strainProfile?.terpenes || []).map((t) => (
                                         <span key={t} className={`px-3 py-1 rounded-full text-xs font-medium border ${getTerpeneColor(t)}`}>
                                             {t}
                                         </span>
                                     ))}
                                 </div>
+                                {strainProfile && (
+                                    <Link
+                                        href={`/strains/${strainProfile.slug}`}
+                                        className="inline-flex items-center gap-1 mt-2.5 text-xs font-semibold text-green-600 hover:underline"
+                                    >
+                                        Full {strainProfile.name} strain profile — terpenes, effects & similar strains
+                                        <ChevronRight className="h-3 w-3" />
+                                    </Link>
+                                )}
                             </div>
                         )}
 

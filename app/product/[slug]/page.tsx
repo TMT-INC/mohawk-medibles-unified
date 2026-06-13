@@ -5,6 +5,7 @@ import { getSmartRelatedProducts } from "@/lib/recommendations";
 import { getProductBySlug as getProductBySlugLocal } from "@/lib/productData";
 import { productSchema, breadcrumbSchema, faqSchema, speakableSchema } from "@/lib/seo/schemas";
 import { generateProductFAQs } from "@/lib/seo/aeo";
+import { getStrainForProduct } from "@/lib/strains";
 import { prisma } from "@/lib/db";
 import ProductDetailClient from "./ProductDetailClient";
 
@@ -61,6 +62,14 @@ export default async function ProductPage({ params }: PageProps) {
         ? getSmartRelatedProducts(localProduct, 4)
         : [];
     const shortName = getShortName(product);
+
+    // Strain Library cross-link — internal linking between the product and
+    // its strain's terpene-profile page (and back), built from the same
+    // vetted matches as the strain library itself.
+    const strain = getStrainForProduct(slug);
+    const strainProfile = strain
+        ? { slug: strain.slug, name: strain.name, terpenes: strain.terpenes }
+        : null;
 
     // Fetch inventory for stock status
     let stockStatus: "in_stock" | "low_stock" | "out_of_stock" = "in_stock";
@@ -156,6 +165,7 @@ export default async function ProductPage({ params }: PageProps) {
                 stockStatus={stockStatus}
                 stockQuantity={stockQuantity}
                 reviewStats={reviewStats}
+                strainProfile={strainProfile}
             />
         </>
     );

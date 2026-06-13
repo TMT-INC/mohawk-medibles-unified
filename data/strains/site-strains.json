@@ -1,0 +1,2245 @@
+{
+ "generatedAt": "2026-06-13T00:01:18.804Z",
+ "total": 72,
+ "withProducts": 17,
+ "strains": [
+  {
+   "slug": "biscotti",
+   "name": "Biscotti",
+   "type": "INDICA",
+   "thcMin": 25,
+   "thcMax": 25,
+   "cbdMax": 25,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Caryophyllene",
+    "Camphene",
+    "Linalool"
+   ],
+   "effects": [
+    "Creative",
+    "Uplifted"
+   ],
+   "products": [
+    {
+     "slug": "biscotti-hash-canada",
+     "name": "Biscotti Hash | Mohawk Medibles",
+     "path": "/shop/biscotti-hash-canada",
+     "category": "Concentrates",
+     "price": 15
+    },
+    {
+     "slug": "biscotti-la-mousse-hash-canada",
+     "name": "Biscotti LA Mousse Hash",
+     "path": "/shop/biscotti-la-mousse-hash-canada",
+     "category": "Concentrates",
+     "price": 8
+    }
+   ],
+   "similar": [
+    "korenji",
+    "lemon-o-g",
+    "nord-stream-gas",
+    "lavender-aka-lavandula"
+   ]
+  },
+  {
+   "slug": "alaskan-thunder-fuck",
+   "name": "Alaskan Thunder Fuck",
+   "type": "SATIVA",
+   "thcMin": null,
+   "thcMax": 15,
+   "cbdMax": 0.2,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Humulene",
+    "Myrcene",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Happy",
+    "Euphoric",
+    "Uplifted",
+    "Energetic",
+    "Relaxed"
+   ],
+   "products": [
+    {
+     "slug": "alaskan-thunder-fuck-hash-canada",
+     "name": "Alaskan Thunder Fuck Hash | Mohawk Medibles",
+     "path": "/shop/alaskan-thunder-fuck-hash-canada",
+     "category": "Concentrates",
+     "price": 15
+    }
+   ],
+   "similar": [
+    "black-cherry",
+    "candyland",
+    "kripple-roulette",
+    "kush-valley-gelato"
+   ]
+  },
+  {
+   "slug": "amnesia-haze",
+   "name": "Amnesia Haze",
+   "type": "HYBRID",
+   "thcMin": 16,
+   "thcMax": 22,
+   "cbdMax": 22,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Myrcene",
+    "Limonene",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Creative",
+    "Energetic",
+    "Uplifted"
+   ],
+   "products": [
+    {
+     "slug": "amnesia-haze-5g",
+     "name": "Amnesia Haze $5/Gram Special",
+     "path": "/shop/amnesia-haze-5g",
+     "category": "Flower",
+     "price": 5
+    }
+   ],
+   "similar": [
+    "larrys-lemon-og",
+    "do-si-dos",
+    "kandy-kush",
+    "lemon-cherry-gelato"
+   ]
+  },
+  {
+   "slug": "banana-sherbert",
+   "name": "Banana Sherbert",
+   "type": "HYBRID",
+   "thcMin": 20.8,
+   "thcMax": 23.7,
+   "cbdMax": 0.4,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Myrcene",
+    "Linalool"
+   ],
+   "effects": [
+    "Relaxed",
+    "Sleepy"
+   ],
+   "products": [
+    {
+     "slug": "banana-sherbert-la-mousse-hash-canada",
+     "name": "Banana Sherbert LA Mousse Hash",
+     "path": "/shop/banana-sherbert-la-mousse-hash-canada",
+     "category": "Concentrates",
+     "price": 8
+    }
+   ],
+   "similar": [
+    "white-out",
+    "nightmare-line-nightmare-og",
+    "lvbk-las-vegas-bubba-kush",
+    "kosher-candy"
+   ]
+  },
+  {
+   "slug": "black-cherry",
+   "name": "Black Cherry",
+   "type": "HYBRID",
+   "thcMin": 21.2,
+   "thcMax": 23.2,
+   "cbdMax": 0.1,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Myrcene",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Relaxed",
+    "Happy",
+    "Uplifted"
+   ],
+   "products": [
+    {
+     "slug": "black-cherry-100oz-canada",
+     "name": "Black Cherry $100/OZ Deal | Mohawk Medibles",
+     "path": "/shop/black-cherry-100oz-canada",
+     "category": "Flower",
+     "price": 30
+    }
+   ],
+   "similar": [
+    "larrys-lemon-og",
+    "nightmare-line-nightmare-og",
+    "nightmare-line-petroleum-nightmare",
+    "lvbk-las-vegas-bubba-kush"
+   ]
+  },
+  {
+   "slug": "bubble-gum",
+   "name": "Bubble Gum",
+   "type": "HYBRID",
+   "thcMin": null,
+   "thcMax": 2,
+   "cbdMax": 0.1,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Myrcene",
+    "Limonene",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Euphoric"
+   ],
+   "products": [
+    {
+     "slug": "bubble-gum-hash-140-oz-canada",
+     "name": "Bubble Gum Hash $140/OZ Deal",
+     "path": "/shop/bubble-gum-hash-140-oz-canada",
+     "category": "Concentrates",
+     "price": 5
+    }
+   ],
+   "similar": [
+    "larrys-lemon-og",
+    "do-si-dos",
+    "kandy-kush",
+    "lemon-cherry-gelato"
+   ]
+  },
+  {
+   "slug": "candyland",
+   "name": "Candyland",
+   "type": "SATIVA",
+   "thcMin": null,
+   "thcMax": 22,
+   "cbdMax": 1,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Caryophyllene",
+    "Humulene",
+    "Terpinolene"
+   ],
+   "effects": [
+    "Happy",
+    "Uplifted",
+    "Euphoric",
+    "Energetic",
+    "Relaxed"
+   ],
+   "products": [
+    {
+     "slug": "candy-land-hash-canada",
+     "name": "Candy Land Hash | Mohawk Medibles",
+     "path": "/shop/candy-land-hash-canada",
+     "category": "Concentrates",
+     "price": 15
+    }
+   ],
+   "similar": [
+    "western-winds",
+    "cookies-cream",
+    "alaskan-thunder-fuck",
+    "kings-cross"
+   ]
+  },
+  {
+   "slug": "do-si-dos",
+   "name": "Do-si-dos",
+   "type": "HYBRID",
+   "thcMin": 20,
+   "thcMax": 25,
+   "cbdMax": 25,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Myrcene",
+    "Limonene",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Euphoric",
+    "Relaxed",
+    "Happy"
+   ],
+   "products": [
+    {
+     "slug": "24k-full-melt-do-si-dos-hash-75-80-thc-canada",
+     "name": "Do-Si-Dos 24k Full Melt Hash 75-80% THC",
+     "path": "/shop/24k-full-melt-do-si-dos-hash-75-80-thc-canada",
+     "category": "Concentrates",
+     "price": 15
+    }
+   ],
+   "similar": [
+    "larrys-lemon-og",
+    "kandy-kush",
+    "lemon-cherry-gelato",
+    "ice-cream"
+   ]
+  },
+  {
+   "slug": "godfather-og",
+   "name": "Godfather OG",
+   "type": "HYBRID",
+   "thcMin": null,
+   "thcMax": 25,
+   "cbdMax": 0.1,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Humulene",
+    "Myrcene",
+    "Pinene"
+   ],
+   "effects": [
+    "Creative",
+    "Uplifted"
+   ],
+   "products": [
+    {
+     "slug": "24k-full-melt-godfather-og-hash-75-80-thc-canada",
+     "name": "Godfather OG 24k Full Melt Hash 75-80% THC",
+     "path": "/shop/24k-full-melt-godfather-og-hash-75-80-thc-canada",
+     "category": "Concentrates",
+     "price": 15
+    }
+   ],
+   "similar": [
+    "atomic-goat",
+    "nl-automatic",
+    "kings-cross",
+    "lemon-ghost-train"
+   ]
+  },
+  {
+   "slug": "green-crack",
+   "name": "Green Crack",
+   "type": "HYBRID",
+   "thcMin": 14,
+   "thcMax": 21,
+   "cbdMax": 0.4,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Linalool",
+    "Pinene",
+    "Humulene"
+   ],
+   "effects": [
+    "Energetic",
+    "Uplifted"
+   ],
+   "products": [
+    {
+     "slug": "green-crack-100oz-canada",
+     "name": "Green Crack $100/OZ Deal | Mohawk Medibles",
+     "path": "/shop/green-crack-100oz-canada",
+     "category": "Flower",
+     "price": 30
+    }
+   ],
+   "similar": [
+    "skywalker",
+    "kings-cross",
+    "lemon-ghost-train",
+    "kali"
+   ]
+  },
+  {
+   "slug": "ice-cream",
+   "name": "Ice Cream",
+   "type": "HYBRID",
+   "thcMin": 18,
+   "thcMax": 22,
+   "cbdMax": 22,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Myrcene",
+    "Limonene",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Happy",
+    "Euphoric",
+    "Relaxed",
+    "Creative"
+   ],
+   "products": [
+    {
+     "slug": "ice-cream-hash-canada",
+     "name": "Ice Cream Hash | Mohawk Medibles",
+     "path": "/shop/ice-cream-hash-canada",
+     "category": "Concentrates",
+     "price": 15
+    }
+   ],
+   "similar": [
+    "larrys-lemon-og",
+    "do-si-dos",
+    "kandy-kush",
+    "lemon-cherry-gelato"
+   ]
+  },
+  {
+   "slug": "lemon-cherry-gelato",
+   "name": "Lemon Cherry Gelato",
+   "type": "HYBRID",
+   "thcMin": 18,
+   "thcMax": 25,
+   "cbdMax": 0.5,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Limonene",
+    "Myrcene",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Euphoric",
+    "Relaxed",
+    "Uplifted"
+   ],
+   "products": [
+    {
+     "slug": "lemon-cherry-gelato-6-gram-special",
+     "name": "Lemon Cherry Gelato $6/Gram Special",
+     "path": "/shop/lemon-cherry-gelato-6-gram-special",
+     "category": "Flower",
+     "price": 6
+    }
+   ],
+   "similar": [
+    "larrys-lemon-og",
+    "do-si-dos",
+    "kandy-kush",
+    "ice-cream"
+   ]
+  },
+  {
+   "slug": "purple-urkle",
+   "name": "Purple Urkle",
+   "type": "HYBRID",
+   "thcMin": 20,
+   "thcMax": 20,
+   "cbdMax": 1,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Caryophyllene",
+    "Myrcene",
+    "Pinene"
+   ],
+   "effects": [
+    "Creative",
+    "Focused",
+    "Uplifted"
+   ],
+   "products": [
+    {
+     "slug": "purple-urkle-40-oz-or-100-3oz",
+     "name": "Purple Urkle $40/oz or $100/3oz",
+     "path": "/shop/purple-urkle-40-oz-or-100-3oz",
+     "category": "Flower",
+     "price": 40
+    }
+   ],
+   "similar": [
+    "panjsher",
+    "black-cherry",
+    "nl-automatic",
+    "larrys-lemon-og"
+   ]
+  },
+  {
+   "slug": "tangie",
+   "name": "Tangie",
+   "type": "HYBRID",
+   "thcMin": 20,
+   "thcMax": 20,
+   "cbdMax": 20,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Linalool",
+    "Pinene",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Focused",
+    "Uplifted"
+   ],
+   "products": [
+    {
+     "slug": "tangie-milled-flower",
+     "name": "Tangie Milled Flower",
+     "path": "/shop/tangie-milled-flower",
+     "category": "Flower",
+     "price": 25
+    }
+   ],
+   "similar": [
+    "kali",
+    "nightmare-line-nightmare-og",
+    "narcotherapy-auto",
+    "lvbk-las-vegas-bubba-kush"
+   ]
+  },
+  {
+   "slug": "tiger-blood-og",
+   "name": "Tiger Blood OG",
+   "type": "HYBRID",
+   "thcMin": 16.5,
+   "thcMax": 20.3,
+   "cbdMax": 0.2,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Pinene",
+    "Ocimene"
+   ],
+   "effects": [
+    "Energetic",
+    "Body High"
+   ],
+   "products": [
+    {
+     "slug": "tiger-blood-hash",
+     "name": "Tiger Blood Hash",
+     "path": "/shop/tiger-blood-hash",
+     "category": "Concentrates",
+     "price": 12
+    }
+   ],
+   "similar": [
+    "lemon-bean-fast",
+    "nl-automatic",
+    "kings-cross",
+    "lsd-poison"
+   ]
+  },
+  {
+   "slug": "white-out",
+   "name": "White Out",
+   "type": "HYBRID",
+   "thcMin": null,
+   "thcMax": null,
+   "cbdMax": null,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Myrcene",
+    "Linalool"
+   ],
+   "effects": [
+    "Relaxed",
+    "Happy"
+   ],
+   "products": [
+    {
+     "slug": "dozo-white-out-disposable-thc-vape-canada",
+     "name": "DOZO White Out Disposable THC Vape",
+     "path": "/shop/dozo-white-out-disposable-thc-vape-canada",
+     "category": "Disposables",
+     "price": 65
+    }
+   ],
+   "similar": [
+    "banana-sherbert",
+    "nightmare-line-nightmare-og",
+    "lvbk-las-vegas-bubba-kush",
+    "kosher-candy"
+   ]
+  },
+  {
+   "slug": "wonder-woman",
+   "name": "Wonder Woman",
+   "type": "HYBRID",
+   "thcMin": null,
+   "thcMax": 13,
+   "cbdMax": 0.1,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Linalool",
+    "Caryophyllene",
+    "Myrcene"
+   ],
+   "effects": [
+    "Euphoric",
+    "Happy"
+   ],
+   "products": [
+    {
+     "slug": "wonder-woman-la-mousse-hash-canada",
+     "name": "Wonder Woman LA Mousse Hash",
+     "path": "/shop/wonder-woman-la-mousse-hash-canada",
+     "category": "Concentrates",
+     "price": 8
+    }
+   ],
+   "similar": [
+    "nightmare-line-nightmare-og",
+    "lvbk-las-vegas-bubba-kush",
+    "gordo-master-kush",
+    "trainwreck"
+   ]
+  },
+  {
+   "slug": "kings-cross",
+   "name": "Kings Cross",
+   "type": "HYBRID",
+   "thcMin": 17.8,
+   "thcMax": 21.7,
+   "cbdMax": 0.3,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Humulene",
+    "Pinene",
+    "Terpinolene"
+   ],
+   "effects": [
+    "Creative",
+    "Focused",
+    "Energetic",
+    "Uplifted"
+   ],
+   "products": [],
+   "similar": [
+    "nl-automatic",
+    "lemon-ghost-train",
+    "lemonade-haze",
+    "western-winds"
+   ]
+  },
+  {
+   "slug": "korenji",
+   "name": "Korenji",
+   "type": "INDICA",
+   "thcMin": 20.6,
+   "thcMax": 23.6,
+   "cbdMax": 0.7,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Myrcene",
+    "Caryophyllene",
+    "Linalool"
+   ],
+   "effects": [
+    "Relaxed",
+    "Sleepy"
+   ],
+   "products": [],
+   "similar": [
+    "nord-stream-gas",
+    "lavender-aka-lavandula",
+    "legends-gold",
+    "narcotic-kush-auto"
+   ]
+  },
+  {
+   "slug": "kosher-candy",
+   "name": "Kosher Candy",
+   "type": "HYBRID",
+   "thcMin": 22.2,
+   "thcMax": 24.5,
+   "cbdMax": 0.5,
+   "indicaPercent": 75,
+   "sativaPercent": 25,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Limonene",
+    "Myrcene",
+    "Linalool"
+   ],
+   "effects": [
+    "Euphoric",
+    "Happy",
+    "Creative"
+   ],
+   "products": [],
+   "similar": [
+    "banana-sherbert",
+    "white-out",
+    "watermelon-sorbet",
+    "lemendhaze"
+   ]
+  },
+  {
+   "slug": "kosher-orangez",
+   "name": "Kosher Orangez",
+   "type": "HYBRID",
+   "thcMin": 21.4,
+   "thcMax": 24.1,
+   "cbdMax": 0.3,
+   "indicaPercent": 70,
+   "sativaPercent": 30,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Limonene",
+    "Terpinolene",
+    "Ocimene"
+   ],
+   "effects": [
+    "Energetic",
+    "Creative",
+    "Focused",
+    "Uplifted"
+   ],
+   "products": [],
+   "similar": [
+    "lsd-poison",
+    "galaxy-fast",
+    "malawi-x-panama",
+    "lemon-bean-fast"
+   ]
+  },
+  {
+   "slug": "kripple-roulette",
+   "name": "Kripple Roulette",
+   "type": "INDICA",
+   "thcMin": 17.8,
+   "thcMax": 20.9,
+   "cbdMax": 0.3,
+   "indicaPercent": 80,
+   "sativaPercent": 20,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Myrcene",
+    "Linalool",
+    "Humulene"
+   ],
+   "effects": [
+    "Sleepy",
+    "Hungry",
+    "Relaxed",
+    "Calm"
+   ],
+   "products": [],
+   "similar": [
+    "night-lights",
+    "wedding-flowers",
+    "banana-sherbert",
+    "white-out"
+   ]
+  },
+  {
+   "slug": "kush-valley-gelato",
+   "name": "Kush Valley Gelato",
+   "type": "INDICA",
+   "thcMin": 16.9,
+   "thcMax": 20.6,
+   "cbdMax": 0.8,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Caryophyllene",
+    "Myrcene",
+    "Limonene"
+   ],
+   "effects": [
+    "Euphoric",
+    "Hungry",
+    "Happy",
+    "Relaxed"
+   ],
+   "products": [],
+   "similar": [
+    "neopolitan",
+    "lime-og",
+    "larrys-lemon-og",
+    "do-si-dos"
+   ]
+  },
+  {
+   "slug": "kush-valley-lemon-sorbet",
+   "name": "Kush Valley Lemon Sorbet",
+   "type": "INDICA",
+   "thcMin": 15.8,
+   "thcMax": 18.4,
+   "cbdMax": 0.6,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Limonene",
+    "Myrcene",
+    "Pinene"
+   ],
+   "effects": [
+    "Relaxed",
+    "Hungry"
+   ],
+   "products": [],
+   "similar": [
+    "lemon-tree-fast",
+    "nefertiti",
+    "nocturnal-necta",
+    "skunk-1-automatic"
+   ]
+  },
+  {
+   "slug": "larrys-lemon-og",
+   "name": "Larrys Lemon OG",
+   "type": "HYBRID",
+   "thcMin": 18.3,
+   "thcMax": 21.3,
+   "cbdMax": 0.4,
+   "indicaPercent": 50,
+   "sativaPercent": 50,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Limonene",
+    "Caryophyllene",
+    "Myrcene"
+   ],
+   "effects": [
+    "Uplifted",
+    "Happy",
+    "Energetic"
+   ],
+   "products": [],
+   "similar": [
+    "do-si-dos",
+    "kandy-kush",
+    "lemon-cherry-gelato",
+    "ice-cream"
+   ]
+  },
+  {
+   "slug": "lavender-aka-lavandula",
+   "name": "Lavender Aka Lavandula",
+   "type": "INDICA",
+   "thcMin": 12.9,
+   "thcMax": 16.2,
+   "cbdMax": 0.7,
+   "indicaPercent": 80,
+   "sativaPercent": 20,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Linalool",
+    "Myrcene",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Relaxed",
+    "Sleepy"
+   ],
+   "products": [],
+   "similar": [
+    "korenji",
+    "nord-stream-gas",
+    "legends-gold",
+    "narcotic-kush-auto"
+   ]
+  },
+  {
+   "slug": "lemendhaze",
+   "name": "Lemendhaze",
+   "type": "HYBRID",
+   "thcMin": 16.6,
+   "thcMax": 19.5,
+   "cbdMax": 0.1,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Limonene",
+    "Terpinolene",
+    "Myrcene"
+   ],
+   "effects": [
+    "Creative",
+    "Euphoric"
+   ],
+   "products": [],
+   "similar": [
+    "watermelon-sorbet",
+    "nl-automatic",
+    "lsd-poison",
+    "larrys-lemon-og"
+   ]
+  },
+  {
+   "slug": "lemon-bean-fast",
+   "name": "Lemon Bean Fast",
+   "type": "HYBRID",
+   "thcMin": null,
+   "thcMax": 22,
+   "cbdMax": 0.4,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Limonene",
+    "Pinene",
+    "Ocimene"
+   ],
+   "effects": [
+    "Focused",
+    "Energetic"
+   ],
+   "products": [],
+   "similar": [
+    "tiger-blood-og",
+    "lsd-poison",
+    "lemon-ghost-train",
+    "lemon-tree-fast"
+   ]
+  },
+  {
+   "slug": "lemon-cosmos",
+   "name": "Lemon Cosmos",
+   "type": "HYBRID",
+   "thcMin": 16.4,
+   "thcMax": 20,
+   "cbdMax": 0.5,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Limonene",
+    "Terpinolene",
+    "Linalool"
+   ],
+   "effects": [
+    "Happy",
+    "Giggly"
+   ],
+   "products": [],
+   "similar": [
+    "lemendhaze",
+    "lsd-poison",
+    "lemonade-haze",
+    "kosher-candy"
+   ]
+  },
+  {
+   "slug": "lemon-ghost-train",
+   "name": "Lemon Ghost Train",
+   "type": "HYBRID",
+   "thcMin": 15.8,
+   "thcMax": 19.1,
+   "cbdMax": 0.6,
+   "indicaPercent": 30,
+   "sativaPercent": 70,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Pinene",
+    "Limonene",
+    "Humulene"
+   ],
+   "effects": [
+    "Body High",
+    "Creative",
+    "Relaxed",
+    "Uplifted",
+    "Euphoric"
+   ],
+   "products": [],
+   "similar": [
+    "ripper-haze",
+    "lemon-bean-fast",
+    "kings-cross",
+    "lemon-tree-fast"
+   ]
+  },
+  {
+   "slug": "lemon-haze-x-scbdx",
+   "name": "Lemon Haze x Scbdx",
+   "type": "SATIVA",
+   "thcMin": 19.1,
+   "thcMax": 22.3,
+   "cbdMax": 0.4,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Limonene",
+    "Ocimene",
+    "Linalool"
+   ],
+   "effects": [
+    "Energetic",
+    "Focused"
+   ],
+   "products": [],
+   "similar": [
+    "malawi-x-panama",
+    "lemon-bean-fast",
+    "lsd-poison",
+    "lemon-o-g"
+   ]
+  },
+  {
+   "slug": "lemon-o-g",
+   "name": "Lemon O.g.",
+   "type": "INDICA",
+   "thcMin": 15.2,
+   "thcMax": 18.3,
+   "cbdMax": 0.6,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Limonene",
+    "Caryophyllene",
+    "Linalool"
+   ],
+   "effects": [
+    "Relaxed",
+    "Sleepy",
+    "Calm"
+   ],
+   "products": [],
+   "similar": [
+    "kush-valley-gelato",
+    "korenji",
+    "nord-stream-gas",
+    "neopolitan"
+   ]
+  },
+  {
+   "slug": "lemon-tree-fast",
+   "name": "Lemon Tree Fast",
+   "type": "HYBRID",
+   "thcMin": 22,
+   "thcMax": 24,
+   "cbdMax": 0.5,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Limonene",
+    "Myrcene",
+    "Pinene"
+   ],
+   "effects": [
+    "Uplifted",
+    "Energetic",
+    "Happy"
+   ],
+   "products": [],
+   "similar": [
+    "nefertiti",
+    "nocturnal-necta",
+    "skunk-1-automatic",
+    "g13-haze-x-somango"
+   ]
+  },
+  {
+   "slug": "lemonade-haze",
+   "name": "Lemonade Haze",
+   "type": "HYBRID",
+   "thcMin": 17.3,
+   "thcMax": 19.8,
+   "cbdMax": 0.5,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Limonene",
+    "Pinene",
+    "Terpinolene"
+   ],
+   "effects": [
+    "Energetic",
+    "Uplifted",
+    "Creative",
+    "Focused"
+   ],
+   "products": [],
+   "similar": [
+    "lemon-bean-fast",
+    "nl-automatic",
+    "lemendhaze",
+    "kings-cross"
+   ]
+  },
+  {
+   "slug": "lime-og",
+   "name": "Lime OG",
+   "type": "INDICA",
+   "thcMin": 13.6,
+   "thcMax": 16.3,
+   "cbdMax": 0.1,
+   "indicaPercent": 50,
+   "sativaPercent": 50,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Limonene",
+    "Myrcene",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Relaxed",
+    "Calm",
+    "Body High"
+   ],
+   "products": [],
+   "similar": [
+    "kush-valley-gelato",
+    "neopolitan",
+    "larrys-lemon-og",
+    "do-si-dos"
+   ]
+  },
+  {
+   "slug": "lsd-poison",
+   "name": "Lsd Poison",
+   "type": "HYBRID",
+   "thcMin": 18.9,
+   "thcMax": 21.3,
+   "cbdMax": 0.4,
+   "indicaPercent": 25,
+   "sativaPercent": 75,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Terpinolene",
+    "Limonene",
+    "Ocimene"
+   ],
+   "effects": [
+    "Euphoric",
+    "Uplifted",
+    "Creative",
+    "Giggly"
+   ],
+   "products": [],
+   "similar": [
+    "kosher-orangez",
+    "galaxy-fast",
+    "malawi-x-panama",
+    "lemon-bean-fast"
+   ]
+  },
+  {
+   "slug": "lvbk-las-vegas-bubba-kush",
+   "name": "Lvbk Las Vegas Bubba Kush",
+   "type": "HYBRID",
+   "thcMin": 14.5,
+   "thcMax": 18.3,
+   "cbdMax": 0.4,
+   "indicaPercent": 75,
+   "sativaPercent": 25,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Myrcene",
+    "Caryophyllene",
+    "Linalool"
+   ],
+   "effects": [
+    "Relaxed",
+    "Sleepy"
+   ],
+   "products": [],
+   "similar": [
+    "nightmare-line-nightmare-og",
+    "gordo-master-kush",
+    "trainwreck",
+    "wonder-woman"
+   ]
+  },
+  {
+   "slug": "muse",
+   "name": "Muse",
+   "type": "INDICA",
+   "thcMin": 12.5,
+   "thcMax": 16.4,
+   "cbdMax": 0.5,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Myrcene",
+    "Limonene",
+    "Humulene"
+   ],
+   "effects": [
+    "Creative",
+    "Relaxed",
+    "Calm"
+   ],
+   "products": [],
+   "similar": [
+    "watermelon-sorbet",
+    "kripple-roulette",
+    "kush-valley-gelato",
+    "night-lights"
+   ]
+  },
+  {
+   "slug": "narcotherapy-auto",
+   "name": "Narcotherapy Auto",
+   "type": "HYBRID",
+   "thcMin": null,
+   "thcMax": 20,
+   "cbdMax": 1.4,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Linalool",
+    "Caryophyllene",
+    "Ocimene"
+   ],
+   "effects": [
+    "Relaxed",
+    "Calm",
+    "Euphoric"
+   ],
+   "products": [],
+   "similar": [
+    "nightmare-line-nightmare-og",
+    "lvbk-las-vegas-bubba-kush",
+    "kali",
+    "gordo-master-kush"
+   ]
+  },
+  {
+   "slug": "nefertiti",
+   "name": "Nefertiti",
+   "type": "HYBRID",
+   "thcMin": null,
+   "thcMax": 19,
+   "cbdMax": 1,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Limonene",
+    "Pinene",
+    "Myrcene"
+   ],
+   "effects": [
+    "Uplifted",
+    "Happy",
+    "Relaxed"
+   ],
+   "products": [],
+   "similar": [
+    "lemon-tree-fast",
+    "nocturnal-necta",
+    "skunk-1-automatic",
+    "g13-haze-x-somango"
+   ]
+  },
+  {
+   "slug": "neopolitan",
+   "name": "Neopolitan",
+   "type": "INDICA",
+   "thcMin": 12.5,
+   "thcMax": 16.3,
+   "cbdMax": 0.6,
+   "indicaPercent": 80,
+   "sativaPercent": 20,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Myrcene",
+    "Limonene",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Relaxed",
+    "Body High",
+    "Calm"
+   ],
+   "products": [],
+   "similar": [
+    "kush-valley-gelato",
+    "lime-og",
+    "larrys-lemon-og",
+    "do-si-dos"
+   ]
+  },
+  {
+   "slug": "night-lights",
+   "name": "Night Lights",
+   "type": "INDICA",
+   "thcMin": 19.7,
+   "thcMax": 22.3,
+   "cbdMax": 0.5,
+   "indicaPercent": 80,
+   "sativaPercent": 20,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Myrcene",
+    "Linalool",
+    "Humulene"
+   ],
+   "effects": [
+    "Relaxed",
+    "Calm",
+    "Sleepy"
+   ],
+   "products": [],
+   "similar": [
+    "kripple-roulette",
+    "wedding-flowers",
+    "banana-sherbert",
+    "white-out"
+   ]
+  },
+  {
+   "slug": "nightmare-line-nightmare-og",
+   "name": "Nightmare Line Nightmare OG",
+   "type": "HYBRID",
+   "thcMin": 19.8,
+   "thcMax": 23.3,
+   "cbdMax": 0.3,
+   "indicaPercent": 70,
+   "sativaPercent": 30,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Myrcene",
+    "Caryophyllene",
+    "Linalool"
+   ],
+   "effects": [
+    "Relaxed",
+    "Sleepy",
+    "Uplifted"
+   ],
+   "products": [],
+   "similar": [
+    "lvbk-las-vegas-bubba-kush",
+    "gordo-master-kush",
+    "trainwreck",
+    "wonder-woman"
+   ]
+  },
+  {
+   "slug": "nightmare-line-petroleum-nightmare",
+   "name": "Nightmare Line Petroleum Nightmare",
+   "type": "HYBRID",
+   "thcMin": 15.9,
+   "thcMax": 18,
+   "cbdMax": 0.4,
+   "indicaPercent": 55,
+   "sativaPercent": 45,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Caryophyllene",
+    "Myrcene",
+    "Terpinolene"
+   ],
+   "effects": [
+    "Body High",
+    "Relaxed",
+    "Creative"
+   ],
+   "products": [],
+   "similar": [
+    "black-cherry",
+    "nl-automatic",
+    "lemendhaze",
+    "larrys-lemon-og"
+   ]
+  },
+  {
+   "slug": "nl-automatic",
+   "name": "Nl Automatic",
+   "type": "HYBRID",
+   "thcMin": null,
+   "thcMax": 16,
+   "cbdMax": 0.2,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Pinene",
+    "Terpinolene",
+    "Myrcene"
+   ],
+   "effects": [
+    "Focused",
+    "Relaxed",
+    "Energetic"
+   ],
+   "products": [],
+   "similar": [
+    "tropical-og",
+    "lemendhaze",
+    "kings-cross",
+    "lemon-tree-fast"
+   ]
+  },
+  {
+   "slug": "nocturnal-necta",
+   "name": "Nocturnal Necta",
+   "type": "HYBRID",
+   "thcMin": 15,
+   "thcMax": 18.2,
+   "cbdMax": 0.5,
+   "indicaPercent": 45,
+   "sativaPercent": 55,
+   "aliases": [
+    "Nocturnal Nectar",
+    "Nocturnal Nectar F"
+   ],
+   "popularityScore": 52,
+   "terpenes": [
+    "Myrcene",
+    "Limonene",
+    "Pinene"
+   ],
+   "effects": [
+    "Relaxed",
+    "Euphoric",
+    "Sleepy"
+   ],
+   "products": [],
+   "similar": [
+    "lemon-tree-fast",
+    "nefertiti",
+    "skunk-1-automatic",
+    "g13-haze-x-somango"
+   ]
+  },
+  {
+   "slug": "nord-stream-gas",
+   "name": "Nord Stream Gas",
+   "type": "INDICA",
+   "thcMin": 21.4,
+   "thcMax": 23.8,
+   "cbdMax": 0.8,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 52,
+   "terpenes": [
+    "Myrcene",
+    "Caryophyllene",
+    "Linalool"
+   ],
+   "effects": [
+    "Relaxed",
+    "Sleepy",
+    "Calm"
+   ],
+   "products": [],
+   "similar": [
+    "korenji",
+    "lavender-aka-lavandula",
+    "legends-gold",
+    "narcotic-kush-auto"
+   ]
+  },
+  {
+   "slug": "double-glock",
+   "name": "Double Glock",
+   "type": "HYBRID",
+   "thcMin": 19.4,
+   "thcMax": 22.4,
+   "cbdMax": 0.3,
+   "indicaPercent": 100,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Linalool",
+    "Terpinolene",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Euphoric",
+    "Happy"
+   ],
+   "products": [],
+   "similar": [
+    "nightmare-line-nightmare-og",
+    "nightmare-line-petroleum-nightmare",
+    "narcotherapy-auto",
+    "lemon-cosmos"
+   ]
+  },
+  {
+   "slug": "g13-haze-x-somango",
+   "name": "G13 Haze x Somango",
+   "type": "HYBRID",
+   "thcMin": 17.8,
+   "thcMax": 20.6,
+   "cbdMax": 0.4,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Limonene",
+    "Myrcene",
+    "Pinene"
+   ],
+   "effects": [
+    "Euphoric",
+    "Creative",
+    "Happy"
+   ],
+   "products": [],
+   "similar": [
+    "lemon-tree-fast",
+    "nefertiti",
+    "nocturnal-necta",
+    "skunk-1-automatic"
+   ]
+  },
+  {
+   "slug": "galaxy-fast",
+   "name": "Galaxy Fast",
+   "type": "HYBRID",
+   "thcMin": 20,
+   "thcMax": 22,
+   "cbdMax": 22,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Terpinolene",
+    "Limonene",
+    "Ocimene"
+   ],
+   "effects": [
+    "Creative",
+    "Uplifted",
+    "Energetic",
+    "Focused"
+   ],
+   "products": [],
+   "similar": [
+    "lsd-poison",
+    "kosher-orangez",
+    "malawi-x-panama",
+    "lemon-bean-fast"
+   ]
+  },
+  {
+   "slug": "gordo-master-kush",
+   "name": "Gordo Master Kush",
+   "type": "HYBRID",
+   "thcMin": 18.4,
+   "thcMax": 21.5,
+   "cbdMax": 0.2,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Caryophyllene",
+    "Myrcene",
+    "Linalool"
+   ],
+   "effects": [
+    "Sleepy",
+    "Relaxed"
+   ],
+   "products": [],
+   "similar": [
+    "nightmare-line-nightmare-og",
+    "lvbk-las-vegas-bubba-kush",
+    "trainwreck",
+    "wonder-woman"
+   ]
+  },
+  {
+   "slug": "happy-ending",
+   "name": "Happy Ending",
+   "type": "HYBRID",
+   "thcMin": 20.5,
+   "thcMax": 22.6,
+   "cbdMax": 0.6,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Linalool",
+    "Limonene",
+    "Pinene"
+   ],
+   "effects": [
+    "Happy",
+    "Giggly",
+    "Uplifted"
+   ],
+   "products": [],
+   "similar": [
+    "lemon-bean-fast",
+    "lemon-ghost-train",
+    "lemon-tree-fast",
+    "lemonade-haze"
+   ]
+  },
+  {
+   "slug": "kali",
+   "name": "Kali",
+   "type": "HYBRID",
+   "thcMin": 14.5,
+   "thcMax": 18.5,
+   "cbdMax": 0.2,
+   "indicaPercent": null,
+   "sativaPercent": 90,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Linalool",
+    "Pinene",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Calm",
+    "Uplifted",
+    "Relaxed",
+    "Focused"
+   ],
+   "products": [],
+   "similar": [
+    "tangie",
+    "nightmare-line-nightmare-og",
+    "narcotherapy-auto",
+    "lvbk-las-vegas-bubba-kush"
+   ]
+  },
+  {
+   "slug": "legends-gold",
+   "name": "Legends Gold",
+   "type": "INDICA",
+   "thcMin": 16.1,
+   "thcMax": 19.6,
+   "cbdMax": 0.3,
+   "indicaPercent": 90,
+   "sativaPercent": 10,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Linalool",
+    "Caryophyllene",
+    "Myrcene"
+   ],
+   "effects": [
+    "Happy",
+    "Relaxed",
+    "Euphoric",
+    "Calm",
+    "Sleepy"
+   ],
+   "products": [],
+   "similar": [
+    "korenji",
+    "nord-stream-gas",
+    "lavender-aka-lavandula",
+    "narcotic-kush-auto"
+   ]
+  },
+  {
+   "slug": "malawi-x-panama",
+   "name": "Malawi x Panama",
+   "type": "SATIVA",
+   "thcMin": 21,
+   "thcMax": 26,
+   "cbdMax": 0.2,
+   "indicaPercent": null,
+   "sativaPercent": 100,
+   "aliases": [
+    "Malawi x Panama Feminised"
+   ],
+   "popularityScore": 49,
+   "terpenes": [
+    "Terpinolene",
+    "Ocimene",
+    "Limonene"
+   ],
+   "effects": [
+    "Energetic",
+    "Focused",
+    "Creative"
+   ],
+   "products": [],
+   "similar": [
+    "lsd-poison",
+    "kosher-orangez",
+    "galaxy-fast",
+    "lemon-haze-x-scbdx"
+   ]
+  },
+  {
+   "slug": "medical-collection-afghan-kush-x-black-domina",
+   "name": "Medical Collection Afghan Kush x Black Domina",
+   "type": "INDICA",
+   "thcMin": null,
+   "thcMax": 19,
+   "cbdMax": 0.2,
+   "indicaPercent": 100,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Myrcene",
+    "Caryophyllene",
+    "Linalool"
+   ],
+   "effects": [
+    "Relaxed",
+    "Sleepy",
+    "Calm"
+   ],
+   "products": [],
+   "similar": [
+    "korenji",
+    "nord-stream-gas",
+    "lavender-aka-lavandula",
+    "legends-gold"
+   ]
+  },
+  {
+   "slug": "narcotic-kush-auto",
+   "name": "Narcotic Kush Auto",
+   "type": "INDICA",
+   "thcMin": null,
+   "thcMax": 22,
+   "cbdMax": 0.8,
+   "indicaPercent": 100,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Myrcene",
+    "Caryophyllene",
+    "Linalool"
+   ],
+   "effects": [
+    "Sleepy",
+    "Relaxed",
+    "Calm"
+   ],
+   "products": [],
+   "similar": [
+    "korenji",
+    "nord-stream-gas",
+    "lavender-aka-lavandula",
+    "legends-gold"
+   ]
+  },
+  {
+   "slug": "panjsher",
+   "name": "Panjsher",
+   "type": "INDICA",
+   "thcMin": 15.2,
+   "thcMax": 18.3,
+   "cbdMax": 0.4,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Caryophyllene",
+    "Pinene",
+    "Myrcene"
+   ],
+   "effects": [
+    "Relaxed",
+    "Body High"
+   ],
+   "products": [],
+   "similar": [
+    "purple-urkle",
+    "black-cherry",
+    "kush-valley-gelato",
+    "korenji"
+   ]
+  },
+  {
+   "slug": "pianono",
+   "name": "Pianono",
+   "type": "INDICA",
+   "thcMin": 20.7,
+   "thcMax": 22.8,
+   "cbdMax": 0.7,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Myrcene",
+    "Linalool",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Relaxed",
+    "Sleepy"
+   ],
+   "products": [],
+   "similar": [
+    "korenji",
+    "nord-stream-gas",
+    "lavender-aka-lavandula",
+    "legends-gold"
+   ]
+  },
+  {
+   "slug": "ripper-haze",
+   "name": "Ripper Haze",
+   "type": "HYBRID",
+   "thcMin": 16,
+   "thcMax": 19.7,
+   "cbdMax": 0.2,
+   "indicaPercent": null,
+   "sativaPercent": 80,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Pinene",
+    "Humulene",
+    "Limonene"
+   ],
+   "effects": [
+    "Uplifted",
+    "Euphoric",
+    "Creative",
+    "Focused"
+   ],
+   "products": [],
+   "similar": [
+    "lemon-ghost-train",
+    "lemon-bean-fast",
+    "kings-cross",
+    "lemon-tree-fast"
+   ]
+  },
+  {
+   "slug": "skunk-1-automatic",
+   "name": "Skunk #1 Automatic",
+   "type": "HYBRID",
+   "thcMin": 18,
+   "thcMax": 20.4,
+   "cbdMax": 0.5,
+   "indicaPercent": 65,
+   "sativaPercent": 35,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Myrcene",
+    "Limonene",
+    "Pinene"
+   ],
+   "effects": [
+    "Relaxed",
+    "Euphoric",
+    "Happy",
+    "Hungry",
+    "Focused"
+   ],
+   "products": [],
+   "similar": [
+    "lemon-tree-fast",
+    "nefertiti",
+    "nocturnal-necta",
+    "g13-haze-x-somango"
+   ]
+  },
+  {
+   "slug": "tropical-og",
+   "name": "Tropical OG",
+   "type": "HYBRID",
+   "thcMin": 16.3,
+   "thcMax": 20,
+   "cbdMax": 0.3,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Pinene",
+    "Myrcene",
+    "Terpinolene"
+   ],
+   "effects": [
+    "Euphoric",
+    "Energetic",
+    "Uplifted",
+    "Relaxed",
+    "Happy"
+   ],
+   "products": [],
+   "similar": [
+    "nl-automatic",
+    "lemendhaze",
+    "kings-cross",
+    "lemon-tree-fast"
+   ]
+  },
+  {
+   "slug": "wedding-flowers",
+   "name": "Wedding Flowers",
+   "type": "HYBRID",
+   "thcMin": null,
+   "thcMax": 20,
+   "cbdMax": 0.5,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Linalool",
+    "Humulene",
+    "Myrcene"
+   ],
+   "effects": [
+    "Euphoric",
+    "Happy",
+    "Giggly"
+   ],
+   "products": [],
+   "similar": [
+    "kripple-roulette",
+    "night-lights",
+    "banana-sherbert",
+    "white-out"
+   ]
+  },
+  {
+   "slug": "western-winds",
+   "name": "Western Winds",
+   "type": "HYBRID",
+   "thcMin": 18.9,
+   "thcMax": 22.1,
+   "cbdMax": 0.2,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 49,
+   "terpenes": [
+    "Terpinolene",
+    "Caryophyllene",
+    "Humulene"
+   ],
+   "effects": [
+    "Uplifted",
+    "Relaxed",
+    "Focused"
+   ],
+   "products": [],
+   "similar": [
+    "cookies-cream",
+    "candyland",
+    "kings-cross",
+    "nightmare-line-petroleum-nightmare"
+   ]
+  },
+  {
+   "slug": "atomic-goat",
+   "name": "Atomic Goat",
+   "type": "HYBRID",
+   "thcMin": null,
+   "thcMax": 20,
+   "cbdMax": 0.1,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Humulene",
+    "Pinene",
+    "Myrcene"
+   ],
+   "effects": [
+    "Relaxed",
+    "Uplifted",
+    "Giggly",
+    "Tingly",
+    "Happy"
+   ],
+   "products": [],
+   "similar": [
+    "godfather-og",
+    "nl-automatic",
+    "kings-cross",
+    "lemon-ghost-train"
+   ]
+  },
+  {
+   "slug": "birthday-cake",
+   "name": "Birthday Cake",
+   "type": "HYBRID",
+   "thcMin": null,
+   "thcMax": 15,
+   "cbdMax": 0,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Caryophyllene",
+    "Linalool",
+    "Humulene"
+   ],
+   "effects": [
+    "Happy",
+    "Euphoric",
+    "Relaxed",
+    "Creative"
+   ],
+   "products": [],
+   "similar": [
+    "mk-ultra",
+    "nightmare-line-nightmare-og",
+    "narcotherapy-auto",
+    "lvbk-las-vegas-bubba-kush"
+   ]
+  },
+  {
+   "slug": "cookies-cream",
+   "name": "Cookies & Cream",
+   "type": "HYBRID",
+   "thcMin": null,
+   "thcMax": 200,
+   "cbdMax": 0.1,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Humulene",
+    "Caryophyllene",
+    "Terpinolene"
+   ],
+   "effects": [
+    "Happy",
+    "Euphoric",
+    "Relaxed",
+    "Creative"
+   ],
+   "products": [],
+   "similar": [
+    "western-winds",
+    "candyland",
+    "kings-cross",
+    "nightmare-line-petroleum-nightmare"
+   ]
+  },
+  {
+   "slug": "kandy-kush",
+   "name": "Kandy Kush",
+   "type": "HYBRID",
+   "thcMin": null,
+   "thcMax": 1.27,
+   "cbdMax": 0.1,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Myrcene",
+    "Limonene",
+    "Caryophyllene"
+   ],
+   "effects": [
+    "Happy",
+    "Euphoric",
+    "Relaxed",
+    "Creative"
+   ],
+   "products": [],
+   "similar": [
+    "larrys-lemon-og",
+    "do-si-dos",
+    "lemon-cherry-gelato",
+    "ice-cream"
+   ]
+  },
+  {
+   "slug": "mk-ultra",
+   "name": "Mk Ultra",
+   "type": "HYBRID",
+   "thcMin": 20,
+   "thcMax": 20,
+   "cbdMax": 0.1,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Humulene",
+    "Caryophyllene",
+    "Linalool"
+   ],
+   "effects": [
+    "Relaxed",
+    "Happy"
+   ],
+   "products": [],
+   "similar": [
+    "birthday-cake",
+    "nightmare-line-nightmare-og",
+    "narcotherapy-auto",
+    "lvbk-las-vegas-bubba-kush"
+   ]
+  },
+  {
+   "slug": "skywalker",
+   "name": "Skywalker",
+   "type": "INDICA",
+   "thcMin": null,
+   "thcMax": 21,
+   "cbdMax": 0.3,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Linalool",
+    "Humulene",
+    "Pinene"
+   ],
+   "effects": [
+    "Calm",
+    "Hungry",
+    "Relaxed",
+    "Sleepy",
+    "Uplifted"
+   ],
+   "products": [],
+   "similar": [
+    "green-crack",
+    "kripple-roulette",
+    "night-lights",
+    "kings-cross"
+   ]
+  },
+  {
+   "slug": "trainwreck",
+   "name": "Trainwreck",
+   "type": "HYBRID",
+   "thcMin": 17,
+   "thcMax": 22,
+   "cbdMax": 19,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Linalool",
+    "Caryophyllene",
+    "Myrcene"
+   ],
+   "effects": [
+    "Calm",
+    "Creative",
+    "Energetic",
+    "Focused",
+    "Relaxed"
+   ],
+   "products": [],
+   "similar": [
+    "nightmare-line-nightmare-og",
+    "lvbk-las-vegas-bubba-kush",
+    "gordo-master-kush",
+    "wonder-woman"
+   ]
+  },
+  {
+   "slug": "watermelon-sorbet",
+   "name": "Watermelon Sorbet",
+   "type": "HYBRID",
+   "thcMin": null,
+   "thcMax": null,
+   "cbdMax": null,
+   "indicaPercent": null,
+   "sativaPercent": null,
+   "aliases": [],
+   "popularityScore": 0,
+   "terpenes": [
+    "Limonene",
+    "Myrcene"
+   ],
+   "effects": [
+    "Happy",
+    "Relaxed"
+   ],
+   "products": [],
+   "similar": [
+    "lemendhaze",
+    "larrys-lemon-og",
+    "lemon-tree-fast",
+    "nefertiti"
+   ]
+  }
+ ]
+}

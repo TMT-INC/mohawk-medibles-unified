@@ -9,6 +9,7 @@ import { getAllProducts } from "@/lib/products";
 import { getAllBlogPosts } from "@/data/blog/posts";
 import { getAllCities, getAllProvinces } from "@/lib/seo/city-delivery-data";
 import { COMPETITORS } from "@/data/comparisons";
+import { getAllSiteStrains } from "@/lib/strains";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.ca";
 
@@ -232,6 +233,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.75,
     }));
 
+    // ─── Strain Library (terpene-profile AEO pages) ─────────
+    const strainIndexEntry: MetadataRoute.Sitemap = [
+        {
+            url: `${BASE_URL}/strains`,
+            lastModified: now,
+            changeFrequency: "weekly",
+            priority: 0.85,
+        },
+    ];
+    const strainPages: MetadataRoute.Sitemap = getAllSiteStrains().map((s) => ({
+        url: `${BASE_URL}/strains/${s.slug}`,
+        lastModified: now,
+        changeFrequency: "weekly" as const,
+        // Strains with live products are stronger commercial pages.
+        priority: s.products.length > 0 ? 0.8 : 0.7,
+    }));
+
     // ─── LLM Discovery File ────────────────────────────────
     const llmsEntry: MetadataRoute.Sitemap = [
         {
@@ -258,5 +276,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.75,
     }));
 
-    return [...staticPages, ...categoryPages, ...brandPages, ...provincialPages, ...provinceDeliveryPages, ...cityDeliveryPages2, ...cannabisLawPages, ...comparisonIndex, ...comparisonPages, ...blogPages, ...productPages, ...llmsEntry];
+    return [...staticPages, ...categoryPages, ...brandPages, ...provincialPages, ...provinceDeliveryPages, ...cityDeliveryPages2, ...cannabisLawPages, ...comparisonIndex, ...comparisonPages, ...strainIndexEntry, ...strainPages, ...blogPages, ...productPages, ...llmsEntry];
 }
