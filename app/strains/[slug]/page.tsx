@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
-    getAllSiteStrains,
     getSiteStrainBySlug,
     getSimilarStrains,
     strainTypeLabel,
+    terpeneNames,
     type SiteStrain,
 } from "@/lib/strains";
 import { getTerpeneInfo } from "@/lib/terpenes";
@@ -19,13 +19,8 @@ function jsonLd(obj: object): string {
     return JSON.stringify(obj).replace(/</g, "\\u003c");
 }
 
-// ─── SSG ─────────────────────────────────────────────────────
-
-export async function generateStaticParams() {
-    return getAllSiteStrains().map((s) => ({ slug: s.slug }));
-}
-
-export const dynamicParams = false;
+// 10,600+ strains — rendered on demand (the tenant middleware makes the
+// whole app dynamic anyway); unknown slugs 404 via the library lookup.
 
 // ─── Metadata ────────────────────────────────────────────────
 
@@ -36,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const strain = getSiteStrainBySlug(slug);
     if (!strain) return { title: "Strain Not Found" };
 
-    const terps = strain.terpenes.slice(0, 3).join(", ");
+    const terps = terpeneNames(strain).slice(0, 3).join(", ");
     const title = `${strain.name} Strain — Terpene Profile, THC % & Effects`;
     const description = `${strain.name} terpene profile: ${terps}. ${strainTypeLabel(strain)}${
         strain.thcMax ? `, up to ${strain.thcMax}% THC` : ""
@@ -49,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             `${strain.name.toLowerCase()} strain`,
             `${strain.name.toLowerCase()} terpenes`,
             `${strain.name.toLowerCase()} canada`,
-            ...strain.terpenes.map((t) => t.toLowerCase()),
+            ...terpeneNames(strain).map((t) => t.toLowerCase()),
             "terpene profile",
             "mohawk medibles",
         ],
@@ -66,13 +61,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 // ─── FAQ content (also emitted as FAQPage JSON-LD) ──────────
 
 function buildFaqs(strain: SiteStrain) {
+    const names = terpeneNames(strain);
+    const dominant = strain.terpenes[0];
     const faqs: { q: string; a: string }[] = [];
 
     faqs.push({
         q: `What terpenes are in ${strain.name}?`,
-        a: `${strain.name}'s dominant terpenes are ${strain.terpenes.join(", ")}. ${
-            strain.terpenes[0]
-                ? `${strain.terpenes[0]} leads the profile — ${getTerpeneInfo(strain.terpenes[0]).aroma.toLowerCase()}, the same terpene found in ${getTerpeneInfo(strain.terpenes[0]).foundIn}.`
+        a: `${strain.name}'s terpene profile is ${strain.terpenes
+            .map((t) => (t.level ? `${t.name} (${t.level})` : t.name))
+            .join(", ")}. ${
+            dominant
+                ? `${dominant.name} leads the profile — ${getTerpeneInfo(dominant.name).aroma.toLowerCase()}, the same terpene found in ${getTerpeneInfo(dominant.name).foundIn}.`
                 : ""
         }`,
     });
@@ -83,7 +82,7 @@ function buildFaqs(strain: SiteStrain) {
             strain.indicaPercent && strain.sativaPercent
                 ? `a ${strain.type.toLowerCase()} (${strain.indicaPercent}% indica / ${strain.sativaPercent}% sativa)`
                 : `classified as ${strain.type.toLowerCase()}`
-        }.`,
+        }${strain.lineage ? `, bred from ${strain.lineage}` : ""}.`,
     });
 
     if (strain.thcMax) {
@@ -101,7 +100,11 @@ function buildFaqs(strain: SiteStrain) {
             a: `Customers most often describe ${strain.name} as ${strain.effects
                 .slice(0, 4)
                 .join(", ")
-                .toLowerCase()}. Individual experiences vary — start low and go slow.`,
+                .toLowerCase()}${
+                strain.flavors?.length
+                    ? `, with ${strain.flavors.slice(0, 3).join(", ").toLowerCase()} flavour notes`
+                    : ""
+            }. Individual experiences vary — start low and go slow.`,
         });
     }
 
@@ -120,6 +123,12 @@ function buildFaqs(strain: SiteStrain) {
     return faqs;
 }
 
+const LEVEL_STYLE: Record<string, string> = {
+    high: "bg-green-600 text-white",
+    medium: "bg-green-300 text-green-950",
+    low: "bg-muted text-muted-foreground border border-border",
+};
+
 // ─── Page ────────────────────────────────────────────────────
 
 export default async function StrainPage({ params }: PageProps) {
@@ -129,7 +138,7 @@ export default async function StrainPage({ params }: PageProps) {
 
     const similar = getSimilarStrains(strain);
     const faqs = buildFaqs(strain);
-    const dominant = strain.terpenes[0] ? getTerpeneInfo(strain.terpenes[0]) : null;
+    const dominant = strain.terpenes[0] ? getTerpeneInfo(strain.terpenes[0].name) : null;
 
     const faqSchemaJson = {
         "@context": "https://schema.org",
@@ -150,7 +159,7 @@ export default async function StrainPage({ params }: PageProps) {
         author: { "@id": `${BASE_URL}/#organization` },
         publisher: { "@id": `${BASE_URL}/#organization` },
         mainEntityOfPage: `${BASE_URL}/strains/${strain.slug}`,
-        keywords: [`${strain.name} terpenes`, ...strain.terpenes].join(", "),
+        keywords: [`${strain.name} terpenes`, ...terpeneNames(strain)].join(", "),
     };
 
     const breadcrumbJson = breadcrumbSchema([
@@ -189,11 +198,11 @@ export default async function StrainPage({ params }: PageProps) {
                         >
                             {strainTypeLabel(strain)}
                         </span>
-                        {strain.thcMax && (
+                        {strain.thcMax ? (
                             <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-muted text-foreground border border-border">
                                 THC {strain.thcMin ? `${strain.thcMin}–${strain.thcMax}` : `up to ${strain.thcMax}`}%
                             </span>
-                        )}
+                        ) : null}
                         {strain.cbdMax ? (
                             <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-muted text-foreground border border-border">
                                 CBD ≤ {strain.cbdMax}%
@@ -203,15 +212,16 @@ export default async function StrainPage({ params }: PageProps) {
                     <h1 className="text-3xl md:text-5xl font-black tracking-tight text-foreground">
                         {strain.name} <span className="text-green-600">Strain Profile</span>
                     </h1>
-                    {strain.aliases.length > 0 && (
+                    {strain.aliases && strain.aliases.length > 0 && (
                         <p className="mt-2 text-sm text-muted-foreground">
                             Also known as: {strain.aliases.join(", ")}
                         </p>
                     )}
                     <p className="mt-4 text-base md:text-lg text-foreground/80 max-w-3xl leading-relaxed">
                         {strain.name} is a {strain.type.toLowerCase()} cannabis strain
+                        {strain.lineage ? ` (${strain.lineage})` : ""}
                         {dominant
-                            ? ` led by ${strain.terpenes[0]} — ${dominant.aroma.toLowerCase()}, the same aromatic compound found in ${dominant.foundIn}`
+                            ? ` led by ${strain.terpenes[0].name} — ${dominant.aroma.toLowerCase()}, the same aromatic compound found in ${dominant.foundIn}`
                             : ""}
                         {strain.effects.length > 0
                             ? `. Customers most often report feeling ${strain.effects.slice(0, 3).join(", ").toLowerCase()}`
@@ -226,15 +236,17 @@ export default async function StrainPage({ params }: PageProps) {
                         Terpene Profile
                     </h2>
                     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                        {strain.terpenes.map((t, i) => {
-                            const info = getTerpeneInfo(t);
+                        {strain.terpenes.map((t) => {
+                            const info = getTerpeneInfo(t.name);
                             return (
-                                <div key={t} className={`rounded-xl border p-4 ${info.color}`}>
+                                <div key={t.name} className={`rounded-xl border p-4 ${info.color}`}>
                                     <div className="flex items-center justify-between mb-1.5">
-                                        <span className="font-bold text-sm">{t}</span>
-                                        <span className="text-[10px] font-semibold uppercase tracking-wider opacity-70">
-                                            {i === 0 ? "Dominant" : `#${i + 1}`}
-                                        </span>
+                                        <span className="font-bold text-sm">{t.name}</span>
+                                        {t.level && (
+                                            <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${LEVEL_STYLE[t.level] || LEVEL_STYLE.low}`}>
+                                                {t.level}
+                                            </span>
+                                        )}
                                     </div>
                                     <p className="text-xs leading-relaxed opacity-90">{info.aroma}.</p>
                                     <p className="text-[11px] mt-1 opacity-70">Also found in {info.foundIn}.</p>
@@ -244,11 +256,11 @@ export default async function StrainPage({ params }: PageProps) {
                     </div>
                 </section>
 
-                {/* Effects */}
-                {strain.effects.length > 0 && (
+                {/* Effects + flavors */}
+                {(strain.effects.length > 0 || strain.flavors?.length) && (
                     <section className="mb-12" aria-labelledby="effects-heading">
                         <h2 id="effects-heading" className="text-xl md:text-2xl font-bold text-foreground mb-4">
-                            Reported Effects
+                            Reported Effects{strain.flavors?.length ? " & Flavours" : ""}
                         </h2>
                         <div className="flex flex-wrap gap-2">
                             {strain.effects.map((e) => (
@@ -257,6 +269,14 @@ export default async function StrainPage({ params }: PageProps) {
                                     className="px-3 py-1.5 rounded-full bg-muted border border-border text-sm font-medium text-foreground"
                                 >
                                     {e}
+                                </span>
+                            ))}
+                            {(strain.flavors || []).map((f) => (
+                                <span
+                                    key={f}
+                                    className="px-3 py-1.5 rounded-full bg-green-900/10 border border-green-600/20 text-sm font-medium text-green-700 dark:text-green-400"
+                                >
+                                    {f}
                                 </span>
                             ))}
                         </div>
@@ -333,7 +353,7 @@ export default async function StrainPage({ params }: PageProps) {
                                         {s.type}
                                     </p>
                                     <p className="text-xs text-muted-foreground mt-2 line-clamp-1">
-                                        {s.terpenes.slice(0, 3).join(" · ")}
+                                        {terpeneNames(s).slice(0, 3).join(" · ")}
                                     </p>
                                 </Link>
                             ))}

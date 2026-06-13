@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getAllSiteStrains, strainTypeLabel } from "@/lib/strains";
+import {
+    getAllSiteStrains,
+    getFeaturedStrains,
+    getTopStrainsByType,
+    getLetterCounts,
+    strainTypeLabel,
+    terpeneNames,
+} from "@/lib/strains";
 import { getTerpeneColor } from "@/lib/terpenes";
 import { breadcrumbSchema } from "@/lib/seo/schemas";
 
@@ -11,9 +18,9 @@ function jsonLd(obj: object): string {
 }
 
 export const metadata: Metadata = {
-    title: "Cannabis Strain Library — Terpene Profiles for 70+ Strains",
+    title: "Cannabis Strain Library — Terpene Profiles for 10,000+ Strains",
     description:
-        "Explore terpene profiles, THC ranges & reported effects for 70+ cannabis strains. Match strains by dominant terpenes and shop matching products — ships Canada-wide.",
+        "Terpene profiles, THC ranges & reported effects for 10,000+ cannabis strains. Match strains by dominant terpenes, browse A–Z, and shop matching products — ships Canada-wide.",
     keywords: [
         "cannabis strain library",
         "terpene profiles",
@@ -25,9 +32,9 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: `${BASE_URL}/strains` },
     openGraph: {
-        title: "Cannabis Strain Library — Terpene Profiles",
+        title: "Cannabis Strain Library — Terpene Profiles for 10,000+ Strains",
         description:
-            "Terpene profiles, THC ranges & effects for 70+ strains, matched to products in stock.",
+            "Terpene profiles, THC ranges & effects for 10,000+ strains, matched to products in stock.",
         url: `${BASE_URL}/strains`,
         type: "website",
     },
@@ -40,16 +47,52 @@ const TYPE_BLURB: Record<string, string> = {
     HYBRID: "Balanced crosses drawing character from both lineages.",
 };
 
+function StrainCard({ s }: { s: ReturnType<typeof getAllSiteStrains>[number] }) {
+    return (
+        <Link
+            href={`/strains/${s.slug}`}
+            className="rounded-xl border border-border bg-card p-4 hover:border-green-600/40 hover:shadow-md transition-all group"
+        >
+            <div className="flex items-start justify-between gap-2">
+                <p className="font-bold text-sm text-foreground group-hover:text-green-600 transition-colors">
+                    {s.name}
+                </p>
+                {s.products.length > 0 && (
+                    <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-green-100 text-green-800 border border-green-300 shrink-0">
+                        In stock
+                    </span>
+                )}
+            </div>
+            <p className="text-[11px] text-muted-foreground mt-0.5">
+                {strainTypeLabel(s)}
+                {s.thcMax ? ` · THC ≤ ${s.thcMax}%` : ""}
+            </p>
+            <div className="flex flex-wrap gap-1 mt-2.5">
+                {terpeneNames(s).slice(0, 3).map((t) => (
+                    <span
+                        key={t}
+                        className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full border ${getTerpeneColor(t)}`}
+                    >
+                        {t}
+                    </span>
+                ))}
+            </div>
+        </Link>
+    );
+}
+
 export default function StrainsIndexPage() {
-    const strains = getAllSiteStrains();
-    const inStock = strains.filter((s) => s.products.length > 0);
+    const total = getAllSiteStrains().length;
+    const featured = getFeaturedStrains();
+    const letters = getLetterCounts();
 
     const itemListJson = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         name: "Mohawk Medibles Cannabis Strain Library",
-        numberOfItems: strains.length,
-        itemListElement: strains.map((s, i) => ({
+        numberOfItems: total,
+        // Full 10k list would bloat the page — feature the in-stock strains.
+        itemListElement: featured.map((s, i) => ({
             "@type": "ListItem",
             position: i + 1,
             name: s.name,
@@ -69,7 +112,7 @@ export default function StrainsIndexPage() {
 
             <div className="container mx-auto px-4 py-12 max-w-6xl">
                 {/* Hero */}
-                <header className="text-center mb-12">
+                <header className="text-center mb-10">
                     <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-green-600 mb-3">
                         The Empire Standard™ · Terpene-Profiled
                     </p>
@@ -77,54 +120,66 @@ export default function StrainsIndexPage() {
                         Cannabis Strain Library
                     </h1>
                     <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                        Terpene profiles, THC ranges, and reported effects for {strains.length} strains —{" "}
-                        {inStock.length} matched to products you can order today. Find your strain, then find its
-                        aromatic neighbours.
+                        Lab-aggregated terpene profiles, THC ranges, and reported effects for{" "}
+                        <strong className="text-foreground">{total.toLocaleString()} strains</strong> — every one
+                        matched to its closest aromatic neighbours. {featured.length} are in stock right now.
                     </p>
                 </header>
 
-                {/* Sections by type */}
+                {/* A–Z browse */}
+                <nav aria-label="Browse strains alphabetically" className="mb-12">
+                    <div className="flex flex-wrap justify-center gap-1.5">
+                        {letters.map(({ letter, count }) => (
+                            <Link
+                                key={letter}
+                                href={`/strains/browse/${letter}`}
+                                title={`${count.toLocaleString()} strains`}
+                                className="w-9 h-9 flex items-center justify-center rounded-lg border border-border bg-card font-bold text-sm uppercase text-foreground hover:border-green-600/50 hover:text-green-600 transition-all"
+                            >
+                                {letter === "0" ? "#" : letter}
+                            </Link>
+                        ))}
+                    </div>
+                    <p className="text-center text-xs text-muted-foreground mt-2">
+                        Browse all {total.toLocaleString()} strains A–Z
+                    </p>
+                </nav>
+
+                {/* In stock now */}
+                {featured.length > 0 && (
+                    <section className="mb-12" aria-labelledby="featured-heading">
+                        <div className="flex items-baseline gap-3 mb-1.5">
+                            <h2 id="featured-heading" className="text-xl md:text-2xl font-bold text-foreground">
+                                In Stock Now
+                            </h2>
+                            <span className="text-xs text-muted-foreground">{featured.length}</span>
+                        </div>
+                        <p className="text-sm text-muted-foreground mb-5">
+                            Strains you can order today — each links to its products.
+                        </p>
+                        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                            {featured.map((s) => (
+                                <StrainCard key={s.slug} s={s} />
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* Top strains by type */}
                 {TYPE_ORDER.map((type) => {
-                    const group = strains.filter((s) => s.type === type);
+                    const group = getTopStrainsByType(type, 12);
                     if (group.length === 0) return null;
                     return (
                         <section key={type} className="mb-12" aria-labelledby={`type-${type}`}>
                             <div className="flex items-baseline gap-3 mb-1.5">
                                 <h2 id={`type-${type}`} className="text-xl md:text-2xl font-bold text-foreground">
-                                    {type.charAt(0) + type.slice(1).toLowerCase()} Strains
+                                    Popular {type.charAt(0) + type.slice(1).toLowerCase()} Strains
                                 </h2>
-                                <span className="text-xs text-muted-foreground">{group.length}</span>
                             </div>
                             <p className="text-sm text-muted-foreground mb-5">{TYPE_BLURB[type]}</p>
                             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                                 {group.map((s) => (
-                                    <Link
-                                        key={s.slug}
-                                        href={`/strains/${s.slug}`}
-                                        className="rounded-xl border border-border bg-card p-4 hover:border-green-600/40 hover:shadow-md transition-all group"
-                                    >
-                                        <div className="flex items-start justify-between gap-2">
-                                            <p className="font-bold text-sm text-foreground group-hover:text-green-600 transition-colors">
-                                                {s.name}
-                                            </p>
-                                            {s.products.length > 0 && (
-                                                <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-green-100 text-green-800 border border-green-300 shrink-0">
-                                                    In stock
-                                                </span>
-                                            )}
-                                        </div>
-                                        <p className="text-[11px] text-muted-foreground mt-0.5">{strainTypeLabel(s)}{s.thcMax ? ` · THC ≤ ${s.thcMax}%` : ""}</p>
-                                        <div className="flex flex-wrap gap-1 mt-2.5">
-                                            {s.terpenes.slice(0, 3).map((t) => (
-                                                <span
-                                                    key={t}
-                                                    className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full border ${getTerpeneColor(t)}`}
-                                                >
-                                                    {t}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </Link>
+                                    <StrainCard key={s.slug} s={s} />
                                 ))}
                             </div>
                         </section>

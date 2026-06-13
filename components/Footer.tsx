@@ -118,6 +118,7 @@ export default function Footer() {
                             <li><Link href="/deals" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Deals</Link></li>
                             <li><Link href="/how-to-order" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">How to Order</Link></li>
                             <li><Link href="/buy-weed-online-canada" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Buy Weed Online</Link></li>
+                            <li><Link href="/strains" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Strain Library</Link></li>
                             <li><Link href="/cannabis-laws" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Cannabis Laws</Link></li>
                             <li><Link href="/blog" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Blog</Link></li>
                             <li><Link href="/locations" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Visit Our Store</Link></li>

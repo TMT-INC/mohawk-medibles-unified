@@ -11,13 +11,11 @@
  *   - data/strains/_merge-plan.json  authoritative product↔strain matches (54 products)
  *   - lib/productData.ts             full catalog (names/slugs/paths for product linking)
  *
- * Selection:
- *   1. Every strain matched to a product by the merge plan (authoritative).
- *   2. Extended word-boundary name matches across the full catalog
- *      (multi-word or ≥6-char names only; needs-review products excluded —
- *      same human-review outcome as the merge plan; brand-word blocklist).
- *   3. Top-up by popularityScore until TARGET strains, requiring ≥3 terpenes
- *      AND ≥2 effects so every page has a real terpene profile.
+ * Selection: EVERY strain in the index with terpene data (~10,600 of
+ * 47,806 — the rest have no terpene profile to show). Product links come
+ * from the merge plan (authoritative) plus guarded extended name matching.
+ * Records are compact (no scraped descriptions, aliases only for
+ * product-linked strains) so the committed JSON stays ~2 MB.
  *
  * Compliance: effects pass through a medical-claims blocklist (Health Canada
  * §17 — no therapeutic claims). Seed-bank scraped descriptions are NOT used.
@@ -32,7 +30,6 @@ import { fileURLToPath } from "node:url";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const STRAINS_DIR = resolve(ROOT, "data/strains");
 const OUT_PATH = resolve(STRAINS_DIR, "site-strains.json");
-const TARGET = 72; // comfortably past the "60+ strains" goal
 
 // Words that look like strain names but are brand/venue collisions.
 const NAME_BLOCKLIST = new Set(["mohawk", "medibles", "empire", "canada", "special"]);
@@ -167,132 +164,81 @@ console.log(`[match] ${productsByStrain.size} distinct strains across catalog (+
 // ─── 3. Build entries + popularity top-up ────────────────────
 
 function cleanEffects(effects) {
+    // Chunk effects are {name, intensity} objects (index flattened them to
+    // strings) — normalize FIRST or the §17 blocklist silently never matches.
+    const named = (effects || [])
+        .map((e) => (typeof e === "string" ? { name: e, intensity: 0 } : { name: e?.name, intensity: e?.intensity || 0 }))
+        .filter((e) => e.name)
+        .sort((a, b) => b.intensity - a.intensity);
     const out = [];
-    for (const e of effects || []) {
-        if (MEDICAL_EFFECT_BLOCKLIST.has(e)) continue;
-        const c = EFFECT_CANON[e] || e;
+    for (const { name } of named) {
+        if (MEDICAL_EFFECT_BLOCKLIST.has(name)) continue;
+        const c = EFFECT_CANON[name] || name;
         if (!out.includes(c)) out.push(c);
     }
     return out;
 }
 
-const chunkCache = new Map();
-function fullRecord(slug) {
-    const entry = index[slug];
-    if (!entry?.chunk) return null;
-    if (!chunkCache.has(entry.chunk)) {
-        try {
-            chunkCache.set(entry.chunk, JSON.parse(readFileSync(resolve(STRAINS_DIR, entry.chunk), "utf8")));
-        } catch {
-            chunkCache.set(entry.chunk, []);
-        }
-    }
-    const arr = chunkCache.get(entry.chunk);
-    return (Array.isArray(arr) ? arr : Object.values(arr)).find((r) => r.slug === slug) || null;
-}
-
-function buildEntry(slug) {
-    const s = index[slug];
-    if (!s) return null;
-    const terpenes = s.terpenes || [];
-    const effects = cleanEffects(s.effects);
-    if (terpenes.length === 0) return null; // it's a terpene library
-    const rec = fullRecord(slug) || {};
-    const products = [...(productsByStrain.get(slug) || [])]
-        .map((ps) => productBySlug.get(ps))
-        .filter(Boolean)
-        .map((p) => ({
-            slug: p.slug,
-            name: p.name,
-            path: p.path || `/shop/${p.slug}`,
-            category: p.category,
-            price: p.price ?? null,
-        }));
-    return {
-        slug,
-        name: s.name,
-        type: s.type || "HYBRID",
-        thcMin: rec.thcMin ?? null,
-        thcMax: rec.thcMax ?? s.thcMax ?? null,
-        cbdMax: rec.cbdMax ?? s.cbdMax ?? null,
-        indicaPercent: rec.indicaPercent ?? null,
-        sativaPercent: rec.sativaPercent ?? null,
-        aliases: (rec.aliases || []).slice(0, 4),
-        popularityScore: s.popularityScore || 0,
-        terpenes,
-        effects,
-        products,
-    };
-}
+// ─── Build entries: EVERY terpene-bearing strain from the chunks ──────
 
 const entries = new Map();
-// Product-matched strains first (any terpene count ≥1).
-for (const slug of productsByStrain.keys()) {
-    const e = buildEntry(slug);
-    if (e) entries.set(slug, e);
-}
-console.log(`[build] ${entries.size} product-matched strains with terpene data`);
+const chunkFiles = readdirSync(STRAINS_DIR).filter((f) => /^chunk-\d+\.json$/.test(f));
+for (const f of chunkFiles) {
+    let arr;
+    try {
+        arr = JSON.parse(readFileSync(resolve(STRAINS_DIR, f), "utf8"));
+    } catch {
+        continue;
+    }
+    for (const rec of Array.isArray(arr) ? arr : Object.values(arr)) {
+        if (!rec.terpenes?.length || !rec.slug || entries.has(rec.slug)) continue;
+        const effects = cleanEffects(rec.effects);
+        const products = [...(productsByStrain.get(rec.slug) || [])]
+            .map((ps) => productBySlug.get(ps))
+            .filter(Boolean)
+            .map((p) => ({
+                slug: p.slug,
+                name: p.name,
+                path: p.path || `/shop/${p.slug}`,
+                category: p.category,
+                price: p.price ?? null,
+            }));
+        // Terpenes arrive as {name, level: high|medium|low} — keep the
+        // level (dominance) and sort high→low so terpenes[0] is dominant.
+        const LEVEL_RANK = { high: 0, medium: 1, low: 2 };
+        const terpenes = rec.terpenes
+            .map((t) => (typeof t === "string" ? { name: t } : { name: t?.name, ...(t?.level ? { level: t.level } : {}) }))
+            .filter((t) => t.name)
+            .sort((a, b) => (LEVEL_RANK[a.level] ?? 3) - (LEVEL_RANK[b.level] ?? 3));
+        if (!terpenes.length) continue;
 
-// Drop product-matched entries that lost every product to a longer match
-// AND whose name is a substring of an included strain (e.g. "Amnesia" when
-// "Amnesia Haze" carries the product) — duplicate thin pages help nobody.
-for (const [slug, e] of [...entries]) {
-    if (e.products.length > 0) continue;
-    const n = norm(e.name);
-    const shadowed = [...entries.values()].some(
-        (o) => o.slug !== slug && o.products.length > 0 && norm(o.name).includes(n)
-    );
-    if (shadowed) entries.delete(slug);
-}
-
-// Top-up by popularity with strict quality bar. Skip names that duplicate
-// (substring either way) a strain already in the library.
-if (entries.size < TARGET) {
-    const ranked = Object.entries(index)
-        .filter(([slug, s]) =>
-            !entries.has(slug) &&
-            (s.terpenes?.length || 0) >= 3 &&
-            (s.effects?.length || 0) >= 2 &&
-            (s.popularityScore || 0) > 0 &&
-            !NAME_BLOCKLIST.has(norm(s.name)))
-        .sort((a, b) => (b[1].popularityScore || 0) - (a[1].popularityScore || 0));
-    for (const [slug, s] of ranked) {
-        if (entries.size >= TARGET) break;
-        const n = norm(s.name);
-        const dup = [...entries.values()].some((o) => {
-            const on = norm(o.name);
-            return on.includes(n) || n.includes(on);
-        });
-        if (dup) continue;
-        const e = buildEntry(slug);
-        if (e) entries.set(slug, e);
+        // Compact record — omit null/empty fields so the committed JSON for
+        // 10k+ strains stays small. (No scraped descriptions, no
+        // medicalUses — §17; aliases only for strains that carry products.)
+        const e = { slug: rec.slug, name: rec.name, type: rec.type || "HYBRID", terpenes, effects, products };
+        if (rec.thcMin != null) e.thcMin = rec.thcMin;
+        if (rec.thcMax != null) e.thcMax = rec.thcMax;
+        if (rec.cbdMax != null) e.cbdMax = rec.cbdMax;
+        if (rec.indicaPercent != null) e.indicaPercent = rec.indicaPercent;
+        if (rec.sativaPercent != null) e.sativaPercent = rec.sativaPercent;
+        if (typeof rec.lineage === "string" && rec.lineage.trim()) e.lineage = rec.lineage.slice(0, 120);
+        const flavors = (rec.flavors || []).map((x) => x?.name).filter(Boolean).slice(0, 5);
+        if (flavors.length) e.flavors = flavors;
+        if (products.length > 0 && rec.aliases?.length) e.aliases = rec.aliases.slice(0, 4);
+        if (rec.popularityScore) e.popularityScore = rec.popularityScore;
+        entries.set(rec.slug, e);
     }
 }
+console.log(`[build] ${entries.size} terpene-bearing strains from ${chunkFiles.length} chunks`);
 
-// ─── Similar strains by terpene-profile overlap ──────────────
-
+// Deterministic order: product-linked first, then popularity, then slug —
+// the /strains index features the head of this list.
 const all = [...entries.values()];
-for (const e of all) {
-    const mine = new Set(e.terpenes);
-    e.similar = all
-        .filter((o) => o.slug !== e.slug)
-        .map((o) => {
-            const shared = o.terpenes.filter((t) => mine.has(t)).length;
-            const union = new Set([...o.terpenes, ...e.terpenes]).size;
-            return {
-                slug: o.slug,
-                jaccard: union ? shared / union : 0,
-                typeBonus: o.type === e.type ? 0.1 : 0,
-                pop: o.popularityScore || 0,
-            };
-        })
-        .sort((a, b) => (b.jaccard + b.typeBonus) - (a.jaccard + a.typeBonus) || b.pop - a.pop)
-        .slice(0, 4)
-        .map((x) => x.slug);
-}
+all.sort((a, b) => b.products.length - a.products.length || (b.popularityScore || 0) - (a.popularityScore || 0) || a.slug.localeCompare(b.slug));
 
-// Deterministic order: products first (by product count, then popularity).
-all.sort((a, b) => b.products.length - a.products.length || b.popularityScore - a.popularityScore || a.slug.localeCompare(b.slug));
+// NOTE: "similar strains" are computed at request time in lib/strains.ts
+// via terpene bitmasks — precomputing 4 slugs × 10k strains would add
+// ~600 KB to the JSON for no quality gain.
 
 const out = {
     generatedAt: new Date().toISOString(),
@@ -300,5 +246,5 @@ const out = {
     withProducts: all.filter((e) => e.products.length > 0).length,
     strains: all,
 };
-writeFileSync(OUT_PATH, JSON.stringify(out, null, 1));
+writeFileSync(OUT_PATH, JSON.stringify(out));
 console.log(`[done] ${out.total} strains (${out.withProducts} linked to products) → ${OUT_PATH}`);

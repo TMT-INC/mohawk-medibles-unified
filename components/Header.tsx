@@ -132,6 +132,21 @@ export default function Header() {
                                 pathname === "/shop-by-mood" ? "w-full" : "w-0 group-hover:w-full"
                             }`} />
                         </Link>
+                        <Link
+                            href="/strains"
+                            className={`relative group transition-colors ${
+                                pathname?.startsWith("/strains")
+                                    ? "text-lime"
+                                    : onHeroTransparent
+                                        ? "text-white/90 hover:text-lime"
+                                        : "text-charcoal-deep/80 dark:text-white/80 hover:text-forest dark:hover:text-lime"
+                            }`}
+                        >
+                            Strains
+                            <span className={`absolute -bottom-1 left-0 h-[1.5px] bg-lime transition-all duration-300 ${
+                                pathname?.startsWith("/strains") ? "w-full" : "w-0 group-hover:w-full"
+                            }`} />
+                        </Link>
                     </div>
                 </div>
 
@@ -225,6 +240,18 @@ export default function Header() {
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Shop by Mood
+                            <div className="w-8 h-[1px] bg-border" />
+                        </Link>
+                        <Link
+                            href="/strains"
+                            className={`flex items-center justify-between transition-colors ${
+                                pathname?.startsWith("/strains")
+                                    ? "text-lime"
+                                    : "text-foreground dark:text-white hover:text-lime"
+                            }`}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            Strain Library
                             <div className="w-8 h-[1px] bg-border" />
                         </Link>
                         <Link

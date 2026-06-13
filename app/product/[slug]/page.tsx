@@ -68,7 +68,7 @@ export default async function ProductPage({ params }: PageProps) {
     // vetted matches as the strain library itself.
     const strain = getStrainForProduct(slug);
     const strainProfile = strain
-        ? { slug: strain.slug, name: strain.name, terpenes: strain.terpenes }
+        ? { slug: strain.slug, name: strain.name, terpenes: strain.terpenes.map((t) => t.name) }
         : null;
 
     // Fetch inventory for stock status
