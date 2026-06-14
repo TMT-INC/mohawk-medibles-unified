@@ -144,6 +144,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 import { organizationSchema, localBusinessSchema, websiteSchema, faqSchema, buildSchemaGraph } from "@/lib/seo/schemas";
 import { getFAQsForSchema } from "@/lib/seo/aeo";
+import { prisma } from "@/lib/db";
 
 // SiteNavigationElement — helps Google generate sitelinks in SERP
 const siteNavSchema = {
@@ -163,14 +164,6 @@ const siteNavSchema = {
     { "@type": "WebPage", name: "Buy Weed Online Canada", url: "https://mohawkmedibles.ca/buy-weed-online-canada" },
   ],
 };
-
-const jsonLdGraph = buildSchemaGraph(
-  organizationSchema(),
-  localBusinessSchema(),
-  websiteSchema(),
-  faqSchema(getFAQsForSchema(undefined, 8)),
-  siteNavSchema,
-);
 
 // ─── Components ─────────────────────────────────────────────
 
@@ -194,6 +187,25 @@ export default async function RootLayout({
 }>) {
   const tenant = await getCurrentTenant();
   const domainUrl = tenant.domain ? `https://${tenant.domain}` : "https://mohawkmedibles.ca";
+
+  // Real Google Business Profile rating → LocalBusiness aggregateRating
+  // (rich-result stars in the local pack). Read-only; degrades to no rating
+  // if the table/row is absent.
+  let googleRating: { averageRating: number; totalReviews: number } | null = null;
+  try {
+    const meta = await prisma.googleReviewMeta.findUnique({ where: { id: "main" } });
+    if (meta) googleRating = { averageRating: meta.averageRating, totalReviews: meta.totalReviews };
+  } catch {
+    // Table may not exist in a fresh DB — omit the rating, don't fabricate.
+  }
+
+  const jsonLdGraph = buildSchemaGraph(
+    organizationSchema(),
+    localBusinessSchema(googleRating),
+    websiteSchema(),
+    faqSchema(getFAQsForSchema(undefined, 8)),
+    siteNavSchema,
+  );
 
   return (
     <html lang="en" suppressHydrationWarning>
