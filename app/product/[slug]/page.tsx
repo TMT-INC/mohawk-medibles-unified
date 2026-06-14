@@ -5,6 +5,7 @@ import { getSmartRelatedProducts } from "@/lib/recommendations";
 import { getProductBySlug as getProductBySlugLocal } from "@/lib/productData";
 import { productSchema, breadcrumbSchema, faqSchema, speakableSchema } from "@/lib/seo/schemas";
 import { generateProductFAQs } from "@/lib/seo/aeo";
+import { getStrainForProduct } from "@/lib/strains";
 import { prisma } from "@/lib/db";
 import ProductDetailClient from "./ProductDetailClient";
 
@@ -62,6 +63,14 @@ export default async function ProductPage({ params }: PageProps) {
         : [];
     const shortName = getShortName(product);
 
+    // Strain Library cross-link — internal linking between the product and
+    // its strain's terpene-profile page (and back), built from the same
+    // vetted matches as the strain library itself.
+    const strain = getStrainForProduct(slug);
+    const strainProfile = strain
+        ? { slug: strain.slug, name: strain.name, terpenes: strain.terpenes.map((t) => t.name) }
+        : null;
+
     // Fetch inventory for stock status
     let stockStatus: "in_stock" | "low_stock" | "out_of_stock" = "in_stock";
     let stockQuantity: number | null = null;
@@ -81,14 +90,22 @@ export default async function ProductPage({ params }: PageProps) {
         // Fallback: assume in stock if DB fails
     }
 
-    // Fetch review stats for this product
+    // Fetch review stats + real review content for this product.
+    // Only APPROVED reviews feed schema.org markup — never fabricate.
     let reviewStats: { totalReviews: number; averageRating: number; distribution: Record<number, number> } = {
         totalReviews: 0, averageRating: 0, distribution: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
     };
+    let schemaReviews: { author: string; reviewRating: number; reviewBody: string; datePublished: string }[] = [];
     try {
         const approvedReviews = await prisma.review.findMany({
             where: { productId: product.id, status: "APPROVED" },
-            select: { rating: true },
+            select: {
+                rating: true,
+                content: true,
+                createdAt: true,
+                user: { select: { name: true } },
+            },
+            orderBy: { createdAt: "desc" },
         });
         if (approvedReviews.length > 0) {
             const total = approvedReviews.length;
@@ -96,6 +113,14 @@ export default async function ProductPage({ params }: PageProps) {
             const dist: Record<number, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
             for (const r of approvedReviews) dist[r.rating] = (dist[r.rating] || 0) + 1;
             reviewStats = { totalReviews: total, averageRating: avg, distribution: dist };
+            // Up to 10 real reviews into Product schema (author name only —
+            // first name + last initial would be ideal but we store display name).
+            schemaReviews = approvedReviews.slice(0, 10).map((r) => ({
+                author: r.user?.name?.trim() || "Verified Customer",
+                reviewRating: r.rating,
+                reviewBody: (r.content || "").slice(0, 500),
+                datePublished: r.createdAt.toISOString().split("T")[0],
+            })).filter((r) => r.reviewBody.length > 0);
         }
     } catch {
         // Fallback: no reviews
@@ -117,6 +142,7 @@ export default async function ProductPage({ params }: PageProps) {
         inStock: stockStatus !== "out_of_stock",
         rating: reviewStats.averageRating || undefined,
         reviewCount: reviewStats.totalReviews || undefined,
+        reviews: schemaReviews,
     });
 
     const breadcrumbJsonLd = breadcrumbSchema([
@@ -156,6 +182,7 @@ export default async function ProductPage({ params }: PageProps) {
                 stockStatus={stockStatus}
                 stockQuantity={stockQuantity}
                 reviewStats={reviewStats}
+                strainProfile={strainProfile}
             />
         </>
     );

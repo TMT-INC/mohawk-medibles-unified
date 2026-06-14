@@ -197,7 +197,9 @@ function ProductCard({ product, onAddToCart, onNavigate }: {
     onAddToCart: (p: MedAgentProduct) => void;
     onNavigate: (path: string) => void;
 }) {
-    const productUrl = `/product/${product.slug}`;
+    // Prefer the canonical public path (/shop/<slug>, the WP-era URL shape
+    // declared in canonicals + sitemap) over the internal /product route.
+    const productUrl = product.path || `/shop/${product.slug}`;
     const hasImage = product.image && product.image.startsWith("http");
 
     return (
@@ -378,6 +380,11 @@ export default function AgentChatWidget() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const recognitionRef = useRef<any>(null);
     const sendMessageRef = useRef<(msg: string) => Promise<void>>(undefined);
+    // Ref indirection so effects defined above `speak` (greeting, persona
+    // switch) can speak without reordering the component or adding the
+    // full `speak` dependency chain to their effect deps.
+    const speakRef = useRef<(text: string, onEnd?: () => void) => void>(undefined);
+    const greetedRef = useRef(false);
     const { items: cartItems, addItem, removeItem, clearCart, total: cartTotal } = useCart();
 
     const persona = PERSONAS[activePersona];
@@ -401,7 +408,10 @@ export default function AgentChatWidget() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    // Initialize greeting with memory-aware personalization
+    // Initialize greeting with memory-aware personalization.
+    // The greeting is SPOKEN through the same TTS pipeline as every other
+    // reply (speakRef → ElevenLabs persona voice, browser fallback), so the
+    // user hears one consistent voice from hello through checkout.
     useEffect(() => {
         if (isOpen && messages.length === 0) {
             const memory = recordSessionStart();
@@ -426,11 +436,41 @@ export default function AgentChatWidget() {
 
             setMessages(msgs);
             setLatestMsgId(msgs[msgs.length - 1].id);
+            // greetedRef guards StrictMode's double effect-invocation in dev
+            // (one greeting = one TTS call). Persona switches re-greet via
+            // their own speak call in switchPersona.
+            if (!greetedRef.current) {
+                greetedRef.current = true;
+                speakRef.current?.(greeting);
+            }
         }
     }, [isOpen, persona.greeting, messages.length]);
 
     // ── Text-to-Speech with API TTS (browser fallback) ──
     const audioRef = useRef<HTMLAudioElement | null>(null);
+    // ONE VOICE per session: start on the ElevenLabs persona voice and only
+    // demote to the browser voice when the TTS API is genuinely down (5xx).
+    // Without this, a single failed call mid-conversation would flip the
+    // agent's voice — greeting in one voice, answers in another.
+    const ttsModeRef = useRef<"eleven" | "browser">("eleven");
+    const browserVoiceRef = useRef<SpeechSynthesisVoice | null>(null);
+
+    const pickBrowserVoice = useCallback((): SpeechSynthesisVoice | null => {
+        if (browserVoiceRef.current) return browserVoiceRef.current;
+        const voices = window.speechSynthesis?.getVoices?.() || [];
+        if (!voices.length) return null;
+        // Prefer a warm English voice closest to the ElevenLabs default (Matilda);
+        // fall back through progressively looser matches so the pick is stable.
+        const byName = (re: RegExp) => voices.find((v) => re.test(v.name) && v.lang.startsWith("en"));
+        const picked =
+            byName(/Samantha|Karen|Moira|Serena|Victoria/i) ||
+            byName(/Google (UK English Female|US English)/i) ||
+            voices.find((v) => v.lang === "en-CA") ||
+            voices.find((v) => v.lang.startsWith("en")) ||
+            null;
+        browserVoiceRef.current = picked;
+        return picked;
+    }, []);
 
     const speakWithBrowser = useCallback((text: string, onEnd?: () => void) => {
         if (typeof window === "undefined" || !window.speechSynthesis) {
@@ -440,6 +480,8 @@ export default function AgentChatWidget() {
         window.speechSynthesis.cancel();
         const clean = text.replace(/\*\*/g, "").replace(/\n/g, ". ").replace(/•/g, "").replace(/[#_~`]/g, "");
         const utterance = new SpeechSynthesisUtterance(clean);
+        const voice = pickBrowserVoice();
+        if (voice) utterance.voice = voice;
         utterance.rate = 1.0;
         utterance.pitch = 1.0;
         utterance.volume = 0.85;
@@ -448,7 +490,7 @@ export default function AgentChatWidget() {
         utterance.onend = () => { setIsSpeaking(false); onEnd?.(); };
         utterance.onerror = () => { setIsSpeaking(false); onEnd?.(); };
         window.speechSynthesis.speak(utterance);
-    }, []);
+    }, [pickBrowserVoice]);
 
     const speak = useCallback((text: string, onEnd?: () => void) => {
         if (!ttsEnabled) { onEnd?.(); return; }
@@ -459,6 +501,15 @@ export default function AgentChatWidget() {
             audioRef.current = null;
         }
 
+        // Session already demoted to browser voice — stay there for consistency.
+        if (ttsModeRef.current === "browser") {
+            speakWithBrowser(text, () => {
+                onEnd?.();
+                if (voiceConversationMode) setTimeout(() => startListeningRound(), 150);
+            });
+            return;
+        }
+
         setIsSpeaking(true);
 
         const currentPersona = localStorage.getItem("medagent_persona") || "medagent";
@@ -467,14 +518,23 @@ export default function AgentChatWidget() {
 
         const controller = new AbortController();
 
-        fetch("/api/sage/tts", {
+        // Trailing slash avoids the 308 redirect (trailingSlash: true) —
+        // one fewer round-trip before audio starts.
+        fetch("/api/sage/tts/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ text: clean, persona: currentPersona }),
             signal: controller.signal,
         })
             .then(async (res) => {
-                if (!res.ok || !res.body) throw new Error(`tts-${res.status}`);
+                if (!res.ok || !res.body) {
+                    // 5xx = API misconfigured/down (e.g. missing ELEVENLABS_API_KEY).
+                    // Demote the whole session to the browser voice so the agent
+                    // doesn't flip between two voices on retries. 4xx (rate limit)
+                    // is transient — fall back this once but keep trying ElevenLabs.
+                    if (res.status >= 500) ttsModeRef.current = "browser";
+                    throw new Error(`tts-${res.status}`);
+                }
 
                 // Try streaming playback via MediaSource (Chrome/Edge), fall back to full buffer (Safari/Firefox)
                 const canStream = typeof MediaSource !== "undefined" && MediaSource.isTypeSupported("audio/mpeg");
@@ -649,6 +709,9 @@ export default function AgentChatWidget() {
     // ── Switch persona ──────────────────────────────────────
     const switchPersona = useCallback((id: PersonaId) => {
         setActivePersona(id);
+        // Persist BEFORE speaking — speak() reads the persona from
+        // localStorage, so this ordering is what makes the new persona's
+        // greeting come out in the new persona's voice.
         localStorage.setItem("medagent_persona", id);
         setShowPersonaSelector(false);
         const p = PERSONAS[id];
@@ -657,6 +720,7 @@ export default function AgentChatWidget() {
         setLatestMsgId(greetId);
         setSessionId(null);
         sessionStorage.removeItem("medagent_session_id");
+        speakRef.current?.(p.greeting);
     }, []);
 
     // ── Handle actions (real-time — minimal delay) ──────────
@@ -799,7 +863,7 @@ export default function AgentChatWidget() {
             const detectedPrefs = detectPreferences(msg);
             detectedPrefs.forEach(p => rememberPreference(p));
 
-            const res = await fetch("/api/sage/chat", {
+            const res = await fetch("/api/sage/chat/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -881,6 +945,7 @@ export default function AgentChatWidget() {
     }, [handleActions, speak, cartTotal, cartItems, pathname]);
 
     useEffect(() => { sendMessageRef.current = sendMessageDirect; }, [sendMessageDirect]);
+    useEffect(() => { speakRef.current = speak; }, [speak]);
 
     const sendMessage = useCallback(async (text?: string) => {
         const msg = (text || inputValue).trim();

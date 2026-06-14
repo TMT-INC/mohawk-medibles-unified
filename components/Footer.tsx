@@ -118,6 +118,7 @@ export default function Footer() {
                             <li><Link href="/deals" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Deals</Link></li>
                             <li><Link href="/how-to-order" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">How to Order</Link></li>
                             <li><Link href="/buy-weed-online-canada" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Buy Weed Online</Link></li>
+                            <li><Link href="/strains" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Strain Library</Link></li>
                             <li><Link href="/cannabis-laws" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Cannabis Laws</Link></li>
                             <li><Link href="/blog" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Blog</Link></li>
                             <li><Link href="/locations" className="hover:text-lime hover:translate-x-0.5 transition-all duration-200 inline-block">Visit Our Store</Link></li>
@@ -217,9 +218,9 @@ export default function Footer() {
             {/* Copyright */}
             <div className="container mx-auto px-6 mt-4 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-cream/50 uppercase tracking-widest">
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-                    <span>45 Dundas Street Deseronto, Ontario</span>
+                    <span>45 Dundas Street, Deseronto, ON K0K 1X0</span>
                     <span className="hidden md:inline text-cream/20">|</span>
-                    <span>(613) 396 6728</span>
+                    <span>(613) 396-6728</span>
                     <span className="hidden md:inline text-cream/20">|</span>
                     <span>info@mohawkmedibles.ca</span>
                 </div>

@@ -112,7 +112,16 @@ VALID NAVIGATION PATHS (only use these):
 - /shop/{slug} — Individual product page (use the product's slug)
 - /shop?category={Category} — Filter shop by category (Categories: Flower, Edibles, Concentrates, Vapes, Pre-Rolls, CBD, Bath & Body, Accessories, Capsules, Mushrooms, Wellness, Hash)
 - /shop?search={query} — Search products
+- /strains — Strain Library: terpene profiles for 10,000+ strains
+- /strains/{strain-slug} — One strain's terpene profile, dominance levels, effects, flavours, lineage & similar strains (slug is the kebab-case strain name, e.g. /strains/gelato, /strains/amnesia-haze, /strains/death-bubba)
+- /strains/browse/{letter} — Browse strains A–Z
 - NEVER navigate to /cart (use /checkout instead)
+
+STRAIN & TERPENE RETRIEVAL — you are the fastest way to strain facts on this site:
+- "What terpenes are in Gelato?" → answer from knowledge (Caryophyllene-dominant etc.) AND emit [ACTION: NAVIGATE] /strains/gelato
+- "Something similar to Biscotti?" → mention the terpene-profile match AND emit [ACTION: NAVIGATE] /strains/biscotti (the page lists similar strains)
+- "Is Death Bubba indica?" → answer AND emit [ACTION: NAVIGATE] /strains/death-bubba
+- When a product carries a known strain, its product page shows the matched terpene profile and links to the strain page — point customers there for the deep dive.
 
 DELIVERY NAVIGATION — When a customer asks about delivery to a specific city or province, navigate them to the relevant delivery page:
 - "Do you deliver to Toronto?" → respond AND emit [ACTION: NAVIGATE] /delivery/ontario/toronto
@@ -239,7 +248,7 @@ export interface GeminiMessage {
 export interface GeminiResponse {
     text: string;
     actions: ParsedAction[];
-    model: "flash" | "pro";
+    model: "flash" | "pro" | "grok";
 }
 
 export interface ParsedAction {
@@ -310,7 +319,7 @@ async function callGemini(
 
 // ─── Action Parser ──────────────────────────────────────────
 
-function parseActions(text: string): ParsedAction[] {
+export function parseActions(text: string): ParsedAction[] {
     const actions: ParsedAction[] = [];
     const patterns: [RegExp, ParsedAction["type"]][] = [
         [/\[ACTION: NAVIGATE\]\s*(.+)/g, "NAVIGATE"],

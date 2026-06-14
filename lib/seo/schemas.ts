@@ -29,7 +29,10 @@ const BRAND = {
     ],
     address: {
         "@type": "PostalAddress" as const,
-        streetAddress: "Tyendinaga Mohawk Territory",
+        // NAP consistency: must match contact/locations pages exactly.
+        // "Tyendinaga Mohawk Territory" is the area, not the street
+        // address Google cross-references against GBP and citations.
+        streetAddress: "45 Dundas Street",
         addressLocality: "Deseronto",
         addressRegion: "ON",
         postalCode: "K0K 1X0",
@@ -37,8 +40,10 @@ const BRAND = {
     },
     geo: {
         "@type": "GeoCoordinates" as const,
-        latitude: 43.0667,
-        longitude: -80.1167,
+        // Deseronto, ON (Bay of Quinte). The previous values
+        // (43.0667, -80.1167) pointed ~290 km away near Brantford.
+        latitude: 44.1945,
+        longitude: -77.0494,
     },
     contactPoint: {
         "@type": "ContactPoint" as const,
@@ -91,7 +96,16 @@ export function organizationSchema() {
 
 // ─── LocalBusiness Schema (for Google Maps / Local Pack) ────
 
-export function localBusinessSchema() {
+/**
+ * @param googleRating  Real Google Business Profile rating/count (from the
+ *   GoogleReviewMeta table) — emitted as aggregateRating ONLY when present
+ *   and non-zero. Never fabricated; omitted when the sync hasn't run.
+ */
+export function localBusinessSchema(googleRating?: { averageRating: number; totalReviews: number } | null) {
+    const hasRating =
+        googleRating != null &&
+        googleRating.averageRating > 0 &&
+        googleRating.totalReviews > 0;
     return {
         "@context": "https://schema.org",
         "@type": ["Store", "LocalBusiness"],
@@ -101,6 +115,15 @@ export function localBusinessSchema() {
         description: BRAND.description,
         telephone: "+1-613-396-6728",
         email: "info@mohawkmedibles.ca",
+        ...(hasRating && {
+            aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: Math.round(googleRating!.averageRating * 10) / 10,
+                reviewCount: googleRating!.totalReviews,
+                bestRating: 5,
+                worstRating: 1,
+            },
+        }),
         address: {
             "@type": "PostalAddress",
             streetAddress: "45 Dundas Street",
@@ -113,7 +136,9 @@ export function localBusinessSchema() {
         url: BRAND.url,
         sameAs: BRAND.sameAs,
         parentOrganization: { "@id": `${BASE_URL}/#organization` },
-        hasMap: "https://maps.google.com/?q=Tyendinaga+Mohawk+Territory+Deseronto+Ontario+Canada",
+        // Point at the verified Google Business Profile place id (the same
+        // one the Google-reviews sync reads) instead of a loose text query.
+        hasMap: "https://www.google.com/maps/place/?q=place_id:ChIJUa3RTdDW14kRUbQUjhh1AWg",
         areaServed: [
             // Dynamically include all 72+ cities from the delivery network
             ...getAllCities().map(({ city }) => ({
@@ -212,23 +237,19 @@ interface ProductSchemaInput {
 // ─── Product Schema ─────────────────────────────────────────
 
 export function productSchema(product: ProductSchemaInput) {
-    // Use provided reviews or fall back to placeholder reviews
-    const reviews: ReviewInput[] = product.reviews && product.reviews.length > 0
-        ? product.reviews
-        : [
-            {
-                author: "Verified Buyer",
-                reviewRating: 5,
-                reviewBody: "Excellent quality product from Mohawk Medibles. Fast shipping and well-packaged.",
-                datePublished: "2025-12-15",
-            },
-            {
-                author: "Returning Customer",
-                reviewRating: 4,
-                reviewBody: "Great selection and consistent quality. The Empire Standard lives up to its name.",
-                datePublished: "2026-01-20",
-            },
-        ];
+    // Only real reviews — NEVER fabricate. Google's structured-data policy
+    // treats invented review markup as a violation (manual-action risk on
+    // the whole domain). A product with no approved reviews simply omits
+    // the review[] and aggregateRating fields.
+    const reviews: ReviewInput[] = product.reviews ?? [];
+    const hasRealReviews = reviews.length > 0;
+    // aggregateRating requires a real rating AND a real count (>0) — an
+    // AggregateRating with reviewCount:0/1-but-no-reviews is also a policy risk.
+    const hasAggregate =
+        typeof product.rating === "number" &&
+        product.rating > 0 &&
+        typeof product.reviewCount === "number" &&
+        product.reviewCount > 0;
 
     return {
         "@context": "https://schema.org",
@@ -299,30 +320,32 @@ export function productSchema(product: ProductSchemaInput) {
                 },
             },
         },
-        ...(product.rating && {
+        ...(hasAggregate && {
             aggregateRating: {
                 "@type": "AggregateRating",
                 ratingValue: product.rating,
-                reviewCount: product.reviewCount || 1,
+                reviewCount: product.reviewCount,
                 bestRating: 5,
                 worstRating: 1,
             },
         }),
-        review: reviews.map((r) => ({
-            "@type": "Review",
-            author: {
-                "@type": "Person",
-                name: r.author,
-            },
-            reviewRating: {
-                "@type": "Rating",
-                ratingValue: r.reviewRating,
-                bestRating: 5,
-                worstRating: 1,
-            },
-            reviewBody: r.reviewBody,
-            datePublished: r.datePublished,
-        })),
+        ...(hasRealReviews && {
+            review: reviews.map((r) => ({
+                "@type": "Review",
+                author: {
+                    "@type": "Person",
+                    name: r.author,
+                },
+                reviewRating: {
+                    "@type": "Rating",
+                    ratingValue: r.reviewRating,
+                    bestRating: 5,
+                    worstRating: 1,
+                },
+                reviewBody: r.reviewBody,
+                datePublished: r.datePublished,
+            })),
+        }),
         additionalProperty: [
             ...(product.thc ? [{ "@type": "PropertyValue", name: "THC", value: product.thc }] : []),
             ...(product.cbd ? [{ "@type": "PropertyValue", name: "CBD", value: product.cbd }] : []),
