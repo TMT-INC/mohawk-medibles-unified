@@ -38,34 +38,42 @@ export const metadata: Metadata = {
     },
 };
 
-async function getDispensaries() {
-    const dispensaries = await prisma.dispensary.findMany({
-        include: {
-            images: {
-                where: { isPrimary: true },
-                take: 1,
-            },
-            hours: true,
-        },
-        orderBy: [
-            { dataQualityScore: "desc" },
-            { averageRating: "desc" },
-        ],
-        take: 50,
-    });
+// Render live (directory data changes independently of deploys) so the build
+// never needs a DB connection to pre-render this page.
+export const dynamic = "force-dynamic";
 
-    return dispensaries;
+async function getDispensaries() {
+    try {
+        return await prisma.dispensary.findMany({
+            include: {
+                images: {
+                    where: { isPrimary: true },
+                    take: 1,
+                },
+                hours: true,
+            },
+            orderBy: [
+                { dataQualityScore: "desc" },
+                { averageRating: "desc" },
+            ],
+            take: 50,
+        });
+    } catch {
+        return [];
+    }
 }
 
 async function getProvinces() {
-    const provinces = await prisma.dispensary.groupBy({
-        by: ["province"],
-        _count: {
-            id: true,
-        },
-    });
-
-    return provinces;
+    try {
+        return await prisma.dispensary.groupBy({
+            by: ["province"],
+            _count: {
+                id: true,
+            },
+        });
+    } catch {
+        return [];
+    }
 }
 
 export default async function DirectoryPage() {

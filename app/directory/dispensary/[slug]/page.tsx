@@ -47,14 +47,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export async function generateStaticParams() {
-    const dispensaries = await prisma.dispensary.findMany({
-        select: { slug: true },
-        take: 100,
-    });
-
-    return dispensaries.map((d: { slug: string }) => ({
-        slug: d.slug,
-    }));
+    // Don't fail the build if the DB is unreachable at build time — fall back to
+    // on-demand rendering (dynamicParams defaults to true).
+    try {
+        const dispensaries = await prisma.dispensary.findMany({
+            select: { slug: true },
+            take: 100,
+        });
+        return dispensaries.map((d: { slug: string }) => ({ slug: d.slug }));
+    } catch {
+        return [];
+    }
 }
 
 async function getDispensary(slug: string) {
