@@ -45,25 +45,51 @@ function buildUrl({ endpoint, params = {}, version = 'v3' }: WCRequestOptions): 
   return url.toString();
 }
 
+// Cloudflare's bot-fight mode challenges non-browser User-Agents and bursts.
+// Present a real browser UA and retry transient / challenge statuses with
+// backoff — without this, ~1/3 of paginated requests get 403'd and silently
+// dropped (the cause of the historical order-backfill gaps).
+const WC_UA =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
+const RETRYABLE_STATUSES = new Set([403, 408, 425, 429, 500, 502, 503, 520, 522, 524]);
+
 async function wcFetch<T>(options: WCRequestOptions): Promise<WCPaginatedResult<T>> {
   const url = buildUrl(options);
+  const maxAttempts = 6;
+  let lastErr: unknown;
 
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: { 'Accept': 'application/json' },
-  });
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: { 'Accept': 'application/json', 'User-Agent': WC_UA },
+      });
 
-  if (!response.ok) {
-    const body = await response.text();
-    throw new Error(`WC API ${response.status}: ${body}`);
+      if (!response.ok) {
+        if (RETRYABLE_STATUSES.has(response.status) && attempt < maxAttempts) {
+          await sleep(1000 * attempt);
+          continue;
+        }
+        const body = await response.text();
+        throw new Error(`WC API ${response.status}: ${body.slice(0, 200)}`);
+      }
+
+      const data = await response.json() as T[];
+      const total = parseInt(response.headers.get('x-wp-total') || '0', 10);
+      const totalPages = parseInt(response.headers.get('x-wp-totalpages') || '0', 10);
+      const page = Number(options.params?.page || 1);
+
+      return { data, total, totalPages, page };
+    } catch (err) {
+      lastErr = err;
+      if (attempt < maxAttempts) {
+        await sleep(1000 * attempt);
+        continue;
+      }
+    }
   }
 
-  const data = await response.json() as T[];
-  const total = parseInt(response.headers.get('x-wp-total') || '0', 10);
-  const totalPages = parseInt(response.headers.get('x-wp-totalpages') || '0', 10);
-  const page = Number(options.params?.page || 1);
-
-  return { data, total, totalPages, page };
+  throw lastErr instanceof Error ? lastErr : new Error('WC API request failed');
 }
 
 // ─── Products (via Store API v1 — no auth, bypasses plugin bug) ────
