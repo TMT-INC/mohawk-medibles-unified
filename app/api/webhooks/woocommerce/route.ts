@@ -78,24 +78,33 @@ async function handleOrder(wc: any, topic: string) {
     (sum: number, item: any) => sum + parseFloat(item.total || '0'), 0
   ) || 0;
 
+  // Don't let a stale / replayed / out-of-order WC webhook regress an order that
+  // was already confirmed PAID by the native rail (Wampum e-Transfer / BTCPay).
+  // When the local order is PAID and the incoming WC status maps to non-PAID,
+  // leave status + paymentStatus untouched (undefined => Prisma skips the field).
+  const existingOrder = await prisma.order.findUnique({ where: { wcOrderId: wc.id } });
+  const incomingStatus = ORDER_STATUS_MAP[wc.status] || 'PENDING';
+  const incomingPayment = mapPaymentStatus(wc.status);
+  const keepPaid = existingOrder?.paymentStatus === 'PAID' && incomingPayment !== 'PAID';
+
   // Upsert order
   await prisma.order.upsert({
     where: { wcOrderId: wc.id },
     create: {
       wcOrderId: wc.id, wcOrderKey: wc.order_key, orderNumber: `MM-${wc.id}`,
-      userId, status: (ORDER_STATUS_MAP[wc.status] || 'PENDING') as any,
+      userId, status: incomingStatus as any,
       subtotal, shippingCost: parseFloat(wc.shipping_total) || 0,
       tax: parseFloat(wc.total_tax) || 0, discount: parseFloat(wc.discount_total) || 0,
       total: parseFloat(wc.total) || 0, currency: wc.currency || 'CAD',
       paymentMethod: wc.payment_method || null, paymentMethodTitle: wc.payment_method_title || null,
-      paymentReference: wc.transaction_id || null, paymentStatus: mapPaymentStatus(wc.status) as any,
+      paymentReference: wc.transaction_id || null, paymentStatus: incomingPayment as any,
       customerNote: wc.customer_note || null, ipAddress: wc.customer_ip_address || null,
       billingData: JSON.stringify(wc.billing), shippingData: JSON.stringify(wc.shipping),
       createdAt: new Date(wc.date_created),
     },
     update: {
-      status: (ORDER_STATUS_MAP[wc.status] || 'PENDING') as any,
-      paymentStatus: mapPaymentStatus(wc.status) as any,
+      status: keepPaid ? undefined : (incomingStatus as any),
+      paymentStatus: keepPaid ? undefined : (incomingPayment as any),
       total: parseFloat(wc.total) || 0,
       shippingCost: parseFloat(wc.shipping_total) || 0,
       discount: parseFloat(wc.discount_total) || 0,
@@ -394,14 +403,18 @@ async function handleCoupon(wc: any, topic: string) {
 export async function POST(req: NextRequest) {
   const rawBody = await req.text();
 
-  // Verify HMAC signature
+  // Verify HMAC signature — fail CLOSED. An unset/empty secret must NOT skip
+  // verification: that let anyone POST forged order/product/coupon mutations
+  // (e.g. flip an order to processing => PAID, rewrite prices, mint 100%-off codes).
   const wcWebhookSecret = process.env.WC_WEBHOOK_SECRET;
-  if (wcWebhookSecret) {
-    const signature = req.headers.get('x-wc-webhook-signature') || '';
-    if (!signature || !verifyWebhookSignature(rawBody, signature, wcWebhookSecret)) {
-      log.wc.error("Invalid signature");
-      return NextResponse.json({ error: 'Invalid signature' }, { status: 401 });
-    }
+  if (!wcWebhookSecret) {
+    log.wc.error("WC_WEBHOOK_SECRET not configured — refusing webhook");
+    return NextResponse.json({ error: 'Webhook not configured' }, { status: 503 });
+  }
+  const signature = req.headers.get('x-wc-webhook-signature') || '';
+  if (!signature || !verifyWebhookSignature(rawBody, signature, wcWebhookSecret)) {
+    log.wc.error("Invalid signature");
+    return NextResponse.json({ error: 'Invalid signature' }, { status: 401 });
   }
 
   const topic = req.headers.get('x-wc-webhook-topic') || '';

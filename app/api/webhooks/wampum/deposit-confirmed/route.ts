@@ -92,6 +92,46 @@ export async function POST(req: NextRequest) {
         });
     }
 
+    // Defense-in-depth: never confirm an order as PAID for LESS than its total.
+    // Wampum/Blacfin validates amounts upstream, but the store keeps its own floor
+    // so any upstream gap or operator error can't ship goods for a short payment.
+    const EPS = 0.01;
+    const paidAmount = Number(t.amount);
+    if (t.amount != null && Number.isFinite(paidAmount) && paidAmount + EPS < Number(order.total)) {
+        await prisma.orderStatusHistory.create({
+            data: {
+                orderId: order.id,
+                status: order.status,
+                note: `⚠ SHORT-PAID e-Transfer via Wampum: received C$${paidAmount.toFixed(2)} of C$${Number(order.total).toFixed(2)}. Held for manual review. Interac ref: ${t.reference ?? "?"}; sender: ${t.sender_name ?? "?"}.`,
+                changedBy: "wampum",
+            },
+        }).catch(() => { /* non-blocking */ });
+        try {
+            await sendEmail({
+                to: ADMIN_NOTIFY_EMAIL,
+                subject: `🚨 SHORT-PAID e-Transfer on order ${order.orderNumber}`,
+                html: [
+                    `<p>Wampum confirmed a deposit that is LESS than the order total — the order was NOT marked paid.</p>`,
+                    `<p>Received: C$${paidAmount.toFixed(2)}<br/>`,
+                    `Order total: C$${Number(order.total).toFixed(2)}<br/>`,
+                    `Sender: ${t.sender_name ?? "?"}<br/>`,
+                    `Interac ref: ${t.reference ?? "?"}</p>`,
+                    `<p>Manual action required: collect the difference or refund.</p>`,
+                ].join("\n"),
+            });
+        } catch (err) {
+            log.checkout.error("Wampum deposit-confirmed: short-paid alert failed", {
+                orderId: order.id,
+                error: err instanceof Error ? err.message : "Unknown",
+            });
+        }
+        return NextResponse.json(
+            { ok: false, error: "short_paid", received: paidAmount, expected: Number(order.total), wc_order_id: order.id },
+            { status: 409 }
+        );
+    }
+    const confirmedAmount = (t.amount != null && Number.isFinite(paidAmount)) ? paidAmount : Number(order.total);
+
     // Atomic claim — only the first delivery flips to PAYMENT_CONFIRMED.
     // Concurrent redeliveries find 0 affected rows and skip the side effects
     // (no duplicate email).
