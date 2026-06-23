@@ -18,9 +18,27 @@ export async function POST(req: NextRequest) {
     // Set XML content type for response
     const xmlHeaders = { "Content-Type": "application/xml; charset=utf-8" };
 
+    // Credit card via Digipay is disabled for launch (e-Transfer + crypto only;
+    // CC returns as a BluePeak fast-follow). Refuse postbacks unless explicitly
+    // re-enabled — this endpoint marks an order PAID + creates a shipping label,
+    // and its only auth is an IP allowlist, so a forged postback must not be able
+    // to flip ANY pending order (including e-Transfer/crypto) to PAID.
+    if (process.env.DIGIPAY_ENABLED !== "true") {
+        return new NextResponse(
+            digipayXmlResponse("fail", "Gateway disabled", 101),
+            { status: 403, headers: xmlHeaders }
+        );
+    }
+
     try {
         // ── IP Whitelist ────────────────────────────────────
-        const ip = req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") || "unknown";
+        // Use the platform-set client IP, never the spoofable leftmost
+        // x-forwarded-for hop (which would defeat the allowlist).
+        const ip =
+            req.headers.get("cf-connecting-ip") ||
+            req.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim() ||
+            req.headers.get("x-real-ip") ||
+            "unknown";
         if (!isDigipayIp(ip)) {
             log.webhook.warn("Rejected — unauthorized IP", { ip });
             return new NextResponse(

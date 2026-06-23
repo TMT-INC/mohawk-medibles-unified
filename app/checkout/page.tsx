@@ -31,13 +31,9 @@ interface CouponResult {
 
 type PaymentMethod = "credit_card" | "etransfer" | "crypto";
 
+// Credit card is disabled for launch (e-Transfer + crypto only; CC returns as a
+// BluePeak fast-follow). Re-add the credit_card entry here when it ships.
 const PAYMENT_METHODS: { id: PaymentMethod; title: string; description: string; icon: React.ReactNode }[] = [
-    {
-        id: "credit_card",
-        title: "Credit Card",
-        description: "Visa, Mastercard, or Amex",
-        icon: <CreditCard className="h-5 w-5" />,
-    },
     {
         id: "etransfer",
         title: "Interac e-Transfer",
@@ -64,7 +60,7 @@ export default function CheckoutPage() {
     const { items, removeItem, addItem, updateQuantity, clearCart, total } = useCart();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-    const [selectedPayment, setSelectedPayment] = useState<PaymentMethod>("credit_card");
+    const [selectedPayment, setSelectedPayment] = useState<PaymentMethod>("etransfer");
 
     // Authenticated user state (for email pre-fill + faster checkout)
     const [userEmail, setUserEmail] = useState<string | null>(null);

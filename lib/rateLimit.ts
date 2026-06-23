@@ -186,10 +186,15 @@ export async function checkRateLimit(
  * Get client IP from request (handles proxies).
  */
 export function getClientIP(request: NextRequest): string {
+    // Prefer the platform-set client IP (Cloudflare / Vercel), which the edge
+    // controls and a client cannot forge. NEVER key on the leftmost
+    // x-forwarded-for hop — it is client-supplied, so an attacker could rotate
+    // it to land every request in a fresh bucket and defeat the limiter.
     return (
-        request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-        request.headers.get("x-real-ip") ||
         request.headers.get("cf-connecting-ip") ||
+        request.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim() ||
+        request.headers.get("x-real-ip") ||
+        request.headers.get("x-forwarded-for")?.split(",").pop()?.trim() ||
         "anonymous"
     );
 }

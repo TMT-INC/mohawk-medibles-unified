@@ -78,6 +78,14 @@ export async function POST(req: NextRequest) {
         if (!body.payment_method) {
             return NextResponse.json({ error: "Payment method required" }, { status: 400 });
         }
+        // Credit card is disabled for launch (e-Transfer + crypto only; CC returns
+        // as a BluePeak fast-follow). Reject early so no orphan Digipay order is created.
+        if (body.payment_method === "credit_card" || body.payment_method === "paygobillingcc") {
+            return NextResponse.json(
+                { error: "Credit card payments are temporarily unavailable. Please use Interac e-Transfer or Cryptocurrency." },
+                { status: 400 }
+            );
+        }
 
         // ── Resolve products and calculate total ───────────
         let subtotal = 0;
@@ -100,6 +108,14 @@ export async function POST(req: NextRequest) {
                     { status: 400 }
                 );
             }
+            // Never allow a $0 / priceless product to be purchased — some WC
+            // variable / price-range SKUs serialize to price 0.
+            if (!(product.price > 0)) {
+                return NextResponse.json(
+                    { error: `"${product.name}" is not available for purchase` },
+                    { status: 400 }
+                );
+            }
 
             const qty = Math.min(Math.max(item.quantity, 1), 50);
             const lineTotal = product.price * qty;
@@ -113,33 +129,7 @@ export async function POST(req: NextRequest) {
             });
         }
 
-        // ── Apply coupon (if any) ──────────────────────────
-        let discount = 0;
-        let hasFreeShipping = false;
-
-        if (body.coupon_codes?.length) {
-            for (const code of body.coupon_codes) {
-                const coupon = await prisma.coupon.findFirst({
-                    where: { code: code.toUpperCase(), active: true },
-                });
-                if (coupon) {
-                    if (coupon.type === "PERCENTAGE") {
-                        discount += subtotal * (coupon.value / 100);
-                    } else if (coupon.type === "FIXED_AMOUNT") {
-                        discount += coupon.value;
-                    } else if (coupon.type === "FREE_SHIPPING") {
-                        hasFreeShipping = true;
-                    }
-                }
-            }
-        }
-
-        const subtotalAfterDiscount = Math.max(0, subtotal - discount);
-        const shipping = hasFreeShipping ? 0 : (subtotal >= 149 ? 0 : 15);
-        const tax = 0; // Tax-free — Indigenous sovereignty
-        const total = +(subtotalAfterDiscount + shipping + tax).toFixed(2);
-
-        // ── Find or create user ────────────────────────────
+        // ── Find or create user (needed for per-customer coupon checks) ──
         let user = await prisma.user.findUnique({ where: { email: body.billing.email } });
         if (!user) {
             user = await prisma.user.create({
@@ -153,10 +143,50 @@ export async function POST(req: NextRequest) {
             });
         }
 
+        // ── Apply coupon (single, fully validated) ─────────
+        let discount = 0;
+        let hasFreeShipping = false;
+        let appliedCoupon: { id: number; type: string; maxUses: number | null } | null = null;
+
+        // One coupon per order; de-dup defensively (no percentage stacking).
+        const couponCode = body.coupon_codes?.length
+            ? String(body.coupon_codes[0]).toUpperCase().trim()
+            : null;
+        if (couponCode) {
+            const coupon = await prisma.coupon.findFirst({ where: { code: couponCode, active: true } });
+            const now = new Date();
+            const dateOk = !!coupon && (!coupon.validFrom || coupon.validFrom <= now) && (!coupon.validUntil || coupon.validUntil >= now);
+            const minOk = !!coupon && (coupon.minOrderTotal == null || subtotal >= coupon.minOrderTotal);
+            const usesOk = !!coupon && (coupon.maxUses == null || coupon.usedCount < coupon.maxUses);
+            if (coupon && dateOk && minOk && usesOk) {
+                const usedByCustomer = await prisma.couponUsage.count({
+                    where: { couponId: coupon.id, userId: user.id },
+                });
+                if (coupon.perCustomer == null || usedByCustomer < coupon.perCustomer) {
+                    if (coupon.type === "PERCENTAGE") {
+                        discount = subtotal * (coupon.value / 100);
+                    } else if (coupon.type === "FIXED_AMOUNT") {
+                        discount = coupon.value;
+                    } else if (coupon.type === "FREE_SHIPPING") {
+                        hasFreeShipping = true;
+                    }
+                    appliedCoupon = { id: coupon.id, type: coupon.type, maxUses: coupon.maxUses };
+                }
+            }
+        }
+        // A discount can never exceed the cart subtotal.
+        discount = Math.min(discount, subtotal);
+
+        const subtotalAfterDiscount = Math.max(0, subtotal - discount);
+        const shipping = hasFreeShipping ? 0 : (subtotal >= 149 ? 0 : 15);
+        const tax = 0; // Tax-free — Indigenous sovereignty
+        const total = +(subtotalAfterDiscount + shipping + tax).toFixed(2);
+
         // ── Create order in DB ─────────────────────────────
         const isEtransfer = body.payment_method === "etransfer" || body.payment_method === "digipay_etransfer_manual";
         const orderNumber = `MM-${Date.now().toString(36).toUpperCase()}`;
 
+        const noInventoryItems: string[] = [];
         const order = await prisma.$transaction(async (tx) => {
             // ── Stock check & decrement ────────────────────
             for (const item of resolvedItems) {
@@ -165,6 +195,12 @@ export async function POST(req: NextRequest) {
                 });
                 if (inv && inv.quantity < item.quantity && !inv.backorder) {
                     throw new Error(`Insufficient stock for "${item.name}" (available: ${inv.quantity}, requested: ${item.quantity})`);
+                }
+                if (!inv) {
+                    // No inventory record — can't verify/decrement stock. Allow the
+                    // order (don't block sellable catalog) but flag it for manual
+                    // stock verification so it isn't a silent unlimited oversell.
+                    noInventoryItems.push(item.name);
                 }
                 if (inv) {
                     await tx.inventory.update({
@@ -241,9 +277,27 @@ export async function POST(req: NextRequest) {
                 data: {
                     orderId: newOrder.id,
                     status: isEtransfer ? "ON_HOLD" : "PENDING",
-                    note: `Order created via ${tenant.domain || "mohawkmedibles.ca"}. Payment: ${getPaymentTitle(body.payment_method)}`,
+                    note: `Order created via ${tenant.domain || "mohawkmedibles.ca"}. Payment: ${getPaymentTitle(body.payment_method)}`
+                        + (noInventoryItems.length ? ` ⚠ No inventory record for: ${noInventoryItems.join(", ")} — verify stock before fulfilling.` : ""),
                 },
             });
+
+            // Atomically claim the coupon use (guards maxUses against races) and
+            // record the per-customer usage. Rolls the whole order back on failure.
+            if (appliedCoupon) {
+                const couponClaim = await tx.coupon.updateMany({
+                    where: appliedCoupon.maxUses == null
+                        ? { id: appliedCoupon.id }
+                        : { id: appliedCoupon.id, usedCount: { lt: appliedCoupon.maxUses } },
+                    data: { usedCount: { increment: 1 } },
+                });
+                if (couponClaim.count !== 1) {
+                    throw new Error("This coupon is no longer available.");
+                }
+                await tx.couponUsage.create({
+                    data: { couponId: appliedCoupon.id, userId: user.id, orderId: newOrder.id },
+                });
+            }
 
             return newOrder;
         });
@@ -456,12 +510,6 @@ export async function GET() {
     const tenant = await getCurrentTenant();
 
     const methods = [
-        {
-            id: "credit_card",
-            title: "Credit Card",
-            description: "Pay securely with Visa, Mastercard, or Amex. Statement shows AMIGO WELLNESS.",
-            icon: "credit-card",
-        },
         {
             id: "etransfer",
             title: "Interac e-Transfer",
