@@ -91,12 +91,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.5,
         },
         {
-            url: `${BASE_URL}/accessibility`,
-            lastModified: now,
-            changeFrequency: "monthly",
-            priority: 0.4,
-        },
-        {
             url: `${BASE_URL}/deals`,
             lastModified: now,
             changeFrequency: "daily",
@@ -164,34 +158,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.85,
     }));
 
-    // ─── Brand Filter Pages (Shop by Brand — AEO/GEO signals) ──
-    const brandNames = [
-        "Drizzle Factory", "Plant of Life", "AKI Wellness", "Stellar",
-        "Euphoria Extractions", "Euphoria Psychedelics", "Wesley Tea Co.",
-        "Cactus Labs", "Burn", "Diamond Concentrates", "Geek Bar",
-        "Fungara", "Zoomz", "ASEND", "Backwoods", "Al Fakher",
-    ];
-    const brandPages: MetadataRoute.Sitemap = brandNames.map((brand) => ({
-        url: `${BASE_URL}/shop?category=Brands&brand=${encodeURIComponent(brand)}`,
-        lastModified: now,
-        changeFrequency: "weekly" as const,
-        priority: 0.7,
-    }));
-
-    // ─── Provincial Delivery Pages (match WordPress /province-delivery/) ──
-    const provincialSlugs = [
-        "ontario-delivery", "alberta-delivery", "british-columbia-delivery",
-        "quebec-delivery", "manitoba-delivery", "saskatchewan-delivery",
-        "nova-scotia-delivery", "new-brunswick-delivery", "new-foundland-labrador-delivery",
-        "prince-edward-island-delivery", "northwest-territories-delivery",
-        "nunavut-delivery", "yukon-delivery",
-    ];
-    const provincialPages: MetadataRoute.Sitemap = provincialSlugs.map((slug) => ({
-        url: `${BASE_URL}/${slug}`,
-        lastModified: now,
-        changeFrequency: "weekly" as const,
-        priority: 0.85,
-    }));
+    // NOTE: brand pages (/shop?category=Brands&brand=) are intentionally NOT in
+    // the sitemap — they are non-canonical query strings. WP /brand/:slug URLs
+    // 301 to /shop (see next.config.ts). The WP-style /province-delivery slugs are
+    // likewise dropped: they 301 to the canonical /delivery/[province] URLs below.
 
     // ─── New Province Delivery Pages (under /delivery/[province]) ───────────
     const provinceDeliveryPages: MetadataRoute.Sitemap = getAllProvinces().map((province) => ({
@@ -258,5 +228,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.75,
     }));
 
-    return [...staticPages, ...categoryPages, ...brandPages, ...provincialPages, ...provinceDeliveryPages, ...cityDeliveryPages2, ...cannabisLawPages, ...comparisonIndex, ...comparisonPages, ...blogPages, ...productPages, ...llmsEntry];
+    return [...staticPages, ...categoryPages, ...provinceDeliveryPages, ...cityDeliveryPages2, ...cannabisLawPages, ...comparisonIndex, ...comparisonPages, ...blogPages, ...productPages, ...llmsEntry];
 }

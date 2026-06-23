@@ -154,6 +154,38 @@ const nextConfig: NextConfig = {
 
       // Legacy WP shop listing
       { source: "/mohawk-medibles-shop/", destination: "/shop/", permanent: true },
+
+      // ── WP page slug renames (indexed .ca pages with a different slug here) ──
+      { source: "/privacy-policy/", destination: "/privacy/", permanent: true },
+      { source: "/terms-of-use/", destination: "/terms/", permanent: true },
+      { source: "/return-policy/", destination: "/returns-policy/", permanent: true },
+      { source: "/about-us/", destination: "/about/", permanent: true },
+      { source: "/medibles-support/", destination: "/support/", permanent: true },
+      { source: "/mohawk-medibles-support/", destination: "/support/", permanent: true },
+      { source: "/medibles-blog/", destination: "/blog/", permanent: true },
+      { source: "/contact-medibles-wholesale/", destination: "/wholesale/", permanent: true },
+      { source: "/accessibility/", destination: "/", permanent: true },
+      { source: "/404-2/", destination: "/", permanent: true },
+
+      // ── WP province delivery pages → /delivery/[province] ──
+      { source: "/alberta-delivery/", destination: "/delivery/alberta/", permanent: true },
+      { source: "/british-columbia-delivery/", destination: "/delivery/british-columbia/", permanent: true },
+      { source: "/manitoba-delivery/", destination: "/delivery/manitoba/", permanent: true },
+      { source: "/new-brunswick-delivery/", destination: "/delivery/new-brunswick/", permanent: true },
+      { source: "/new-foundland-labrador-delivery/", destination: "/delivery/newfoundland-labrador/", permanent: true },
+      { source: "/northwest-territories-delivery/", destination: "/delivery/northwest-territories/", permanent: true },
+      { source: "/nova-scotia-delivery/", destination: "/delivery/nova-scotia/", permanent: true },
+      { source: "/nunavut-delivery/", destination: "/delivery/nunavut/", permanent: true },
+      { source: "/ontario-delivery/", destination: "/delivery/ontario/", permanent: true },
+      { source: "/prince-edward-island-delivery/", destination: "/delivery/prince-edward-island/", permanent: true },
+      { source: "/quebec-delivery/", destination: "/delivery/quebec/", permanent: true },
+      { source: "/saskatchewan-delivery/", destination: "/delivery/saskatchewan/", permanent: true },
+      { source: "/yukon-delivery/", destination: "/delivery/yukon/", permanent: true },
+
+      // ── WP product brand pages (no brand route here) → shop. Many brands
+      //    (nicotine/sex-pill/mushroom) were moved off this cannabis-only site,
+      //    so a single 301 to /shop preserves the URLs without 404s. ──
+      { source: "/brand/:slug/", destination: "/shop/", permanent: true },
     ];
   },
 
