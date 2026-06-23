@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/hooks/useCart";
+import { apiFetch } from "@/lib/apiClient";
 import { Button } from "@/components/ui/button";
 import {
     ShoppingCart, ChevronRight, Minus, Plus,
@@ -166,7 +167,7 @@ export default function ProductDetailClient({ product, related, shortName, faqs,
         setReviewSubmitting(true);
         setReviewMessage(null);
         try {
-            const res = await fetch("/api/reviews", {
+            const res = await apiFetch("/api/reviews", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

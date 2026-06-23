@@ -6,6 +6,7 @@ import { getProductBySlug as getProductBySlugLocal } from "@/lib/productData";
 import { productSchema, breadcrumbSchema, faqSchema, speakableSchema } from "@/lib/seo/schemas";
 import { generateProductFAQs } from "@/lib/seo/aeo";
 import { prisma } from "@/lib/db";
+import { sanitizeProductHtml } from "@/lib/sanitizeHtml";
 import ProductDetailClient from "./ProductDetailClient";
 
 // ─── Static Params for SSG ──────────────────────────────────
@@ -54,6 +55,12 @@ export default async function ProductPage({ params }: PageProps) {
     const { slug } = await params;
     const product = await getProductBySlug(slug);
     if (!product) notFound();
+
+    // Sanitize the rich description (rendered via dangerouslySetInnerHTML) on the
+    // server so stored/synced HTML can never inject script — covers existing rows.
+    if (product.descriptionHTML) {
+        product.descriptionHTML = sanitizeProductHtml(product.descriptionHTML);
+    }
 
     // Use terpene/effect-scored recommendations instead of simple same-category
     const localProduct = getProductBySlugLocal(slug);

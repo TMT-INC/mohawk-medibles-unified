@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { log } from '@/lib/logger';
+import { sanitizeProductHtml } from '@/lib/sanitizeHtml';
 import crypto from 'crypto';
 
 // ─── Signature Verification ──────────────────────────────────
@@ -280,7 +281,7 @@ async function handleProduct(wc: any, topic: string) {
       altText: wc.images?.[0]?.alt || wc.name,
       metaDescription: (wc.short_description || '').replace(/<[^>]*>/g, '').slice(0, 160),
       shortDescription: (wc.short_description || '').replace(/<[^>]*>/g, ''),
-      longDescription: wc.description || null,
+      longDescription: wc.description ? sanitizeProductHtml(wc.description) : null,
       featured: wc.featured || false, status: stockStatus,
       specs: {
         create: {
@@ -307,7 +308,7 @@ async function handleProduct(wc: any, topic: string) {
       sku: wc.sku || null, canonicalUrl: wc.permalink || '',
       image: wc.images?.[0]?.src || '', altText: wc.images?.[0]?.alt || wc.name,
       shortDescription: (wc.short_description || '').replace(/<[^>]*>/g, ''),
-      longDescription: wc.description || null,
+      longDescription: wc.description ? sanitizeProductHtml(wc.description) : null,
       featured: wc.featured || false, status: stockStatus,
     },
   });
