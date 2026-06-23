@@ -59,14 +59,14 @@ export const MASTER_FAQ_DATABASE: FAQEntry[] = [
     },
     {
         question: "What is the difference between Indica, Sativa, and Hybrid cannabis?",
-        answer: "Indica strains typically produce relaxing, body-focused effects ideal for evening use, pain relief, and sleep. Sativa strains tend to create energizing, cerebral effects suited for daytime creativity and focus. Hybrid strains combine characteristics of both, with ratios varying by cultivar. Modern cannabis science shows that terpene profiles (aromatic compounds like myrcene, limonene, and pinene) are often more predictive of effects than the Indica/Sativa classification alone. At Mohawk Medibles, every strain includes a full terpene breakdown to help you find your ideal match.",
+        answer: "Indica strains typically produce relaxing, body-focused effects that many people enjoy for evening and night-time sessions. Sativa strains tend to create energizing, cerebral effects suited for daytime creativity and focus. Hybrid strains combine characteristics of both, with ratios varying by cultivar. Modern cannabis science shows that terpene profiles (aromatic compounds like myrcene, limonene, and pinene) are often more predictive of effects than the Indica/Sativa classification alone. At Mohawk Medibles, every strain includes a full terpene breakdown to help you find your ideal match.",
         category: "products",
         intent: "informational",
         keywords: ["indica vs sativa", "cannabis strain types", "hybrid cannabis explained"],
     },
     {
         question: "What are terpenes and why do they matter in cannabis?",
-        answer: "Terpenes are aromatic compounds found in all plants, including cannabis. They produce the distinct smells and flavors of each strain — from the citrusy zing of limonene to the earthy calm of myrcene. More importantly, terpenes contribute to the 'entourage effect,' working synergistically with THC and CBD to modulate your experience. For example, myrcene enhances relaxation, limonene boosts mood, and caryophyllene has anti-inflammatory properties. At Mohawk Medibles, we lab-test every flower batch for its complete terpene profile so you can make informed choices.",
+        answer: "Terpenes are aromatic compounds found in all plants, including cannabis. They produce the distinct smells and flavors of each strain — from the citrusy zing of limonene to the earthy notes of myrcene. Terpenes also contribute to the 'entourage effect,' working alongside THC and CBD to shape the character of each strain's aroma and overall experience. For example, myrcene is associated with mellow, earthy strains, limonene with bright citrus profiles, and caryophyllene with peppery, spicy notes. At Mohawk Medibles, we lab-test every flower batch for its complete terpene profile so you can make informed choices.",
         category: "products",
         intent: "informational",
         keywords: ["cannabis terpenes", "terpene profile", "entourage effect", "myrcene limonene"],

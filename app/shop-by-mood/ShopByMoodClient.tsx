@@ -50,8 +50,8 @@ const MOOD_VISUALS: Record<string, MoodVisual> = {
         orb1: "bg-[radial-gradient(ellipse_at_20%_50%,rgba(168,85,247,0.15),transparent_70%)]",
         orb2: "bg-[radial-gradient(ellipse_at_80%_20%,rgba(139,92,246,0.1),transparent_60%)]",
         headline: "Melt Away the Tension",
-        subtext: "Indica-dominant strains, CBD blends, and calming edibles curated for deep relaxation. Let your worries dissolve into a lavender mist of tranquility.",
-        benefits: ["Stress relief", "Muscle relaxation", "Evening wind-down", "Anxiety ease"],
+        subtext: "Indica-dominant strains, CBD blends, and calming edibles curated for deep relaxation. Let the day wind down into a lavender mist of tranquility.",
+        benefits: ["Laid-back vibes", "Mellow body feel", "Evening wind-down", "Easy-going calm"],
         ambient: "\u2728",
     },
     energize: {
@@ -95,11 +95,11 @@ const MOOD_VISUALS: Record<string, MoodVisual> = {
         orb1: "bg-[radial-gradient(ellipse_at_20%_40%,rgba(99,102,241,0.15),transparent_70%)]",
         orb2: "bg-[radial-gradient(ellipse_at_80%_60%,rgba(67,56,202,0.1),transparent_60%)]",
         headline: "Drift Into Deep Rest",
-        subtext: "Heavy indicas, sleep-targeted edibles, and knockout strains designed to carry you into deep, starry slumber. Your midnight escape awaits.",
-        benefits: ["Fall asleep faster", "Deep sleep cycles", "Insomnia relief", "Nighttime calm"],
+        subtext: "Heavy indicas, evening edibles, and full-bodied strains for a mellow end to the night. Your midnight wind-down escape awaits.",
+        benefits: ["Nighttime mellow", "Heavy body buzz", "Bedtime wind-down", "Late-night calm"],
         ambient: "\ud83c\udf19",
     },
-    relief: {
+    unwind: {
         sectionBg: "bg-gradient-to-br from-[#2a0a0a] via-[#1a0505] to-[#120303]",
         cardGradient: "bg-gradient-to-br from-rose-900/60 via-red-800/30 to-amber-900/20",
         glow: "shadow-[0_0_80px_-10px_rgba(244,63,94,0.4)] hover:shadow-[0_0_120px_-5px_rgba(244,63,94,0.6)]",
@@ -109,9 +109,9 @@ const MOOD_VISUALS: Record<string, MoodVisual> = {
         accentHover: "hover:bg-rose-500",
         orb1: "bg-[radial-gradient(ellipse_at_30%_50%,rgba(244,63,94,0.15),transparent_70%)]",
         orb2: "bg-[radial-gradient(ellipse_at_70%_70%,rgba(217,70,39,0.1),transparent_60%)]",
-        headline: "Soothe What Hurts",
-        subtext: "Therapeutic CBD blends, topicals, tinctures, and high-CBD strains crafted for pain management, recovery, and healing comfort.",
-        benefits: ["Pain management", "Anti-inflammation", "Muscle recovery", "Therapeutic comfort"],
+        headline: "Get Cozy & Mellow",
+        subtext: "Mellow CBD blends, balms, and full-bodied strains for a warm, easy-going body buzz. Sink into the couch and let the evening melt into pure comfort.",
+        benefits: ["Cozy body buzz", "Mellow vibes", "Couch comfort", "Warm & easy-going"],
         ambient: "\ud83d\udcab",
     },
 };
@@ -376,9 +376,9 @@ export default function ShopByMoodClient() {
                 case "sleep":
                     return type.includes("indica") && (effects.includes("sleepy") || effects.includes("sedated") ||
                         /sleep|insomnia|bedtime|nighttime|drowsy|sedat|drift off|knockout|couch-lock/.test(text));
-                case "relief":
-                    return effects.includes("pain-relief") || effects.includes("therapeutic") ||
-                        /pain|relief|therapeutic|inflam|discomfort|sore|ache|muscle|joint|medicin|healing|cbd|topical|tincture/.test(text);
+                case "unwind":
+                    return effects.includes("relaxed") || effects.includes("body-high") || effects.includes("tingly") ||
+                        /mellow|cozy|cosy|comfort|body buzz|body high|heavy body|warm|sooth|lounge|couch|snug|easy-going|laid-back|chill|cbd/.test(text);
                 default:
                     return false;
             }

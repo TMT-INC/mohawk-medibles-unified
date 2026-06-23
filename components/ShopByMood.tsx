@@ -67,7 +67,7 @@ const CARD_STYLES: Record<string, MoodStyle> = {
         headline: "Drift off peacefully",
         ambient: "\ud83c\udf19",
     },
-    relief: {
+    unwind: {
         bg: "bg-gradient-to-br from-rose-950/70 via-red-900/40 to-amber-950/50",
         glow: "shadow-[0_8px_50px_-12px_rgba(244,63,94,0.25)]",
         hoverGlow: "hover:shadow-[0_16px_70px_-8px_rgba(244,63,94,0.5)]",
@@ -75,7 +75,7 @@ const CARD_STYLES: Record<string, MoodStyle> = {
         iconBg: "bg-rose-500/20",
         borderHover: "hover:border-rose-500/30",
         orbGradient: "bg-[radial-gradient(circle_at_20%_20%,rgba(244,63,94,0.2),transparent_60%)]",
-        headline: "Soothe what hurts",
+        headline: "Get cozy & mellow",
         ambient: "\ud83d\udcab",
     },
 };

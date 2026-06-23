@@ -6,7 +6,7 @@
 
 import type { Product } from "@/lib/productData";
 
-export type ShoppingIntent = "relax" | "energize" | "balance" | "sleep" | "relief";
+export type ShoppingIntent = "relax" | "energize" | "balance" | "sleep" | "unwind";
 
 export interface IntentConfig {
     key: ShoppingIntent;
@@ -71,10 +71,10 @@ export const INTENTS: IntentConfig[] = [
         pillText: "text-indigo-400",
     },
     {
-        key: "relief",
-        label: "Relief",
-        description: "Ease discomfort and find soothing, therapeutic comfort",
-        tagline: "Ease discomfort",
+        key: "unwind",
+        label: "Unwind",
+        description: "Sink into a cozy, mellow body buzz and chill out",
+        tagline: "Get cozy & mellow",
         icon: "Heart",
         accentColor: "rose",
         gradientFrom: "from-rose-600/20",
@@ -115,12 +115,10 @@ const SLEEP_KEYWORDS = [
     "deep sleep", "knockout", "heavy", "couch-lock",
 ];
 
-const RELIEF_KEYWORDS = [
-    "pain", "relief", "therapeutic", "anti-inflam", "inflammation",
-    "discomfort", "sore", "ache", "muscle", "joint", "arthritis",
-    "chronic", "medicinal", "medical", "healing", "recover",
-    "nausea", "appetite", "anxiety", "migraine", "headache",
-    "topical", "tincture", "cbd",
+const UNWIND_KEYWORDS = [
+    "mellow", "cozy", "cosy", "comfort", "comforting", "body buzz",
+    "body high", "heavy body", "warm", "soothing", "lounge",
+    "couch", "snug", "easy-going", "laid-back", "chill",
 ];
 
 function textMatchesKeywords(text: string, keywords: string[]): boolean {
@@ -152,11 +150,11 @@ export function getProductIntents(product: Product): ShoppingIntent[] {
 
     // ── Category mapping ──
     if (category.includes("bath") || category.includes("topical")) {
-        intents.add("relief");
+        intents.add("unwind");
         intents.add("relax");
     }
     if (category === "cbd" || category.includes("capsule")) {
-        intents.add("relief");
+        intents.add("unwind");
     }
 
     // ── Effects mapping ──
@@ -173,8 +171,8 @@ export function getProductIntents(product: Product): ShoppingIntent[] {
         intents.add("balance");
         intents.add("energize");
     }
-    if (effects.includes("pain-relief") || effects.includes("therapeutic") || effects.includes("anti-inflammatory")) {
-        intents.add("relief");
+    if (effects.includes("relaxed") || effects.includes("body-high") || effects.includes("tingly")) {
+        intents.add("unwind");
     }
 
     // ── Terpene mapping ──
@@ -186,7 +184,7 @@ export function getProductIntents(product: Product): ShoppingIntent[] {
         intents.add("energize");
     }
     if (terpenes.includes("caryophyllene") || terpenes.includes("bisabolol") || terpenes.includes("humulene")) {
-        intents.add("relief");
+        intents.add("unwind");
     }
 
     // ── Description keyword matching ──
@@ -194,7 +192,7 @@ export function getProductIntents(product: Product): ShoppingIntent[] {
     if (textMatchesKeywords(text, ENERGIZE_KEYWORDS)) intents.add("energize");
     if (textMatchesKeywords(text, BALANCE_KEYWORDS)) intents.add("balance");
     if (textMatchesKeywords(text, SLEEP_KEYWORDS)) intents.add("sleep");
-    if (textMatchesKeywords(text, RELIEF_KEYWORDS)) intents.add("relief");
+    if (textMatchesKeywords(text, UNWIND_KEYWORDS)) intents.add("unwind");
 
     // If no intents matched at all, default to balance
     if (intents.size === 0) {
