@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Mail, Check, AlertCircle, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { apiFetch } from "@/lib/apiClient";
 
 export default function ForgotPasswordPage() {
     const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ export default function ForgotPasswordPage() {
 
         setStatus("loading");
         try {
-            const res = await fetch("/api/auth", {
+            const res = await apiFetch("/api/auth", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ action: "forgot-password", email }),

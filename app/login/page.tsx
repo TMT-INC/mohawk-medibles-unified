@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Leaf, Mail, Lock, Eye, EyeOff, Loader2, ArrowRight, Shield, Star, Truck } from "lucide-react";
 import { markAuthenticated } from "@/lib/sage/memory";
 import { setUserAuthenticated } from "@/lib/sage/behavioral";
+import { apiFetch } from "@/lib/apiClient";
 
 export default function LoginPage() {
     const router = useRouter();
@@ -23,7 +24,7 @@ export default function LoginPage() {
         setError("");
 
         try {
-            const res = await fetch("/api/auth", {
+            const res = await apiFetch("/api/auth", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ action: "login", email, password }),

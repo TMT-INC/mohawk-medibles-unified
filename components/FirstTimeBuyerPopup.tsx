@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { X, Gift, Copy, Check, Sparkles, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+import { apiFetch } from "@/lib/apiClient";
 
 const STORAGE_KEY = "mohawk_ftb_dismissed";
 const COUPON_CODE = "WELCOME15";
@@ -43,7 +44,7 @@ export function FirstTimeBuyerPopup() {
 
     setPending(true);
     try {
-      await fetch("/api/newsletter/subscribe", {
+      await apiFetch("/api/newsletter/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, source: "first_time_popup" }),

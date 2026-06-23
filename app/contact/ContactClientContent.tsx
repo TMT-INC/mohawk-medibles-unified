@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "@/components/LocaleProvider";
+import { apiFetch } from "@/lib/apiClient";
 
 export default function ContactClientContent() {
     const { t } = useLocale();
@@ -75,7 +76,7 @@ export default function ContactClientContent() {
         setFormState("sending");
 
         try {
-            const res = await fetch("/api/contact", {
+            const res = await apiFetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),

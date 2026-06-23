@@ -96,8 +96,9 @@ export async function middleware(request: NextRequest) {
             sameSite: "lax",
             maxAge: 60 * 60 * 24, // 1 day
         });
-        // Set CSRF cookie if not already present (for page responses)
-        if (!pathname.startsWith("/api/") && !request.cookies.get("mm-csrf")) {
+        // Set CSRF cookie if not already present (on page AND API responses so
+        // the cookie reliably exists before the first client-side mutating POST)
+        if (!request.cookies.get("mm-csrf")) {
             setCsrfCookie(response);
         }
         return response;

@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import QuickReorder from "@/components/QuickReorder";
+import { apiFetch } from "@/lib/apiClient";
 
 type Tab = "orders" | "addresses" | "settings";
 
@@ -135,7 +136,7 @@ export default function AccountPage() {
 
     // ─── Actions ─────────────────────────────────────────────
     async function handleLogout() {
-        await fetch("/api/auth", {
+        await apiFetch("/api/auth", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ action: "logout" }),
@@ -148,7 +149,7 @@ export default function AccountPage() {
         setSaving(true);
         setSaveMsg("");
         try {
-            const res = await fetch("/api/account", {
+            const res = await apiFetch("/api/account", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ action: "update-profile", ...profileForm }),
@@ -168,7 +169,7 @@ export default function AccountPage() {
         setSaving(true);
         setSaveMsg("");
         try {
-            const res = await fetch("/api/account", {
+            const res = await apiFetch("/api/account", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -191,7 +192,7 @@ export default function AccountPage() {
         e.preventDefault();
         setSaving(true);
         try {
-            const res = await fetch("/api/account", {
+            const res = await apiFetch("/api/account", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ action: "add-address", ...addressForm }),
@@ -209,7 +210,7 @@ export default function AccountPage() {
 
     async function handleDeleteAddress(id: string) {
         try {
-            const res = await fetch("/api/account", {
+            const res = await apiFetch("/api/account", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ action: "delete-address", addressId: id }),

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Leaf, Mail, Lock, User, Eye, EyeOff, Loader2, ArrowRight, CheckCircle, Gift, Zap, ShoppingBag, Shield, Users } from "lucide-react";
+import { apiFetch } from "@/lib/apiClient";
 
 const ACCOUNT_BENEFITS = [
     { icon: <Gift className="h-4 w-4" />, title: "Earn Rewards", description: "Points on every order toward free products" },
@@ -36,7 +37,7 @@ export default function RegisterPage() {
 
         setLoading(true);
         try {
-            const res = await fetch("/api/auth", {
+            const res = await apiFetch("/api/auth", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ action: "register", name, email, password }),

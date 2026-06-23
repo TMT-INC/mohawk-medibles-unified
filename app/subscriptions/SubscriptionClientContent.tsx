@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { apiFetch } from "@/lib/apiClient";
 
 /* ── Tier Data ──────────────────────────────────────────────── */
 
@@ -138,7 +139,7 @@ export default function SubscriptionClientContent() {
 
         setPending(true);
         try {
-            const res = await fetch("/api/newsletter/subscribe", {
+            const res = await apiFetch("/api/newsletter/subscribe", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, source: "subscription_waitlist" }),

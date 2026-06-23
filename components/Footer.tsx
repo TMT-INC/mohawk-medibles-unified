@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { CreditCard, ShieldCheck, Zap, Loader2, Check } from "lucide-react";
 import { GoogleReviewsBadge } from "@/components/GoogleReviewsWidget";
+import { apiFetch } from "@/lib/apiClient";
 
 const provinces = [
     { name: "Alberta", slug: "alberta" },
@@ -36,7 +37,7 @@ export default function Footer() {
         }
         setStatus("loading");
         try {
-            const res = await fetch("/api/newsletter/subscribe", {
+            const res = await apiFetch("/api/newsletter/subscribe", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, source: "footer" }),

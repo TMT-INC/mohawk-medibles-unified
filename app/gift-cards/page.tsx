@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import Image from "next/image";
+import { apiFetch } from "@/lib/apiClient";
 
 const PRESET_AMOUNTS = [25, 50, 100, 150, 200];
 
@@ -64,7 +65,7 @@ export default function GiftCardsPage() {
 
         setSubmitting(true);
         try {
-            const res = await fetch("/api/gift-cards/purchase", {
+            const res = await apiFetch("/api/gift-cards/purchase", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
