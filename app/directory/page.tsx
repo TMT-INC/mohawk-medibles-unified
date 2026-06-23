@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/db";
 import { DispensaryCard } from "@/components/directory/DispensaryCard";
 import { SearchFilters } from "@/components/directory/SearchFilters";
 

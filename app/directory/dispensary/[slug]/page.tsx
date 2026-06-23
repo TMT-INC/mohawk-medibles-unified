@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/db";
 import DispensaryDetail from "@/components/directory/DispensaryDetail";
 import { VoiceRecommendationWidget } from "@/components/directory/VoiceRecommendationWidget";
 

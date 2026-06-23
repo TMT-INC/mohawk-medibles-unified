@@ -4,7 +4,7 @@
  */
 
 import { google } from 'googleapis';
-import { prisma } from './prisma';
+import { prisma } from './db';
 import { log } from './logger';
 
 const GMB_API_VERSION = 'v4';
@@ -229,7 +229,6 @@ export class GMBIntegration {
           rating: review.starRating,
           content: review.comment || '',
           authorName: review.reviewer.displayName,
-          updatedAt: new Date(review.updateTime),
         },
         create: {
           id: review.reviewId,
@@ -380,7 +379,7 @@ export class GMBIntegration {
         create: {
           id: photo.name,
           dispensaryId,
-          url: photo.sourceUrl || photo.googleUrl,
+          url: photo.sourceUrl || photo.googleUrl || '',
           altText: `${photo.locationAssociation.category} photo`,
           isPrimary: i === 0,
         },

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { log } from "@/lib/logger";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/db";
 
 interface RouteParams {
     params: Promise<{ slug: string }>;

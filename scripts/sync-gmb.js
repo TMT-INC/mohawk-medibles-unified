@@ -38,7 +38,7 @@ async function main() {
     for (const location of locations) {
       try {
         // Find dispensary by GMB ID
-        const { prisma } = require('../lib/prisma');
+        const { prisma } = require('../lib/db');
         const dispensary = await prisma.dispensary.findFirst({
           where: { gmbLocationId: location.name }
         });
