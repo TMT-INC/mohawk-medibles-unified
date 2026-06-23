@@ -5,6 +5,7 @@
  */
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { getSessionUser } from "@/lib/session";
 
 // Simple in-memory rate limiter (per IP, 30 requests per minute)
 const rateMap = new Map<string, { count: number; resetAt: number }>();
@@ -32,7 +33,13 @@ const CARRIER_TRACKING_URLS: Record<string, (tn: string) => string> = {
 };
 
 export async function GET(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+  // Key the limiter on the platform-set client IP, never the spoofable
+  // leftmost x-forwarded-for hop (which would let an attacker rotate buckets).
+  const ip =
+    req.headers.get("cf-connecting-ip") ||
+    req.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim() ||
+    req.headers.get("x-real-ip") ||
+    "unknown";
   if (!checkRateLimit(ip)) {
     return NextResponse.json({ error: "Too many requests" }, { status: 429 });
   }
@@ -41,12 +48,15 @@ export async function GET(req: NextRequest) {
   if (!orderNumber) {
     return NextResponse.json({ error: "orderNumber is required" }, { status: 400 });
   }
+  const email = req.nextUrl.searchParams.get("email");
 
   try {
     const order = await prisma.order.findUnique({
       where: { orderNumber },
       select: {
         orderNumber: true,
+        userId: true,
+        user: { select: { email: true } },
         status: true,
         total: true,
         trackingNumber: true,
@@ -76,6 +86,21 @@ export async function GET(req: NextRequest) {
     });
 
     if (!order) {
+      return NextResponse.json({ error: "Order not found" }, { status: 404 });
+    }
+
+    // ── Authorization ───────────────────────────────────────────
+    // Order numbers are sequential (MM-{wcId}), so an unguarded lookup is an
+    // enumerable full-PII scrape. Require EITHER a verified session that owns
+    // the order, OR a matching billing email. Respond 404 on failure so the
+    // endpoint never confirms whether an order number exists.
+    const session = await getSessionUser();
+    const isOwner = !!session && order.userId === session.userId;
+    const emailMatches =
+      !!email &&
+      !!order.user?.email &&
+      email.trim().toLowerCase() === order.user.email.toLowerCase();
+    if (!isOwner && !emailMatches) {
       return NextResponse.json({ error: "Order not found" }, { status: 404 });
     }
 

@@ -8,6 +8,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 import { verifyCsrf } from "@/lib/csrf";
+import { getSessionUser } from "@/lib/session";
 import { log } from "@/lib/logger";
 
 export async function GET(req: NextRequest) {
@@ -22,10 +23,10 @@ export async function GET(req: NextRequest) {
             return NextResponse.json({ error: "productId is required" }, { status: 400 });
         }
 
-        // Check if admin requesting all reviews
+        // Check if admin requesting all reviews — verify the session, never trust headers
         const showAll = searchParams.get("all") === "true";
-        const userRole = req.headers.get("x-user-role");
-        const isAdmin = userRole === "ADMIN" || userRole === "SUPER_ADMIN";
+        const session = await getSessionUser();
+        const isAdmin = session?.role === "ADMIN" || session?.role === "SUPER_ADMIN";
 
         const reviews = await prisma.review.findMany({
             where: {
@@ -87,11 +88,12 @@ export async function POST(req: NextRequest) {
     if (csrfError) return csrfError;
 
     try {
-        // Auth check
-        const userId = req.headers.get("x-user-id");
-        if (!userId) {
+        // Auth check — verify the signed session cookie, never trust x-user-* headers
+        const session = await getSessionUser();
+        if (!session) {
             return NextResponse.json({ error: "Sign in to leave a review" }, { status: 401 });
         }
+        const userId = session.userId;
 
         const body = await req.json();
         const { productId, rating, title, content } = body as {

@@ -12,6 +12,7 @@ import { pushEvent } from "@/lib/activityStream";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 import { randomUUID } from "crypto";
 import { prisma } from "@/server/trpc/trpc";
+import { getSessionUser } from "@/lib/session";
 
 export async function POST(req: NextRequest) {
     const limited = await applyRateLimit(req, RATE_LIMITS.support);
@@ -60,7 +61,9 @@ export async function POST(req: NextRequest) {
     }
 
     // ── Persist to DB for abandoned cart recovery (merged from .cc) ──
-    const userId = req.headers.get("x-user-id");
+    // Identity from the verified session cookie, never the spoofable x-user-id header.
+    const session = await getSessionUser();
+    const userId = session?.userId;
     if (userId && validItems.length > 0) {
         try {
             // Upsert abandoned cart record

@@ -24,15 +24,18 @@ const DOMAINS = {
     ADMIN: ["mohawkmedibles.cc", "www.mohawkmedibles.cc"],
 };
 
-// Routes that require authentication
-const PROTECTED_PATHS = ["/admin", "/api/admin", "/api/trpc"];
+// Routes that require authentication.
+// NOTE: /api/trpc is deliberately NOT here — the tRPC route verifies the session
+// cookie itself and each procedure declares its own auth tier (public/protected/
+// admin). Gating the whole surface here 401'd anonymous visitors and 403'd
+// customers, breaking every customer-facing tRPC feature.
+const PROTECTED_PATHS = ["/admin", "/api/admin"];
 
 // Routes that require specific roles
 const ROLE_REQUIREMENTS: Record<string, string[]> = {
     "/admin": ["ADMIN", "SUPER_ADMIN", "LOGISTICS", "SUPPORT"],
     "/api/admin": ["ADMIN", "SUPER_ADMIN", "LOGISTICS", "SUPPORT"],
     "/api/admin/orders": ["ADMIN", "SUPER_ADMIN", "LOGISTICS"],
-    "/api/trpc": ["ADMIN", "SUPER_ADMIN", "LOGISTICS", "SUPPORT"],
 };
 
 // Public API routes (no auth needed)
@@ -54,6 +57,14 @@ export async function middleware(request: NextRequest) {
 
     // ── Resolve domain context ───────────────────────────────
     const host = (request.headers.get("host") || request.headers.get("x-forwarded-host") || "localhost:3000").toLowerCase().replace(/:\d+$/, "");
+
+    // Strip any client-supplied identity headers up front so a handler can only
+    // ever read x-user-* values that THIS middleware injects after verifying the
+    // session token. Without this, non-protected routes received spoofable headers.
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.delete("x-user-id");
+    requestHeaders.delete("x-user-role");
+    requestHeaders.delete("x-user-email");
 
     // .co domain — serve the unified site directly (same as .ca primary)
 
@@ -117,7 +128,7 @@ export async function middleware(request: NextRequest) {
 
     // ── Skip public paths ───────────────────────────────────
     if (PUBLIC_PATHS.some((p) => pathname.startsWith(p))) {
-        const response = withAffiliateCookie(withTenantHeaders(applySecurityHeaders(NextResponse.next())));
+        const response = withAffiliateCookie(withTenantHeaders(applySecurityHeaders(NextResponse.next({ request: { headers: requestHeaders } }))));
         // MedAgent-specific headers for /api/sage/* routes
         if (pathname.startsWith("/api/sage")) {
             response.headers.set("X-MedAgent-Version", "2.2.0");
@@ -134,7 +145,7 @@ export async function middleware(request: NextRequest) {
         pathname.includes(".") ||
         !PROTECTED_PATHS.some((p) => pathname.startsWith(p))
     ) {
-        return withAffiliateCookie(withTenantHeaders(applySecurityHeaders(NextResponse.next())));
+        return withAffiliateCookie(withTenantHeaders(applySecurityHeaders(NextResponse.next({ request: { headers: requestHeaders } }))));
     }
 
     // ── Extract session token ───────────────────────────────
@@ -185,11 +196,13 @@ export async function middleware(request: NextRequest) {
             return NextResponse.redirect(new URL("/unauthorized", request.url));
         }
 
-        // ── Attach user info to request headers ─────────────
-        const response = NextResponse.next();
-        response.headers.set("x-user-id", payload.sub);
-        response.headers.set("x-user-role", payload.role);
-        response.headers.set("x-user-email", payload.email || "");
+        // ── Attach verified user info to the FORWARDED REQUEST ──
+        // Set on the request headers (not the response — never leak identity to
+        // the client) and only after the signature/expiry checks above pass.
+        requestHeaders.set("x-user-id", payload.sub);
+        requestHeaders.set("x-user-role", payload.role);
+        requestHeaders.set("x-user-email", payload.email || "");
+        const response = NextResponse.next({ request: { headers: requestHeaders } });
 
         return withAffiliateCookie(withTenantHeaders(applySecurityHeaders(response)));
     } catch {

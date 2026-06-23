@@ -253,6 +253,9 @@ export default function CheckoutPage() {
             const data = await res.json();
             if (!res.ok) throw new Error(data.error || "Checkout failed");
 
+            // Remember the email for the post-checkout order tracker (gated lookup).
+            try { sessionStorage.setItem("mm-last-order-email", billing.email.trim()); } catch { /* ignore */ }
+
             // Handle response based on payment method
             if (data.paymentMethod === "etransfer" || selectedPayment === "etransfer") {
                 // Show e-Transfer instructions

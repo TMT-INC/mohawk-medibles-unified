@@ -102,32 +102,54 @@ const CARRIER_LABELS: Record<string, string> = {
 // ─── Search Form ────────────────────────────────────────────
 
 function TrackingSearchForm({
-  defaultValue,
+  defaultOrder,
+  defaultEmail,
   onSearch,
 }: {
-  defaultValue?: string;
-  onSearch: (val: string) => void;
+  defaultOrder?: string;
+  defaultEmail?: string;
+  onSearch: (orderNumber: string, email: string) => void;
 }) {
-  const [value, setValue] = useState(defaultValue || "");
+  const [orderValue, setOrderValue] = useState(defaultOrder || "");
+  const [emailValue, setEmailValue] = useState(defaultEmail || "");
+
+  // Keep fields in sync when defaults arrive after mount (URL / sessionStorage).
+  useEffect(() => { if (defaultOrder) setOrderValue(defaultOrder); }, [defaultOrder]);
+  useEffect(() => { if (defaultEmail) setEmailValue(defaultEmail); }, [defaultEmail]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const trimmed = value.trim();
-    if (trimmed) onSearch(trimmed);
+    const order = orderValue.trim();
+    const email = emailValue.trim();
+    if (order && email) onSearch(order, email);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-10">
+    <form onSubmit={handleSubmit} className="mb-10 space-y-3">
+      <div className="relative">
+        <label htmlFor="track-order-number" className="sr-only">Order number</label>
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+        <input
+          id="track-order-number"
+          type="text"
+          value={orderValue}
+          onChange={(e) => setOrderValue(e.target.value)}
+          placeholder="Order number (e.g. MM-...)"
+          required
+          className="w-full bg-card/60 backdrop-blur rounded-xl pl-10 pr-4 py-3.5 text-sm text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-amber-500/50 shadow-lg shadow-black/20 transition-shadow"
+        />
+      </div>
       <div className="flex gap-3">
         <div className="flex-1 relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          <label htmlFor="track-order-email" className="sr-only">Email used on the order</label>
           <input
-            type="text"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            placeholder="Enter your order number (e.g. MM-...)"
+            id="track-order-email"
+            type="email"
+            value={emailValue}
+            onChange={(e) => setEmailValue(e.target.value)}
+            placeholder="Email used on the order"
             required
-            className="w-full bg-card/60 backdrop-blur rounded-xl pl-10 pr-4 py-3.5 text-sm text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-amber-500/50 shadow-lg shadow-black/20 transition-shadow"
+            className="w-full bg-card/60 backdrop-blur rounded-xl px-4 py-3.5 text-sm text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-amber-500/50 shadow-lg shadow-black/20 transition-shadow"
           />
         </div>
         <button
@@ -333,51 +355,68 @@ function StatusStepper({
 
 export default function OrderTracker({
   initialOrderNumber,
+  initialEmail,
   compact = false,
 }: {
   initialOrderNumber?: string;
+  initialEmail?: string;
   compact?: boolean;
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const urlOrder = searchParams.get("order");
 
-  const [orderNumber, setOrderNumber] = useState<string | null>(
-    initialOrderNumber || urlOrder || null
+  // `active*` drives the tracking fetch. In compact mode (post-checkout) we
+  // already have the order + (session or stashed email), so we fetch right away.
+  // On the public page we only fetch once order# + email are supplied.
+  const [activeOrder, setActiveOrder] = useState<string | null>(
+    compact ? initialOrderNumber || null : null
   );
+  const [activeEmail, setActiveEmail] = useState<string>(initialEmail || "");
 
-  // Sync from URL on mount
+  // Form default for the email field — pre-fill from the email the customer
+  // just used at checkout (stored in sessionStorage) for a smooth re-track.
+  const [draftEmail, setDraftEmail] = useState<string>(initialEmail || "");
+
   useEffect(() => {
-    if (urlOrder && !initialOrderNumber) {
-      setOrderNumber(urlOrder);
+    if (compact) return;
+    let stashedEmail = "";
+    try { stashedEmail = sessionStorage.getItem("mm-last-order-email") || ""; } catch { /* ignore */ }
+    if (stashedEmail) setDraftEmail((e) => e || stashedEmail);
+    // If we arrived with both an order number (URL) and a known email, auto-track.
+    const order = initialOrderNumber || urlOrder || "";
+    if (order && (initialEmail || stashedEmail)) {
+      setActiveOrder(order);
+      setActiveEmail(initialEmail || stashedEmail);
     }
-  }, [urlOrder, initialOrderNumber]);
+  }, [urlOrder, initialOrderNumber, initialEmail, compact]);
 
   const {
     order,
-    status,
     statusHistory,
     isLoading,
     error,
     lastUpdated,
     hasNewUpdate,
     clearNewUpdate,
-  } = useOrderTracking(orderNumber);
+  } = useOrderTracking(activeOrder, activeEmail);
 
-  const handleSearch = (val: string) => {
-    setOrderNumber(val);
-    // Update URL without full page reload
+  const handleSearch = (orderNum: string, email: string) => {
+    setActiveOrder(orderNum);
+    setActiveEmail(email);
+    // Reflect only the order number in the URL — never the email.
     const url = new URL(window.location.href);
-    url.searchParams.set("order", val);
+    url.searchParams.set("order", orderNum);
     router.push(url.pathname + url.search);
   };
 
   return (
     <div className={compact ? "" : "max-w-2xl mx-auto px-4 py-12"}>
-      {/* Search form (hidden in compact mode if we have an order) */}
+      {/* Search form (hidden in compact mode) */}
       {!compact && (
         <TrackingSearchForm
-          defaultValue={orderNumber || undefined}
+          defaultOrder={initialOrderNumber || urlOrder || undefined}
+          defaultEmail={draftEmail || undefined}
           onSearch={handleSearch}
         />
       )}
@@ -628,7 +667,7 @@ export default function OrderTracker({
         )}
 
         {/* No order searched yet */}
-        {!isLoading && !error && !order && !orderNumber && !compact && (
+        {!isLoading && !error && !order && !activeOrder && !compact && (
           <motion.div
             key="empty"
             initial={{ opacity: 0 }}

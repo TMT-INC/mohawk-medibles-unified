@@ -30,6 +30,13 @@ function CheckoutSuccessContent() {
     const [copied, setCopied] = useState(false);
     const [isGuest, setIsGuest] = useState(true);
     const [showTracker, setShowTracker] = useState(false);
+    const [lastOrderEmail, setLastOrderEmail] = useState<string>("");
+
+    // The order tracker requires session ownership or a matching email; for guests
+    // we pass the email they just used at checkout (stashed in sessionStorage).
+    useEffect(() => {
+        try { setLastOrderEmail(sessionStorage.getItem("mm-last-order-email") || ""); } catch { /* ignore */ }
+    }, []);
 
     // Check if user is authenticated (to show/hide account creation CTA)
     useEffect(() => {
@@ -176,7 +183,7 @@ function CheckoutSuccessContent() {
                             Your order is being prepared!
                         </span>
                     </div>
-                    <OrderTracker initialOrderNumber={orderNumber} compact />
+                    <OrderTracker initialOrderNumber={orderNumber} initialEmail={lastOrderEmail} compact />
                 </motion.div>
             )}
 

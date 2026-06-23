@@ -55,7 +55,7 @@ export interface UseOrderTrackingReturn {
   clearNewUpdate: () => void;
 }
 
-export function useOrderTracking(orderNumber: string | null): UseOrderTrackingReturn {
+export function useOrderTracking(orderNumber: string | null, email?: string | null): UseOrderTrackingReturn {
   const [order, setOrder] = useState<TrackingData | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -76,7 +76,8 @@ export function useOrderTracking(orderNumber: string | null): UseOrderTrackingRe
         setIsLoading(true);
       }
 
-      const res = await fetch(`/api/orders/track?orderNumber=${encodeURIComponent(orderNumber)}`);
+      const url = `/api/orders/track?orderNumber=${encodeURIComponent(orderNumber)}${email ? `&email=${encodeURIComponent(email)}` : ""}`;
+      const res = await fetch(url);
       if (!res.ok) {
         if (res.status === 404) {
           setError("Order not found. Please check your order number.");
@@ -121,7 +122,7 @@ export function useOrderTracking(orderNumber: string | null): UseOrderTrackingRe
     } finally {
       setIsLoading(false);
     }
-  }, [orderNumber]);
+  }, [orderNumber, email]);
 
   useEffect(() => {
     if (!orderNumber) {

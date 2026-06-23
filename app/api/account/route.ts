@@ -8,27 +8,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
-import { verifySessionToken } from "@/lib/auth";
+import { verifyPassword, hashPassword } from "@/lib/auth";
 import { verifyCsrf } from "@/lib/csrf";
-import { cookies } from "next/headers";
-
-// ─── Session Decode (with signature verification) ────────────
-async function getSessionUser(req: NextRequest) {
-    const cookieStore = await cookies();
-    const token = cookieStore.get("mm-session")?.value;
-    if (!token) return null;
-
-    const payload = verifySessionToken(token);
-    if (!payload) return null;
-    return { userId: payload.sub, email: payload.email, role: payload.role };
-}
+import { getSessionUser } from "@/lib/session";
 
 // ─── GET: Read operations ────────────────────────────────────
 export async function GET(req: NextRequest) {
     const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
-    const session = await getSessionUser(req);
+    const session = await getSessionUser();
     if (!session) {
         return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
     }
@@ -116,7 +105,7 @@ export async function POST(req: NextRequest) {
     const csrfError = verifyCsrf(req);
     if (csrfError) return csrfError;
 
-    const session = await getSessionUser(req);
+    const session = await getSessionUser();
     if (!session) {
         return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
     }
@@ -171,46 +160,16 @@ export async function POST(req: NextRequest) {
                 return NextResponse.json({ error: "No password set for this account" }, { status: 400 });
             }
 
-            // PBKDF2 password verification (same as auth route)
-            const encoder = new TextEncoder();
-            const [algorithm, iterations, salt, hash] = user.passwordHash.split(":");
-            const saltBuffer = Uint8Array.from(atob(salt), (c) => c.charCodeAt(0));
-            const keyMaterial = await crypto.subtle.importKey(
-                "raw",
-                encoder.encode(currentPassword),
-                "PBKDF2",
-                false,
-                ["deriveBits"]
-            );
-            const derivedBits = await crypto.subtle.deriveBits(
-                { name: "PBKDF2", salt: saltBuffer, iterations: parseInt(iterations), hash: "SHA-256" },
-                keyMaterial,
-                256
-            );
-            const derivedHash = btoa(String.fromCharCode(...new Uint8Array(derivedBits)));
-
-            if (derivedHash !== hash) {
+            // Verify current password with the shared PBKDF2 helper.
+            // Stored format is `pbkdf2$<iter>$<hexSalt>$<hexHash>` (SHA-512) — the
+            // previous bespoke ':'-split / SHA-256 / base64 logic never matched it,
+            // 500'd on every account, and wrote login-incompatible hashes.
+            const validCurrent = await verifyPassword(currentPassword, user.passwordHash);
+            if (!validCurrent) {
                 return NextResponse.json({ error: "Current password is incorrect" }, { status: 403 });
             }
 
-            // Hash new password
-            const newSalt = crypto.getRandomValues(new Uint8Array(16));
-            const newKeyMaterial = await crypto.subtle.importKey(
-                "raw",
-                encoder.encode(newPassword),
-                "PBKDF2",
-                false,
-                ["deriveBits"]
-            );
-            const newDerivedBits = await crypto.subtle.deriveBits(
-                { name: "PBKDF2", salt: newSalt, iterations: 310000, hash: "SHA-256" },
-                newKeyMaterial,
-                256
-            );
-            const newHash = btoa(String.fromCharCode(...new Uint8Array(newDerivedBits)));
-            const newSaltB64 = btoa(String.fromCharCode(...newSalt));
-            const passwordHash = `pbkdf2:310000:${newSaltB64}:${newHash}`;
-
+            const passwordHash = await hashPassword(newPassword);
             await prisma.user.update({
                 where: { id: session.userId },
                 data: { passwordHash },
