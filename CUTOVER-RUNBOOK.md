@@ -29,6 +29,11 @@ confirmed before running.
 - [ ] Take a fresh WP DB backup on web-01 (`/root/backup-mohawk.sh`) — fallback.
 - [ ] Confirm Wampum tenant id `23b424f5-9d77-4da5-8196-0ccac15258c3` and have the
       cutover secrets ready (see step 3).
+- [ ] **Re-run the WP-sitemap URL-parity diff** (fetch `mohawkmedibles.ca/sitemap_index.xml`
+      → sub-sitemaps, test each path against the unified site). On 2026-06-23 all
+      670 WP URLs resolved (0 404s after redirects). If WP added any products /
+      pages / brands since, add redirects in `next.config.ts` so nothing 404s
+      post-flip. (Indexed-URL preservation is the whole point of going onto `.ca`.)
 
 ## 1. 🔶 Final data sync from WooCommerce (just before flip)
 While WP is still authoritative, pull the last deltas into Neon so nothing is lost:
