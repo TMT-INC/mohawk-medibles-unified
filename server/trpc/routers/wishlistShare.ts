@@ -6,6 +6,10 @@ import { router, publicProcedure, protectedProcedure } from "../trpc";
 import { TRPCError } from "@trpc/server";
 import crypto from "crypto";
 
+// Canonical public origin — shared wishlist links must point at the live .ca
+// domain, never the .co staging alias (which is noindexed and temporary).
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.ca";
+
 function generateShareCode(): string {
   return crypto.randomBytes(6).toString("hex"); // 12 char hex string
 }
@@ -35,7 +39,7 @@ export const wishlistShareRouter = router({
         });
         return {
           shareCode: updated.shareCode,
-          url: `https://mohawkmedibles.co/wishlist/shared/${updated.shareCode}`,
+          url: `${SITE_URL}/wishlist/shared/${updated.shareCode}`,
           isPublic: updated.isPublic,
           title: updated.title,
         };
@@ -54,7 +58,7 @@ export const wishlistShareRouter = router({
 
       return {
         shareCode: share.shareCode,
-        url: `https://mohawkmedibles.co/wishlist/shared/${share.shareCode}`,
+        url: `${SITE_URL}/wishlist/shared/${share.shareCode}`,
         isPublic: share.isPublic,
         title: share.title,
       };
@@ -90,7 +94,7 @@ export const wishlistShareRouter = router({
 
       return {
         shareCode: updated.shareCode,
-        url: `https://mohawkmedibles.co/wishlist/shared/${updated.shareCode}`,
+        url: `${SITE_URL}/wishlist/shared/${updated.shareCode}`,
         isPublic: updated.isPublic,
         title: updated.title,
       };
@@ -106,7 +110,7 @@ export const wishlistShareRouter = router({
 
     return {
       shareCode: share.shareCode,
-      url: `https://mohawkmedibles.co/wishlist/shared/${share.shareCode}`,
+      url: `${SITE_URL}/wishlist/shared/${share.shareCode}`,
       isPublic: share.isPublic,
       title: share.title,
     };

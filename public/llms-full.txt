@@ -1,7 +1,7 @@
 # Mohawk Medibles — Full Product Catalog
 
 > Indigenous-owned premium cannabis dispensary on Tyendinaga Mohawk Territory, Ontario, Canada.
-> This is the complete product catalog for AI systems. For the summary version, see: https://mohawkmedibles.co/llms.txt
+> This is the complete product catalog for AI systems. For the summary version, see: https://mohawkmedibles.ca/llms.txt
 
 ## Key Facts
 
@@ -10,7 +10,7 @@
 - **Quality Standard**: Empire Standard -- lab-tested, terpene-profiled
 - **Location**: Tyendinaga Mohawk Territory, Deseronto, Ontario, Canada
 - **Shipping**: Canada-wide via Canada Post Xpresspost (free over $150 CAD)
-- **Website**: https://mohawkmedibles.co
+- **Website**: https://mohawkmedibles.ca
 - **WooCommerce Store**: https://mohawkmedibles.ca
 - **Payment**: Visa, Mastercard, Amex, Interac e-Transfer, Cryptocurrency
 - **Last Updated**: 2026-03-11
@@ -19,454 +19,454 @@
 
 ## Flower
 
-- [Purple Mac $6/Gram Special](https://mohawkmedibles.co/shop/purple-mac-6-gram-special): Flower -- $6 | THC: 15-16%
-- [Pink Moon $40/oz or $100/3oz](https://mohawkmedibles.co/shop/pink-moon-40-oz-or-100-3oz): Flower -- $40 | THC: 30%
-- [Purple Urkle $40/oz or $100/3oz](https://mohawkmedibles.co/shop/purple-urkle-40-oz-or-100-3oz): Flower -- $40 | THC: 18-21%
-- [Permanent Marker Milled Flower](https://mohawkmedibles.co/shop/permanent-marker-milled-flower): Flower -- $25
-- [Green Crack $100/OZ Deal](https://mohawkmedibles.co/shop/green-crack-100oz-canada): Flower -- $30 | THC: 15-25%
-- [Drizzle Factory Slims Delta-9 Distillate Infused Pre-Rolls](https://mohawkmedibles.co/shop/drizzle-factory-slims-delta-9-distillate-infused-pre-rolls-canada): Flower -- $35
-- [Drizzle Factory Slims AAAA Craft Exotic Pre-Rolls](https://mohawkmedibles.co/shop/drizzle-factory-slims-aaaa-craft-exotic-pre-rolls-canada): Flower -- $45
-- [Black Cherry $100/OZ Deal](https://mohawkmedibles.co/shop/black-cherry-100oz-canada): Flower -- $30 | THC: 12-18%
-- [Goat Smalls $40/OZ or $100/3oz](https://mohawkmedibles.co/shop/goat-smalls-40oz-or-1003oz-canada): Flower -- $40
-- [Sour Pink Grapefruit $100/OZ Deal](https://mohawkmedibles.co/shop/sour-pink-grapefruit-100oz-canada): Flower -- $30 | THC: 15-23%
-- [Top Shelf Pre-Rolled Joints 7g](https://mohawkmedibles.co/shop/top-shelf-pre-rolled-joints-canada): Flower -- $35 | THC: 28%
-- [Candy Cane $6/Gram Special](https://mohawkmedibles.co/shop/candy-cane-6-gram-special): Flower -- $6 | THC: 15-20%
-- [Pre Rolled Joints](https://mohawkmedibles.co/shop/pre-rolled-joints-canada): Flower -- $5
-- [Lemon Cherry Gelato $6/Gram Special](https://mohawkmedibles.co/shop/lemon-cherry-gelato-6-gram-special): Flower -- $6 | THC: 19-29%
-- [Premium Pre Rolled Joints $5 Each](https://mohawkmedibles.co/shop/pre-rolled-joint-canada): Flower -- $5
-- [Money Tree $5/Gram Special](https://mohawkmedibles.co/shop/money-tree-5-gram-special): Flower -- $5 | THC: 24-25%
-- [Miracle Alien Cookies $6/Gram Special](https://mohawkmedibles.co/shop/miracle-alien-cookies-6-gram-special): Flower -- $6 | THC: 14-20%
-- [Amnesia Haze $5/Gram Special](https://mohawkmedibles.co/shop/amnesia-haze-5g): Flower -- $5 | THC: 20-22%
-- [WALT HERB CO. Infused Druley Kaboodle Pre Roll](https://mohawkmedibles.co/shop/walt-herb-co-infused-druley-kaboodle-pre-roll-canada): Flower -- $20 | THC: 28%
-- [Stoned Leaf King Rocket](https://mohawkmedibles.co/shop/stoned-leaf-king-rocket-canada): Flower -- $20
-- [Tangie Milled Flower](https://mohawkmedibles.co/shop/tangie-milled-flower): Flower -- $25 | THC: 21%
-- [Pink Goo Smalls $40/oz or $100/3oz](https://mohawkmedibles.co/shop/pink-goo-smalls-40-oz-or-100-3oz): Flower -- $40 | THC: 20-28%
-- [Top Shelf Flavour Burst Pre-Rolled Joints 2.5g](https://mohawkmedibles.co/shop/top-shelf-flavour-burst-pre-rolled-joints-canada): Flower -- $25
-- [Bakrs Triplets Pre Rolls](https://mohawkmedibles.co/shop/bakrs-triplets-pre-rolls-canada): Flower -- $30
-- [Fubar Premium Pre-Rolls](https://mohawkmedibles.co/shop/fubar-premium-pre-rolls-canada): Flower -- $20 | THC: 18-24%
-- [DRIZZLE FACTORY Rockets](https://mohawkmedibles.co/shop/drizzle-factory-rockets-canada): Flower -- $15
-- [Slim Shady's Pre-Rolls](https://mohawkmedibles.co/shop/slim-shadys-pre-rolls-canada): Flower -- $20 | THC: 25%
-- [Pineapple Express Meds (PEM) Jeffery's Pre-Rolled Blunt Single](https://mohawkmedibles.co/shop/pineapple-express-meds-pem-jefferys-pre-rolled-blunt-single-canada): Flower -- $20 | THC: 30%
-- [Bakrs Duo Pre Rolls](https://mohawkmedibles.co/shop/bakrs-duo-pre-rolls-canada): Flower -- $30
-- [Fantasy Island $40/oz or $100/3oz](https://mohawkmedibles.co/shop/fantasy-island-40-oz-or-100-3oz): Flower -- $40 | THC: 15-17%
-- [Purple Mendocino $100/OZ Deal](https://mohawkmedibles.co/shop/purple-mendocino-100oz-canada): Flower -- $30 | THC: 22%
-- [Death Bubba Smalls $40/oz or $100/3oz](https://mohawkmedibles.co/shop/death-bubba-smalls-40-oz-or-100-3oz): Flower -- $40 | THC: 27%
-- [Peanut Butter $100/OZ Deal](https://mohawkmedibles.co/shop/peanut-butter-100oz-canada): Flower -- $30
-- [Larry Burger $5/Gram Special](https://mohawkmedibles.co/shop/larry-burger-5-gram-special): Flower -- $5 | THC: 20-24%
-- [Pineapple Express Meds (PEM) Baby Jeffery Pre-Roll 5 Pack](https://mohawkmedibles.co/shop/pineapple-express-meds-pem-baby-jeffery-pre-roll-5-pack-canada): Flower -- $45
-- [Pink Volcano $5/Gram Special](https://mohawkmedibles.co/shop/pink-volcano-5-gram-special): Flower -- $5
-- [Pink Fin $5/Gram Special](https://mohawkmedibles.co/shop/pink-fin-5-gram-special): Flower -- $5
-- [Grape Gas $5/Gram Special](https://mohawkmedibles.co/shop/grape-gas-5-gram-special): Flower -- $5
-- [Citrus Cookies $5/Gram Special](https://mohawkmedibles.co/shop/citrus-cookies-5-gram-special): Flower -- $5
-- [Goat $65/OZ or $175/3oz](https://mohawkmedibles.co/shop/goat-65oz-or-1753oz-canada): Flower -- $65
-- [Pineapple Express Meds (PEM) Snow Balls 3.5G or 7G](https://mohawkmedibles.co/shop/pineapple-express-meds-pem-snow-balls-3-5g-or-7g-canada): Flower -- $50
-- [WALT HERB CO. Premium Flower 7g Jar](https://mohawkmedibles.co/shop/walt-herb-co-premium-flower-7g-jar-canada): Flower -- $65
+- [Purple Mac $6/Gram Special](https://mohawkmedibles.ca/shop/purple-mac-6-gram-special): Flower -- $6 | THC: 15-16%
+- [Pink Moon $40/oz or $100/3oz](https://mohawkmedibles.ca/shop/pink-moon-40-oz-or-100-3oz): Flower -- $40 | THC: 30%
+- [Purple Urkle $40/oz or $100/3oz](https://mohawkmedibles.ca/shop/purple-urkle-40-oz-or-100-3oz): Flower -- $40 | THC: 18-21%
+- [Permanent Marker Milled Flower](https://mohawkmedibles.ca/shop/permanent-marker-milled-flower): Flower -- $25
+- [Green Crack $100/OZ Deal](https://mohawkmedibles.ca/shop/green-crack-100oz-canada): Flower -- $30 | THC: 15-25%
+- [Drizzle Factory Slims Delta-9 Distillate Infused Pre-Rolls](https://mohawkmedibles.ca/shop/drizzle-factory-slims-delta-9-distillate-infused-pre-rolls-canada): Flower -- $35
+- [Drizzle Factory Slims AAAA Craft Exotic Pre-Rolls](https://mohawkmedibles.ca/shop/drizzle-factory-slims-aaaa-craft-exotic-pre-rolls-canada): Flower -- $45
+- [Black Cherry $100/OZ Deal](https://mohawkmedibles.ca/shop/black-cherry-100oz-canada): Flower -- $30 | THC: 12-18%
+- [Goat Smalls $40/OZ or $100/3oz](https://mohawkmedibles.ca/shop/goat-smalls-40oz-or-1003oz-canada): Flower -- $40
+- [Sour Pink Grapefruit $100/OZ Deal](https://mohawkmedibles.ca/shop/sour-pink-grapefruit-100oz-canada): Flower -- $30 | THC: 15-23%
+- [Top Shelf Pre-Rolled Joints 7g](https://mohawkmedibles.ca/shop/top-shelf-pre-rolled-joints-canada): Flower -- $35 | THC: 28%
+- [Candy Cane $6/Gram Special](https://mohawkmedibles.ca/shop/candy-cane-6-gram-special): Flower -- $6 | THC: 15-20%
+- [Pre Rolled Joints](https://mohawkmedibles.ca/shop/pre-rolled-joints-canada): Flower -- $5
+- [Lemon Cherry Gelato $6/Gram Special](https://mohawkmedibles.ca/shop/lemon-cherry-gelato-6-gram-special): Flower -- $6 | THC: 19-29%
+- [Premium Pre Rolled Joints $5 Each](https://mohawkmedibles.ca/shop/pre-rolled-joint-canada): Flower -- $5
+- [Money Tree $5/Gram Special](https://mohawkmedibles.ca/shop/money-tree-5-gram-special): Flower -- $5 | THC: 24-25%
+- [Miracle Alien Cookies $6/Gram Special](https://mohawkmedibles.ca/shop/miracle-alien-cookies-6-gram-special): Flower -- $6 | THC: 14-20%
+- [Amnesia Haze $5/Gram Special](https://mohawkmedibles.ca/shop/amnesia-haze-5g): Flower -- $5 | THC: 20-22%
+- [WALT HERB CO. Infused Druley Kaboodle Pre Roll](https://mohawkmedibles.ca/shop/walt-herb-co-infused-druley-kaboodle-pre-roll-canada): Flower -- $20 | THC: 28%
+- [Stoned Leaf King Rocket](https://mohawkmedibles.ca/shop/stoned-leaf-king-rocket-canada): Flower -- $20
+- [Tangie Milled Flower](https://mohawkmedibles.ca/shop/tangie-milled-flower): Flower -- $25 | THC: 21%
+- [Pink Goo Smalls $40/oz or $100/3oz](https://mohawkmedibles.ca/shop/pink-goo-smalls-40-oz-or-100-3oz): Flower -- $40 | THC: 20-28%
+- [Top Shelf Flavour Burst Pre-Rolled Joints 2.5g](https://mohawkmedibles.ca/shop/top-shelf-flavour-burst-pre-rolled-joints-canada): Flower -- $25
+- [Bakrs Triplets Pre Rolls](https://mohawkmedibles.ca/shop/bakrs-triplets-pre-rolls-canada): Flower -- $30
+- [Fubar Premium Pre-Rolls](https://mohawkmedibles.ca/shop/fubar-premium-pre-rolls-canada): Flower -- $20 | THC: 18-24%
+- [DRIZZLE FACTORY Rockets](https://mohawkmedibles.ca/shop/drizzle-factory-rockets-canada): Flower -- $15
+- [Slim Shady's Pre-Rolls](https://mohawkmedibles.ca/shop/slim-shadys-pre-rolls-canada): Flower -- $20 | THC: 25%
+- [Pineapple Express Meds (PEM) Jeffery's Pre-Rolled Blunt Single](https://mohawkmedibles.ca/shop/pineapple-express-meds-pem-jefferys-pre-rolled-blunt-single-canada): Flower -- $20 | THC: 30%
+- [Bakrs Duo Pre Rolls](https://mohawkmedibles.ca/shop/bakrs-duo-pre-rolls-canada): Flower -- $30
+- [Fantasy Island $40/oz or $100/3oz](https://mohawkmedibles.ca/shop/fantasy-island-40-oz-or-100-3oz): Flower -- $40 | THC: 15-17%
+- [Purple Mendocino $100/OZ Deal](https://mohawkmedibles.ca/shop/purple-mendocino-100oz-canada): Flower -- $30 | THC: 22%
+- [Death Bubba Smalls $40/oz or $100/3oz](https://mohawkmedibles.ca/shop/death-bubba-smalls-40-oz-or-100-3oz): Flower -- $40 | THC: 27%
+- [Peanut Butter $100/OZ Deal](https://mohawkmedibles.ca/shop/peanut-butter-100oz-canada): Flower -- $30
+- [Larry Burger $5/Gram Special](https://mohawkmedibles.ca/shop/larry-burger-5-gram-special): Flower -- $5 | THC: 20-24%
+- [Pineapple Express Meds (PEM) Baby Jeffery Pre-Roll 5 Pack](https://mohawkmedibles.ca/shop/pineapple-express-meds-pem-baby-jeffery-pre-roll-5-pack-canada): Flower -- $45
+- [Pink Volcano $5/Gram Special](https://mohawkmedibles.ca/shop/pink-volcano-5-gram-special): Flower -- $5
+- [Pink Fin $5/Gram Special](https://mohawkmedibles.ca/shop/pink-fin-5-gram-special): Flower -- $5
+- [Grape Gas $5/Gram Special](https://mohawkmedibles.ca/shop/grape-gas-5-gram-special): Flower -- $5
+- [Citrus Cookies $5/Gram Special](https://mohawkmedibles.ca/shop/citrus-cookies-5-gram-special): Flower -- $5
+- [Goat $65/OZ or $175/3oz](https://mohawkmedibles.ca/shop/goat-65oz-or-1753oz-canada): Flower -- $65
+- [Pineapple Express Meds (PEM) Snow Balls 3.5G or 7G](https://mohawkmedibles.ca/shop/pineapple-express-meds-pem-snow-balls-3-5g-or-7g-canada): Flower -- $50
+- [WALT HERB CO. Premium Flower 7g Jar](https://mohawkmedibles.ca/shop/walt-herb-co-premium-flower-7g-jar-canada): Flower -- $65
 
 ## Concentrates
 
-- [Pineapple Express Meds CBD Pain Relief Roller](https://mohawkmedibles.co/shop/pineapple-express-meds-cbd-pain-rel-canada): Concentrates -- $30 | THC: 0%
-- [CBD Tincture 2000MG](https://mohawkmedibles.co/shop/cbd-tincture-2000mg-canada): Concentrates -- $45
-- [Temple Hash](https://mohawkmedibles.co/shop/temple-hash-canada): Concentrates -- $5
-- [Ice Cream Hash](https://mohawkmedibles.co/shop/ice-cream-hash-canada): Concentrates -- $15
-- [Guava Kush 24k Full Melt 75-80% THC](https://mohawkmedibles.co/shop/24k-full-melt-guava-kush-hash-75-80-thc-canada): Concentrates -- $15
-- [Gas Gang 1G Terp Sauce](https://mohawkmedibles.co/shop/gas-gang-1g-terp-sauce-canada): Concentrates -- $0
-- [Red Velvet Hash](https://mohawkmedibles.co/shop/red-velvet-hash-canada): Concentrates -- $10
-- [Tequila Sunrise Hash](https://mohawkmedibles.co/shop/tequila-sunrise-hash-canada): Concentrates -- $12 | THC: 28%
-- [Biscotti Hash](https://mohawkmedibles.co/shop/biscotti-hash-canada): Concentrates -- $15
-- [Stoned Leaf Moon Rocket](https://mohawkmedibles.co/shop/stoned-leaf-moon-rocket-canada): Concentrates -- $15
-- [Starburst Hash 24k Full Melt 75-80% THC](https://mohawkmedibles.co/shop/24k-full-melt-starburst-hash-75-80-thc-canada): Concentrates -- $15
-- [Kabul Hash $6/Gram Special](https://mohawkmedibles.co/shop/kabul-hash-6gram-canada): Concentrates -- $5
-- [Hashwood Wine Hash $140/OZ Deal](https://mohawkmedibles.co/shop/hashwood-wine-hash-140oz-canada): Concentrates -- $5
-- [Larry Burger LA Mousse Hash](https://mohawkmedibles.co/shop/larry-burger-la-mousse-hash-canada): Concentrates -- $8
-- [AFG Gold Hash](https://mohawkmedibles.co/shop/afg-gold-hash-canada): Concentrates -- $10
-- [Zillionaire Distillate Syringe 1G](https://mohawkmedibles.co/shop/zillionaire-distillate-syringe-canada): Concentrates -- $20
-- [THCA Diamonds & Sauce](https://mohawkmedibles.co/shop/thca-diamonds-sauce-canada): Concentrates -- $20
-- [Amsterdamn Skull Hash](https://mohawkmedibles.co/shop/amsterdamn-skull-hash-canada): Concentrates -- $10
-- [Pineapple Express Meds (PEM) Full Spectrum Shatter](https://mohawkmedibles.co/shop/pineapple-express-meds-pem-full-spectrum-shatter-canada): Concentrates -- $15
-- [PB Breath 24k Full Melt Hash 75-80% THC](https://mohawkmedibles.co/shop/24k-full-melt-pb-breath-hash-75-80-thc-canada): Concentrates -- $15
-- [Banana Hash $140/OZ DEAL](https://mohawkmedibles.co/shop/banana-hash-140oz-canada): Concentrates -- $0
-- [Grape Hash $5/Gram Special](https://mohawkmedibles.co/shop/grape-hash-5gram-canada): Concentrates -- $5 | THC: 18-22%
-- [Moroccan Hash $5/Gram Special](https://mohawkmedibles.co/shop/moroccan-hash-5-gram-special): Concentrates -- $5 | THC: 14-16%
-- [Medibles Hash Oil](https://mohawkmedibles.co/shop/medibles-hash-oil-canada): Concentrates -- $30 | THC: 86%
-- [AFG Horseman Hash](https://mohawkmedibles.co/shop/afg-horseman-hash-canada): Concentrates -- $10
-- [Alaskan Thunder Fuck Hash](https://mohawkmedibles.co/shop/alaskan-thunder-fuck-hash-canada): Concentrates -- $15 | THC: 16-23%
-- [Gevalia Afghan Hash](https://mohawkmedibles.co/shop/gevalia-afghan-hash-canada): Concentrates -- $10
-- [Death Gas 24k Full Melt Hash 75-80% THC](https://mohawkmedibles.co/shop/24k-full-melt-death-gas-hash-75-80-thc-canada): Concentrates -- $15
-- [Turkey Hash $6/Gram Special](https://mohawkmedibles.co/shop/turkey-hash-6gram-canada): Concentrates -- $5
-- [Holy Grail LA Mousse Hash](https://mohawkmedibles.co/shop/holy-grail-la-mousse-hash-canada): Concentrates -- $8
-- [RSO Oil](https://mohawkmedibles.co/shop/rso-oil-canada): Concentrates -- $10
-- [Honey Hash $5/Gram Special](https://mohawkmedibles.co/shop/honey-hash-5gram-canada): Concentrates -- $5 | THC: 18-22%
-- [Death Bubba 24k Full Melt Hash 75-80% THC](https://mohawkmedibles.co/shop/24k-full-melt-death-bubba-hash-75-80-thc-canada): Concentrates -- $15
-- [Straight Goods 1G Dablicator](https://mohawkmedibles.co/shop/straight-goods-1g-dablicator-canada): Concentrates -- $25
-- [Smoked Caramel Hash $5/Gram Special](https://mohawkmedibles.co/shop/smoked-caramel-hash-5-gram-special): Concentrates -- $5 | THC: 35%
-- [Gas Gang 1g Live Resin](https://mohawkmedibles.co/shop/gas-gang-1g-live-resin-canada): Concentrates -- $0 | THC: 85%
-- [Orange Zkittlez 24k Full Melt Hash 75-80% THC](https://mohawkmedibles.co/shop/24k-full-melt-orange-zkittlez-hash-75-80-thc-canada): Concentrates -- $15
-- [Biscotti LA Mousse Hash](https://mohawkmedibles.co/shop/biscotti-la-mousse-hash-canada): Concentrates -- $8
-- [THC Tincture 1500MG](https://mohawkmedibles.co/shop/thc-tincture-2-canada): Concentrates -- $30
-- [Candy Land Hash](https://mohawkmedibles.co/shop/candy-land-hash-canada): Concentrates -- $15 | THC: 18-24%
-- [Highway 30 Hash $140/OZ Deal](https://mohawkmedibles.co/shop/highway-30-hash-140oz-canada): Concentrates -- $5
-- [Chocolate Hash $5/Gram Special](https://mohawkmedibles.co/shop/chocolate-hash-5gram-canada): Concentrates -- $5 | THC: 18-22%
-- [Cookie Afghan Hash](https://mohawkmedibles.co/shop/cookie-afghan-hash-canada): Concentrates -- $15
-- [Bubble Gum Hash $140/OZ Deal](https://mohawkmedibles.co/shop/bubble-gum-hash-140-oz-canada): Concentrates -- $5
-- [Styrofoam Cup LA Mousse Hash](https://mohawkmedibles.co/shop/styrofoam-cup-la-mousse-hash-canada): Concentrates -- $8
-- [Zealousy LA Mousse Hash](https://mohawkmedibles.co/shop/zealousy-la-mousse-hash-canada): Concentrates -- $8
-- [Nepalese Temple Ball Hash](https://mohawkmedibles.co/shop/nepalese-temple-ball-hash-2): Concentrates -- $12
-- [Vanilla Hash $5/Gram Special](https://mohawkmedibles.co/shop/vanilla-hash-5gram-canada): Concentrates -- $5 | THC: 18-22%
-- [Ice Cream LA Mousse Hash](https://mohawkmedibles.co/shop/ice-cream-la-mousse-hash-canada): Concentrates -- $8
-- [Drizzle Factory Shatter 1g](https://mohawkmedibles.co/shop/drizzle-factory-shatter-1-gram-canada): Concentrates -- $15
-- [Cognac Hash $140/OZ Deal](https://mohawkmedibles.co/shop/cognac-hash-140-oz-canada): Concentrates -- $5
-- [La Kush Cake 24k Full Melt Hash 75-80% THC](https://mohawkmedibles.co/shop/24k-full-melt-la-kush-cake-hash-75-80-thc-canada): Concentrates -- $15
-- [Holy Grail Hash](https://mohawkmedibles.co/shop/holy-grail-hash-canada): Concentrates -- $15 | THC: 25-34%
-- [Grumpy Tiger LA Mousse Hash](https://mohawkmedibles.co/shop/grumpy-tiger-la-mousse-hash-canada): Concentrates -- $8
-- [Godfather OG 24k Full Melt Hash 75-80% THC](https://mohawkmedibles.co/shop/24k-full-melt-godfather-og-hash-75-80-thc-canada): Concentrates -- $15
-- [Do-Si-Dos 24k Full Melt Hash 75-80% THC](https://mohawkmedibles.co/shop/24k-full-melt-do-si-dos-hash-75-80-thc-canada): Concentrates -- $15 | THC: 25%
-- [Gas Gang Shatter 1g](https://mohawkmedibles.co/shop/gas-gang-shatter-1g-canada): Concentrates -- $15
-- [Russian Cream Hash $140/OZ Deal](https://mohawkmedibles.co/shop/russian-cream-hash-140oz-canada): Concentrates -- $5
-- [Chara Temple Coins Hash](https://mohawkmedibles.co/shop/chara-temple-coins-hash): Concentrates -- $12
-- [Banana Sherbert LA Mousse Hash](https://mohawkmedibles.co/shop/banana-sherbert-la-mousse-hash-canada): Concentrates -- $8
-- [Pakistan Hash $6/Gram Special](https://mohawkmedibles.co/shop/pakistan-hash-6gram-canada): Concentrates -- $5
-- [Wonder Woman LA Mousse Hash](https://mohawkmedibles.co/shop/wonder-woman-la-mousse-hash-canada): Concentrates -- $8
-- [Zillionaire Shatter 1G](https://mohawkmedibles.co/shop/zillionaire-shatter-1g-canada): Concentrates -- $10 | THC: 85%
-- [Moroccan Love Hash](https://mohawkmedibles.co/shop/love-moroccan-hash-canada): Concentrates -- $12
-- [Gas Gang Connoisseur Mix Box 4G](https://mohawkmedibles.co/shop/gas-gang-connoisseur-mix-box-4g): Concentrates -- $50
-- [Aki Pain Cream 1:1](https://mohawkmedibles.co/shop/aki-pain-cream-11): Concentrates -- $48
-- [Aki Pain Salve 1:1](https://mohawkmedibles.co/shop/aki-pain-salve-11): Concentrates -- $48
-- [Tiger Blood Hash](https://mohawkmedibles.co/shop/tiger-blood-hash): Concentrates -- $12
-- [Honey Bee Hash](https://mohawkmedibles.co/shop/honey-bee-hash): Concentrates -- $12
-- [MMS Hash](https://mohawkmedibles.co/shop/mms-hash): Concentrates -- $12
-- [M39 Hash](https://mohawkmedibles.co/shop/m39-hash): Concentrates -- $12
-- [Escobar Hash](https://mohawkmedibles.co/shop/escobar-hash): Concentrates -- $12
-- [Bueno Hash](https://mohawkmedibles.co/shop/bueno-hash): Concentrates -- $12
-- [Plant of Life Full Spectrum Organic CBD Oil](https://mohawkmedibles.co/shop/plant-of-life-full-spectrum-organic-canada-2): Concentrates -- $55
-- [Plant of Life Broad Spectrum Organic CBD+ Relief](https://mohawkmedibles.co/shop/plant-of-life-broad-spectrum-organi-canada): Concentrates -- $70
-- [Diamond Concentrates 6g Dual Chamber Disposable THC Vape](https://mohawkmedibles.co/shop/diamond-concentrates-dual-chamber-3g-3g-6g-canada): Concentrates -- $80
+- [Pineapple Express Meds CBD Pain Relief Roller](https://mohawkmedibles.ca/shop/pineapple-express-meds-cbd-pain-rel-canada): Concentrates -- $30 | THC: 0%
+- [CBD Tincture 2000MG](https://mohawkmedibles.ca/shop/cbd-tincture-2000mg-canada): Concentrates -- $45
+- [Temple Hash](https://mohawkmedibles.ca/shop/temple-hash-canada): Concentrates -- $5
+- [Ice Cream Hash](https://mohawkmedibles.ca/shop/ice-cream-hash-canada): Concentrates -- $15
+- [Guava Kush 24k Full Melt 75-80% THC](https://mohawkmedibles.ca/shop/24k-full-melt-guava-kush-hash-75-80-thc-canada): Concentrates -- $15
+- [Gas Gang 1G Terp Sauce](https://mohawkmedibles.ca/shop/gas-gang-1g-terp-sauce-canada): Concentrates -- $0
+- [Red Velvet Hash](https://mohawkmedibles.ca/shop/red-velvet-hash-canada): Concentrates -- $10
+- [Tequila Sunrise Hash](https://mohawkmedibles.ca/shop/tequila-sunrise-hash-canada): Concentrates -- $12 | THC: 28%
+- [Biscotti Hash](https://mohawkmedibles.ca/shop/biscotti-hash-canada): Concentrates -- $15
+- [Stoned Leaf Moon Rocket](https://mohawkmedibles.ca/shop/stoned-leaf-moon-rocket-canada): Concentrates -- $15
+- [Starburst Hash 24k Full Melt 75-80% THC](https://mohawkmedibles.ca/shop/24k-full-melt-starburst-hash-75-80-thc-canada): Concentrates -- $15
+- [Kabul Hash $6/Gram Special](https://mohawkmedibles.ca/shop/kabul-hash-6gram-canada): Concentrates -- $5
+- [Hashwood Wine Hash $140/OZ Deal](https://mohawkmedibles.ca/shop/hashwood-wine-hash-140oz-canada): Concentrates -- $5
+- [Larry Burger LA Mousse Hash](https://mohawkmedibles.ca/shop/larry-burger-la-mousse-hash-canada): Concentrates -- $8
+- [AFG Gold Hash](https://mohawkmedibles.ca/shop/afg-gold-hash-canada): Concentrates -- $10
+- [Zillionaire Distillate Syringe 1G](https://mohawkmedibles.ca/shop/zillionaire-distillate-syringe-canada): Concentrates -- $20
+- [THCA Diamonds & Sauce](https://mohawkmedibles.ca/shop/thca-diamonds-sauce-canada): Concentrates -- $20
+- [Amsterdamn Skull Hash](https://mohawkmedibles.ca/shop/amsterdamn-skull-hash-canada): Concentrates -- $10
+- [Pineapple Express Meds (PEM) Full Spectrum Shatter](https://mohawkmedibles.ca/shop/pineapple-express-meds-pem-full-spectrum-shatter-canada): Concentrates -- $15
+- [PB Breath 24k Full Melt Hash 75-80% THC](https://mohawkmedibles.ca/shop/24k-full-melt-pb-breath-hash-75-80-thc-canada): Concentrates -- $15
+- [Banana Hash $140/OZ DEAL](https://mohawkmedibles.ca/shop/banana-hash-140oz-canada): Concentrates -- $0
+- [Grape Hash $5/Gram Special](https://mohawkmedibles.ca/shop/grape-hash-5gram-canada): Concentrates -- $5 | THC: 18-22%
+- [Moroccan Hash $5/Gram Special](https://mohawkmedibles.ca/shop/moroccan-hash-5-gram-special): Concentrates -- $5 | THC: 14-16%
+- [Medibles Hash Oil](https://mohawkmedibles.ca/shop/medibles-hash-oil-canada): Concentrates -- $30 | THC: 86%
+- [AFG Horseman Hash](https://mohawkmedibles.ca/shop/afg-horseman-hash-canada): Concentrates -- $10
+- [Alaskan Thunder Fuck Hash](https://mohawkmedibles.ca/shop/alaskan-thunder-fuck-hash-canada): Concentrates -- $15 | THC: 16-23%
+- [Gevalia Afghan Hash](https://mohawkmedibles.ca/shop/gevalia-afghan-hash-canada): Concentrates -- $10
+- [Death Gas 24k Full Melt Hash 75-80% THC](https://mohawkmedibles.ca/shop/24k-full-melt-death-gas-hash-75-80-thc-canada): Concentrates -- $15
+- [Turkey Hash $6/Gram Special](https://mohawkmedibles.ca/shop/turkey-hash-6gram-canada): Concentrates -- $5
+- [Holy Grail LA Mousse Hash](https://mohawkmedibles.ca/shop/holy-grail-la-mousse-hash-canada): Concentrates -- $8
+- [RSO Oil](https://mohawkmedibles.ca/shop/rso-oil-canada): Concentrates -- $10
+- [Honey Hash $5/Gram Special](https://mohawkmedibles.ca/shop/honey-hash-5gram-canada): Concentrates -- $5 | THC: 18-22%
+- [Death Bubba 24k Full Melt Hash 75-80% THC](https://mohawkmedibles.ca/shop/24k-full-melt-death-bubba-hash-75-80-thc-canada): Concentrates -- $15
+- [Straight Goods 1G Dablicator](https://mohawkmedibles.ca/shop/straight-goods-1g-dablicator-canada): Concentrates -- $25
+- [Smoked Caramel Hash $5/Gram Special](https://mohawkmedibles.ca/shop/smoked-caramel-hash-5-gram-special): Concentrates -- $5 | THC: 35%
+- [Gas Gang 1g Live Resin](https://mohawkmedibles.ca/shop/gas-gang-1g-live-resin-canada): Concentrates -- $0 | THC: 85%
+- [Orange Zkittlez 24k Full Melt Hash 75-80% THC](https://mohawkmedibles.ca/shop/24k-full-melt-orange-zkittlez-hash-75-80-thc-canada): Concentrates -- $15
+- [Biscotti LA Mousse Hash](https://mohawkmedibles.ca/shop/biscotti-la-mousse-hash-canada): Concentrates -- $8
+- [THC Tincture 1500MG](https://mohawkmedibles.ca/shop/thc-tincture-2-canada): Concentrates -- $30
+- [Candy Land Hash](https://mohawkmedibles.ca/shop/candy-land-hash-canada): Concentrates -- $15 | THC: 18-24%
+- [Highway 30 Hash $140/OZ Deal](https://mohawkmedibles.ca/shop/highway-30-hash-140oz-canada): Concentrates -- $5
+- [Chocolate Hash $5/Gram Special](https://mohawkmedibles.ca/shop/chocolate-hash-5gram-canada): Concentrates -- $5 | THC: 18-22%
+- [Cookie Afghan Hash](https://mohawkmedibles.ca/shop/cookie-afghan-hash-canada): Concentrates -- $15
+- [Bubble Gum Hash $140/OZ Deal](https://mohawkmedibles.ca/shop/bubble-gum-hash-140-oz-canada): Concentrates -- $5
+- [Styrofoam Cup LA Mousse Hash](https://mohawkmedibles.ca/shop/styrofoam-cup-la-mousse-hash-canada): Concentrates -- $8
+- [Zealousy LA Mousse Hash](https://mohawkmedibles.ca/shop/zealousy-la-mousse-hash-canada): Concentrates -- $8
+- [Nepalese Temple Ball Hash](https://mohawkmedibles.ca/shop/nepalese-temple-ball-hash-2): Concentrates -- $12
+- [Vanilla Hash $5/Gram Special](https://mohawkmedibles.ca/shop/vanilla-hash-5gram-canada): Concentrates -- $5 | THC: 18-22%
+- [Ice Cream LA Mousse Hash](https://mohawkmedibles.ca/shop/ice-cream-la-mousse-hash-canada): Concentrates -- $8
+- [Drizzle Factory Shatter 1g](https://mohawkmedibles.ca/shop/drizzle-factory-shatter-1-gram-canada): Concentrates -- $15
+- [Cognac Hash $140/OZ Deal](https://mohawkmedibles.ca/shop/cognac-hash-140-oz-canada): Concentrates -- $5
+- [La Kush Cake 24k Full Melt Hash 75-80% THC](https://mohawkmedibles.ca/shop/24k-full-melt-la-kush-cake-hash-75-80-thc-canada): Concentrates -- $15
+- [Holy Grail Hash](https://mohawkmedibles.ca/shop/holy-grail-hash-canada): Concentrates -- $15 | THC: 25-34%
+- [Grumpy Tiger LA Mousse Hash](https://mohawkmedibles.ca/shop/grumpy-tiger-la-mousse-hash-canada): Concentrates -- $8
+- [Godfather OG 24k Full Melt Hash 75-80% THC](https://mohawkmedibles.ca/shop/24k-full-melt-godfather-og-hash-75-80-thc-canada): Concentrates -- $15
+- [Do-Si-Dos 24k Full Melt Hash 75-80% THC](https://mohawkmedibles.ca/shop/24k-full-melt-do-si-dos-hash-75-80-thc-canada): Concentrates -- $15 | THC: 25%
+- [Gas Gang Shatter 1g](https://mohawkmedibles.ca/shop/gas-gang-shatter-1g-canada): Concentrates -- $15
+- [Russian Cream Hash $140/OZ Deal](https://mohawkmedibles.ca/shop/russian-cream-hash-140oz-canada): Concentrates -- $5
+- [Chara Temple Coins Hash](https://mohawkmedibles.ca/shop/chara-temple-coins-hash): Concentrates -- $12
+- [Banana Sherbert LA Mousse Hash](https://mohawkmedibles.ca/shop/banana-sherbert-la-mousse-hash-canada): Concentrates -- $8
+- [Pakistan Hash $6/Gram Special](https://mohawkmedibles.ca/shop/pakistan-hash-6gram-canada): Concentrates -- $5
+- [Wonder Woman LA Mousse Hash](https://mohawkmedibles.ca/shop/wonder-woman-la-mousse-hash-canada): Concentrates -- $8
+- [Zillionaire Shatter 1G](https://mohawkmedibles.ca/shop/zillionaire-shatter-1g-canada): Concentrates -- $10 | THC: 85%
+- [Moroccan Love Hash](https://mohawkmedibles.ca/shop/love-moroccan-hash-canada): Concentrates -- $12
+- [Gas Gang Connoisseur Mix Box 4G](https://mohawkmedibles.ca/shop/gas-gang-connoisseur-mix-box-4g): Concentrates -- $50
+- [Aki Pain Cream 1:1](https://mohawkmedibles.ca/shop/aki-pain-cream-11): Concentrates -- $48
+- [Aki Pain Salve 1:1](https://mohawkmedibles.ca/shop/aki-pain-salve-11): Concentrates -- $48
+- [Tiger Blood Hash](https://mohawkmedibles.ca/shop/tiger-blood-hash): Concentrates -- $12
+- [Honey Bee Hash](https://mohawkmedibles.ca/shop/honey-bee-hash): Concentrates -- $12
+- [MMS Hash](https://mohawkmedibles.ca/shop/mms-hash): Concentrates -- $12
+- [M39 Hash](https://mohawkmedibles.ca/shop/m39-hash): Concentrates -- $12
+- [Escobar Hash](https://mohawkmedibles.ca/shop/escobar-hash): Concentrates -- $12
+- [Bueno Hash](https://mohawkmedibles.ca/shop/bueno-hash): Concentrates -- $12
+- [Plant of Life Full Spectrum Organic CBD Oil](https://mohawkmedibles.ca/shop/plant-of-life-full-spectrum-organic-canada-2): Concentrates -- $55
+- [Plant of Life Broad Spectrum Organic CBD+ Relief](https://mohawkmedibles.ca/shop/plant-of-life-broad-spectrum-organi-canada): Concentrates -- $70
+- [Diamond Concentrates 6g Dual Chamber Disposable THC Vape](https://mohawkmedibles.ca/shop/diamond-concentrates-dual-chamber-3g-3g-6g-canada): Concentrates -- $80
 
 ## Edibles
 
-- [Wesley Tea Company CBD Tea 40mg](https://mohawkmedibles.co/shop/wesley-tea-company-cbd-tea-40mg-canada): Edibles -- $5
-- [Euphoria Extractions Shatter Chews](https://mohawkmedibles.co/shop/euphoria-extractions-shatter-chews-canada): Edibles -- $16
-- [STELLAR THC BANANA GUMMIES](https://mohawkmedibles.co/shop/stellar-banana-gummies-canada): Edibles -- $16
-- [STELLAR THC Salted Caramel Bar](https://mohawkmedibles.co/shop/stellar-salted-caramel-bar-canada): Edibles -- $32
-- [Euphoria Extractions Shatter Bars Sativa](https://mohawkmedibles.co/shop/euphoria-extractions-shatter-bars-sativa-canada): Edibles -- $20
-- [Euphoria Extractions Shatter Bars Indica](https://mohawkmedibles.co/shop/euphoria-extractions-shatter-bars-indica-canada): Edibles -- $20
-- [C&D THC Turtles](https://mohawkmedibles.co/shop/c-d-thc-turtles-canada): Edibles -- $20
-- [STELLAR THC Milk Chocolate Bar](https://mohawkmedibles.co/shop/stellar-milk-chocolate-bar-canada): Edibles -- $16
-- [Wesley Tea Company 1:1 Tea 40mg](https://mohawkmedibles.co/shop/wesley-tea-company-11-tea-40mg-canada): Edibles -- $5
-- [Wesley THC Choco-Mint Mints](https://mohawkmedibles.co/shop/wesley-thc-choco-mint-mints-canada): Edibles -- $13
-- [Wesley THC Pepper-Mints](https://mohawkmedibles.co/shop/wesley-thc-pepper-mints-canada): Edibles -- $13
-- [Wesley Tea Company Luxury CBD Hot Chocolate 40mg](https://mohawkmedibles.co/shop/wesley-tea-company-luxury-cbd-hot-chocolate-40mg-canada): Edibles -- $7
-- [Caramels 200mg](https://mohawkmedibles.co/shop/caramels-200mg-canada): Edibles -- $10
-- [Stoned Leaf THC Gummies](https://mohawkmedibles.co/shop/stoned-leaf-gummies-thc-canada): Edibles -- $10
-- [Top Tier Gummies 2500MG THC](https://mohawkmedibles.co/shop/top-tier-gummies-2500mg-thc-canada): Edibles -- $25
-- [C&D THC Brownie](https://mohawkmedibles.co/shop/c-d-thc-brownie-canada): Edibles -- $20
-- [Wesley Tea Company THC Tea 40mg](https://mohawkmedibles.co/shop/wesley-tea-company-thc-tea-40mg-canada): Edibles -- $5
-- [Eat Me Sour Peach THC Gummies](https://mohawkmedibles.co/shop/eat-me-sour-peach-thc-gummies-canada): Edibles -- $35
-- [Cactus Labs D9 THC Gummies](https://mohawkmedibles.co/shop/cactus-labs-d9-thc-gummies-canada): Edibles -- $40
-- [STELLAR THC STRAWBERRY KIWI GUMMIES](https://mohawkmedibles.co/shop/stellar-strawberry-kiwi-gummies-canada): Edibles -- $32
-- [Left Coast Gummy Co.](https://mohawkmedibles.co/shop/left-coast-gummy-co-canada): Edibles -- $15
-- [Knock Out THC Gummies](https://mohawkmedibles.co/shop/knock-out-thc-gummies-canada): Edibles -- $15
-- [Pineapple Express Meds (PEM) Gummy](https://mohawkmedibles.co/shop/pineapple-express-meds-pem-gummy-canada): Edibles -- $15
-- [STELLAR THC CREAMSICLE GUMMIES](https://mohawkmedibles.co/shop/stellar-creamsicle-gummies-canada): Edibles -- $16
-- [Euphoria Extractions Shatter Bombs 60mg](https://mohawkmedibles.co/shop/euphoria-extractions-shatter-bombs-60mg-canada): Edibles -- $10
-- [Natures Magic Mango Cranberry Psilocybin Tea](https://mohawkmedibles.co/shop/natures-magic-mango-cranberry-psilocybin-tea-canada): Edibles -- $19
-- [STELLAR THC CHERRY COLA GUMMIES](https://mohawkmedibles.co/shop/stellar-cherry-cola-gummies-canada): Edibles -- $16
-- [STELLAR THC Dark Chocolate Bar](https://mohawkmedibles.co/shop/stellar-dark-chocolate-bar-canada): Edibles -- $16
-- [Drizzle Factory THC Gummies 1000MG](https://mohawkmedibles.co/shop/drizzle-factory-thc-gummies-1000mg-canada): Edibles -- $25
-- [Cactus Labs Take Off Blend THC Gummies](https://mohawkmedibles.co/shop/cactus-labs-take-off-blend-thc-gummies-canada): Edibles -- $40
-- [Pineapple Express Meds (PEM) THC Chocolate Bar](https://mohawkmedibles.co/shop/pineapple-express-meds-pem-chocolate-bar-canada): Edibles -- $20
-- [STELLAR THC Ruby Red Bar](https://mohawkmedibles.co/shop/stellar-ruby-red-bar-canada): Edibles -- $32
-- [Stoned Leaf Gummies 3:1 CBD/THC](https://mohawkmedibles.co/shop/stoned-leaf-gummies-31-cbd-thc-canada): Edibles -- $10
-- [Euphoria Extractions Shatter Soda 200mg](https://mohawkmedibles.co/shop/euphoria-extractions-shatter-root-beer-200mg-canada): Edibles -- $26
-- [Euphoria Extractions Sours Cannabis Infused Gummies](https://mohawkmedibles.co/shop/euphoria-extractions-sours-cannabis-infused-gummies-canada): Edibles -- $16
-- [Wesley Tea Company Luxury THC Hot Chocolate 40mg](https://mohawkmedibles.co/shop/wesley-tea-company-luxury-thc-hot-chocolate-40mg-canada): Edibles -- $7
-- [Wesley Tea Company Luxury 1:1 Hot Chocolate 40mg](https://mohawkmedibles.co/shop/wesley-tea-company-luxury-11-hot-chocolate-40mg-canada): Edibles -- $7
-- [Top Tier Gummies 500MG THC](https://mohawkmedibles.co/shop/top-tier-gummies-500mg-thc-canada): Edibles -- $10
-- [Wesley THC Wintergreen Mints](https://mohawkmedibles.co/shop/wesley-thc-wintergreen-mints-canada): Edibles -- $30
-- [STELLAR THC Strawberries & Cream Bar](https://mohawkmedibles.co/shop/stellar-thc-strawberries-cream-bar-canada): Edibles -- $16
-- [Rainbow Pieces Stoner Pack 1000mg](https://mohawkmedibles.co/shop/rainbow-pieces-stoner-pack-1000mg-canada): Edibles -- $35
-- [Stoned Leaf Gummies 1:1 CBD/THC](https://mohawkmedibles.co/shop/stoned-leaf-gummies-11-cbd-thc-canada): Edibles -- $10
-- [Cactus Labs 5D Blend THC Gummies](https://mohawkmedibles.co/shop/cactus-labs-5d-blend-thc-gummies-canada): Edibles -- $40
-- [Haneypot Edibles Live Resin Terpene Gummies 1000mg](https://mohawkmedibles.co/shop/haneypot-edibles-live-resin-terpene-gummies-1000mg): Edibles -- $25
-- [Haneypot Edibles Live Resin Terpene Gummies 500mg](https://mohawkmedibles.co/shop/haneypot-edibles-live-resin-terpene-gummies-500mg): Edibles -- $20
-- [Haneypot Edibles Live Resin Terpene Gummies 10,000mg](https://mohawkmedibles.co/shop/haneypot-edibles-live-resin-terpene-gummies-10000mg): Edibles -- $85
-- [Haneypot Edibles Live Resin Terpene Gummies 7500mg](https://mohawkmedibles.co/shop/haneypot-edibles-live-resin-terpene-gummies-7500mg): Edibles -- $65
-- [Haneypot Edibles Live Resin Terpene Gummies 2500mg](https://mohawkmedibles.co/shop/haneypot-edibles-live-resin-terpene-gummies-2500mg): Edibles -- $30
-- [Local Organic Infused Honey](https://mohawkmedibles.co/shop/local-organic-infused-honey-canada): Edibles -- $60
-- [Galaxy 6000mg THC Gummies](https://mohawkmedibles.co/shop/galaxy-6000mg-thc-canada): Edibles -- $50
-- [Top Tier Gummies 6000mg THC](https://mohawkmedibles.co/shop/top-tier-gummies-6000mg-thc-canada): Edibles -- $50
-- [C and D Bite Size THC Brownie](https://mohawkmedibles.co/shop/c-d-bite-size-thc-brownie-canada): Edibles -- $5
+- [Wesley Tea Company CBD Tea 40mg](https://mohawkmedibles.ca/shop/wesley-tea-company-cbd-tea-40mg-canada): Edibles -- $5
+- [Euphoria Extractions Shatter Chews](https://mohawkmedibles.ca/shop/euphoria-extractions-shatter-chews-canada): Edibles -- $16
+- [STELLAR THC BANANA GUMMIES](https://mohawkmedibles.ca/shop/stellar-banana-gummies-canada): Edibles -- $16
+- [STELLAR THC Salted Caramel Bar](https://mohawkmedibles.ca/shop/stellar-salted-caramel-bar-canada): Edibles -- $32
+- [Euphoria Extractions Shatter Bars Sativa](https://mohawkmedibles.ca/shop/euphoria-extractions-shatter-bars-sativa-canada): Edibles -- $20
+- [Euphoria Extractions Shatter Bars Indica](https://mohawkmedibles.ca/shop/euphoria-extractions-shatter-bars-indica-canada): Edibles -- $20
+- [C&D THC Turtles](https://mohawkmedibles.ca/shop/c-d-thc-turtles-canada): Edibles -- $20
+- [STELLAR THC Milk Chocolate Bar](https://mohawkmedibles.ca/shop/stellar-milk-chocolate-bar-canada): Edibles -- $16
+- [Wesley Tea Company 1:1 Tea 40mg](https://mohawkmedibles.ca/shop/wesley-tea-company-11-tea-40mg-canada): Edibles -- $5
+- [Wesley THC Choco-Mint Mints](https://mohawkmedibles.ca/shop/wesley-thc-choco-mint-mints-canada): Edibles -- $13
+- [Wesley THC Pepper-Mints](https://mohawkmedibles.ca/shop/wesley-thc-pepper-mints-canada): Edibles -- $13
+- [Wesley Tea Company Luxury CBD Hot Chocolate 40mg](https://mohawkmedibles.ca/shop/wesley-tea-company-luxury-cbd-hot-chocolate-40mg-canada): Edibles -- $7
+- [Caramels 200mg](https://mohawkmedibles.ca/shop/caramels-200mg-canada): Edibles -- $10
+- [Stoned Leaf THC Gummies](https://mohawkmedibles.ca/shop/stoned-leaf-gummies-thc-canada): Edibles -- $10
+- [Top Tier Gummies 2500MG THC](https://mohawkmedibles.ca/shop/top-tier-gummies-2500mg-thc-canada): Edibles -- $25
+- [C&D THC Brownie](https://mohawkmedibles.ca/shop/c-d-thc-brownie-canada): Edibles -- $20
+- [Wesley Tea Company THC Tea 40mg](https://mohawkmedibles.ca/shop/wesley-tea-company-thc-tea-40mg-canada): Edibles -- $5
+- [Eat Me Sour Peach THC Gummies](https://mohawkmedibles.ca/shop/eat-me-sour-peach-thc-gummies-canada): Edibles -- $35
+- [Cactus Labs D9 THC Gummies](https://mohawkmedibles.ca/shop/cactus-labs-d9-thc-gummies-canada): Edibles -- $40
+- [STELLAR THC STRAWBERRY KIWI GUMMIES](https://mohawkmedibles.ca/shop/stellar-strawberry-kiwi-gummies-canada): Edibles -- $32
+- [Left Coast Gummy Co.](https://mohawkmedibles.ca/shop/left-coast-gummy-co-canada): Edibles -- $15
+- [Knock Out THC Gummies](https://mohawkmedibles.ca/shop/knock-out-thc-gummies-canada): Edibles -- $15
+- [Pineapple Express Meds (PEM) Gummy](https://mohawkmedibles.ca/shop/pineapple-express-meds-pem-gummy-canada): Edibles -- $15
+- [STELLAR THC CREAMSICLE GUMMIES](https://mohawkmedibles.ca/shop/stellar-creamsicle-gummies-canada): Edibles -- $16
+- [Euphoria Extractions Shatter Bombs 60mg](https://mohawkmedibles.ca/shop/euphoria-extractions-shatter-bombs-60mg-canada): Edibles -- $10
+- [Natures Magic Mango Cranberry Psilocybin Tea](https://mohawkmedibles.ca/shop/natures-magic-mango-cranberry-psilocybin-tea-canada): Edibles -- $19
+- [STELLAR THC CHERRY COLA GUMMIES](https://mohawkmedibles.ca/shop/stellar-cherry-cola-gummies-canada): Edibles -- $16
+- [STELLAR THC Dark Chocolate Bar](https://mohawkmedibles.ca/shop/stellar-dark-chocolate-bar-canada): Edibles -- $16
+- [Drizzle Factory THC Gummies 1000MG](https://mohawkmedibles.ca/shop/drizzle-factory-thc-gummies-1000mg-canada): Edibles -- $25
+- [Cactus Labs Take Off Blend THC Gummies](https://mohawkmedibles.ca/shop/cactus-labs-take-off-blend-thc-gummies-canada): Edibles -- $40
+- [Pineapple Express Meds (PEM) THC Chocolate Bar](https://mohawkmedibles.ca/shop/pineapple-express-meds-pem-chocolate-bar-canada): Edibles -- $20
+- [STELLAR THC Ruby Red Bar](https://mohawkmedibles.ca/shop/stellar-ruby-red-bar-canada): Edibles -- $32
+- [Stoned Leaf Gummies 3:1 CBD/THC](https://mohawkmedibles.ca/shop/stoned-leaf-gummies-31-cbd-thc-canada): Edibles -- $10
+- [Euphoria Extractions Shatter Soda 200mg](https://mohawkmedibles.ca/shop/euphoria-extractions-shatter-root-beer-200mg-canada): Edibles -- $26
+- [Euphoria Extractions Sours Cannabis Infused Gummies](https://mohawkmedibles.ca/shop/euphoria-extractions-sours-cannabis-infused-gummies-canada): Edibles -- $16
+- [Wesley Tea Company Luxury THC Hot Chocolate 40mg](https://mohawkmedibles.ca/shop/wesley-tea-company-luxury-thc-hot-chocolate-40mg-canada): Edibles -- $7
+- [Wesley Tea Company Luxury 1:1 Hot Chocolate 40mg](https://mohawkmedibles.ca/shop/wesley-tea-company-luxury-11-hot-chocolate-40mg-canada): Edibles -- $7
+- [Top Tier Gummies 500MG THC](https://mohawkmedibles.ca/shop/top-tier-gummies-500mg-thc-canada): Edibles -- $10
+- [Wesley THC Wintergreen Mints](https://mohawkmedibles.ca/shop/wesley-thc-wintergreen-mints-canada): Edibles -- $30
+- [STELLAR THC Strawberries & Cream Bar](https://mohawkmedibles.ca/shop/stellar-thc-strawberries-cream-bar-canada): Edibles -- $16
+- [Rainbow Pieces Stoner Pack 1000mg](https://mohawkmedibles.ca/shop/rainbow-pieces-stoner-pack-1000mg-canada): Edibles -- $35
+- [Stoned Leaf Gummies 1:1 CBD/THC](https://mohawkmedibles.ca/shop/stoned-leaf-gummies-11-cbd-thc-canada): Edibles -- $10
+- [Cactus Labs 5D Blend THC Gummies](https://mohawkmedibles.ca/shop/cactus-labs-5d-blend-thc-gummies-canada): Edibles -- $40
+- [Haneypot Edibles Live Resin Terpene Gummies 1000mg](https://mohawkmedibles.ca/shop/haneypot-edibles-live-resin-terpene-gummies-1000mg): Edibles -- $25
+- [Haneypot Edibles Live Resin Terpene Gummies 500mg](https://mohawkmedibles.ca/shop/haneypot-edibles-live-resin-terpene-gummies-500mg): Edibles -- $20
+- [Haneypot Edibles Live Resin Terpene Gummies 10,000mg](https://mohawkmedibles.ca/shop/haneypot-edibles-live-resin-terpene-gummies-10000mg): Edibles -- $85
+- [Haneypot Edibles Live Resin Terpene Gummies 7500mg](https://mohawkmedibles.ca/shop/haneypot-edibles-live-resin-terpene-gummies-7500mg): Edibles -- $65
+- [Haneypot Edibles Live Resin Terpene Gummies 2500mg](https://mohawkmedibles.ca/shop/haneypot-edibles-live-resin-terpene-gummies-2500mg): Edibles -- $30
+- [Local Organic Infused Honey](https://mohawkmedibles.ca/shop/local-organic-infused-honey-canada): Edibles -- $60
+- [Galaxy 6000mg THC Gummies](https://mohawkmedibles.ca/shop/galaxy-6000mg-thc-canada): Edibles -- $50
+- [Top Tier Gummies 6000mg THC](https://mohawkmedibles.ca/shop/top-tier-gummies-6000mg-thc-canada): Edibles -- $50
+- [C and D Bite Size THC Brownie](https://mohawkmedibles.ca/shop/c-d-bite-size-thc-brownie-canada): Edibles -- $5
 
 ## Vapes & Disposables
 
-- [ASEND 1ML Live Resin Disposable Vape Pen](https://mohawkmedibles.co/shop/asend-1ml-live-resin-disposable-vape-pen-canada): Vapes -- $25 | THC: 88%
-- [ZILLIONAIRE 1ML THC Vape](https://mohawkmedibles.co/shop/zillionaire-1ml-thc-vape-canada): Vapes -- $20
-- [Drizzle Factory THC God Pod Vape 3G Pen](https://mohawkmedibles.co/shop/drizzle-factory-thc-god-pod-vape-pen-3g-canada): Vapes -- $45
-- [Diamond Concentrates 1g Disposable THC Vape](https://mohawkmedibles.co/shop/diamond-concentrates-thc-vape-pen-1g-canada): Vapes -- $30 | THC: 85%
-- [Drizzle Factory THC Switch Vape 2g](https://mohawkmedibles.co/shop/drizzle-factory-thc-switch-vape-2g-canada): Vapes -- $35
-- [DOZO Live Rosin Liquid Diamond Disposable Vape](https://mohawkmedibles.co/shop/dozo-live-rosin-liquid-diamond-disposable-vape-canada): Vapes -- $45
-- [Drizzle Factory Delta-9 Vape Cartridge 2g](https://mohawkmedibles.co/shop/drizzle-factory-2g-cartridge-canada): Vapes -- $30
-- [RITUAL THC Disposable Vape Pen 2G](https://mohawkmedibles.co/shop/ritual-thc-disposable-vape-pen-2g-canada): Vapes -- $30
-- [GAS GANG 2g Disposable](https://mohawkmedibles.co/shop/gas-gang-2g-disposable-2-canada): Vapes -- $40
-- [RITUAL 1G THC Disposable Vape](https://mohawkmedibles.co/shop/ritual-thc-disposable-vape-pen-1g-canada): Vapes -- $20
-- [Zillionaire 1ml Disposable THC Vape](https://mohawkmedibles.co/shop/zillionaire-1ml-disposable-thc-vape-canada): Vapes -- $25 | THC: 95%
-- [Drizzle Factory Switch 1g](https://mohawkmedibles.co/shop/drizzle-factory-switch-1g-canada): Vapes -- $25
-- [SleeBD Calm Disposable Pen 1.0 ml](https://mohawkmedibles.co/shop/sleebd-calm-disposable-pen-1-0-ml-2-canada): Vapes -- $35
-- [STRAIGHT GOODS Disposable THC Vape 2G](https://mohawkmedibles.co/shop/straight-goods-2g-disposable-thc-vape-canada): Vapes -- $40
-- [Purple Panda THCA Cartridge 1g](https://mohawkmedibles.co/shop/purple-panda-thca-cartridge-1g-canada): Vapes -- $20
-- [PEM Live Resin Cartridges](https://mohawkmedibles.co/shop/pem-live-resin-cartridges-canada): Vapes -- $25
-- [GAS GANG 1g Disposable](https://mohawkmedibles.co/shop/gas-gang-1g-disposable-canada): Vapes -- $30
-- [Diamond Concentrates 2g Disposable THC Vape](https://mohawkmedibles.co/shop/diamond-concentrates-2-gram-thc-vape-pen-canada): Vapes -- $40 | THC: 100%
-- [ZILLIONAIRE AirBuds THC Pod Cartridges](https://mohawkmedibles.co/shop/zillionaire-airbuds-pod-cartridges-canada): Vapes -- $35
-- [Burn 2G Disposable THC Vape](https://mohawkmedibles.co/shop/burn-2g-disposable-thc-vape-2-canada): Vapes -- $40
-- [ASEND 1 Gram Disposable Vape Pen](https://mohawkmedibles.co/shop/asend-1-gram-disposable-vape-pen-canada): Vapes -- $20
-- [Plant of Life Broad Spectrum Hemp CBD Vape](https://mohawkmedibles.co/shop/plant-of-life-broad-spectrum-hemp-cbd-vape-canada): Vapes -- $15 | THC: 0%
-- [Burn 2G Disposable THC Live Resin Vape](https://mohawkmedibles.co/shop/burn-2g-disposable-thc-live-resin-vape-canada): Vapes -- $45
-- [Lost THC THC-A Melted Diamond Vape 3G](https://mohawkmedibles.co/shop/lost-thc-thc-a-melted-diamond-vape-canada): Vapes -- $55
-- [Dozo Blinkers Live Rosin Vape 2.5g](https://mohawkmedibles.co/shop/dozo-blinkers-live-rosin-vape-canada): Vapes -- $45
-- [Dozo THC-A Liquid Badder Vape 5g](https://mohawkmedibles.co/shop/dozo-thc-a-liquid-badder-vape-canada): Vapes -- $75
-- [DOZO THC-A Trippy Diamond Cartridges 2.2g](https://mohawkmedibles.co/shop/dozo-dont-trip-thc-a-trippy-diamond-cartridges-canada): Vapes -- $40
-- [DOZO THC-P+ Sugar Sauce 5g Vape](https://mohawkmedibles.co/shop/dozo-thc-p-sugar-sauce-5g-vape-canada): Vapes -- $65
-- [Torch X Pressure THC-A Diamond Blend Dual Vape 3g](https://mohawkmedibles.co/shop/torch-x-pressure-thc-a-diamond-blend-dual-3g-disposable): Vapes -- $55
-- [Heisenberg Extractions Live Resin Distillate Dual Flavour Vape 3g](https://mohawkmedibles.co/shop/heisenberg-extractions-live-resin-distillate-dual-flavour-3g-thc-vape-canada): Vapes -- $55
-- [DOZO White Out Disposable THC Vape](https://mohawkmedibles.co/shop/dozo-white-out-disposable-thc-vape-canada): Vapes -- $65
-- [Hemp Geek Liquid Diamond THC Vape](https://mohawkmedibles.co/shop/hemp-geek-liquid-diamond-thc-vape-canada): Vapes -- $90
-- [ZILLIONAIRE Dual Chamber Vape 4G](https://mohawkmedibles.co/shop/zillionaire-dual-chamber-vape-4-gram-canada): Vapes -- $60
-- [Burn Dual Chamber Vape 6G](https://mohawkmedibles.co/shop/burn-dual-chamber-vape-6-gram-canada): Vapes -- $80
-- [Heisenberg Extractions Dual Flavour 6g THC Vape](https://mohawkmedibles.co/shop/heisenberg-extractions-dual-flavour-6g-thc-vape-canada): Vapes -- $75
-- [STRAIGHT GOODS Dual Chamber 6G Disposable THC Vape](https://mohawkmedibles.co/shop/straight-goods-dual-chamber-6g-disp-canada): Vapes -- $80
-- [STRAIGHT GOODS Triple Chamber 9G Disposable THC Vape](https://mohawkmedibles.co/shop/straight-goods-triple-chamber-9g-di-canada): Vapes -- $100
-- [STRAIGHT GOODS Disposable THC Vape 3G](https://mohawkmedibles.co/shop/straight-goods-3g-disposable-thc-vape-canada): Vapes -- $50
-- [Diamond Concentrates 3G Disposable THC Vape](https://mohawkmedibles.co/shop/diamond-3g-disposable-vape-canada): Vapes -- $50
-- [Burn Triple Threat 9g Disposable THC Vape](https://mohawkmedibles.co/shop/burn-triple-threat-9g-disposable-thc-canada): Vapes -- $100
-- [Burn 3g THC Disposable Vape](https://mohawkmedibles.co/shop/burn-3g-thc-disposable-canada): Vapes -- $50
-- [Flying Horse 3 Flavors in 1 5g Disposable Vape](https://mohawkmedibles.co/shop/flying-horse-3-flavors-in-1-5g-disp-canada): Vapes -- $70
-- [Plant of Life 700mg Full Spectrum CBD Vape](https://mohawkmedibles.co/shop/plant-of-life-700mg-full-spectrum-cbd-vape): Vapes -- $33
+- [ASEND 1ML Live Resin Disposable Vape Pen](https://mohawkmedibles.ca/shop/asend-1ml-live-resin-disposable-vape-pen-canada): Vapes -- $25 | THC: 88%
+- [ZILLIONAIRE 1ML THC Vape](https://mohawkmedibles.ca/shop/zillionaire-1ml-thc-vape-canada): Vapes -- $20
+- [Drizzle Factory THC God Pod Vape 3G Pen](https://mohawkmedibles.ca/shop/drizzle-factory-thc-god-pod-vape-pen-3g-canada): Vapes -- $45
+- [Diamond Concentrates 1g Disposable THC Vape](https://mohawkmedibles.ca/shop/diamond-concentrates-thc-vape-pen-1g-canada): Vapes -- $30 | THC: 85%
+- [Drizzle Factory THC Switch Vape 2g](https://mohawkmedibles.ca/shop/drizzle-factory-thc-switch-vape-2g-canada): Vapes -- $35
+- [DOZO Live Rosin Liquid Diamond Disposable Vape](https://mohawkmedibles.ca/shop/dozo-live-rosin-liquid-diamond-disposable-vape-canada): Vapes -- $45
+- [Drizzle Factory Delta-9 Vape Cartridge 2g](https://mohawkmedibles.ca/shop/drizzle-factory-2g-cartridge-canada): Vapes -- $30
+- [RITUAL THC Disposable Vape Pen 2G](https://mohawkmedibles.ca/shop/ritual-thc-disposable-vape-pen-2g-canada): Vapes -- $30
+- [GAS GANG 2g Disposable](https://mohawkmedibles.ca/shop/gas-gang-2g-disposable-2-canada): Vapes -- $40
+- [RITUAL 1G THC Disposable Vape](https://mohawkmedibles.ca/shop/ritual-thc-disposable-vape-pen-1g-canada): Vapes -- $20
+- [Zillionaire 1ml Disposable THC Vape](https://mohawkmedibles.ca/shop/zillionaire-1ml-disposable-thc-vape-canada): Vapes -- $25 | THC: 95%
+- [Drizzle Factory Switch 1g](https://mohawkmedibles.ca/shop/drizzle-factory-switch-1g-canada): Vapes -- $25
+- [SleeBD Calm Disposable Pen 1.0 ml](https://mohawkmedibles.ca/shop/sleebd-calm-disposable-pen-1-0-ml-2-canada): Vapes -- $35
+- [STRAIGHT GOODS Disposable THC Vape 2G](https://mohawkmedibles.ca/shop/straight-goods-2g-disposable-thc-vape-canada): Vapes -- $40
+- [Purple Panda THCA Cartridge 1g](https://mohawkmedibles.ca/shop/purple-panda-thca-cartridge-1g-canada): Vapes -- $20
+- [PEM Live Resin Cartridges](https://mohawkmedibles.ca/shop/pem-live-resin-cartridges-canada): Vapes -- $25
+- [GAS GANG 1g Disposable](https://mohawkmedibles.ca/shop/gas-gang-1g-disposable-canada): Vapes -- $30
+- [Diamond Concentrates 2g Disposable THC Vape](https://mohawkmedibles.ca/shop/diamond-concentrates-2-gram-thc-vape-pen-canada): Vapes -- $40 | THC: 100%
+- [ZILLIONAIRE AirBuds THC Pod Cartridges](https://mohawkmedibles.ca/shop/zillionaire-airbuds-pod-cartridges-canada): Vapes -- $35
+- [Burn 2G Disposable THC Vape](https://mohawkmedibles.ca/shop/burn-2g-disposable-thc-vape-2-canada): Vapes -- $40
+- [ASEND 1 Gram Disposable Vape Pen](https://mohawkmedibles.ca/shop/asend-1-gram-disposable-vape-pen-canada): Vapes -- $20
+- [Plant of Life Broad Spectrum Hemp CBD Vape](https://mohawkmedibles.ca/shop/plant-of-life-broad-spectrum-hemp-cbd-vape-canada): Vapes -- $15 | THC: 0%
+- [Burn 2G Disposable THC Live Resin Vape](https://mohawkmedibles.ca/shop/burn-2g-disposable-thc-live-resin-vape-canada): Vapes -- $45
+- [Lost THC THC-A Melted Diamond Vape 3G](https://mohawkmedibles.ca/shop/lost-thc-thc-a-melted-diamond-vape-canada): Vapes -- $55
+- [Dozo Blinkers Live Rosin Vape 2.5g](https://mohawkmedibles.ca/shop/dozo-blinkers-live-rosin-vape-canada): Vapes -- $45
+- [Dozo THC-A Liquid Badder Vape 5g](https://mohawkmedibles.ca/shop/dozo-thc-a-liquid-badder-vape-canada): Vapes -- $75
+- [DOZO THC-A Trippy Diamond Cartridges 2.2g](https://mohawkmedibles.ca/shop/dozo-dont-trip-thc-a-trippy-diamond-cartridges-canada): Vapes -- $40
+- [DOZO THC-P+ Sugar Sauce 5g Vape](https://mohawkmedibles.ca/shop/dozo-thc-p-sugar-sauce-5g-vape-canada): Vapes -- $65
+- [Torch X Pressure THC-A Diamond Blend Dual Vape 3g](https://mohawkmedibles.ca/shop/torch-x-pressure-thc-a-diamond-blend-dual-3g-disposable): Vapes -- $55
+- [Heisenberg Extractions Live Resin Distillate Dual Flavour Vape 3g](https://mohawkmedibles.ca/shop/heisenberg-extractions-live-resin-distillate-dual-flavour-3g-thc-vape-canada): Vapes -- $55
+- [DOZO White Out Disposable THC Vape](https://mohawkmedibles.ca/shop/dozo-white-out-disposable-thc-vape-canada): Vapes -- $65
+- [Hemp Geek Liquid Diamond THC Vape](https://mohawkmedibles.ca/shop/hemp-geek-liquid-diamond-thc-vape-canada): Vapes -- $90
+- [ZILLIONAIRE Dual Chamber Vape 4G](https://mohawkmedibles.ca/shop/zillionaire-dual-chamber-vape-4-gram-canada): Vapes -- $60
+- [Burn Dual Chamber Vape 6G](https://mohawkmedibles.ca/shop/burn-dual-chamber-vape-6-gram-canada): Vapes -- $80
+- [Heisenberg Extractions Dual Flavour 6g THC Vape](https://mohawkmedibles.ca/shop/heisenberg-extractions-dual-flavour-6g-thc-vape-canada): Vapes -- $75
+- [STRAIGHT GOODS Dual Chamber 6G Disposable THC Vape](https://mohawkmedibles.ca/shop/straight-goods-dual-chamber-6g-disp-canada): Vapes -- $80
+- [STRAIGHT GOODS Triple Chamber 9G Disposable THC Vape](https://mohawkmedibles.ca/shop/straight-goods-triple-chamber-9g-di-canada): Vapes -- $100
+- [STRAIGHT GOODS Disposable THC Vape 3G](https://mohawkmedibles.ca/shop/straight-goods-3g-disposable-thc-vape-canada): Vapes -- $50
+- [Diamond Concentrates 3G Disposable THC Vape](https://mohawkmedibles.ca/shop/diamond-3g-disposable-vape-canada): Vapes -- $50
+- [Burn Triple Threat 9g Disposable THC Vape](https://mohawkmedibles.ca/shop/burn-triple-threat-9g-disposable-thc-canada): Vapes -- $100
+- [Burn 3g THC Disposable Vape](https://mohawkmedibles.ca/shop/burn-3g-thc-disposable-canada): Vapes -- $50
+- [Flying Horse 3 Flavors in 1 5g Disposable Vape](https://mohawkmedibles.ca/shop/flying-horse-3-flavors-in-1-5g-disp-canada): Vapes -- $70
+- [Plant of Life 700mg Full Spectrum CBD Vape](https://mohawkmedibles.ca/shop/plant-of-life-700mg-full-spectrum-cbd-vape): Vapes -- $33
 
 ## Brands (Multi-Category)
 
-- [AKI Wellness Full Spectrum CBD Oil 60ML](https://mohawkmedibles.co/shop/full-spectrum-cbd-oil-60ml-canada): Brands -- $31.50
-- [AKI Pain Salve 1:1](https://mohawkmedibles.co/shop/aki-pain-salve-11-canada): Brands -- $38
-- [Euphoria Extractions Live Resin Tarts](https://mohawkmedibles.co/shop/euphoria-extractions-live-resin-tarts-canada): Brands -- $16
-- [Drizzle Factory Slims Standard Pre Rolls](https://mohawkmedibles.co/shop/drizzle-factory-slims-standard-pre-rolls-canada): Brands -- $30
-- [Sun Rock Premium AAAA Flower 2.5-3g](https://mohawkmedibles.co/shop/sun-rock-premium-aaaa-flower-2-25g-canada): Brands -- $40
-- [Nova Twist 900mAh 510 Battery](https://mohawkmedibles.co/shop/nova-twist-900mah-510-battery-canada): Brands -- $10
-- [Drizzle Factory IRY Pod Live Resin 1g](https://mohawkmedibles.co/shop/drizzle-factory-iry-pod-live-resin-canada): Brands -- $30
-- [Royal Honey VIP The Ultimate Power Source](https://mohawkmedibles.co/shop/royal-honey-vip-the-ultimate-power-source-canada): Brands -- $10
-- [Breeze Nicotine Pouches](https://mohawkmedibles.co/shop/breeze-6mg-15mg-nicotine-pouches-canada): Brands -- $12.50
-- [AKI Premium THC Oil](https://mohawkmedibles.co/shop/aki-premium-thc-oil-canada): Brands -- $40
-- [Plant of Life THC Free Organic CBD Gummies](https://mohawkmedibles.co/shop/plant-of-life-thc-free-organic-cbd-canada): Brands -- $32
-- [Beast Duo 20mg Nicotine Pouch](https://mohawkmedibles.co/shop/beast-duo-20mg-nicotine-pouch-canada): Brands -- $17.50
-- [Plant of Life Broad Spectrum CBD Heal Stick](https://mohawkmedibles.co/shop/plant-of-life-broad-spectrum-cbd-heal-stick-canada): Brands -- $35
-- [Metal Pipe with Screens](https://mohawkmedibles.co/shop/metal-pipe-canada): Brands -- $5
-- [Snoopy Smoke 15k Nicotine Vape](https://mohawkmedibles.co/shop/snoopy-smoke-15k-nicotine-vape-canada): Brands -- $20
-- [Pineapple Express Meds Pre Rolled Cones 10 pack](https://mohawkmedibles.co/shop/pineapple-express-meds-pre-rolled-cones-10-pack-canada): Brands -- $35
-- [Al Fakher Hookah Tobacco](https://mohawkmedibles.co/shop/al-fakher-hookah-tobacco-canada): Brands -- $30
-- [BACKWOODS Select Cigars](https://mohawkmedibles.co/shop/backwoods-select-cigar-canada): Brands -- $10
-- [Zoomz Flavoured Shroom Chips 3.5g](https://mohawkmedibles.co/shop/zoomz-flavoured-shroom-chips-35g-canada): Brands -- $25
-- [Cactus Labs King Size Pre Rolled Flavour Hemp Cones](https://mohawkmedibles.co/shop/cactus-labs-king-size-pre-rolled-flavour-hemp-cones-canada): Brands -- $3.50
-- [Cactus Labs 1-1/4 size Rolling Papers with Tips](https://mohawkmedibles.co/shop/cactus-labs-1-1-4-size-rolling-papers-with-tips-canada): Brands -- $4.50
-- [Al Fakher Crown Bar Pro Nicotine Vape 8K](https://mohawkmedibles.co/shop/al-fakher-crown-bar-pro-8000-nicotine-vape-canada): Brands -- $25
-- [Elf Bar Raya D3 Nicotine Vape](https://mohawkmedibles.co/shop/elf-bar-raya-d3-25k-nicotine-vape-canada): Brands -- $35
-- [Euro Zyn Slim Nicotine Pouches](https://mohawkmedibles.co/shop/euro-zyn-slim-nicotine-pouches-canada): Brands -- $12.50
-- [AKI Moon Time Oil 60ML](https://mohawkmedibles.co/shop/aki-moon-time-oil-60ml-canada): Brands -- $35
-- [Tidal Wave Magic Mushrooms $5/G](https://mohawkmedibles.co/shop/tidal-wave-magic-mushrooms-5g-or-99oz-canada): Brands -- $5
-- [RITUAL 1G THC Disposable Vape](https://mohawkmedibles.co/shop/ritual-thc-disposable-vape-pen-1g-canada): Brands -- $20
-- [AKI Wellness Premium CBD Oil 60ML](https://mohawkmedibles.co/shop/premium-cbd-oil-60ml-canada): Brands -- $25
-- [Beast 14mg & 20mg Nicotine Pouch](https://mohawkmedibles.co/shop/beast-14mg-20mg-nicotine-pouch-canada): Brands -- $15
-- [BACKWOODS Cigars](https://mohawkmedibles.co/shop/backwoods-cigar-canada): Brands -- $12.50
-- [Don Cristo Salt Nicotine Vape](https://mohawkmedibles.co/shop/don-cristo-20ml-salt-nicotine-vape-canada): Brands -- $25
-- [MOBO 18k Nicotine Vape](https://mohawkmedibles.co/shop/mobo-18k-nicotine-vape-canada): Brands -- $25
-- [Burn 2G Disposable THC Vape (v2)](https://mohawkmedibles.co/shop/burn-2g-disposable-thc-vape-2-canada): Brands -- $40
-- [Nimmbox 10k Nicotine Vape](https://mohawkmedibles.co/shop/nimmbox-10k-nicotine-vape-canada): Brands -- $15
-- [Elf Bar MixArt 40k Nicotine Vape](https://mohawkmedibles.co/shop/elf-bar-mixart-40k-nicotine-vape-canada): Brands -- $35
-- [DC OG Magic Mushrooms $5/G](https://mohawkmedibles.co/shop/dc-og-magic-mushrooms-5g-or-99oz-canada): Brands -- $5
-- [Crown Hub Disposable Hookah Head](https://mohawkmedibles.co/shop/crown-hub-disposable-hookah-head-canada): Brands -- $35
-- [Torch Hulk Hemp MAXX'D Gummies 2000mg](https://mohawkmedibles.co/shop/torch-hulk-hemp-maxxd-gummies-2000mg): Brands -- $25
-- [Cactus Labs King Size Rolling Papers with Tips](https://mohawkmedibles.co/shop/cactus-labs-king-size-rolling-papers-with-tips-canada): Brands -- $4.50
-- [Geek Bar Pulse X 18ML Nicotine Vape](https://mohawkmedibles.co/shop/geek-bar-pulse-x-18ml-nicotine-vape-canada): Brands -- $35
-- [Geek Prime Nicotine Vape](https://mohawkmedibles.co/shop/geek-prime-50k-nicotine-vape-canada): Brands -- $40
-- [Euphoria Extractions 600MG CBD Chews](https://mohawkmedibles.co/shop/euphoria-extractions-600mg-cbd-chews-canada): Brands -- $20 | CBD: 99%
+- [AKI Wellness Full Spectrum CBD Oil 60ML](https://mohawkmedibles.ca/shop/full-spectrum-cbd-oil-60ml-canada): Brands -- $31.50
+- [AKI Pain Salve 1:1](https://mohawkmedibles.ca/shop/aki-pain-salve-11-canada): Brands -- $38
+- [Euphoria Extractions Live Resin Tarts](https://mohawkmedibles.ca/shop/euphoria-extractions-live-resin-tarts-canada): Brands -- $16
+- [Drizzle Factory Slims Standard Pre Rolls](https://mohawkmedibles.ca/shop/drizzle-factory-slims-standard-pre-rolls-canada): Brands -- $30
+- [Sun Rock Premium AAAA Flower 2.5-3g](https://mohawkmedibles.ca/shop/sun-rock-premium-aaaa-flower-2-25g-canada): Brands -- $40
+- [Nova Twist 900mAh 510 Battery](https://mohawkmedibles.ca/shop/nova-twist-900mah-510-battery-canada): Brands -- $10
+- [Drizzle Factory IRY Pod Live Resin 1g](https://mohawkmedibles.ca/shop/drizzle-factory-iry-pod-live-resin-canada): Brands -- $30
+- [Royal Honey VIP The Ultimate Power Source](https://mohawkmedibles.ca/shop/royal-honey-vip-the-ultimate-power-source-canada): Brands -- $10
+- [Breeze Nicotine Pouches](https://mohawkmedibles.ca/shop/breeze-6mg-15mg-nicotine-pouches-canada): Brands -- $12.50
+- [AKI Premium THC Oil](https://mohawkmedibles.ca/shop/aki-premium-thc-oil-canada): Brands -- $40
+- [Plant of Life THC Free Organic CBD Gummies](https://mohawkmedibles.ca/shop/plant-of-life-thc-free-organic-cbd-canada): Brands -- $32
+- [Beast Duo 20mg Nicotine Pouch](https://mohawkmedibles.ca/shop/beast-duo-20mg-nicotine-pouch-canada): Brands -- $17.50
+- [Plant of Life Broad Spectrum CBD Heal Stick](https://mohawkmedibles.ca/shop/plant-of-life-broad-spectrum-cbd-heal-stick-canada): Brands -- $35
+- [Metal Pipe with Screens](https://mohawkmedibles.ca/shop/metal-pipe-canada): Brands -- $5
+- [Snoopy Smoke 15k Nicotine Vape](https://mohawkmedibles.ca/shop/snoopy-smoke-15k-nicotine-vape-canada): Brands -- $20
+- [Pineapple Express Meds Pre Rolled Cones 10 pack](https://mohawkmedibles.ca/shop/pineapple-express-meds-pre-rolled-cones-10-pack-canada): Brands -- $35
+- [Al Fakher Hookah Tobacco](https://mohawkmedibles.ca/shop/al-fakher-hookah-tobacco-canada): Brands -- $30
+- [BACKWOODS Select Cigars](https://mohawkmedibles.ca/shop/backwoods-select-cigar-canada): Brands -- $10
+- [Zoomz Flavoured Shroom Chips 3.5g](https://mohawkmedibles.ca/shop/zoomz-flavoured-shroom-chips-35g-canada): Brands -- $25
+- [Cactus Labs King Size Pre Rolled Flavour Hemp Cones](https://mohawkmedibles.ca/shop/cactus-labs-king-size-pre-rolled-flavour-hemp-cones-canada): Brands -- $3.50
+- [Cactus Labs 1-1/4 size Rolling Papers with Tips](https://mohawkmedibles.ca/shop/cactus-labs-1-1-4-size-rolling-papers-with-tips-canada): Brands -- $4.50
+- [Al Fakher Crown Bar Pro Nicotine Vape 8K](https://mohawkmedibles.ca/shop/al-fakher-crown-bar-pro-8000-nicotine-vape-canada): Brands -- $25
+- [Elf Bar Raya D3 Nicotine Vape](https://mohawkmedibles.ca/shop/elf-bar-raya-d3-25k-nicotine-vape-canada): Brands -- $35
+- [Euro Zyn Slim Nicotine Pouches](https://mohawkmedibles.ca/shop/euro-zyn-slim-nicotine-pouches-canada): Brands -- $12.50
+- [AKI Moon Time Oil 60ML](https://mohawkmedibles.ca/shop/aki-moon-time-oil-60ml-canada): Brands -- $35
+- [Tidal Wave Magic Mushrooms $5/G](https://mohawkmedibles.ca/shop/tidal-wave-magic-mushrooms-5g-or-99oz-canada): Brands -- $5
+- [RITUAL 1G THC Disposable Vape](https://mohawkmedibles.ca/shop/ritual-thc-disposable-vape-pen-1g-canada): Brands -- $20
+- [AKI Wellness Premium CBD Oil 60ML](https://mohawkmedibles.ca/shop/premium-cbd-oil-60ml-canada): Brands -- $25
+- [Beast 14mg & 20mg Nicotine Pouch](https://mohawkmedibles.ca/shop/beast-14mg-20mg-nicotine-pouch-canada): Brands -- $15
+- [BACKWOODS Cigars](https://mohawkmedibles.ca/shop/backwoods-cigar-canada): Brands -- $12.50
+- [Don Cristo Salt Nicotine Vape](https://mohawkmedibles.ca/shop/don-cristo-20ml-salt-nicotine-vape-canada): Brands -- $25
+- [MOBO 18k Nicotine Vape](https://mohawkmedibles.ca/shop/mobo-18k-nicotine-vape-canada): Brands -- $25
+- [Burn 2G Disposable THC Vape (v2)](https://mohawkmedibles.ca/shop/burn-2g-disposable-thc-vape-2-canada): Brands -- $40
+- [Nimmbox 10k Nicotine Vape](https://mohawkmedibles.ca/shop/nimmbox-10k-nicotine-vape-canada): Brands -- $15
+- [Elf Bar MixArt 40k Nicotine Vape](https://mohawkmedibles.ca/shop/elf-bar-mixart-40k-nicotine-vape-canada): Brands -- $35
+- [DC OG Magic Mushrooms $5/G](https://mohawkmedibles.ca/shop/dc-og-magic-mushrooms-5g-or-99oz-canada): Brands -- $5
+- [Crown Hub Disposable Hookah Head](https://mohawkmedibles.ca/shop/crown-hub-disposable-hookah-head-canada): Brands -- $35
+- [Torch Hulk Hemp MAXX'D Gummies 2000mg](https://mohawkmedibles.ca/shop/torch-hulk-hemp-maxxd-gummies-2000mg): Brands -- $25
+- [Cactus Labs King Size Rolling Papers with Tips](https://mohawkmedibles.ca/shop/cactus-labs-king-size-rolling-papers-with-tips-canada): Brands -- $4.50
+- [Geek Bar Pulse X 18ML Nicotine Vape](https://mohawkmedibles.ca/shop/geek-bar-pulse-x-18ml-nicotine-vape-canada): Brands -- $35
+- [Geek Prime Nicotine Vape](https://mohawkmedibles.ca/shop/geek-prime-50k-nicotine-vape-canada): Brands -- $40
+- [Euphoria Extractions 600MG CBD Chews](https://mohawkmedibles.ca/shop/euphoria-extractions-600mg-cbd-chews-canada): Brands -- $20 | CBD: 99%
 
 ## CBD
 
-- [Pineapple Express Meds Massage Oil](https://mohawkmedibles.co/shop/pineapple-express-meds-massage-oil-canada): CBD -- $20
-- [FUBAR (Stoned Leaf) CBD Gummies](https://mohawkmedibles.co/shop/fubar-stoned-leaf-gummies-cbd-canada): CBD -- $10
-- [CBD and THC 1:1 Tincture 1500MG](https://mohawkmedibles.co/shop/cbd-and-thc-11-tincture-canada): CBD -- $30
-- [CBD Full Spectrum Tincture 1000MG](https://mohawkmedibles.co/shop/cbd-full-spectrum-tincture-canada): CBD -- $30
-- [C&D THC Free CBD Salve 1000mg](https://mohawkmedibles.co/shop/campd-thc-free-cbd-salve-1000mg-canada): CBD -- $10
-- [C & D Cannabis Salve](https://mohawkmedibles.co/shop/c-d-cannabis-salve-canada): CBD -- $25
-- [AKI Moon Time Oil 60ML](https://mohawkmedibles.co/shop/aki-moon-time-oil-60ml-canada): CBD -- $35
-- [Plant of Life THC Free Organic CBD Oil](https://mohawkmedibles.co/shop/plant-of-life-thc-free-organic-cbd-canada-1): CBD -- $40
-- [Stoned Leaf Gummies 1:1 CBD/THC](https://mohawkmedibles.co/shop/stoned-leaf-gummies-11-cbd-thc-canada): CBD -- $10
-- [Plant of Life Full Spectrum Organic Pet CBD Oil](https://mohawkmedibles.co/shop/plant-of-life-full-spectrum-organic-canada-1): CBD -- $25 | THC: 0%
-- [CBD Pet Tincture](https://mohawkmedibles.co/shop/cbd-pet-tincture-canada): CBD -- $30
-- [Pineapple Express Meds CBD Pet Oil](https://mohawkmedibles.co/shop/pineapple-express-meds-cbd-pet-oil-canada): CBD -- $25
-- [Plant of Life Organic Full Spectrum CBD Oil Sleep](https://mohawkmedibles.co/shop/plant-of-life-organic-full-spectrum-cbd-oil-sleep-canada): CBD -- $85
-- [Plant of Life Full Spectrum Organic CBD Oil Calm](https://mohawkmedibles.co/shop/plant-of-life-organic-full-spectrum-cbd-oil-calm-canada): CBD -- $85
-- [Full Spectrum CBD Tincture 6000MG](https://mohawkmedibles.co/shop/full-spectrum-cbd-tincture-6000mg-canada): CBD -- $80
-- [CBD & THC 3:1 Tincture 2000MG](https://mohawkmedibles.co/shop/cbd-thc-31-tincture-canada): CBD -- $50
+- [Pineapple Express Meds Massage Oil](https://mohawkmedibles.ca/shop/pineapple-express-meds-massage-oil-canada): CBD -- $20
+- [FUBAR (Stoned Leaf) CBD Gummies](https://mohawkmedibles.ca/shop/fubar-stoned-leaf-gummies-cbd-canada): CBD -- $10
+- [CBD and THC 1:1 Tincture 1500MG](https://mohawkmedibles.ca/shop/cbd-and-thc-11-tincture-canada): CBD -- $30
+- [CBD Full Spectrum Tincture 1000MG](https://mohawkmedibles.ca/shop/cbd-full-spectrum-tincture-canada): CBD -- $30
+- [C&D THC Free CBD Salve 1000mg](https://mohawkmedibles.ca/shop/campd-thc-free-cbd-salve-1000mg-canada): CBD -- $10
+- [C & D Cannabis Salve](https://mohawkmedibles.ca/shop/c-d-cannabis-salve-canada): CBD -- $25
+- [AKI Moon Time Oil 60ML](https://mohawkmedibles.ca/shop/aki-moon-time-oil-60ml-canada): CBD -- $35
+- [Plant of Life THC Free Organic CBD Oil](https://mohawkmedibles.ca/shop/plant-of-life-thc-free-organic-cbd-canada-1): CBD -- $40
+- [Stoned Leaf Gummies 1:1 CBD/THC](https://mohawkmedibles.ca/shop/stoned-leaf-gummies-11-cbd-thc-canada): CBD -- $10
+- [Plant of Life Full Spectrum Organic Pet CBD Oil](https://mohawkmedibles.ca/shop/plant-of-life-full-spectrum-organic-canada-1): CBD -- $25 | THC: 0%
+- [CBD Pet Tincture](https://mohawkmedibles.ca/shop/cbd-pet-tincture-canada): CBD -- $30
+- [Pineapple Express Meds CBD Pet Oil](https://mohawkmedibles.ca/shop/pineapple-express-meds-cbd-pet-oil-canada): CBD -- $25
+- [Plant of Life Organic Full Spectrum CBD Oil Sleep](https://mohawkmedibles.ca/shop/plant-of-life-organic-full-spectrum-cbd-oil-sleep-canada): CBD -- $85
+- [Plant of Life Full Spectrum Organic CBD Oil Calm](https://mohawkmedibles.ca/shop/plant-of-life-organic-full-spectrum-cbd-oil-calm-canada): CBD -- $85
+- [Full Spectrum CBD Tincture 6000MG](https://mohawkmedibles.ca/shop/full-spectrum-cbd-tincture-6000mg-canada): CBD -- $80
+- [CBD & THC 3:1 Tincture 2000MG](https://mohawkmedibles.ca/shop/cbd-thc-31-tincture-canada): CBD -- $50
 
 ## Mushrooms (Psilocybin)
 
-- [Power Up Psilly Wabbits Milk and Dark Chocolate Bars 5000MG](https://mohawkmedibles.co/shop/power-up-psilly-wabbits-milk-chocolate-bars-5000mg-canada): Mushrooms -- $30
-- [OG Melmac Magic Mushrooms $5/G](https://mohawkmedibles.co/shop/og-melmac-magic-mushrooms-5g-or-99oz-canada): Mushrooms -- $5
-- [Euphoria Psychedelics Green Tea](https://mohawkmedibles.co/shop/euphoria-psychedelics-green-tea-canada): Mushrooms -- $15
-- [Natures Magic Earl Grey Psilocybin Tea](https://mohawkmedibles.co/shop/natures-magic-earl-grey-psilocybin-tea-canada): Mushrooms -- $29
-- [Zoomz Mushroom Truffles 3,000mg](https://mohawkmedibles.co/shop/zoomz-mushroom-truffles-3000mg-canada): Mushrooms -- $40
-- [Penis Envy Mushroom Capsules](https://mohawkmedibles.co/shop/penis-envy-mushroom-capsules-canada): Mushrooms -- $5
-- [Euphoria Psychedelics Strawberry Swirl Mushroom Bar](https://mohawkmedibles.co/shop/euphoria-psychedelics-strawberry-swirl-mushroom-bar-canada): Mushrooms -- $20
-- [MIND FU*K Psilocybin Gummies 5000MG](https://mohawkmedibles.co/shop/mind-fuk-psilocybin-gummies-5000mg-canada): Mushrooms -- $40
-- [TRIPNOTIK Psilocybin Dark Chocolate Bar 5000MG](https://mohawkmedibles.co/shop/tripnotik-psilocybin-dark-cocolate-bar-5000mg-canada): Mushrooms -- $30
-- [Euphoria Psychedelics Strawberry Lemonade Tea](https://mohawkmedibles.co/shop/euphoria-psychedelics-strawberry-lemonade-tea-canada): Mushrooms -- $25
-- [Euphoria Psychedelics Salted Caramel Hot Cocoa](https://mohawkmedibles.co/shop/euphoria-psychedelics-salted-caramel-hot-cocoa-canada): Mushrooms -- $15
-- [TRIPNOTIK 4000MG Psilocybin Gummies](https://mohawkmedibles.co/shop/tripnotik-4000mg-psilocybin-gummies-canada): Mushrooms -- $30
-- [TRIPNOTIK Psilocybin Milk Chocolate Bar 5000MG](https://mohawkmedibles.co/shop/tripnotik-psilocybin-milk-chocolate-bar-5000mg-canada): Mushrooms -- $30
-- [Shatki Blue Mutant Magic Mushrooms $5/G](https://mohawkmedibles.co/shop/shatki-blue-mutant-magic-mushrooms-5g-or-99oz-canada): Mushrooms -- $5
-- [Natures Magic Twisted Drink Mix 1000mg](https://mohawkmedibles.co/shop/natures-magic-twisted-drink-mix-100-canada): Mushrooms -- $13
-- [Natures Magic Chai Spice Psilocybin Tea](https://mohawkmedibles.co/shop/natures-magic-chai-spice-psilocybin-tea-canada): Mushrooms -- $19
-- [Zoomz Psilocybin Chocolate Bars 24g](https://mohawkmedibles.co/shop/zoomz-psilocybin-chocolate-bars-24g-canada): Mushrooms -- $100
-- [Her Highness from the 6ix Artisanal Psilocybin Chocolate Bar](https://mohawkmedibles.co/shop/her-highness-from-the-6ix-artisanal-psilocybin-chocolate-bar-canada): Mushrooms -- $40
-- [Euphoria Psychedelics Cookies and Cream Mushroom Bar](https://mohawkmedibles.co/shop/euphoria-psychedelics-cookies-cream-mushroom-bar-canada): Mushrooms -- $70
-- [Euphoria Psychedelics Gummies](https://mohawkmedibles.co/shop/euphoria-psychedelics-gummies-canada): Mushrooms -- $50
+- [Power Up Psilly Wabbits Milk and Dark Chocolate Bars 5000MG](https://mohawkmedibles.ca/shop/power-up-psilly-wabbits-milk-chocolate-bars-5000mg-canada): Mushrooms -- $30
+- [OG Melmac Magic Mushrooms $5/G](https://mohawkmedibles.ca/shop/og-melmac-magic-mushrooms-5g-or-99oz-canada): Mushrooms -- $5
+- [Euphoria Psychedelics Green Tea](https://mohawkmedibles.ca/shop/euphoria-psychedelics-green-tea-canada): Mushrooms -- $15
+- [Natures Magic Earl Grey Psilocybin Tea](https://mohawkmedibles.ca/shop/natures-magic-earl-grey-psilocybin-tea-canada): Mushrooms -- $29
+- [Zoomz Mushroom Truffles 3,000mg](https://mohawkmedibles.ca/shop/zoomz-mushroom-truffles-3000mg-canada): Mushrooms -- $40
+- [Penis Envy Mushroom Capsules](https://mohawkmedibles.ca/shop/penis-envy-mushroom-capsules-canada): Mushrooms -- $5
+- [Euphoria Psychedelics Strawberry Swirl Mushroom Bar](https://mohawkmedibles.ca/shop/euphoria-psychedelics-strawberry-swirl-mushroom-bar-canada): Mushrooms -- $20
+- [MIND FU*K Psilocybin Gummies 5000MG](https://mohawkmedibles.ca/shop/mind-fuk-psilocybin-gummies-5000mg-canada): Mushrooms -- $40
+- [TRIPNOTIK Psilocybin Dark Chocolate Bar 5000MG](https://mohawkmedibles.ca/shop/tripnotik-psilocybin-dark-cocolate-bar-5000mg-canada): Mushrooms -- $30
+- [Euphoria Psychedelics Strawberry Lemonade Tea](https://mohawkmedibles.ca/shop/euphoria-psychedelics-strawberry-lemonade-tea-canada): Mushrooms -- $25
+- [Euphoria Psychedelics Salted Caramel Hot Cocoa](https://mohawkmedibles.ca/shop/euphoria-psychedelics-salted-caramel-hot-cocoa-canada): Mushrooms -- $15
+- [TRIPNOTIK 4000MG Psilocybin Gummies](https://mohawkmedibles.ca/shop/tripnotik-4000mg-psilocybin-gummies-canada): Mushrooms -- $30
+- [TRIPNOTIK Psilocybin Milk Chocolate Bar 5000MG](https://mohawkmedibles.ca/shop/tripnotik-psilocybin-milk-chocolate-bar-5000mg-canada): Mushrooms -- $30
+- [Shatki Blue Mutant Magic Mushrooms $5/G](https://mohawkmedibles.ca/shop/shatki-blue-mutant-magic-mushrooms-5g-or-99oz-canada): Mushrooms -- $5
+- [Natures Magic Twisted Drink Mix 1000mg](https://mohawkmedibles.ca/shop/natures-magic-twisted-drink-mix-100-canada): Mushrooms -- $13
+- [Natures Magic Chai Spice Psilocybin Tea](https://mohawkmedibles.ca/shop/natures-magic-chai-spice-psilocybin-tea-canada): Mushrooms -- $19
+- [Zoomz Psilocybin Chocolate Bars 24g](https://mohawkmedibles.ca/shop/zoomz-psilocybin-chocolate-bars-24g-canada): Mushrooms -- $100
+- [Her Highness from the 6ix Artisanal Psilocybin Chocolate Bar](https://mohawkmedibles.ca/shop/her-highness-from-the-6ix-artisanal-psilocybin-chocolate-bar-canada): Mushrooms -- $40
+- [Euphoria Psychedelics Cookies and Cream Mushroom Bar](https://mohawkmedibles.ca/shop/euphoria-psychedelics-cookies-cream-mushroom-bar-canada): Mushrooms -- $70
+- [Euphoria Psychedelics Gummies](https://mohawkmedibles.ca/shop/euphoria-psychedelics-gummies-canada): Mushrooms -- $50
 
 ## Nicotine
 
-- [Killa 12.8mg Nicotine Pouches](https://mohawkmedibles.co/shop/killa-12-8mg-nicotine-pouches): Nicotine -- $15
-- [Fungara Nicotine Pod](https://mohawkmedibles.co/shop/fungara-nicotine-pod-canada): Nicotine -- $13.50
-- [Tyson 2.0 Legend 5% Nicotine Vape](https://mohawkmedibles.co/shop/tyson-2-0-legend-5-nicotine-vape-canada): Nicotine -- $40
-- [Fungara Pods](https://mohawkmedibles.co/shop/fungara-pods-canada): Nicotine -- $20
-- [Z Pods 5% Nicotine Pods](https://mohawkmedibles.co/shop/z-pods-5-canada): Nicotine -- $13.50
-- [Fungara Large Air Flow Rechargeable Device](https://mohawkmedibles.co/shop/fungara-large-air-flow-rechargeable-device-canada): Nicotine -- $10
-- [Flavour Beast Max 18k Nicotine Vape](https://mohawkmedibles.co/shop/flavour-beast-max-18k-nicotine-canada): Nicotine -- $35
-- [Velo Nicotine Pouches](https://mohawkmedibles.co/shop/velo-nicotine-pouches-canada): Nicotine -- $15
-- [Elf Bar Moon Night 40k Nicotine Vape](https://mohawkmedibles.co/shop/elf-bar-moon-night-40k-nicotine-vape): Nicotine -- $40
-- [Hustler MEGA 25k Nicotine Vape](https://mohawkmedibles.co/shop/hustler-mega-25k-nicotine-canada): Nicotine -- $30
-- [Adjust MyFlavor Nicotine Vape](https://mohawkmedibles.co/shop/adjust-my-flavor-nicotine-vape-canada): Nicotine -- $40
-- [White Fox 15mg Nicotine Pouches](https://mohawkmedibles.co/shop/white-fox-15mg-nicotine-pouches-canada): Nicotine -- $15
-- [Tyson 6 MG or 10 MG Nicotine Pouches](https://mohawkmedibles.co/shop/tyson-6-mg-10-mg-nicotine-pouches-canada): Nicotine -- $10
-- [FOX Nicotine Pouches](https://mohawkmedibles.co/shop/fox-6mg-and-12mg-nicotine-pouches-canada): Nicotine -- $12.50
-- [Infinity Nicotine Pods 5%](https://mohawkmedibles.co/shop/infinity-nicotine-pods-5): Nicotine -- $12.50
-- [Pablo Nicotine Pouches](https://mohawkmedibles.co/shop/pablo-nicotine-pouches-canada): Nicotine -- $15
-- [ZOLT 8mg and 15mg Nicotine Pouches](https://mohawkmedibles.co/shop/zolt-8mg-and-15mg-nicotine-pouches-canada): Nicotine -- $12.50
-- [STLTH Type-C Vape Device](https://mohawkmedibles.co/shop/stlth-type-c-vape-device-canada): Nicotine -- $15
-- [Starbuzz 15k Super Max Nicotine Vape](https://mohawkmedibles.co/shop/starbuzz-15k-super-max-nicotine-canada): Nicotine -- $30
-- [Oxbar Magic Maze 2.0 Nicotine Vape](https://mohawkmedibles.co/shop/oxbar-magic-maze-20-nicotine-canada): Nicotine -- $35
-- [Nicozy Nicotine Pouches](https://mohawkmedibles.co/shop/nicozy-nicotine-pouches-canada): Nicotine -- $12.50
-- [Geek Bar Pods 5%](https://mohawkmedibles.co/shop/geek-bar-pods-5-canada): Nicotine -- $12.50
-- [Z Colors Pods 2%](https://mohawkmedibles.co/shop/z-colors-pods-2-canada): Nicotine -- $15
-- [Oxbar ICE NIC Control Nicotine Vape](https://mohawkmedibles.co/shop/oxbar-ice-nic-control-nicotine-canada): Nicotine -- $35
-- [American Zyn Nicotine Pouches](https://mohawkmedibles.co/shop/american-zyn-nicotine-pouches-canada): Nicotine -- $12.50
-- [Azul Tequila Vape Nicotine Vape 5%](https://mohawkmedibles.co/shop/azul-tequila-vape-5-nicotine-vape-canada): Nicotine -- $20
-- [Hello Synix 5% Nicotine Vape](https://mohawkmedibles.co/shop/hello-synix-5-nicotine-canada): Nicotine -- $35
-- [Flavour Beast Max 2 50k Nicotine Vape](https://mohawkmedibles.co/shop/flavour-beast-max-2-50k-nicotine-vape): Nicotine -- $42.50
-- [STLTH X Geek Bar Nicotine Vape](https://mohawkmedibles.co/shop/stlth-x-geek-bar-nicotine-canada): Nicotine -- $45
-- [IJOY Uranus Mate 40K Puffs AI Smart Nicotine Vape](https://mohawkmedibles.co/shop/ijoy-uranus-mate-40k-puffs-ai-smart-nicotine-vape): Nicotine -- $25
+- [Killa 12.8mg Nicotine Pouches](https://mohawkmedibles.ca/shop/killa-12-8mg-nicotine-pouches): Nicotine -- $15
+- [Fungara Nicotine Pod](https://mohawkmedibles.ca/shop/fungara-nicotine-pod-canada): Nicotine -- $13.50
+- [Tyson 2.0 Legend 5% Nicotine Vape](https://mohawkmedibles.ca/shop/tyson-2-0-legend-5-nicotine-vape-canada): Nicotine -- $40
+- [Fungara Pods](https://mohawkmedibles.ca/shop/fungara-pods-canada): Nicotine -- $20
+- [Z Pods 5% Nicotine Pods](https://mohawkmedibles.ca/shop/z-pods-5-canada): Nicotine -- $13.50
+- [Fungara Large Air Flow Rechargeable Device](https://mohawkmedibles.ca/shop/fungara-large-air-flow-rechargeable-device-canada): Nicotine -- $10
+- [Flavour Beast Max 18k Nicotine Vape](https://mohawkmedibles.ca/shop/flavour-beast-max-18k-nicotine-canada): Nicotine -- $35
+- [Velo Nicotine Pouches](https://mohawkmedibles.ca/shop/velo-nicotine-pouches-canada): Nicotine -- $15
+- [Elf Bar Moon Night 40k Nicotine Vape](https://mohawkmedibles.ca/shop/elf-bar-moon-night-40k-nicotine-vape): Nicotine -- $40
+- [Hustler MEGA 25k Nicotine Vape](https://mohawkmedibles.ca/shop/hustler-mega-25k-nicotine-canada): Nicotine -- $30
+- [Adjust MyFlavor Nicotine Vape](https://mohawkmedibles.ca/shop/adjust-my-flavor-nicotine-vape-canada): Nicotine -- $40
+- [White Fox 15mg Nicotine Pouches](https://mohawkmedibles.ca/shop/white-fox-15mg-nicotine-pouches-canada): Nicotine -- $15
+- [Tyson 6 MG or 10 MG Nicotine Pouches](https://mohawkmedibles.ca/shop/tyson-6-mg-10-mg-nicotine-pouches-canada): Nicotine -- $10
+- [FOX Nicotine Pouches](https://mohawkmedibles.ca/shop/fox-6mg-and-12mg-nicotine-pouches-canada): Nicotine -- $12.50
+- [Infinity Nicotine Pods 5%](https://mohawkmedibles.ca/shop/infinity-nicotine-pods-5): Nicotine -- $12.50
+- [Pablo Nicotine Pouches](https://mohawkmedibles.ca/shop/pablo-nicotine-pouches-canada): Nicotine -- $15
+- [ZOLT 8mg and 15mg Nicotine Pouches](https://mohawkmedibles.ca/shop/zolt-8mg-and-15mg-nicotine-pouches-canada): Nicotine -- $12.50
+- [STLTH Type-C Vape Device](https://mohawkmedibles.ca/shop/stlth-type-c-vape-device-canada): Nicotine -- $15
+- [Starbuzz 15k Super Max Nicotine Vape](https://mohawkmedibles.ca/shop/starbuzz-15k-super-max-nicotine-canada): Nicotine -- $30
+- [Oxbar Magic Maze 2.0 Nicotine Vape](https://mohawkmedibles.ca/shop/oxbar-magic-maze-20-nicotine-canada): Nicotine -- $35
+- [Nicozy Nicotine Pouches](https://mohawkmedibles.ca/shop/nicozy-nicotine-pouches-canada): Nicotine -- $12.50
+- [Geek Bar Pods 5%](https://mohawkmedibles.ca/shop/geek-bar-pods-5-canada): Nicotine -- $12.50
+- [Z Colors Pods 2%](https://mohawkmedibles.ca/shop/z-colors-pods-2-canada): Nicotine -- $15
+- [Oxbar ICE NIC Control Nicotine Vape](https://mohawkmedibles.ca/shop/oxbar-ice-nic-control-nicotine-canada): Nicotine -- $35
+- [American Zyn Nicotine Pouches](https://mohawkmedibles.ca/shop/american-zyn-nicotine-pouches-canada): Nicotine -- $12.50
+- [Azul Tequila Vape Nicotine Vape 5%](https://mohawkmedibles.ca/shop/azul-tequila-vape-5-nicotine-vape-canada): Nicotine -- $20
+- [Hello Synix 5% Nicotine Vape](https://mohawkmedibles.ca/shop/hello-synix-5-nicotine-canada): Nicotine -- $35
+- [Flavour Beast Max 2 50k Nicotine Vape](https://mohawkmedibles.ca/shop/flavour-beast-max-2-50k-nicotine-vape): Nicotine -- $42.50
+- [STLTH X Geek Bar Nicotine Vape](https://mohawkmedibles.ca/shop/stlth-x-geek-bar-nicotine-canada): Nicotine -- $45
+- [IJOY Uranus Mate 40K Puffs AI Smart Nicotine Vape](https://mohawkmedibles.ca/shop/ijoy-uranus-mate-40k-puffs-ai-smart-nicotine-vape): Nicotine -- $25
 
 ## Sexual Enhancement
 
-- [Magnum XXL Sexual Enhancement Pills](https://mohawkmedibles.co/shop/magnum-xxl-sexual-enhancement-pills): Sexual Enhancement -- $20
-- [Pink Pussycat Sensual Enhancement Pill](https://mohawkmedibles.co/shop/pink-pussycat-sensual-enhancement-pill): Sexual Enhancement -- $10
-- [Pink Panther Sensual Enhancement Pill](https://mohawkmedibles.co/shop/pink-panther-sensual-enhancement-pill): Sexual Enhancement -- $10
-- [Ginseng Red Sexual Enhancement Pill](https://mohawkmedibles.co/shop/ginseng-red-sexual-enhancement-pill-canada): Sexual Enhancement -- $10
-- [Stiff Rox Sexual Enhancement Pill](https://mohawkmedibles.co/shop/stiff-rox-sexual-enhancement-pill-canada): Sexual Enhancement -- $10
-- [Etumax VIP Royal Honey](https://mohawkmedibles.co/shop/etumax-vip-royal-honey): Sexual Enhancement -- $10
-- [Jack Rabbit Sexual Enhancement Honey](https://mohawkmedibles.co/shop/jack-rabbit-sexual-enhancement-honey): Sexual Enhancement -- $10
-- [Rhino 69 Platinum 35000 Sexual Enhancement Pill](https://mohawkmedibles.co/shop/rhino-69-platinum-35000-sexual-enha-canada): Sexual Enhancement -- $10
-- [7K Sexual Enhancing Pills](https://mohawkmedibles.co/shop/7k-sexual-enhancing-pills-canada): Sexual Enhancement -- $10
-- [Spanish Fly Sensual Enhancement Pills](https://mohawkmedibles.co/shop/spanish-fly-sensual-enhancement-pills): Sexual Enhancement -- $15
-- [Kitty Kat Sensual Enhancement Pills](https://mohawkmedibles.co/shop/kitty-kat-sensual-enhancement-pills): Sexual Enhancement -- $15
-- [Bad Kitty Sensual Enhancement Pill](https://mohawkmedibles.co/shop/bad-kitty-sensual-enhancement-pill): Sexual Enhancement -- $10
-- [Rhino 7 Sexual Enhancement Pill](https://mohawkmedibles.co/shop/rhino-7-sexual-enhancement-pill-canada): Sexual Enhancement -- $10
-- [Rhino Rush Sexual Enhancement Pills](https://mohawkmedibles.co/shop/rhino-rush-sexual-enhancement-pills): Sexual Enhancement -- $20
-- [3800 Hard Rock Sexual Enhancement Pill](https://mohawkmedibles.co/shop/3800-hard-rock-sexual-enhancement-p-canada): Sexual Enhancement -- $10
-- [Rhino 11 Sexual Enhancement Honey](https://mohawkmedibles.co/shop/rhino-11-sexual-enhancement-honey): Sexual Enhancement -- $10
-- [Super Panther 7K Sexual Enhancement Pill](https://mohawkmedibles.co/shop/super-panther-7k-sexual-enhancement-canada): Sexual Enhancement -- $10
-- [Rhino 69 60000K Sexual Enhancement Pill](https://mohawkmedibles.co/shop/rhino-69-60000k-sexual-enhancement-pill): Sexual Enhancement -- $15
-- [VVIP Premium Sexual Enhancement Pills](https://mohawkmedibles.co/shop/vvip-premium-sexual-enhancement-pills): Sexual Enhancement -- $20
-- [Bang Sexual Enhancement Pill](https://mohawkmedibles.co/shop/bang-sexual-enhancement-pill-canada): Sexual Enhancement -- $10
-- [48 Hour Gold Ginseng Bonbon Seker](https://mohawkmedibles.co/shop/48-hour-gold-ginseng-bonbon-seker): Enhancement Pills -- $10
+- [Magnum XXL Sexual Enhancement Pills](https://mohawkmedibles.ca/shop/magnum-xxl-sexual-enhancement-pills): Sexual Enhancement -- $20
+- [Pink Pussycat Sensual Enhancement Pill](https://mohawkmedibles.ca/shop/pink-pussycat-sensual-enhancement-pill): Sexual Enhancement -- $10
+- [Pink Panther Sensual Enhancement Pill](https://mohawkmedibles.ca/shop/pink-panther-sensual-enhancement-pill): Sexual Enhancement -- $10
+- [Ginseng Red Sexual Enhancement Pill](https://mohawkmedibles.ca/shop/ginseng-red-sexual-enhancement-pill-canada): Sexual Enhancement -- $10
+- [Stiff Rox Sexual Enhancement Pill](https://mohawkmedibles.ca/shop/stiff-rox-sexual-enhancement-pill-canada): Sexual Enhancement -- $10
+- [Etumax VIP Royal Honey](https://mohawkmedibles.ca/shop/etumax-vip-royal-honey): Sexual Enhancement -- $10
+- [Jack Rabbit Sexual Enhancement Honey](https://mohawkmedibles.ca/shop/jack-rabbit-sexual-enhancement-honey): Sexual Enhancement -- $10
+- [Rhino 69 Platinum 35000 Sexual Enhancement Pill](https://mohawkmedibles.ca/shop/rhino-69-platinum-35000-sexual-enha-canada): Sexual Enhancement -- $10
+- [7K Sexual Enhancing Pills](https://mohawkmedibles.ca/shop/7k-sexual-enhancing-pills-canada): Sexual Enhancement -- $10
+- [Spanish Fly Sensual Enhancement Pills](https://mohawkmedibles.ca/shop/spanish-fly-sensual-enhancement-pills): Sexual Enhancement -- $15
+- [Kitty Kat Sensual Enhancement Pills](https://mohawkmedibles.ca/shop/kitty-kat-sensual-enhancement-pills): Sexual Enhancement -- $15
+- [Bad Kitty Sensual Enhancement Pill](https://mohawkmedibles.ca/shop/bad-kitty-sensual-enhancement-pill): Sexual Enhancement -- $10
+- [Rhino 7 Sexual Enhancement Pill](https://mohawkmedibles.ca/shop/rhino-7-sexual-enhancement-pill-canada): Sexual Enhancement -- $10
+- [Rhino Rush Sexual Enhancement Pills](https://mohawkmedibles.ca/shop/rhino-rush-sexual-enhancement-pills): Sexual Enhancement -- $20
+- [3800 Hard Rock Sexual Enhancement Pill](https://mohawkmedibles.ca/shop/3800-hard-rock-sexual-enhancement-p-canada): Sexual Enhancement -- $10
+- [Rhino 11 Sexual Enhancement Honey](https://mohawkmedibles.ca/shop/rhino-11-sexual-enhancement-honey): Sexual Enhancement -- $10
+- [Super Panther 7K Sexual Enhancement Pill](https://mohawkmedibles.ca/shop/super-panther-7k-sexual-enhancement-canada): Sexual Enhancement -- $10
+- [Rhino 69 60000K Sexual Enhancement Pill](https://mohawkmedibles.ca/shop/rhino-69-60000k-sexual-enhancement-pill): Sexual Enhancement -- $15
+- [VVIP Premium Sexual Enhancement Pills](https://mohawkmedibles.ca/shop/vvip-premium-sexual-enhancement-pills): Sexual Enhancement -- $20
+- [Bang Sexual Enhancement Pill](https://mohawkmedibles.ca/shop/bang-sexual-enhancement-pill-canada): Sexual Enhancement -- $10
+- [48 Hour Gold Ginseng Bonbon Seker](https://mohawkmedibles.ca/shop/48-hour-gold-ginseng-bonbon-seker): Enhancement Pills -- $10
 
 ## Accessories
 
-- [Export A Rolling Papers](https://mohawkmedibles.co/shop/export-a-rolling-papers-canada): Accessories -- $3
-- [Entourage Cigars](https://mohawkmedibles.co/shop/entourage-cigars-canada): Accessories -- $3
-- [4-Layer Zinc Alloy Grinder with Medibles Logo](https://mohawkmedibles.co/shop/4-layer-zinc-alloy-grinder-with-med-canada): Accessories -- $25
-- [Zig-Zag Cigar Wraps](https://mohawkmedibles.co/shop/zig-zag-cigar-wraps-canada): Accessories -- $3
-- [RAW Classic 1-1/4 Cones](https://mohawkmedibles.co/shop/raw-cones-canada): Accessories -- $3
-- [ZILLIONAIRE AirBuds Kit](https://mohawkmedibles.co/shop/zillionaire-airbuds-kit-canada): Accessories -- $55
+- [Export A Rolling Papers](https://mohawkmedibles.ca/shop/export-a-rolling-papers-canada): Accessories -- $3
+- [Entourage Cigars](https://mohawkmedibles.ca/shop/entourage-cigars-canada): Accessories -- $3
+- [4-Layer Zinc Alloy Grinder with Medibles Logo](https://mohawkmedibles.ca/shop/4-layer-zinc-alloy-grinder-with-med-canada): Accessories -- $25
+- [Zig-Zag Cigar Wraps](https://mohawkmedibles.ca/shop/zig-zag-cigar-wraps-canada): Accessories -- $3
+- [RAW Classic 1-1/4 Cones](https://mohawkmedibles.ca/shop/raw-cones-canada): Accessories -- $3
+- [ZILLIONAIRE AirBuds Kit](https://mohawkmedibles.ca/shop/zillionaire-airbuds-kit-canada): Accessories -- $55
 
 ## Hookah
 
-- [Adalya Hookah Tobacco](https://mohawkmedibles.co/shop/adalya-hookah-tobacco-canada): Hookah -- $30
+- [Adalya Hookah Tobacco](https://mohawkmedibles.ca/shop/adalya-hookah-tobacco-canada): Hookah -- $30
 
 ## Sale
 
-- [Drizzle Factory THC Lean](https://mohawkmedibles.co/shop/drizzle-factory-lean-canada): Sale -- $25
-- [Zillionaire Shatter 1G (Sale)](https://mohawkmedibles.co/shop/zillionaire-shatter-1g-canada): Sale -- $10
-- [Zillionaire 1ml Disposable THC Vape (Sale)](https://mohawkmedibles.co/shop/zillionaire-1ml-disposable-thc-vape-canada): Sale -- $25
+- [Drizzle Factory THC Lean](https://mohawkmedibles.ca/shop/drizzle-factory-lean-canada): Sale -- $25
+- [Zillionaire Shatter 1G (Sale)](https://mohawkmedibles.ca/shop/zillionaire-shatter-1g-canada): Sale -- $10
+- [Zillionaire 1ml Disposable THC Vape (Sale)](https://mohawkmedibles.ca/shop/zillionaire-1ml-disposable-thc-vape-canada): Sale -- $25
 
 ## Bath & Body
 
-- [Bath Salts](https://mohawkmedibles.co/shop/bath-salts-canada): Bath & Body -- $10
+- [Bath Salts](https://mohawkmedibles.ca/shop/bath-salts-canada): Bath & Body -- $10
 
 ## Pets
 
-- [Plant of Life THC Free Organic Pet CBD Oil](https://mohawkmedibles.co/shop/plant-of-life-thc-free-organic-pet-canada): Pets -- $25
-- [Peaceful Pawz Hemp Dog Treats](https://mohawkmedibles.co/shop/peaceful-pawz-hemp-dog-treats-canada): Pets -- $25
+- [Plant of Life THC Free Organic Pet CBD Oil](https://mohawkmedibles.ca/shop/plant-of-life-thc-free-organic-pet-canada): Pets -- $25
+- [Peaceful Pawz Hemp Dog Treats](https://mohawkmedibles.ca/shop/peaceful-pawz-hemp-dog-treats-canada): Pets -- $25
 
 ## Wellness
 
-- [Peaceful Pawz Hemp Dog Treats](https://mohawkmedibles.co/shop/peaceful-pawz-hemp-dog-treats-canada): Wellness -- $25
+- [Peaceful Pawz Hemp Dog Treats](https://mohawkmedibles.ca/shop/peaceful-pawz-hemp-dog-treats-canada): Wellness -- $25
 
 ## Capsules
 
-- [CBD Capsules 2000mg](https://mohawkmedibles.co/shop/cbd-capsules-2000mg-3-canada): Capsules -- $50
-- [SleeBD Calm CBD Capsules](https://mohawkmedibles.co/shop/sleebd-calm-cbd-capsules-2): Capsules -- $40
-- [1:1 Capsules 2000mg](https://mohawkmedibles.co/shop/11-capsules-2000mg-canada): Capsules -- $60
-- [THC Capsules 2000mg](https://mohawkmedibles.co/shop/thc-capsules-2000mg-2-canada): Capsules -- $60
+- [CBD Capsules 2000mg](https://mohawkmedibles.ca/shop/cbd-capsules-2000mg-3-canada): Capsules -- $50
+- [SleeBD Calm CBD Capsules](https://mohawkmedibles.ca/shop/sleebd-calm-cbd-capsules-2): Capsules -- $40
+- [1:1 Capsules 2000mg](https://mohawkmedibles.ca/shop/11-capsules-2000mg-canada): Capsules -- $60
+- [THC Capsules 2000mg](https://mohawkmedibles.ca/shop/thc-capsules-2000mg-2-canada): Capsules -- $60
 
 ## Pre-Rolls (Infused)
 
-- [Pineapple Express Meds (PEM) Baby Jeffery Pre-Roll 30 Pack](https://mohawkmedibles.co/shop/pineapple-express-meds-pem-baby-jeffery-pre-roll-30-pack-canada): Infused Pre-Rolls -- $200
-- [WALT HERB CO. 7.2g Pre-Rolls](https://mohawkmedibles.co/shop/walt-herb-co-7-2g-pre-rolls-canada): Pre-Rolls -- $50
-- [WALT HERB CO. 7.5g BIG DOGS Pre-Rolls](https://mohawkmedibles.co/shop/walt-herb-co-7-5g-big-dogs-pre-rolls-canada): Pre-Rolls -- $50
-- [Lip Rippers Delta-9 THC Pouches](https://mohawkmedibles.co/shop/lip-rippers-delta-9-thc-pouches): Lip Rippers -- $25
+- [Pineapple Express Meds (PEM) Baby Jeffery Pre-Roll 30 Pack](https://mohawkmedibles.ca/shop/pineapple-express-meds-pem-baby-jeffery-pre-roll-30-pack-canada): Infused Pre-Rolls -- $200
+- [WALT HERB CO. 7.2g Pre-Rolls](https://mohawkmedibles.ca/shop/walt-herb-co-7-2g-pre-rolls-canada): Pre-Rolls -- $50
+- [WALT HERB CO. 7.5g BIG DOGS Pre-Rolls](https://mohawkmedibles.ca/shop/walt-herb-co-7-5g-big-dogs-pre-rolls-canada): Pre-Rolls -- $50
+- [Lip Rippers Delta-9 THC Pouches](https://mohawkmedibles.ca/shop/lip-rippers-delta-9-thc-pouches): Lip Rippers -- $25
 
 ## Tinctures
 
-- [THC Tincture 5000MG MCT](https://mohawkmedibles.co/shop/thc-tincture-5000mg-mct-canada): THC -- $80
+- [THC Tincture 5000MG MCT](https://mohawkmedibles.ca/shop/thc-tincture-5000mg-mct-canada): THC -- $80
 
 ## AKI Wellness
 
-- [Aki Pain Relief Roll On](https://mohawkmedibles.co/shop/aki-pain-relief-roll-on): AKI -- $50
-- [Aki Ultra Strength Pain Spray 1:1](https://mohawkmedibles.co/shop/aki-ultra-strength-pain-spray-11): AKI -- $35
-- [AKI CBN Nighttime Oil 60ML](https://mohawkmedibles.co/shop/aki-cbn-nighttime-oil-60ml-canada): AKI -- $55
+- [Aki Pain Relief Roll On](https://mohawkmedibles.ca/shop/aki-pain-relief-roll-on): AKI -- $50
+- [Aki Ultra Strength Pain Spray 1:1](https://mohawkmedibles.ca/shop/aki-ultra-strength-pain-spray-11): AKI -- $35
+- [AKI CBN Nighttime Oil 60ML](https://mohawkmedibles.ca/shop/aki-cbn-nighttime-oil-60ml-canada): AKI -- $55
 
 ## Baked Goods
 
-- [C and D Bite Size THC Brownie](https://mohawkmedibles.co/shop/c-d-bite-size-thc-brownie-canada): Baked Goods -- $5
+- [C and D Bite Size THC Brownie](https://mohawkmedibles.ca/shop/c-d-bite-size-thc-brownie-canada): Baked Goods -- $5
 
 ---
 
 ## Important Pages
 
-- [Shop All Products](https://mohawkmedibles.co/shop)
-- [Current Deals](https://mohawkmedibles.co/deals)
-- [Delivery Locations](https://mohawkmedibles.co/delivery)
-- [How to Order](https://mohawkmedibles.co/how-to-order)
-- [Contact Us](https://mohawkmedibles.co/contact)
-- [About Mohawk Medibles](https://mohawkmedibles.co/about)
-- [Blog & Guides](https://mohawkmedibles.co/blog)
-- [FAQ](https://mohawkmedibles.co/faq)
+- [Shop All Products](https://mohawkmedibles.ca/shop)
+- [Current Deals](https://mohawkmedibles.ca/deals)
+- [Delivery Locations](https://mohawkmedibles.ca/delivery)
+- [How to Order](https://mohawkmedibles.ca/how-to-order)
+- [Contact Us](https://mohawkmedibles.ca/contact)
+- [About Mohawk Medibles](https://mohawkmedibles.ca/about)
+- [Blog & Guides](https://mohawkmedibles.ca/blog)
+- [FAQ](https://mohawkmedibles.ca/faq)
 
 ## Guides & Resources
 
-- [The Complete Terpene Guide](https://mohawkmedibles.co/blog/terpene-guide-cannabis-effects)
-- [Edible Dosing Guide for Beginners](https://mohawkmedibles.co/blog/edible-dosing-guide-beginners-canada)
-- [Indica vs Sativa vs Hybrid](https://mohawkmedibles.co/blog/indica-vs-sativa-vs-hybrid-guide)
-- [The Ultimate Hash Guide](https://mohawkmedibles.co/blog/hash-guide-types-potency-canada)
-- [CBD Oil Guide](https://mohawkmedibles.co/blog/cbd-oil-guide-benefits-dosing-canada)
-- [How to Buy Cannabis Online in Canada](https://mohawkmedibles.co/blog/buying-cannabis-online-canada-guide)
+- [The Complete Terpene Guide](https://mohawkmedibles.ca/blog/terpene-guide-cannabis-effects)
+- [Edible Dosing Guide for Beginners](https://mohawkmedibles.ca/blog/edible-dosing-guide-beginners-canada)
+- [Indica vs Sativa vs Hybrid](https://mohawkmedibles.ca/blog/indica-vs-sativa-vs-hybrid-guide)
+- [The Ultimate Hash Guide](https://mohawkmedibles.ca/blog/hash-guide-types-potency-canada)
+- [CBD Oil Guide](https://mohawkmedibles.ca/blog/cbd-oil-guide-benefits-dosing-canada)
+- [How to Buy Cannabis Online in Canada](https://mohawkmedibles.ca/blog/buying-cannabis-online-canada-guide)
 
 ## Shipping & Delivery
 
@@ -485,7 +485,7 @@
 
 ## Contact
 
-- Website: https://mohawkmedibles.co
+- Website: https://mohawkmedibles.ca
 - Email: support@mohawkmedibles.ca
 - Phone: (613) 396-6728
 - TikTok: https://www.tiktok.com/@mediblesdeseronto

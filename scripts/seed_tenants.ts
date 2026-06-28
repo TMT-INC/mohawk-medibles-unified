@@ -14,8 +14,8 @@ async function main() {
     create: {
       slug: 'mohawk-medibles',
       name: 'Mohawk Medibles',
-      domain: 'mohawkmedibles.co',
-      altDomains: ['mohawkmedibles.ca', 'mohawk-medibles-seo.vercel.app'],
+      domain: 'mohawkmedibles.ca',
+      altDomains: ['mohawkmedibles.co', 'mohawk-medibles-seo.vercel.app'],
       active: true,
       isDefault: true,
       primaryColor: '#2D5016',

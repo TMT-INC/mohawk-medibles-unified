@@ -2231,7 +2231,7 @@ model Tenant {
     id              String   @id @default(cuid())
     slug            String   @unique  // "mohawk-medibles", "unhinged-cannabis"
     name            String             // "Mohawk Medibles"
-    domain          String   @unique  // Primary domain: "mohawkmedibles.co"
+    domain          String   @unique  // Primary domain: "mohawkmedibles.ca"
     altDomains      String[] // Additional domains that resolve to this tenant
     active          Boolean  @default(true)
     isDefault       Boolean  @default(false) // The main Mohawk Medibles site

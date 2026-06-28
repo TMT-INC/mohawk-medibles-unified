@@ -648,7 +648,7 @@ function AffiliateDashboard() {
   });
 
   const affiliateLink = stats.data
-    ? `https://mohawkmedibles.co/?ref=${stats.data.code}`
+    ? `${process.env.NEXT_PUBLIC_SITE_URL || "https://mohawkmedibles.ca"}/?ref=${stats.data.code}`
     : "";
 
   const copyLink = () => {

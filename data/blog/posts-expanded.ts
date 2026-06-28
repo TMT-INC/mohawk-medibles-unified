@@ -1057,7 +1057,7 @@ If you are buying in bulk (ounces or more), consider these strategies:
 
 At Mohawk Medibles, every product ships in sealed, airtight packaging designed to preserve freshness during transit. Once your order arrives, transfer flower to a proper glass container with a humidity pack and store in a cool, dark place.
 
-Browse our full product collection at [mohawkmedibles.co/shop](/shop) — premium quality deserves premium storage.
+Browse our full product collection at [mohawkmedibles.ca/shop](/shop) — premium quality deserves premium storage.
 
 ## Frequently Asked Questions
 

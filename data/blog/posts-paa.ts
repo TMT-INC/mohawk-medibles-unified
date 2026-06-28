@@ -1489,7 +1489,7 @@ Legally, yes. Practically, use your judgment. The packaging is discreet, but rec
 
 Ready to place your first online cannabis order? Here is the quick version:
 
-1. **Visit** [mohawkmedibles.co/shop](/shop)
+1. **Visit** [mohawkmedibles.ca/shop](/shop)
 2. **Browse** our 360+ lab-tested products
 3. **Add to cart** — orders over $149 ship free
 4. **Checkout** — secure payment via credit card, e-Transfer, or crypto
