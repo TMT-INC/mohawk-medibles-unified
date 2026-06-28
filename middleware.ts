@@ -24,6 +24,14 @@ const DOMAINS = {
     ADMIN: ["mohawkmedibles.cc", "www.mohawkmedibles.cc"],
 };
 
+// Only the canonical .ca host may be indexed by search engines. Every other
+// host that serves this deployment — the .co staging alias, the .cc admin
+// alias, *.vercel.app preview deploys, localhost — gets an X-Robots-Tag
+// noindex on every response. This is what keeps mohawkmedibles.co out of
+// Google while it stays fully usable as staging, and it flips automatically
+// at cutover: once .ca DNS points here, host === mohawkmedibles.ca → indexable.
+const CANONICAL_HOSTS = ["mohawkmedibles.ca", "www.mohawkmedibles.ca"];
+
 // Routes that require authentication.
 // NOTE: /api/trpc is deliberately NOT here — the tRPC route verifies the session
 // cookie itself and each procedure declares its own auth tier (public/protected/
@@ -85,6 +93,12 @@ export async function middleware(request: NextRequest) {
 
     // Helper: inject tenant headers + CSRF cookie into any response
     function withTenantHeaders(response: NextResponse): NextResponse {
+        // Keep every non-canonical host (.co staging, .cc, vercel previews,
+        // localhost) out of search indexes. Googlebot can still crawl (robots
+        // .txt stays permissive) so it sees this header and drops the URL.
+        if (!CANONICAL_HOSTS.includes(host)) {
+            response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive, nosnippet");
+        }
         response.headers.set("x-tenant-id", tenant.id);
         response.headers.set("x-tenant-slug", tenant.slug);
         response.headers.set("x-tenant-name", tenant.name);
