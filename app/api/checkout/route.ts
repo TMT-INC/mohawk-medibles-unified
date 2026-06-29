@@ -182,6 +182,38 @@ export async function POST(req: NextRequest) {
         const tax = 0; // Tax-free — Indigenous sovereignty
         const total = +(subtotalAfterDiscount + shipping + tax).toFixed(2);
 
+        // ── Duplicate-order guard (idempotent, cross-rail) ──────────────
+        // A customer who doesn't get a clear payment confirmation often
+        // re-checks-out and double-pays — sometimes minutes apart on a DIFFERENT
+        // rail (the real "card then e-Transfer" pattern seen on the WP store).
+        // Before creating a new order, return the customer's existing recent
+        // UNPAID order for the SAME cart instead of making a second one they
+        // could pay again. Matches regardless of the rail chosen this time, so a
+        // crypto retry of a pending e-Transfer order resolves to that order.
+        {
+            const newCartFp = cartFingerprint(resolvedItems, total);
+            const recentUnpaid = await prisma.order.findMany({
+                where: {
+                    userId: user.id,
+                    paymentStatus: "PENDING",
+                    status: { in: ["PENDING", "ON_HOLD", "PROCESSING", "PENDING_REVIEW"] },
+                    createdAt: { gte: new Date(Date.now() - DUPLICATE_WINDOW_MS) },
+                },
+                include: { items: true },
+                orderBy: { createdAt: "desc" },
+                take: 10,
+            });
+            const dupe = recentUnpaid.find((o) => cartFingerprint(o.items, o.total) === newCartFp);
+            if (dupe) {
+                log.checkout.warn("Duplicate checkout returned existing unpaid order", {
+                    existingOrder: dupe.orderNumber,
+                    userId: user.id,
+                    attemptedMethod: body.payment_method,
+                });
+                return duplicateOrderResponse(dupe);
+            }
+        }
+
         // ── Create order in DB ─────────────────────────────
         const isEtransfer = body.payment_method === "etransfer" || body.payment_method === "digipay_etransfer_manual";
         const orderNumber = `MM-${Date.now().toString(36).toUpperCase()}`;
@@ -490,6 +522,67 @@ export async function POST(req: NextRequest) {
         log.checkout.error("Checkout error", { error: message });
         return NextResponse.json({ error: "Checkout failed. Please try again." }, { status: 500 });
     }
+}
+
+// ── Duplicate-order detection helpers ────────────────────────
+// Window during which a same-customer, same-cart re-checkout is treated as a
+// duplicate of the existing unpaid order rather than a new purchase.
+const DUPLICATE_WINDOW_MS = 30 * 60 * 1000;
+
+/** Stable fingerprint of a cart: sorted productId:qty pairs + 2-dp total. */
+function cartFingerprint(items: { productId: number; quantity: number }[], total: number): string {
+    const parts = items.map((i) => `${i.productId}:${i.quantity}`).sort().join(",");
+    return `${parts}|${total.toFixed(2)}`;
+}
+
+/**
+ * Re-issue an existing unpaid order's payment response (idempotent) so a
+ * re-checkout lands back on the SAME order instead of creating a second one.
+ */
+function duplicateOrderResponse(order: {
+    id: string;
+    orderNumber: string;
+    total: number;
+    paymentMethod: string | null;
+    paymentReference: string | null;
+}) {
+    const base = {
+        success: true,
+        duplicate: true,
+        orderId: order.id,
+        orderNumber: order.orderNumber,
+        total: order.total.toFixed(2),
+        currency: "CAD",
+        message: `You already have a pending order (${order.orderNumber}) for these items from a few minutes ago — we've brought you back to it so you aren't charged twice.`,
+    };
+    const m = order.paymentMethod || "";
+    if (m === "etransfer" || m === "digipay_etransfer_manual") {
+        return NextResponse.json({
+            ...base,
+            status: "on-hold",
+            paymentMethod: "etransfer",
+            etransfer: {
+                instructions: buildEtransferInstructions(order.orderNumber),
+                orderReference: order.orderNumber,
+                email: ETRANSFER_RECIPIENT_EMAIL,
+                recipientName: ETRANSFER_RECIPIENT_NAME,
+                securityQuestion: ETRANSFER_SECURITY_QUESTION,
+                securityAnswer: ETRANSFER_SECURITY_ANSWER,
+                memo: order.orderNumber,
+            },
+        });
+    }
+    if ((m === "crypto" || m === "wcpg_crypto") && order.paymentReference && process.env.BTCPAY_URL) {
+        return NextResponse.json({
+            ...base,
+            status: "pending",
+            paymentMethod: "crypto",
+            payUrl: `${process.env.BTCPAY_URL.replace(/\/+$/, "")}/i/${order.paymentReference}`,
+        });
+    }
+    // Fallback (rail without a re-issuable session): return the order ref so the
+    // client can route the customer to their order/track page.
+    return NextResponse.json({ ...base, status: "pending" });
 }
 
 function getPaymentTitle(method: string): string {

@@ -177,6 +177,29 @@ export async function calculateFraudScore(
     }
   }
 
+  // 8. Possible duplicate order — same customer has another recent UNPAID order
+  // with the same total. The exact-cart idempotency guard at checkout already
+  // collapses identical re-submissions; this catches the NEAR-duplicate the guard
+  // can't (same total, slightly different items — e.g. the customer re-ordered
+  // after their first attempt looked like it failed and a flavor had sold out,
+  // the real "card then e-Transfer" double-pay pattern). Flag for review so staff
+  // can void the duplicate before both get paid and shipped.
+  const recentDuplicateTotal = await prisma.order.count({
+    where: {
+      userId: input.userId,
+      id: { not: input.orderId },
+      total: input.total,
+      paymentStatus: "PENDING",
+      createdAt: { gte: new Date(Date.now() - 30 * 60 * 1000) },
+    },
+  });
+  if (recentDuplicateTotal >= 1) {
+    flags.push({
+      reason: "Possible duplicate order",
+      points: 35,
+    });
+  }
+
   // ── Calculate final score ──────────────────────────────────
   const score = Math.min(100, flags.reduce((sum, f) => sum + f.points, 0));
 
