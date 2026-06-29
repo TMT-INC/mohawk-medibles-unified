@@ -173,7 +173,11 @@ function StatusStepper({
   statusHistory: { status: string; createdAt: string }[];
 }) {
   const currentIdx = getStepIndex(currentStatus);
-  const isCancelled = ["CANCELLED", "REFUNDED", "FAILED", "ON_HOLD"].includes(currentStatus);
+  const isCancelled = ["CANCELLED", "REFUNDED", "FAILED"].includes(currentStatus);
+  // ON_HOLD is the normal pre-payment state of an Interac e-Transfer order (our
+  // primary rail) until Blacfin confirms the deposit — NOT a failure. Show it as
+  // an amber "awaiting payment" notice, never the red contact-support card.
+  const isAwaitingPayment = currentStatus === "ON_HOLD";
 
   // Build a map from step key to the earliest timestamp for that step
   const stepTimestamps = new Map<string, string>();
@@ -186,6 +190,27 @@ function StatusStepper({
         stepTimestamps.set(stepKey, entry.createdAt);
       }
     }
+  }
+
+  if (isAwaitingPayment) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="flex items-center gap-3 p-4 rounded-xl bg-amber-500/10 shadow-lg shadow-amber-500/5"
+      >
+        <Clock className="w-6 h-6 text-amber-400 shrink-0" />
+        <div>
+          <p className="text-amber-400 font-bold text-sm">
+            Awaiting your e-Transfer payment
+          </p>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            We&apos;ll update this automatically once your Interac e-Transfer is received —
+            no action needed if you&apos;ve already sent it.
+          </p>
+        </div>
+      </motion.div>
+    );
   }
 
   if (isCancelled) {

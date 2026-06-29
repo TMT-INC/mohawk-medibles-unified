@@ -136,6 +136,13 @@ const nextConfig: NextConfig = {
       { source: "/dispensary-near-me-canada-2026-guide/", destination: "/locations/", permanent: true },
       { source: "/why-customers-choose-our-deseronto-dispensary-on-tyendinaga-mohawk-territory-for-the-best-weed-and-cannabis/", destination: "/about/", permanent: true },
 
+      // WP guide pages added 2026-06-24 (after the cutover URL-parity diff) → closest blog guide
+      { source: "/indica-vs-sativa-vs-hybrid-canada/", destination: "/blog/indica-vs-sativa-vs-hybrid-guide/", permanent: true },
+      { source: "/best-thc-vape-cartridges-canada/", destination: "/blog/cannabis-vape-cartridge-guide/", permanent: true },
+      { source: "/thca-diamonds-terp-sauce-guide/", destination: "/blog/cannabis-concentrates-guide-shatter-wax/", permanent: true },
+      { source: "/is-it-safe-to-buy-cannabis-online-canada/", destination: "/blog/is-it-legal-to-buy-weed-online-canada/", permanent: true },
+      { source: "/rso-oil-guide/", destination: "/blog/cannabis-concentrates-guide-beginners/", permanent: true },
+
       // Knowledge base → closest guide or FAQ
       { source: "/knowledge-base/proper-vape-storage/", destination: "/blog/how-to-store-cannabis-properly/", permanent: true },
       { source: "/knowledge-base/proper-methods-for-storing-hash/", destination: "/blog/how-to-store-cannabis-properly/", permanent: true },
@@ -172,7 +179,7 @@ const nextConfig: NextConfig = {
       { source: "/british-columbia-delivery/", destination: "/delivery/british-columbia/", permanent: true },
       { source: "/manitoba-delivery/", destination: "/delivery/manitoba/", permanent: true },
       { source: "/new-brunswick-delivery/", destination: "/delivery/new-brunswick/", permanent: true },
-      { source: "/new-foundland-labrador-delivery/", destination: "/delivery/newfoundland-labrador/", permanent: true },
+      { source: "/new-foundland-labrador-delivery/", destination: "/delivery/newfoundland-and-labrador/", permanent: true },
       { source: "/northwest-territories-delivery/", destination: "/delivery/northwest-territories/", permanent: true },
       { source: "/nova-scotia-delivery/", destination: "/delivery/nova-scotia/", permanent: true },
       { source: "/nunavut-delivery/", destination: "/delivery/nunavut/", permanent: true },

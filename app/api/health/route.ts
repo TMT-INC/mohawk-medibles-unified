@@ -43,19 +43,27 @@ export async function GET(req: NextRequest) {
         checks.shipstation = { status: "unhealthy", error: e instanceof Error ? e.message : "Timeout" };
     }
 
-    // ── Agent Gateway ───────────────────────────────────────
-    try {
-        const start = Date.now();
-        const gatewayUrl = process.env.AGENT_GATEWAY_URL || "http://localhost:8000";
-        const res = await fetch(`${gatewayUrl}/`, {
-            signal: AbortSignal.timeout(3000),
-        });
-        checks.agent_gateway = {
-            status: res.ok ? "healthy" : "degraded",
-            latency: Date.now() - start,
-        };
-    } catch (e) {
-        checks.agent_gateway = { status: "unhealthy", error: e instanceof Error ? e.message : "Timeout" };
+    // ── Agent Gateway (optional external Python service) ─────
+    // This service is not part of the customer buy/login/checkout path. When it
+    // isn't configured (e.g. on Vercel, where there is no localhost:8000) report
+    // it as not_configured so it never forces the whole endpoint to 503 and pages
+    // uptime monitors. Even when configured, a failure is "degraded", not fatal.
+    const gatewayUrl = process.env.AGENT_GATEWAY_URL;
+    if (!gatewayUrl) {
+        checks.agent_gateway = { status: "not_configured" };
+    } else {
+        try {
+            const start = Date.now();
+            const res = await fetch(`${gatewayUrl}/`, {
+                signal: AbortSignal.timeout(3000),
+            });
+            checks.agent_gateway = {
+                status: res.ok ? "healthy" : "degraded",
+                latency: Date.now() - start,
+            };
+        } catch (e) {
+            checks.agent_gateway = { status: "degraded", error: e instanceof Error ? e.message : "Timeout" };
+        }
     }
 
     // ── MedAgent Bot ──────────────────────────────────────────

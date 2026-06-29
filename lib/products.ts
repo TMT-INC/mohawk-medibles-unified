@@ -146,8 +146,19 @@ const EXCLUDED_CATEGORIES = new Set([
     "euphoria psychedelics", "her highness from the 6ix",
 ]);
 
+/**
+ * Off-strategy product NAME patterns. The category filter misses items that the
+ * WC sync lands under "Uncategorized" (e.g. ~47 Kraze nicotine disposable vapes
+ * and Breeze nicotine pouches). This is a cannabis-only storefront, so drop any
+ * nicotine product by name regardless of how it was categorized. Deliberately
+ * narrow ("nicotine" / the Kraze brand) so legit THC vapes/disposables stay.
+ */
+const OFF_STRATEGY_NAME = /(nicotine|\bkraze\b)/i;
+
 function isAllowedProduct(p: Product): boolean {
-    return !EXCLUDED_CATEGORIES.has(p.category.toLowerCase());
+    if (EXCLUDED_CATEGORIES.has(p.category.toLowerCase())) return false;
+    if (OFF_STRATEGY_NAME.test(p.name)) return false;
+    return true;
 }
 
 /** Decode HTML entities in user-facing product text fields */

@@ -63,7 +63,7 @@ export default function TrackOrderPage() {
         <div className="space-y-4">
           {[
             { q: "How long does shipping take?", a: "Most orders ship same-day and arrive within 1-3 business days via Canada Post Xpresspost or Purolator." },
-            { q: "How much does shipping cost?", a: "Flat rate $15 shipping. FREE on all orders over $199. Click & Collect in-store is always free." },
+            { q: "How much does shipping cost?", a: "Flat rate $15 shipping. FREE on all orders over $149. Click & Collect in-store is always free." },
             { q: "Is the packaging discreet?", a: "Yes. All orders ship in plain, unbranded packaging with no indication of contents. Your privacy is our priority." },
             { q: "What carriers do you use?", a: "We ship via Canada Post Xpresspost, Purolator, UPS, and FedEx depending on your location for the fastest delivery." },
             { q: "Can I change my shipping address?", a: "Contact us immediately at info@mohawkmedibles.ca or (613) 396-6728. We can update before the order ships." },
