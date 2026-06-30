@@ -15,6 +15,7 @@
 import { Client } from "pg";
 
 const EXECUTE = process.argv.includes("--execute");
+const LONGS = process.argv.includes("--longs"); // fill only missing longDescription on products that already have meta
 const li = process.argv.indexOf("--limit");
 const LIMIT = li >= 0 ? parseInt(process.argv[li + 1], 10) : 0;
 const CONCURRENCY = 4;
@@ -77,9 +78,12 @@ async function main() {
     `select p.id, p.slug, p.name, p.category, p.subcategory, p.price, s.thc, s.type
        from "Product" p left join "ProductSpec" s on s."productId"=p.id
       where p.status='ACTIVE' and lower(p.category) not in (${excl})
-        and (p."metaDescription" is null or p."metaDescription"='')
+        and p.name !~* 'nicotine|kraze'
+        and ${LONGS
+          ? `p."metaDescription" is not null and p."metaDescription"<>'' and (p."longDescription" is null or p."longDescription"='')`
+          : `(p."metaDescription" is null or p."metaDescription"='')`}
       order by p.price desc`, EXCLUDED)).rows;
-  console.log(`thin active products: ${rows.length}`);
+  console.log(`${LONGS ? "missing-long" : "thin"} active products: ${rows.length}`);
   if (LIMIT > 0) rows = rows.slice(0, LIMIT);
 
   let done = 0, failed = 0, flagged = 0;
@@ -94,10 +98,14 @@ async function main() {
         if (claim) { flagged++; console.log(`  ⚠ claim "${claim}" in ${p.slug} — skipping write`); }
         if (samples.length < 6) samples.push({ slug: p.slug, name: p.name, ...o, _flag: claim });
         if (EXECUTE && !claim) {
-          await c.query(
-            `update "Product" set "metaDescription"=$1, "shortDescription"=$2, "longDescription"=coalesce(nullif("longDescription",''),$3) where id=$4`,
-            [o.metaDescription, o.shortDescription, o.longDescriptionHTML, p.id]
-          );
+          if (LONGS) {
+            await c.query(`update "Product" set "longDescription"=$1 where id=$2`, [o.longDescriptionHTML, p.id]);
+          } else {
+            await c.query(
+              `update "Product" set "metaDescription"=$1, "shortDescription"=$2, "longDescription"=coalesce(nullif("longDescription",''),$3) where id=$4`,
+              [o.metaDescription, o.shortDescription, o.longDescriptionHTML, p.id]
+            );
+          }
         }
         done++;
         if (done % 20 === 0) console.log(`  progress ${done}/${rows.length}`);
