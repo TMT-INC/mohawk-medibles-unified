@@ -17,8 +17,12 @@ export type CutoverRule =
 
 export const CUTOVER_REDIRECTS: CutoverRule[] = [
   // Sexual-enhancement pills/honey — discontinued, fit neither sister site → 410 Gone.
+  // NOTE: deliberately NO bare "rhino"/"panther" tokens — every real SKU here also
+  // carries "sexual"/"sensual"/"enhancement", so those tokens are redundant AND would
+  // false-410 future cannabis strains (White Rhino, Pink Panther). Brand tokens kept
+  // are specific enough not to collide with any cannabis product name.
   {
-    test: /(sexual|sensual|enhancement|\brhino\b|panther|spanish-fly|royal-honey|kitty-kat|pink-pussycat|magnum-xxl|stiff-rox|hard-rock|bonbon-seker|7k-sexual|ginseng.*pill)/i,
+    test: /(sexual|sensual|enhancement|spanish-fly|royal-honey|kitty-kat|pink-pussycat|magnum-xxl|stiff-rox|hard-rock|bonbon-seker|7k-sexual|ginseng.*pill)/i,
     status: 410,
   },
 

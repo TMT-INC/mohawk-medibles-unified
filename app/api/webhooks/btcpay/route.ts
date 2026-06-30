@@ -16,6 +16,7 @@ import { log } from "@/lib/logger";
 import { sendEmail } from "@/lib/email";
 import { verifyBTCPayWebhook } from "@/lib/btcpay";
 import { parseBilling } from "@/lib/wampum";
+import { cancelOrderAndRestock } from "@/lib/restock";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -82,34 +83,19 @@ export async function POST(req: NextRequest) {
 
     if (type === "InvoiceExpired" || type === "InvoiceInvalid") {
         if (order.status === "PENDING" && order.paymentStatus === "PENDING") {
-            // Unpaid crypto invoice is dead → cancel the order AND restore the
+            // Unpaid crypto invoice is dead → atomically cancel + restore the
             // inventory it was holding (mirrors the e-Transfer transfer-expired
-            // path; otherwise abandoned crypto orders strand stock forever).
-            await prisma.$transaction(async (tx) => {
-                const items = await tx.orderItem.findMany({ where: { orderId: order.id } });
-                for (const it of items) {
-                    await tx.inventory.updateMany({
-                        where: { productId: it.productId },
-                        data: { quantity: { increment: it.quantity } },
-                    });
-                    await tx.product.updateMany({
-                        where: { id: it.productId, status: "OUT_OF_STOCK" },
-                        data: { status: "ACTIVE" },
-                    });
-                }
-                await tx.order.update({
-                    where: { id: order.id },
-                    data: { status: "CANCELLED", paymentStatus: "FAILED" },
-                });
-                await tx.orderStatusHistory.create({
-                    data: {
-                        orderId: order.id,
-                        status: "CANCELLED",
-                        note: `Crypto payment ${type === "InvoiceExpired" ? "expired unpaid" : "marked invalid"} (BTCPay invoice ${event.invoiceId}); inventory restored.`,
-                        changedBy: "btcpay",
-                    },
-                });
-            });
+            // path; otherwise abandoned crypto orders strand stock forever). The
+            // atomic claim inside the helper makes concurrent re-deliveries safe.
+            await prisma.$transaction((tx) =>
+                cancelOrderAndRestock(tx, {
+                    orderId: order.id,
+                    fromStatuses: ["PENDING"],
+                    note: `Crypto payment ${type === "InvoiceExpired" ? "expired unpaid" : "marked invalid"} (BTCPay invoice ${event.invoiceId}); inventory restored.`,
+                    changedBy: "btcpay",
+                    logNote: `Order ${order.orderNumber} crypto invoice ${type === "InvoiceExpired" ? "expired" : "invalid"} — restored`,
+                })
+            );
         }
         if (type === "InvoiceInvalid") {
             after(() =>

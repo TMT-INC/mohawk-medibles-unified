@@ -14,6 +14,7 @@ import { prisma } from "@/lib/db";
 import { getCurrentTenant } from "@/lib/tenant";
 import { buildDigipayPaymentUrl } from "@/lib/digipay";
 import { createBTCPayInvoice } from "@/lib/btcpay";
+import { cancelOrderAndRestock } from "@/lib/restock";
 import { runFraudCheck } from "@/lib/fraudDetection";
 import { sendOrderConfirmationSMS, sendAndLogSMS } from "@/lib/sms";
 import { sendOrderConfirmation } from "@/lib/email";
@@ -509,31 +510,15 @@ export async function POST(req: NextRequest) {
                 // PENDING (the stock was decremented in the create transaction, but
                 // no invoice exists to ever pay it). Restore stock + cancel.
                 try {
-                    await prisma.$transaction(async (tx) => {
-                        const items = await tx.orderItem.findMany({ where: { orderId: order.id } });
-                        for (const it of items) {
-                            await tx.inventory.updateMany({
-                                where: { productId: it.productId },
-                                data: { quantity: { increment: it.quantity } },
-                            });
-                            await tx.product.updateMany({
-                                where: { id: it.productId, status: "OUT_OF_STOCK" },
-                                data: { status: "ACTIVE" },
-                            });
-                        }
-                        await tx.order.update({
-                            where: { id: order.id },
-                            data: { status: "CANCELLED", paymentStatus: "FAILED" },
-                        });
-                        await tx.orderStatusHistory.create({
-                            data: {
-                                orderId: order.id,
-                                status: "CANCELLED",
-                                note: "Auto-cancelled: crypto (BTCPay) invoice creation failed; inventory restored.",
-                                changedBy: "system",
-                            },
-                        });
-                    });
+                    await prisma.$transaction((tx) =>
+                        cancelOrderAndRestock(tx, {
+                            orderId: order.id,
+                            fromStatuses: ["PENDING"],
+                            note: "Auto-cancelled: crypto (BTCPay) invoice creation failed; inventory restored.",
+                            changedBy: "system",
+                            logNote: `Order ${orderNumber} crypto invoice creation failed — restored`,
+                        })
+                    );
                 } catch (rollbackErr) {
                     log.checkout.error("BTCPay failure rollback failed", {
                         orderId: order.id,
