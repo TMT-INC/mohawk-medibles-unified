@@ -17,6 +17,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { resolveTenantByHost } from "@/lib/tenant";
 import { setCsrfCookie } from "@/lib/csrf";
+import { matchCutoverRedirect } from "@/lib/cutoverRedirects";
 
 // ─── Domain Routing Config ───────────────────────────────
 const DOMAINS = {
@@ -73,6 +74,20 @@ export async function middleware(request: NextRequest) {
     requestHeaders.delete("x-user-id");
     requestHeaders.delete("x-user-role");
     requestHeaders.delete("x-user-email");
+
+    // ── Cutover: indexed off-strategy product URLs that no longer exist on the
+    //    cannabis-only storefront. Returns a REAL 410/301 here (before the
+    //    dynamic route streams an HTTP-200 soft-404). Runs on every host. ──
+    const cutover = matchCutoverRedirect(pathname);
+    if (cutover) {
+        if (cutover.status === 410) {
+            return new NextResponse(
+                "<!doctype html><meta charset=utf-8><title>410 Gone</title><h1>410 — This product is no longer available.</h1>",
+                { status: 410, headers: { "content-type": "text/html; charset=utf-8", "x-robots-tag": "noindex, nofollow" } }
+            );
+        }
+        return NextResponse.redirect(cutover.to, cutover.status);
+    }
 
     // .co domain — serve the unified site directly (same as .ca primary)
 

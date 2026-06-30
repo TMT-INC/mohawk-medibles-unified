@@ -505,6 +505,41 @@ export async function POST(req: NextRequest) {
                     orderId: order.id,
                     error: btcpayErr instanceof Error ? btcpayErr.message : "Unknown",
                 });
+                // Roll back so the order doesn't strand inventory as an orphan
+                // PENDING (the stock was decremented in the create transaction, but
+                // no invoice exists to ever pay it). Restore stock + cancel.
+                try {
+                    await prisma.$transaction(async (tx) => {
+                        const items = await tx.orderItem.findMany({ where: { orderId: order.id } });
+                        for (const it of items) {
+                            await tx.inventory.updateMany({
+                                where: { productId: it.productId },
+                                data: { quantity: { increment: it.quantity } },
+                            });
+                            await tx.product.updateMany({
+                                where: { id: it.productId, status: "OUT_OF_STOCK" },
+                                data: { status: "ACTIVE" },
+                            });
+                        }
+                        await tx.order.update({
+                            where: { id: order.id },
+                            data: { status: "CANCELLED", paymentStatus: "FAILED" },
+                        });
+                        await tx.orderStatusHistory.create({
+                            data: {
+                                orderId: order.id,
+                                status: "CANCELLED",
+                                note: "Auto-cancelled: crypto (BTCPay) invoice creation failed; inventory restored.",
+                                changedBy: "system",
+                            },
+                        });
+                    });
+                } catch (rollbackErr) {
+                    log.checkout.error("BTCPay failure rollback failed", {
+                        orderId: order.id,
+                        error: rollbackErr instanceof Error ? rollbackErr.message : "Unknown",
+                    });
+                }
                 return NextResponse.json(
                     { error: "Crypto payment is temporarily unavailable. Please use Credit Card or Interac e-Transfer." },
                     { status: 502 }

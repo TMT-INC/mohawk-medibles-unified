@@ -82,17 +82,33 @@ export async function POST(req: NextRequest) {
 
     if (type === "InvoiceExpired" || type === "InvoiceInvalid") {
         if (order.status === "PENDING" && order.paymentStatus === "PENDING") {
-            await prisma.order.update({
-                where: { id: order.id },
-                data: { paymentStatus: "FAILED" },
-            });
-            await prisma.orderStatusHistory.create({
-                data: {
-                    orderId: order.id,
-                    status: order.status,
-                    note: `Crypto payment ${type === "InvoiceExpired" ? "expired unpaid" : "marked invalid"} (BTCPay invoice ${event.invoiceId})`,
-                    changedBy: "btcpay",
-                },
+            // Unpaid crypto invoice is dead → cancel the order AND restore the
+            // inventory it was holding (mirrors the e-Transfer transfer-expired
+            // path; otherwise abandoned crypto orders strand stock forever).
+            await prisma.$transaction(async (tx) => {
+                const items = await tx.orderItem.findMany({ where: { orderId: order.id } });
+                for (const it of items) {
+                    await tx.inventory.updateMany({
+                        where: { productId: it.productId },
+                        data: { quantity: { increment: it.quantity } },
+                    });
+                    await tx.product.updateMany({
+                        where: { id: it.productId, status: "OUT_OF_STOCK" },
+                        data: { status: "ACTIVE" },
+                    });
+                }
+                await tx.order.update({
+                    where: { id: order.id },
+                    data: { status: "CANCELLED", paymentStatus: "FAILED" },
+                });
+                await tx.orderStatusHistory.create({
+                    data: {
+                        orderId: order.id,
+                        status: "CANCELLED",
+                        note: `Crypto payment ${type === "InvoiceExpired" ? "expired unpaid" : "marked invalid"} (BTCPay invoice ${event.invoiceId}); inventory restored.`,
+                        changedBy: "btcpay",
+                    },
+                });
             });
         }
         if (type === "InvoiceInvalid") {
