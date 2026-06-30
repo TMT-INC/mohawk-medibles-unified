@@ -7,6 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 import { log } from "@/lib/logger";
 import { requireAdmin, isAuthError } from "@/lib/adminAuth";
+import { sanitizeProductHtml } from "@/lib/sanitizeHtml";
 
 export async function GET(req: NextRequest) {
     const limited = await applyRateLimit(req, RATE_LIMITS.admin);
@@ -133,7 +134,7 @@ export async function POST(req: NextRequest) {
                         altText: (data.altText as string) || (data.name as string),
                         metaDescription: (data.metaDescription as string) || "",
                         shortDescription: (data.shortDescription as string) || "",
-                        longDescription: (data.longDescription as string) || null,
+                        longDescription: sanitizeProductHtml(data.longDescription as string) || null,
                         featured: Boolean(data.featured),
                         status: (data.status as "ACTIVE" | "DRAFT") || "DRAFT",
                     },
@@ -184,7 +185,7 @@ export async function POST(req: NextRequest) {
                 if (data.image) updateData.image = data.image as string;
                 if (data.metaDescription !== undefined) updateData.metaDescription = data.metaDescription as string;
                 if (data.shortDescription !== undefined) updateData.shortDescription = data.shortDescription as string;
-                if (data.longDescription !== undefined) updateData.longDescription = data.longDescription as string | null;
+                if (data.longDescription !== undefined) updateData.longDescription = sanitizeProductHtml(data.longDescription as string) || null;
                 if (data.featured !== undefined) updateData.featured = Boolean(data.featured);
                 if (data.status) updateData.status = data.status as string;
 

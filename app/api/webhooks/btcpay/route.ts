@@ -10,6 +10,7 @@
  * acknowledged with 200 + ignored — a 4xx would just make BTCPay retry.
  */
 import { NextRequest, NextResponse } from "next/server";
+import { after } from "next/server";
 import { prisma } from "@/lib/db";
 import { log } from "@/lib/logger";
 import { sendEmail } from "@/lib/email";
@@ -95,22 +96,26 @@ export async function POST(req: NextRequest) {
             });
         }
         if (type === "InvoiceInvalid") {
-            sendEmail({
-                to: ADMIN_NOTIFY_EMAIL,
-                subject: `⚠️ BTCPay invoice INVALID — Order ${order.orderNumber}`,
-                html: `<p>BTCPay marked invoice ${event.invoiceId} invalid for order ${order.orderNumber} ($${Number(order.total).toFixed(2)}). Possible double-spend or manual marking — review in BTCPay.</p>`,
-            }).catch(() => {});
+            after(() =>
+                sendEmail({
+                    to: ADMIN_NOTIFY_EMAIL,
+                    subject: `⚠️ BTCPay invoice INVALID — Order ${order.orderNumber}`,
+                    html: `<p>BTCPay marked invoice ${event.invoiceId} invalid for order ${order.orderNumber} ($${Number(order.total).toFixed(2)}). Possible double-spend or manual marking — review in BTCPay.</p>`,
+                }).catch(() => {})
+            );
         }
         return NextResponse.json({ ok: true });
     }
 
     // InvoiceSettled — payment is final.
     if (order.status === "CANCELLED") {
-        sendEmail({
-            to: ADMIN_NOTIFY_EMAIL,
-            subject: `🚨 Crypto payment settled on CANCELLED order ${order.orderNumber}`,
-            html: `<p>BTCPay invoice ${event.invoiceId} settled but the order is cancelled. Manual action required: refund or reinstate.</p>`,
-        }).catch(() => {});
+        after(() =>
+            sendEmail({
+                to: ADMIN_NOTIFY_EMAIL,
+                subject: `🚨 Crypto payment settled on CANCELLED order ${order.orderNumber}`,
+                html: `<p>BTCPay invoice ${event.invoiceId} settled but the order is cancelled. Manual action required: refund or reinstate.</p>`,
+            }).catch(() => {})
+        );
         return NextResponse.json({ ok: false, error: "order_cancelled" }, { status: 409 });
     }
 
@@ -137,29 +142,36 @@ export async function POST(req: NextRequest) {
     });
 
     const billing = parseBilling(order);
+    // Fire the confirmation + ops emails AFTER the response so they survive the
+    // Vercel lambda freeze (un-awaited fetches are dropped when the function
+    // freezes right after returning). The order is already persisted PAID above.
     if (billing.email) {
-        sendEmail({
-            to: billing.email,
-            subject: `Payment received — Order ${order.orderNumber} | Mohawk Medibles`,
-            html: [
-                `<h2 style="color:#2D5016;">Payment Received ✅</h2>`,
-                `<p>Hi ${billing.name || "there"},</p>`,
-                `<p>Your crypto payment of <strong>$${Number(order.total).toFixed(2)} CAD</strong> for order <strong>${order.orderNumber}</strong> has been confirmed.</p>`,
-                `<p>Your order is now being prepared for shipment. We'll email you tracking info as soon as it ships.</p>`,
-            ].join("\n"),
-        }).catch((err) =>
-            log.checkout.error("BTCPay settled: customer email failed", {
-                orderId: order.id,
-                error: err instanceof Error ? err.message : "Unknown",
-            })
+        after(() =>
+            sendEmail({
+                to: billing.email!,
+                subject: `Payment received — Order ${order.orderNumber} | Mohawk Medibles`,
+                html: [
+                    `<h2 style="color:#2D5016;">Payment Received ✅</h2>`,
+                    `<p>Hi ${billing.name || "there"},</p>`,
+                    `<p>Your crypto payment of <strong>$${Number(order.total).toFixed(2)} CAD</strong> for order <strong>${order.orderNumber}</strong> has been confirmed.</p>`,
+                    `<p>Your order is now being prepared for shipment. We'll email you tracking info as soon as it ships.</p>`,
+                ].join("\n"),
+            }).catch((err) =>
+                log.checkout.error("BTCPay settled: customer email failed", {
+                    orderId: order.id,
+                    error: err instanceof Error ? err.message : "Unknown",
+                })
+            )
         );
     }
 
-    sendEmail({
-        to: ADMIN_NOTIFY_EMAIL,
-        subject: `₿ Crypto Payment Settled — Order ${order.orderNumber}`,
-        html: `<p>Order ${order.orderNumber} — $${Number(order.total).toFixed(2)} CAD settled via BTCPay (invoice ${event.invoiceId}).</p>`,
-    }).catch(() => {});
+    after(() =>
+        sendEmail({
+            to: ADMIN_NOTIFY_EMAIL,
+            subject: `₿ Crypto Payment Settled — Order ${order.orderNumber}`,
+            html: `<p>Order ${order.orderNumber} — $${Number(order.total).toFixed(2)} CAD settled via BTCPay (invoice ${event.invoiceId}).</p>`,
+        }).catch(() => {})
+    );
 
     return NextResponse.json({ ok: true, order_id: order.id });
 }

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { log } from '@/lib/logger';
 import { fetchAllProducts, type WCStoreProduct } from '@/lib/wc-api';
+import { sanitizeProductHtml } from '@/lib/sanitizeHtml';
 
 // ─── Excluded Categories ────────────────────────────────────
 // Products in these categories are NOT synced to the storefront
@@ -90,7 +91,7 @@ export async function POST(req: NextRequest) {
             altText: wcProduct.images?.[0]?.alt || wcProduct.name,
             metaDescription: wcProduct.short_description?.replace(/<[^>]*>/g, '').slice(0, 160) || '',
             shortDescription: wcProduct.short_description?.replace(/<[^>]*>/g, '') || '',
-            longDescription: wcProduct.description || null,
+            longDescription: sanitizeProductHtml(wcProduct.description) || null,
             featured: false,
             status: wcProduct.is_in_stock ? 'ACTIVE' : 'OUT_OF_STOCK',
             specs: {
@@ -126,7 +127,7 @@ export async function POST(req: NextRequest) {
             image: wcProduct.images?.[0]?.src || '',
             altText: wcProduct.images?.[0]?.alt || wcProduct.name,
             shortDescription: wcProduct.short_description?.replace(/<[^>]*>/g, '') || '',
-            longDescription: wcProduct.description || null,
+            longDescription: sanitizeProductHtml(wcProduct.description) || null,
             status: wcProduct.is_in_stock ? 'ACTIVE' : 'OUT_OF_STOCK',
           },
         });
