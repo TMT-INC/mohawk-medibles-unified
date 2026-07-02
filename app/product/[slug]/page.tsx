@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllProducts, getProductBySlug, getShortName } from "@/lib/products";
 import { getSmartRelatedProducts } from "@/lib/recommendations";
-import { getProductBySlug as getProductBySlugLocal } from "@/lib/productData";
 import { productSchema, breadcrumbSchema, faqSchema, speakableSchema } from "@/lib/seo/schemas";
 import { generateProductFAQs } from "@/lib/seo/aeo";
 import { prisma } from "@/lib/db";
@@ -63,10 +62,7 @@ export default async function ProductPage({ params }: PageProps) {
     }
 
     // Use terpene/effect-scored recommendations instead of simple same-category
-    const localProduct = getProductBySlugLocal(slug);
-    const related = localProduct
-        ? getSmartRelatedProducts(localProduct, 4)
-        : [];
+    const related = await getSmartRelatedProducts(product, 4);
     const shortName = getShortName(product);
 
     // Fetch inventory for stock status

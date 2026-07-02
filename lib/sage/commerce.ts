@@ -8,7 +8,7 @@
  * Bridges MedAgent Engine -> WooCommerce checkout (PayGo CC / Crypto / e-Transfer).
  */
 
-import { PRODUCTS, type Product } from "@/lib/productData";
+import { getAllProducts, type Product } from "@/lib/products";
 import { getOrCreateSession } from "./sessions";
 
 // ─── Types ──────────────────────────────────────────────────
@@ -57,13 +57,13 @@ export function getCart(sessionId: string): MedAgentCart {
     };
 }
 
-export function addToCart(
+export async function addToCart(
     sessionId: string,
     query: string,
     quantity = 1
-): { success: boolean; item?: CartItem; cart: MedAgentCart; message: string } {
+): Promise<{ success: boolean; item?: CartItem; cart: MedAgentCart; message: string }> {
     // Find product by name/slug (fuzzy match)
-    const product = findProductByQuery(query);
+    const product = await findProductByQuery(query);
 
     if (!product) {
         return {
@@ -119,12 +119,12 @@ export function addToCart(
     };
 }
 
-export function removeFromCart(
+export async function removeFromCart(
     sessionId: string,
     query: string
-): { success: boolean; cart: MedAgentCart; message: string } {
+): Promise<{ success: boolean; cart: MedAgentCart; message: string }> {
     const items = sessionCarts.get(sessionId) || [];
-    const product = findProductByQuery(query);
+    const product = await findProductByQuery(query);
 
     if (!product) {
         return {
@@ -166,7 +166,8 @@ export function createCheckoutIntent(
 
 // ─── Product Fuzzy Finder ───────────────────────────────────
 
-function findProductByQuery(query: string): Product | undefined {
+async function findProductByQuery(query: string): Promise<Product | undefined> {
+    const PRODUCTS = await getAllProducts();
     const normalized = query.toLowerCase().trim();
 
     // 1. Exact slug match
@@ -209,10 +210,11 @@ function findProductByQuery(query: string): Product | undefined {
  * This allows turbo router's view/remove/checkout commands to operate
  * on the REAL cart items instead of the empty server-side cart.
  */
-export function syncClientCart(
+export async function syncClientCart(
     sessionId: string,
     clientItems: { id: string; name: string; price: number; quantity: number }[]
-): void {
+): Promise<void> {
+    const PRODUCTS = await getAllProducts();
     const items: CartItem[] = clientItems.map((item) => {
         // Resolve product from catalog for proper integer ID and metadata
         const product = PRODUCTS.find(

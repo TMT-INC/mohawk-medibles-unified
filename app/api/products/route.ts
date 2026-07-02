@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PRODUCTS, getAllCategories, getCategoryRepresentativeProducts } from "@/lib/productData";
+import { getAllProducts, getAllCategories, getCategoryRepresentativeProducts } from "@/lib/products";
 import { isTerritoryGrown } from "@/lib/territoryGrown";
 
 // Cache for 5 minutes
@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
 
   // Special endpoint: return categories list
   if (include === "categories") {
-    return NextResponse.json({ categories: getAllCategories() }, {
+    return NextResponse.json({ categories: await getAllCategories() }, {
       headers: {
         "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600",
       },
@@ -26,7 +26,7 @@ export async function GET(req: NextRequest) {
   // Special endpoint: return category showcase data
   if (include === "categoryShowcase") {
     const cats = searchParams.get("cats")?.split(",") || [];
-    const showcaseData = getCategoryRepresentativeProducts(cats);
+    const showcaseData = await getCategoryRepresentativeProducts(cats);
     const lite = showcaseData.map(({ category: cat, product: p, count }) => ({
       category: cat,
       count,
@@ -48,7 +48,7 @@ export async function GET(req: NextRequest) {
 
   const includeSet = new Set((include || "").split(",").filter(Boolean));
 
-  let products = PRODUCTS.filter(p => p.price > 0);
+  let products = (await getAllProducts()).filter(p => p.price > 0);
 
   if (category) {
     products = products.filter(

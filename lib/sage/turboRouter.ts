@@ -13,7 +13,7 @@
 
 import { searchProducts } from "@/lib/gemini";
 import { getProductsByCategory, getProductsByEffect, getCategories, getOnSaleProducts, getFeaturedProducts, type CategoryInfo } from "./productHelpers";
-import { PRODUCTS, getShortName } from "@/lib/productData";
+import { getShortName } from "@/lib/products";
 import { addToCart, removeFromCart, clearCart, formatCartForDisplay, getCart } from "./commerce";
 
 // ─── Types ──────────────────────────────────────────────────
@@ -195,17 +195,17 @@ const PAGE_INDEX: PageEntry[] = [
 // ─── Deep Search Function ───────────────────────────────────
 
 export interface DeepSearchResult {
-    products: ReturnType<typeof searchProducts>;
+    products: Awaited<ReturnType<typeof searchProducts>>;
     pages: { path: string; title: string; score: number }[];
     categories: CategoryInfo[];
 }
 
-export function deepSearch(query: string): DeepSearchResult {
+export async function deepSearch(query: string): Promise<DeepSearchResult> {
     const q = query.toLowerCase();
     const words = q.split(/\s+/).filter((w) => w.length >= 2);
 
     // Search products
-    const products = searchProducts(q, 8);
+    const products = await searchProducts(q, 8);
 
     // Search pages
     const pages = PAGE_INDEX.map((page) => {
@@ -237,7 +237,7 @@ export function deepSearch(query: string): DeepSearchResult {
         .slice(0, 5);
 
     // Search categories
-    const allCategories = getCategories();
+    const allCategories = await getCategories();
     const categories = allCategories.filter((cat) => {
         const catLower = cat.name.toLowerCase();
         if (catLower.includes(q) || q.includes(catLower)) return true;
@@ -305,7 +305,7 @@ function compliancePreCheck(message: string): TurboResult | null {
 
 // ─── Main Turbo Router ─────────────────────────────────────
 
-export function turboRoute(message: string, sessionId?: string): TurboResponse {
+export async function turboRoute(message: string, sessionId?: string): Promise<TurboResponse> {
     const trimmed = message.trim();
     const lower = trimmed.toLowerCase();
 
@@ -330,7 +330,7 @@ export function turboRoute(message: string, sessionId?: string): TurboResponse {
         const addMatch = ADD_TO_CART_PATTERN.exec(trimmed);
         if (addMatch && addMatch[2]) {
             const productQuery = addMatch[2].trim();
-            const result = addToCart(sessionId, productQuery);
+            const result = await addToCart(sessionId, productQuery);
             return {
                 handled: true,
                 text: result.message,
@@ -346,7 +346,7 @@ export function turboRoute(message: string, sessionId?: string): TurboResponse {
         const removeMatch = REMOVE_FROM_CART_PATTERN.exec(trimmed);
         if (removeMatch && removeMatch[2]) {
             const productQuery = removeMatch[2].trim();
-            const result = removeFromCart(sessionId, productQuery);
+            const result = await removeFromCart(sessionId, productQuery);
             return {
                 handled: true,
                 text: result.message,
@@ -412,7 +412,11 @@ export function turboRoute(message: string, sessionId?: string): TurboResponse {
     // ── 3. Category browsing (instant filter) ───────────────
     for (const [pattern, category] of CATEGORY_PATTERNS) {
         if (pattern.test(trimmed)) {
-            const products = getProductsByCategory(category, 6);
+            const matches = await getProductsByCategory(category, Number.MAX_SAFE_INTEGER);
+            // Nothing in the live catalog for this label → fall through to the
+            // LLM tiers instead of returning a dead-end empty product grid.
+            if (matches.length === 0) continue;
+            const products = matches.slice(0, 6);
             const productResults = products.map((p) => ({
                 id: p.id,
                 name: p.name,
@@ -428,7 +432,7 @@ export function turboRoute(message: string, sessionId?: string): TurboResponse {
             }));
             return {
                 handled: true,
-                text: `Here are our top ${category} picks — ${products.length} shown from ${PRODUCTS.filter(p => p.category === category).length} in stock. 🔥`,
+                text: `Here are our top ${category} picks — ${products.length} shown from ${matches.length} in stock. 🔥`,
                 actions: [{ type: "FILTER", payload: category }],
                 products: productResults,
                 model: "turbo",
@@ -438,7 +442,7 @@ export function turboRoute(message: string, sessionId?: string): TurboResponse {
 
     // ── 4. Category listing ─────────────────────────────────
     if (CATEGORY_LIST_PATTERNS.test(trimmed)) {
-        const cats = getCategories();
+        const cats = await getCategories();
         const catText = cats.map((c) => `• **${c.name}** (${c.count})`).join("\n");
         return {
             handled: true,
@@ -451,7 +455,7 @@ export function turboRoute(message: string, sessionId?: string): TurboResponse {
 
     // ── 5. Sales & deals ────────────────────────────────────
     if (SALE_PATTERNS.test(trimmed)) {
-        const saleProducts = getOnSaleProducts(6);
+        const saleProducts = await getOnSaleProducts(6);
         if (saleProducts.length > 0) {
             const productResults = saleProducts.map((p) => ({
                 id: p.id,
@@ -478,7 +482,7 @@ export function turboRoute(message: string, sessionId?: string): TurboResponse {
 
     // ── 6. Featured / popular ───────────────────────────────
     if (FEATURED_PATTERNS.test(trimmed)) {
-        const featured = getFeaturedProducts(6);
+        const featured = await getFeaturedProducts(6);
         const productResults = featured.map((p) => ({
             id: p.id,
             name: p.name,
@@ -505,7 +509,7 @@ export function turboRoute(message: string, sessionId?: string): TurboResponse {
     const deepMatch = DEEP_SEARCH_PATTERN.exec(trimmed);
     if (deepMatch) {
         const query = deepMatch[deepMatch.length - 1].trim();
-        const results = deepSearch(query);
+        const results = await deepSearch(query);
         const parts: string[] = [];
 
         if (results.products.length > 0) {
@@ -541,7 +545,7 @@ export function turboRoute(message: string, sessionId?: string): TurboResponse {
     const searchMatch = SEARCH_PATTERN.exec(trimmed);
     if (searchMatch && searchMatch[3]) {
         const query = searchMatch[3].trim();
-        const results = searchProducts(query, 6);
+        const results = await searchProducts(query, 6);
         if (results.length > 0) {
             return {
                 handled: true,
@@ -568,7 +572,11 @@ export function turboRoute(message: string, sessionId?: string): TurboResponse {
     // ── 10. Semantic category browsing (conversational intent) ──
     for (const [pattern, category] of SEMANTIC_CATEGORY_PATTERNS) {
         if (pattern.test(trimmed)) {
-            const products = getProductsByCategory(category, 6);
+            const matches = await getProductsByCategory(category, Number.MAX_SAFE_INTEGER);
+            // No matching products in the live catalog → let the LLM tiers
+            // answer instead of returning an empty grid with "0 in stock".
+            if (matches.length === 0) continue;
+            const products = matches.slice(0, 6);
             const productResults = products.map((p) => ({
                 id: p.id,
                 name: p.name,
@@ -582,7 +590,7 @@ export function turboRoute(message: string, sessionId?: string): TurboResponse {
                 cbd: p.specs.cbd,
                 score: 10,
             }));
-            const total = PRODUCTS.filter(p => p.category === category).length;
+            const total = matches.length;
             return {
                 handled: true,
                 text: pick([
@@ -602,7 +610,7 @@ export function turboRoute(message: string, sessionId?: string): TurboResponse {
         const shortAdd = ADD_TO_CART_SHORT.exec(trimmed);
         if (shortAdd && shortAdd[3] && shortAdd[3].length > 3) {
             const productQuery = shortAdd[3].trim();
-            const result = addToCart(sessionId, productQuery);
+            const result = await addToCart(sessionId, productQuery);
             if (result.success) {
                 return {
                     handled: true,
@@ -630,7 +638,7 @@ export function turboRoute(message: string, sessionId?: string): TurboResponse {
             "pain": "pain-relief", "stress": "calm", "anxiety": "calm",
         };
         const effect = effectMap[rawEffect] || rawEffect;
-        const products = getProductsByEffect(effect, 6);
+        const products = await getProductsByEffect(effect, 6);
         if (products.length > 0) {
             const productResults = products.map((p) => ({
                 id: p.id, name: p.name, shortName: getShortName(p),

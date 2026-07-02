@@ -13,5 +13,5 @@ export async function GET(req: NextRequest) {
     const limited = await applyRateLimit(req, RATE_LIMITS.api);
     if (limited) return limited;
 
-    return NextResponse.json(healthCheck());
+    return NextResponse.json(await healthCheck());
 }

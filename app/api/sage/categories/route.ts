@@ -15,6 +15,6 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({
         success: true,
-        categories: getCategories(),
+        categories: await getCategories(),
     });
 }

@@ -166,12 +166,42 @@ function cleanProductText(p: Product): Product {
     return {
         ...p,
         name: decodeHtmlEntities(p.name),
+        category: decodeHtmlEntities(p.category),
+        subcategory: p.subcategory === null ? null : decodeHtmlEntities(p.subcategory),
         altText: decodeHtmlEntities(p.altText),
         metaDescription: decodeHtmlEntities(p.metaDescription),
         shortDescription: decodeHtmlEntities(p.shortDescription),
         eeatNarrative: decodeHtmlEntities(p.eeatNarrative),
         sku: decodeHtmlEntities(p.sku),
     };
+}
+
+/**
+ * WP housekeeping category labels that must never appear in customer-facing
+ * category LISTINGS (chatbot lists, LLM prompt, search suggestions, /api
+ * category endpoints). The products themselves stay servable — only the
+ * label is hidden from merchandising surfaces.
+ */
+const HIDDEN_CATEGORY_LABELS = new Set(["uncategorized"]);
+
+export function isCustomerFacingCategory(name: string): boolean {
+    return !HIDDEN_CATEGORY_LABELS.has(name.trim().toLowerCase());
+}
+
+/**
+ * The Product DB table has no effects column, but the static snapshot carries
+ * terpene-enrichment effects for the same WC catalog. Inherit them by slug so
+ * effects-driven features (shop-by-mood buckets, effect search) keep working
+ * when serving from the database.
+ */
+async function withStaticEffects(products: Product[]): Promise<Product[]> {
+    const fb = await getFallback();
+    const effectsBySlug = new Map(fb.PRODUCTS.map((p) => [p.slug, p.effects]));
+    return products.map((p) => {
+        if (p.effects.length > 0) return p;
+        const effects = effectsBySlug.get(p.slug);
+        return effects && effects.length > 0 ? { ...p, effects } : p;
+    });
 }
 
 // ─── Core data loader ───────────────────────────────────
@@ -206,7 +236,9 @@ export async function getAllProducts(): Promise<Product[]> {
     }
 
     try {
-        const dbProducts = (await loadProductsFromDB()).map(cleanProductText).filter(isAllowedProduct);
+        const dbProducts = await withStaticEffects(
+            (await loadProductsFromDB()).map(cleanProductText).filter(isAllowedProduct)
+        );
         // If DB returns 0 products (not synced yet), fall back to hardcoded
         if (dbProducts.length === 0) {
             log.admin.warn("DB returned 0 products, falling back to hardcoded data");
@@ -259,13 +291,14 @@ export function getShortName(product: Product): string {
 export async function getAllCategories(): Promise<string[]> {
     const products = await getAllProducts();
     const categories = new Set(products.map((p) => p.category));
-    return Array.from(categories).sort();
+    return Array.from(categories).filter(isCustomerFacingCategory).sort();
 }
 
 export async function getCategoryCounts(): Promise<Record<string, number>> {
     const products = await getAllProducts();
     const counts: Record<string, number> = {};
     for (const p of products) {
+        if (!isCustomerFacingCategory(p.category)) continue;
         counts[p.category] = (counts[p.category] || 0) + 1;
     }
     return counts;
@@ -285,20 +318,11 @@ export async function getCategoryRepresentativeProducts(
             const catProducts = products.filter((p) => p.category === cat);
             const sorted = [...catProducts].sort((a, b) => b.price - a.price);
             const product = sorted.find((p) => p.image && p.image.startsWith("http")) || sorted[0];
-            return product ? { category: cat, product, count: counts[cat] || 0 } : null;
+            // Hide near-empty categories: a showcase tile advertising a single
+            // item (e.g. the DB catalog's "Brands" with 1 product) is noise.
+            return product && (counts[cat] || 0) >= 2
+                ? { category: cat, product, count: counts[cat] || 0 }
+                : null;
         })
         .filter(Boolean) as { category: string; product: Product; count: number }[];
 }
-
-// ─── PRODUCTS constant (backward compat) ────────────────
-// For files that import PRODUCTS directly as a constant.
-// This is a lazy-loaded proxy that resolves on first access.
-// NOTE: Server components should use getAllProducts() instead.
-
-/**
- * @deprecated Use getAllProducts() for async DB access.
- * This constant is kept for backward compatibility with existing sync imports.
- * When USE_DB_PRODUCTS=true, this still returns the hardcoded data (sync access).
- * To get DB data, use the async getAllProducts() function.
- */
-export { PRODUCTS } from "@/lib/productData";

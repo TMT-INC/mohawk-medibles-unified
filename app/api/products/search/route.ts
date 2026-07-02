@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
         );
     }
 
-    let results = searchProducts(query, Math.min(limit, 50));
+    let results = await searchProducts(query, Math.min(limit, 50));
 
     // Optional category filter
     if (category) {

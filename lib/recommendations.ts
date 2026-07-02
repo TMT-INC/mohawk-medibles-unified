@@ -5,7 +5,7 @@
  * All scoring from in-memory PRODUCTS array (no DB required).
  */
 
-import { PRODUCTS, type Product } from "@/lib/productData";
+import { getAllProducts, type Product } from "@/lib/products";
 import type { VisitorProfile } from "@/lib/visitorStore";
 
 // ─── Scoring Helpers ──────────────────────────────────────────
@@ -37,7 +37,8 @@ function priceProximity(a: number, b: number): number {
  * Weighted scoring: 40% terpene overlap, 25% effect overlap,
  * 20% category match, 15% price proximity.
  */
-export function getSmartRelatedProducts(product: Product, limit: number = 6): Product[] {
+export async function getSmartRelatedProducts(product: Product, limit: number = 6): Promise<Product[]> {
+    const PRODUCTS = await getAllProducts();
     const scored = PRODUCTS
         .filter((p) => p.id !== product.id)
         .map((p) => {
@@ -61,44 +62,82 @@ export function getSmartRelatedProducts(product: Product, limit: number = 6): Pr
 
 // ─── Frequently Bought Together ──────────────────────────────
 
-/** Category pairing heuristics */
+/** Category pairing heuristics (covers static-era and DB catalog names) */
 const CATEGORY_PAIRS: Record<string, string[]> = {
     "Flower": ["Hash", "Pre-Rolls", "Accessories"],
     "Pre-Rolls": ["Flower", "Hash"],
+    "Infused Pre-Rolls": ["Flower", "Pre-Rolls"],
     "Hash": ["Flower", "Pre-Rolls"],
     "Edibles": ["CBD", "Beverages"],
     "CBD": ["Edibles", "Topicals"],
     "Concentrates": ["Flower", "Accessories"],
     "Vapes": ["Concentrates", "Flower"],
+    "Disposables": ["Concentrates", "Flower"],
+    "Cartridges": ["Concentrates", "Flower"],
+    "Burn": ["Concentrates", "Flower"],
     "Topicals": ["CBD", "Edibles"],
     "Beverages": ["Edibles", "CBD"],
     "Accessories": ["Flower", "Concentrates", "Vapes"],
 };
 
-export function getFrequentlyBoughtTogether(product: Product, limit: number = 4): Product[] {
+export async function getFrequentlyBoughtTogether(product: Product, limit: number = 4): Promise<Product[]> {
+    const PRODUCTS = await getAllProducts();
     const pairedCategories = CATEGORY_PAIRS[product.category] || [];
 
-    // Products from paired categories, scored by terpene overlap
-    const candidates = PRODUCTS
-        .filter((p) => p.id !== product.id && pairedCategories.includes(p.category))
-        .map((p) => ({
-            product: p,
-            score: jaccard(product.specs.terpenes, p.specs.terpenes) + (p.featured ? 0.1 : 0),
-        }))
+    const scoreProduct = (p: Product) =>
+        jaccard(product.specs.terpenes, p.specs.terpenes) + (p.featured ? 0.1 : 0);
+
+    // Products from paired categories, scored by terpene overlap.
+    // The DB catalog files some pair targets (Hash, Topicals) as
+    // subcategories, so match against both fields.
+    let candidates = PRODUCTS
+        .filter(
+            (p) =>
+                p.id !== product.id &&
+                (pairedCategories.includes(p.category) ||
+                    (p.subcategory ? pairedCategories.includes(p.subcategory) : false))
+        )
+        .map((p) => ({ product: p, score: scoreProduct(p) }))
         .sort((a, b) => b.score - a.score);
+
+    // No pairing rule or no products in the paired categories (brand-named or
+    // "Uncategorized" DB categories) — fall back to cross-category picks so
+    // the section doesn't silently disappear from those product pages.
+    if (candidates.length === 0) {
+        candidates = PRODUCTS
+            .filter((p) => p.id !== product.id && p.category !== product.category)
+            .map((p) => ({ product: p, score: scoreProduct(p) }))
+            .sort((a, b) => b.score - a.score);
+    }
 
     return candidates.slice(0, limit).map((c) => c.product);
 }
 
 // ─── Personalized Recommendations ────────────────────────────
 
-export function getPersonalizedRecommendations(
+export async function getPersonalizedRecommendations(
     profile: VisitorProfile | null,
     limit: number = 8
-): Product[] {
+): Promise<Product[]> {
+    const PRODUCTS = await getAllProducts();
     if (!profile || profile.totalEvents < 2) {
-        // Fallback: featured products
-        return PRODUCTS.filter((p) => p.featured).slice(0, limit);
+        // Fallback: featured products, topped up with picks from popular
+        // categories — the DB catalog flags only a couple of products as
+        // featured, which would leave the rail nearly empty for new visitors.
+        const featured = PRODUCTS.filter((p) => p.featured);
+        if (featured.length >= limit) return featured.slice(0, limit);
+        const popularCategories = new Set(["flower", "edibles", "concentrates", "disposables", "pre-rolls", "vapes"]);
+        const fill = PRODUCTS
+            .filter((p) => !p.featured)
+            .map((p) => ({
+                product: p,
+                score:
+                    (popularCategories.has(p.category.toLowerCase()) ? 0.5 : 0) +
+                    (p.specs.terpenes.length >= 2 ? 0.25 : 0),
+            }))
+            .sort((a, b) => b.score - a.score)
+            .map((s) => s.product);
+        return [...featured, ...fill].slice(0, limit);
     }
 
     // Rank categories by interest

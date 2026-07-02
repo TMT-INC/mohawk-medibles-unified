@@ -27,7 +27,7 @@ export async function GET(req: NextRequest) {
     };
 
     try {
-        const result = queryProducts(params);
+        const result = await queryProducts(params);
         return NextResponse.json({
             success: true,
             queryType: result.type,

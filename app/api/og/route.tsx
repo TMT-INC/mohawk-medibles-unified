@@ -1,9 +1,12 @@
-import { ImageResponse } from "@vercel/og";
+import { ImageResponse } from "next/og";
 import { NextRequest } from "next/server";
-import { getProductBySlug, PRODUCTS } from "@/lib/productData";
+import { getProductBySlug, getCategoryCounts } from "@/lib/products";
 import { BLOG_POSTS } from "@/data/blog/posts";
 
-export const runtime = "edge";
+// nodejs (not edge): product data now comes from the Prisma/pg-backed
+// @/lib/products layer, which cannot run on the edge runtime.
+// ImageResponse from next/og works on the Node.js runtime in Next 16.
+export const runtime = "nodejs";
 
 const BRAND_GREEN = "#1B4332";
 const BRAND_GOLD = "#D4A843";
@@ -15,20 +18,20 @@ export async function GET(req: NextRequest) {
     const name = searchParams.get("name") || "";
 
     if (type === "product") {
-        return productOG(slug);
+        return await productOG(slug);
     }
     if (type === "blog") {
         return blogOG(slug);
     }
     if (type === "category") {
-        return categoryOG(name);
+        return await categoryOG(name);
     }
 
     return new Response("Invalid type", { status: 400 });
 }
 
-function productOG(slug: string) {
-    const product = getProductBySlug(slug);
+async function productOG(slug: string) {
+    const product = await getProductBySlug(slug);
     if (!product) {
         return new Response("Product not found", { status: 404 });
     }
@@ -310,8 +313,9 @@ function blogOG(slug: string) {
     );
 }
 
-function categoryOG(categoryName: string) {
-    const count = PRODUCTS.filter((p) => p.category === categoryName).length;
+async function categoryOG(categoryName: string) {
+    const counts = await getCategoryCounts();
+    const count = counts[categoryName] || 0;
 
     return new ImageResponse(
         (

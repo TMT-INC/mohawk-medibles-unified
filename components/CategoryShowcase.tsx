@@ -7,7 +7,9 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import ProductImage from "@/components/ProductImage";
 import { useLocale } from "@/components/LocaleProvider";
 
-// Only categories that actually exist in productData with meaningful product counts
+// Requested showcase categories — the API drops any that don't exist in the
+// active catalog (or have fewer than 2 products), so this list covers both the
+// static snapshot (Vapes/Brands/Hash) and the DB catalog (Disposables/Accessories).
 const SHOWCASE_CATEGORIES = [
     "Flower",
     "Edibles",
@@ -17,6 +19,7 @@ const SHOWCASE_CATEGORIES = [
     "Brands",
     "Disposables",
     "Pre-Rolls",
+    "Accessories",
     "Hash",
 ];
 
@@ -29,6 +32,7 @@ const CATEGORY_TAGLINES: Record<string, string> = {
     Brands: "Top Canadian brands",
     Disposables: "Ready-to-use pens",
     "Pre-Rolls": "Rolled & ready to go",
+    Accessories: "Grinders, papers & gear",
     Hash: "Premium imported & domestic",
 };
 
@@ -41,6 +45,7 @@ const CATEGORY_GRADIENT: Record<string, string> = {
     Brands: "from-indigo-600/30",
     Disposables: "from-sky-600/30",
     "Pre-Rolls": "from-amber-600/30",
+    Accessories: "from-slate-600/30",
     Hash: "from-orange-600/30",
 };
 

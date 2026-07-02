@@ -69,7 +69,7 @@ export async function GET(req: NextRequest) {
     // ── MedAgent Bot ──────────────────────────────────────────
     try {
         const start = Date.now();
-        const sage = sageHealthCheck();
+        const sage = await sageHealthCheck();
         checks.sage = {
             status: sage.status === "ok" ? "healthy" : "degraded",
             latency: Date.now() - start,

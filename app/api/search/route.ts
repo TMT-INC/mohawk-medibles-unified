@@ -8,7 +8,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { applyRateLimit, RATE_LIMITS } from "@/lib/rateLimit";
 import { searchProducts } from "@/lib/gemini";
-import { getAllCategories } from "@/lib/productData";
+import { getAllCategories } from "@/lib/products";
 import { prisma } from "@/lib/db";
 
 interface CategoryResult {
@@ -41,10 +41,10 @@ export async function GET(request: NextRequest) {
     const q = query.toLowerCase();
 
     // 1. Product results (max 5)
-    const productResults = searchProducts(query, 5);
+    const productResults = await searchProducts(query, 5);
 
     // 2. Category results (max 3)
-    const allCategories = getAllCategories();
+    const allCategories = await getAllCategories();
     const categoryResults: CategoryResult[] = allCategories
         .filter((cat) => cat.toLowerCase().includes(q))
         .slice(0, 3)

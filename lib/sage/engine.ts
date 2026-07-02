@@ -27,7 +27,7 @@ import {
 } from "./productHelpers";
 import { turboRoute } from "./turboRouter";
 import { getAgentConfig } from "./agentConfig";
-import { PRODUCTS } from "@/lib/productData";
+import { getAllProducts } from "@/lib/products";
 import { type MedAgentCart, syncClientCart } from "./commerce";
 import {
     analyzeSentiment,
@@ -222,13 +222,13 @@ export async function processMessage(req: MedAgentRequest): Promise<MedAgentResp
     // CART SYNC — bridge client localStorage → server cart
     // ═══════════════════════════════════════════════════════
     if (req.cartItems && req.cartItems.length > 0) {
-        syncClientCart(sessionId, req.cartItems);
+        await syncClientCart(sessionId, req.cartItems);
     }
 
     // ═══════════════════════════════════════════════════════
     // TIER 1: TURBO — instant local response (no API call)
     // ═══════════════════════════════════════════════════════
-    const turbo = agentConfig.turboEnabled ? turboRoute(trimmed, sessionId) : { handled: false as const };
+    const turbo = agentConfig.turboEnabled ? await turboRoute(trimmed, sessionId) : { handled: false as const };
 
     if (turbo.handled) {
         // Store in session for context continuity
@@ -296,10 +296,13 @@ export async function processMessage(req: MedAgentRequest): Promise<MedAgentResp
     for (const action of actions) {
         switch (action.type) {
             case "SEARCH":
-                products = searchProducts(action.payload, 6);
+                products = await searchProducts(action.payload, 6);
                 break;
             case "FILTER": {
-                const catProducts = getProductsByCategory(action.payload, 6);
+                const catProducts = await getProductsByCategory(action.payload, 6);
+                // Category label may not exist in the live catalog — don't
+                // attach an empty product grid to the response.
+                if (catProducts.length === 0) break;
                 products = catProducts.map((p) => ({
                     id: p.id,
                     name: p.name,
@@ -340,32 +343,34 @@ export interface ProductQueryParams {
     limit?: number;
 }
 
-export function queryProducts(params: ProductQueryParams) {
+export async function queryProducts(params: ProductQueryParams) {
     const limit = params.limit || 12;
 
     if (params.search) {
-        return { type: "search" as const, results: searchProducts(params.search, limit) };
+        return { type: "search" as const, results: await searchProducts(params.search, limit) };
     }
 
     if (params.category) {
-        return { type: "category" as const, results: getProductsByCategory(params.category, limit) };
+        return { type: "category" as const, results: await getProductsByCategory(params.category, limit) };
     }
 
     if (params.on_sale) {
-        return { type: "on_sale" as const, results: getOnSaleProducts(limit) };
+        return { type: "on_sale" as const, results: await getOnSaleProducts(limit) };
     }
 
     if (params.featured) {
-        return { type: "featured" as const, results: getFeaturedProducts(limit) };
+        return { type: "featured" as const, results: await getFeaturedProducts(limit) };
     }
 
-    return { type: "categories" as const, results: getCategories() };
+    return { type: "categories" as const, results: await getCategories() };
 }
 
 // ─── Health Check ───────────────────────────────────────────
 
-export function healthCheck() {
+export async function healthCheck() {
     const stats = getSessionStats();
+    const products = await getAllProducts();
+    const categories = await getCategories();
     return {
         status: "ok",
         service: "MedAgent Bot",
@@ -386,8 +391,8 @@ export function healthCheck() {
                 chat: "/api/sage/chat",
             },
         },
-        productCount: PRODUCTS.length,
-        categoryCount: getCategories().length,
+        productCount: products.length,
+        categoryCount: categories.length,
         sessions: stats,
         gemini: {
             configured: !!process.env.GEMINI_API_KEY,

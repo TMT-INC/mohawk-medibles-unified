@@ -7,7 +7,7 @@
  *   • Sentiment-aware persona that adapts tone per interaction
  */
 
-import { PRODUCTS, getShortName } from "@/lib/productData";
+import { getAllProducts, getShortName, isCustomerFacingCategory } from "@/lib/products";
 
 // ─── Configuration ──────────────────────────────────────────
 
@@ -18,8 +18,9 @@ const BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models";
 
 // ─── System Prompt ──────────────────────────────────────────
 
-export function buildMedAgentPrompt(emotionalContext?: string): string {
-    const categories = [...new Set(PRODUCTS.map((p) => p.category))];
+export async function buildMedAgentPrompt(emotionalContext?: string): Promise<string> {
+    const PRODUCTS = await getAllProducts();
+    const categories = [...new Set(PRODUCTS.map((p) => p.category))].filter(isCustomerFacingCategory);
     const categoryBreakdown = categories
         .map((cat) => {
             const products = PRODUCTS.filter((p) => p.category === cat);
@@ -110,7 +111,7 @@ VALID NAVIGATION PATHS (only use these):
 - /delivery/{province} — Province-specific delivery info (e.g. /delivery/ontario)
 - /delivery/{province}/{city} — City-specific delivery info (e.g. /delivery/ontario/toronto)
 - /shop/{slug} — Individual product page (use the product's slug)
-- /shop?category={Category} — Filter shop by category (Categories: Flower, Edibles, Concentrates, Vapes, Pre-Rolls, CBD, Bath & Body, Accessories, Capsules, Mushrooms, Wellness, Hash)
+- /shop?category={Category} — Filter shop by category (Categories: ${categories.join(", ")})
 - /shop?search={query} — Search products
 - NEVER navigate to /cart (use /checkout instead)
 
@@ -338,7 +339,7 @@ export async function chat(
     conversationHistory: GeminiMessage[] = [],
     emotionalContext?: string
 ): Promise<GeminiResponse> {
-    const systemPrompt = buildMedAgentPrompt(emotionalContext);
+    const systemPrompt = await buildMedAgentPrompt(emotionalContext);
     const complexity = classifyIntent(userMessage);
     const model = complexity === "complex" ? PRO_MODEL : FLASH_MODEL;
 
@@ -365,7 +366,8 @@ export async function chat(
 
 // ─── Product Search (for voice agent) ───────────────────────
 
-export function searchProducts(query: string, limit = 10) {
+export async function searchProducts(query: string, limit = 10) {
+    const PRODUCTS = await getAllProducts();
     const q = query.toLowerCase();
     const scored = PRODUCTS.map((p) => {
         let score = 0;
